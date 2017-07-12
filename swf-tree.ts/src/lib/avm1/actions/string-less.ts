@@ -15,6 +15,6 @@ export namespace StringLess {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.StringLess})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

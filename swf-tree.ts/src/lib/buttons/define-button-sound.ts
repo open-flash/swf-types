@@ -16,11 +16,11 @@ export interface DefineButtonSound extends SwfTagBase {
 export namespace DefineButtonSound {
   export interface Json {
     type: "define-button-sound";
-    "button-id": number;
-    "over-up-to-idle"?: ButtonSound.Json;
-    "idle-to-over-up"?: ButtonSound.Json;
-    "over-up-to-over-down"?: ButtonSound.Json;
-    "over-down-to-over-up"?: ButtonSound.Json;
+    button_id: number;
+    over_up_to_idle?: ButtonSound.Json;
+    idle_to_over_up?: ButtonSound.Json;
+    over_up_to_over_down?: ButtonSound.Json;
+    over_down_to_over_up?: ButtonSound.Json;
   }
 
   export const type: DocumentType<DefineButtonSound> = new DocumentType<DefineButtonSound>({
@@ -32,6 +32,6 @@ export namespace DefineButtonSound {
       overUpToOverDown: {type: ButtonSound.type, optional: true},
       overDownToOverUp: {type: ButtonSound.type, optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -18,6 +18,6 @@ export namespace Register {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.Register})},
       value: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

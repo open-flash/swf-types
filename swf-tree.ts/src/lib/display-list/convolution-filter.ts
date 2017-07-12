@@ -17,15 +17,15 @@ export interface ConvolutionFilter {
 
 export namespace ConvolutionFilter {
   export interface Json {
-    "filter-id": "convolution";
-    "matrix-x": number;
-    "matrix-y": number;
-    "divisor": number;
-    "bias": number;
-    "matrix": number[];
-    "default-color": Rgba.Json;
-    "clamp": boolean;
-    "preserve-alpha": boolean;
+    filter_id: "convolution";
+    matrix_x: number;
+    matrix_y: number;
+    divisor: number;
+    bias: number;
+    matrix: number[];
+    default_color: Rgba.Json;
+    clamp: boolean;
+    preserve_alpha: boolean;
   }
 
   export const type: DocumentType<ConvolutionFilter> = new DocumentType<ConvolutionFilter>({
@@ -40,6 +40,6 @@ export namespace ConvolutionFilter {
       clamp: {type: new BooleanType()},
       preserveAlpha: {type: new BooleanType()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

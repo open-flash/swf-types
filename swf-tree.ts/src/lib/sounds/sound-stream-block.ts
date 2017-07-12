@@ -10,7 +10,7 @@ export interface SoundStreamBlock extends SwfTagBase {
 export namespace SoundStreamBlock {
   export interface Json {
     type: "sound-stream-block";
-    "stream-sound-data": string;
+    stream_sound_data: string;
   }
 
   export const type: DocumentType<SoundStreamBlock> = new DocumentType<SoundStreamBlock>({
@@ -18,6 +18,6 @@ export namespace SoundStreamBlock {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.SoundStreamBlock})},
       streamSoundData: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

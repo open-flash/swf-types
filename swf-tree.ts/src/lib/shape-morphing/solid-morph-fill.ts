@@ -10,9 +10,9 @@ export interface SolidMorphFill {
 
 export namespace SolidMorphFill {
   export interface Json {
-    "fill-style-type": "solid";
-    "start-color": Rgba.Json;
-    "end-color": Rgba.Json;
+    fill_style_type: "solid";
+    start_color: Rgba.Json;
+    end_color: Rgba.Json;
   }
 
   export const type: DocumentType<SolidMorphFill> = new DocumentType<SolidMorphFill>({
@@ -21,6 +21,6 @@ export namespace SolidMorphFill {
       startColor: {type: Rgba.type},
       endColor: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -12,10 +12,10 @@ export interface GradientBevelFilter {
 
 export namespace GradientBevelFilter {
   export interface Json {
-    "filter-id": "gradient-bevel";
-    "composite-source": true;
-    "on-top": boolean;
-    "passes": number;
+    filter_id: "gradient-bevel";
+    composite_source: true;
+    on_top: boolean;
+    passes: number;
   }
 
   export const type: DocumentType<GradientBevelFilter> = new DocumentType<GradientBevelFilter>({
@@ -25,6 +25,6 @@ export namespace GradientBevelFilter {
       onTop: {type: new BooleanType()},
       passes: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

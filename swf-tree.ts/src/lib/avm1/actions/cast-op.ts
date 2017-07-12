@@ -15,6 +15,6 @@ export namespace CastOp {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.CastOp})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

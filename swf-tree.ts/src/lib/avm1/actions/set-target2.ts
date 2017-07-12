@@ -15,6 +15,6 @@ export namespace SetTarget2 {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.SetTarget2})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

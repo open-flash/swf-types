@@ -7,8 +7,8 @@ export interface AdpcmSoundData {
 
 export namespace AdpcmSoundData {
   export interface Json {
-    "sample-count": number;
-    "mp3-sound-data": any;
+    sample_count: number;
+    mp3_sound_data: any;
   }
 
   export const type: DocumentType<AdpcmSoundData> = new DocumentType<AdpcmSoundData>({
@@ -16,6 +16,6 @@ export namespace AdpcmSoundData {
       sampleCount: {type: new Int32Type()},
       mp3SoundData: {type: null as any},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

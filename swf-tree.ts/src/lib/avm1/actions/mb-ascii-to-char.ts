@@ -15,6 +15,6 @@ export namespace MbAsciiToChar {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.MbAsciiToChar})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -1,5 +1,5 @@
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct ColorTransform {
   pub red_mult: i16,
   pub green_mult: i16,
@@ -10,7 +10,7 @@ pub struct ColorTransform {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct ColorTransformWithAlpha {
   pub red_mult: i16,
   pub green_mult: i16,
@@ -23,7 +23,7 @@ pub struct ColorTransformWithAlpha {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Matrix {
   pub scale_x: i32,
   pub scale_y: i32,
@@ -34,7 +34,7 @@ pub struct Matrix {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Rect {
   pub x_min: i16,
   pub x_max: i16,
@@ -44,7 +44,7 @@ pub struct Rect {
 
 // Color point in the sRGB color space with 8-bit color depth
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct SRgb {
   pub r: u8,
   pub g: u8,
@@ -53,7 +53,7 @@ pub struct SRgb {
 
 // Color point with straight alpha in the sRGB color space with 8-bit color depth
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct StraightSRgba {
   pub r: u8,
   pub g: u8,

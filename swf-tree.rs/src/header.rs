@@ -11,7 +11,7 @@ pub enum CompressionMethod {
 
 /// The prolog is the part of the header that is not compressed
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct HeaderSignature {
   /// The compression method used for the body of this SWF file
   pub compression_method: CompressionMethod,
@@ -22,7 +22,7 @@ pub struct HeaderSignature {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Header {
   /// The compression method used for the body of this SWF file
   pub compression_method: CompressionMethod,

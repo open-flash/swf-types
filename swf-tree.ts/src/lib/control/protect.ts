@@ -15,6 +15,6 @@ export namespace Protect {
     properties: {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.Protect})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

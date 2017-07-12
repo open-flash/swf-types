@@ -13,8 +13,8 @@ export interface StartSound extends SwfTagBase {
 export namespace StartSound {
   export interface Json {
     type: "start-sound";
-    "sound-id": number;
-    "sound-info": SoundInfo.Json;
+    sound_id: number;
+    sound_info: SoundInfo.Json;
   }
 
   export const type: DocumentType<StartSound> = new DocumentType<StartSound>({
@@ -23,6 +23,6 @@ export namespace StartSound {
       soundId: {type: new Int32Type()},
       soundInfo: {type: SoundInfo.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -9,8 +9,8 @@ export interface AdpcmMonoPacket {
 
 export namespace AdpcmMonoPacket {
   export interface Json {
-    "sample-count": number;
-    "mp3-sound-data": any;
+    sample_count: number;
+    mp3_sound_data: any;
   }
 
   export const type: DocumentType<AdpcmMonoPacket> = new DocumentType<AdpcmMonoPacket>({
@@ -18,6 +18,6 @@ export namespace AdpcmMonoPacket {
       sampleCount: {type: new Int32Type()},
       mp3SoundData: {type: null as any},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

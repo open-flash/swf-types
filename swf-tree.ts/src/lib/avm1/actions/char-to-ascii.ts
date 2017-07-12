@@ -15,6 +15,6 @@ export namespace CharToAscii {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.CharToAscii})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

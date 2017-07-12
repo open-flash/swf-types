@@ -15,6 +15,6 @@ export namespace TypeOf {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.TypeOf})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

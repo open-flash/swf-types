@@ -8,8 +8,8 @@ export interface AlignmentZoneData {
 
 export namespace AlignmentZoneData {
   export interface Json {
-    "alignmment-coordinate": number;
-    "range": number;
+    alignmment_coordinate: number;
+    range: number;
   }
 
   export const type: DocumentType<AlignmentZoneData> = new DocumentType<AlignmentZoneData>({
@@ -17,6 +17,6 @@ export namespace AlignmentZoneData {
       alignmentCoordinate: {type: new Float64Type()},
       range: {type: new Float64Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

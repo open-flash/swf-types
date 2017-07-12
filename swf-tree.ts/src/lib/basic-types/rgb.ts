@@ -20,6 +20,6 @@ export namespace Rgb {
       g: {type: new Int32Type()},
       b: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

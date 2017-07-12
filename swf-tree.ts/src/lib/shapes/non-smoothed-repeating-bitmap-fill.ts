@@ -12,9 +12,9 @@ export interface NonSmoothedRepeatingBitmapFill {
 
 export namespace NonSmoothedRepeatingBitmapFill {
   export interface Json {
-    "fill-style-type": "non-smoothed-repeating-bitmap";
-    "bitmap-id": number;
-    "bitmap-matrix": Matrix.Json;
+    fill_style_type: "non-smoothed-repeating-bitmap";
+    bitmap_id: number;
+    bitmap_matrix: Matrix.Json;
   }
 
   export const type: DocumentType<NonSmoothedRepeatingBitmapFill> = new DocumentType<NonSmoothedRepeatingBitmapFill>({
@@ -28,6 +28,6 @@ export namespace NonSmoothedRepeatingBitmapFill {
       bitmapId: {type: new Int32Type()},
       bitmapMatrix: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -10,10 +10,10 @@ export interface Vp6FlvAlphaVideoPacket {
 
 export namespace Vp6FlvAlphaVideoPacket {
   export interface Json {
-    "horizontal-adjustment": number;
-    "vertical-adjustment": number;
-    "data": string;
-    "alpha-data": string;
+    horizontal_adjustment: number;
+    vertical_adjustment: number;
+    data: string;
+    alpha_data: string;
   }
 
   export const type: DocumentType<Vp6FlvAlphaVideoPacket> = new DocumentType<Vp6FlvAlphaVideoPacket>({
@@ -23,6 +23,6 @@ export namespace Vp6FlvAlphaVideoPacket {
       data: {type: new BufferType({maxLength: Infinity})},
       alphaData: {type: new BufferType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

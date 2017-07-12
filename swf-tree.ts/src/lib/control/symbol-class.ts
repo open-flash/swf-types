@@ -19,6 +19,6 @@ export namespace SymbolClass {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.SymbolClass})},
       symbols: {type: new ArrayType({itemType: NamedTag.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

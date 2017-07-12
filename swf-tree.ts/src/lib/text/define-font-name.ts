@@ -13,9 +13,9 @@ export interface DefineFontName extends SwfTagBase {
 export namespace DefineFontName {
   export interface Json {
     type: "define-font2";
-    "font-id": number;
-    "font-name": string;
-    "font-copyright": string;
+    font_id: number;
+    font_name: string;
+    font_copyright: string;
   }
 
   export const type: DocumentType<DefineFontName> = new DocumentType<DefineFontName>({
@@ -25,6 +25,6 @@ export namespace DefineFontName {
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       fontCopyright: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

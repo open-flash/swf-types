@@ -10,10 +10,10 @@ export interface Screen2ImageFormat {
 
 export namespace Screen2ImageFormat {
   export interface Json {
-    "color-depth": Screen2ColorDepth.Json;
-    "has-diff-blocks": boolean;
-    "zlib-prime-compress-current": boolean;
-    "zlib-prime-compress-previous": boolean;
+    color_depth: Screen2ColorDepth.Json;
+    has_diff_blocks: boolean;
+    zlib_prime_compress_current: boolean;
+    zlib_prime_compress_previous: boolean;
   }
 
   export const type: DocumentType<Screen2ImageFormat> = new DocumentType<Screen2ImageFormat>({
@@ -23,6 +23,6 @@ export namespace Screen2ImageFormat {
       zlibPrimeCompressCurrent: {type: new BooleanType()},
       zlibPrimeCompressPrevious: {type: new BooleanType()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace Trace {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Trace})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

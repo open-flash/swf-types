@@ -18,6 +18,6 @@ export namespace Int32 {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.Int32})},
       value: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace Less2 {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Less2})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -23,15 +23,15 @@ export interface SoundStreamHead2 extends SwfTagBase {
 export namespace SoundStreamHead2 {
   export interface Json {
     type: "sound-stream-head2";
-    "playback-sound-rate": SoundRate.Json;
-    "playback-sound-size": SoundSize;
-    "playback-sound-type": SoundType.Json;
-    "stream-sound-compression": AudioCodingFormat.Json;
-    "stream-sound-rate": SoundRate.Json;
-    "stream-sound-size": SoundSize;
-    "stream-sound-type": SoundType.Json;
-    "stream-sound-sample-count": number;
-    "latency-seek"?: number;
+    playback_sound_rate: SoundRate.Json;
+    playback_sound_size: SoundSize;
+    playback_sound_type: SoundType.Json;
+    stream_sound_compression: AudioCodingFormat.Json;
+    stream_sound_rate: SoundRate.Json;
+    stream_sound_size: SoundSize;
+    stream_sound_type: SoundType.Json;
+    stream_sound_sample_count: number;
+    latency_seek?: number;
   }
 
   export const type: DocumentType<SoundStreamHead2> = new DocumentType<SoundStreamHead2>({
@@ -47,6 +47,6 @@ export namespace SoundStreamHead2 {
       streamSoundSampleCount: {type: new Int32Type()},
       latencySeek: {type: new Int32Type(), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -18,6 +18,6 @@ export namespace Parameter {
       register: {type: new Int32Type()},
       name: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

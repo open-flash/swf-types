@@ -1,8 +1,8 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
+import {Uint16} from "semantic-types";
 import {LanguageCode} from "../basic-types/language-code";
 import {SwfTagType} from "../swf-tag-type";
 import {SwfTagBase} from "../swf-tags/_base";
-import {Uint16} from "semantic-types";
 
 export interface DefineFontInfo2 extends SwfTagBase {
   type: SwfTagType.DefineFontInfo2;
@@ -20,15 +20,15 @@ export interface DefineFontInfo2 extends SwfTagBase {
 export namespace DefineFontInfo2 {
   export interface Json {
     type: "define-font-info2";
-    "font-id": number;
-    "font-name": string;
-    "is-small": boolean;
-    "is-shift-jis": boolean;
-    "is-ansi": boolean;
-    "is-italic": boolean;
-    "is-bold": boolean;
-    "language-code": LanguageCode.Json;
-    "code-table": number[];
+    font_id: number;
+    font_name: string;
+    is_small: boolean;
+    is_shift_jis: boolean;
+    is_ansi: boolean;
+    is_italic: boolean;
+    is_bold: boolean;
+    language_code: LanguageCode.Json;
+    code_table: number[];
   }
 
   export const type: DocumentType<DefineFontInfo2> = new DocumentType<DefineFontInfo2>({
@@ -44,6 +44,6 @@ export namespace DefineFontInfo2 {
       languageCode: {type: LanguageCode.type},
       codeTable: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

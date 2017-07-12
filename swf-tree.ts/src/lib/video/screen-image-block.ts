@@ -13,6 +13,6 @@ export namespace ScreenImageBlock {
     properties: {
       data: {type: new BufferType({maxLength: Infinity}), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace Stop {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Stop})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

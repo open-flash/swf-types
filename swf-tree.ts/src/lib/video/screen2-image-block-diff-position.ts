@@ -8,7 +8,7 @@ export interface Screen2ImageBlockDiffPosition {
 
 export namespace Screen2ImageBlockDiffPosition {
   export interface Json {
-    "row-start": number;
+    row_start: number;
     height: number;
   }
 
@@ -17,6 +17,6 @@ export namespace Screen2ImageBlockDiffPosition {
       rowStart: {type: new Int32Type()},
       height: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

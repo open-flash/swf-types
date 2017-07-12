@@ -12,9 +12,9 @@ export interface SwfHeader extends SwfSignature {
 
 export namespace SwfHeader {
   export interface Json extends SwfSignature.Json {
-    "frame-size": Rect.Json;
-    "frame-rate": number;
-    "frame-count": number;
+    frame_size: Rect.Json;
+    frame_rate: number;
+    frame_count: number;
   }
 
   export const type: DocumentType<SwfHeader> = new DocumentType<SwfHeader>({

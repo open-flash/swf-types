@@ -12,8 +12,8 @@ export interface LinearGradientFill {
 
 export namespace LinearGradientFill {
   export interface Json {
-    "fill-style-type": "linear-gradient";
-    "gradient-matrix": Matrix.Json;
+    fill_style_type: "linear-gradient";
+    gradient_matrix: Matrix.Json;
     gradient: Gradient.Json;
   }
 
@@ -23,6 +23,6 @@ export namespace LinearGradientFill {
       gradientMatrix: {type: Rgba.type},
       gradient: {type: Gradient.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

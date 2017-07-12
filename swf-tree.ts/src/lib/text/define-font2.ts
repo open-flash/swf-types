@@ -30,22 +30,22 @@ export interface DefineFont2 extends SwfTagBase {
 export namespace DefineFont2 {
   export interface Json {
     type: "define-font2";
-    "font-id": number;
-    "font-name": string;
-    "is-small": boolean;
-    "is-shift-jis": boolean;
-    "is-ansi": boolean;
-    "is-italic": boolean;
-    "is-bold": boolean;
-    "language-code": LanguageCode.Json;
-    "offset-table": number[];
-    "glyph-shape-table": Shape[];
-    "font-ascent"?: number;
-    "font-descent"?: number;
-    "font-leading"?: number;
-    "font-advanceTable"?: number[];
-    "font-bounds-table"?: Rect.Json[];
-    "font-kerning-table"?: KerningRecord.Json[];
+    font_id: number;
+    font_name: string;
+    is_small: boolean;
+    is_shift_jis: boolean;
+    is_ansi: boolean;
+    is_italic: boolean;
+    is_bold: boolean;
+    language_code: LanguageCode.Json;
+    offset_table: number[];
+    glyph_shape_table: Shape[];
+    font_ascent?: number;
+    font_descent?: number;
+    font_leading?: number;
+    font_advanceTable?: number[];
+    font_bounds_table?: Rect.Json[];
+    font_kerning_table?: KerningRecord.Json[];
   }
 
   export const type: DocumentType<DefineFont2> = new DocumentType<DefineFont2>({
@@ -68,6 +68,6 @@ export namespace DefineFont2 {
       fontBoundsTable: {type: new ArrayType({itemType: Rect.type, maxLength: Infinity})},
       fontKerningTable: {type: new ArrayType({itemType: KerningRecord.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

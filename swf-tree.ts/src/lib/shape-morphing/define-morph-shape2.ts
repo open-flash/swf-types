@@ -26,16 +26,16 @@ export interface DefineMorphShape2 extends SwfTagBase {
 export namespace DefineMorphShape2 {
   export interface Json {
     type: "define-morph-shape2";
-    "character-id": number;
-    "start-bounds": Rect.Json;
-    "end-bounds": Rect.Json;
-    "uses-non-scaling-strokes": boolean;
-    "uses-scaling-strokes": boolean;
-    "offset": number;
-    "morph-fill-styles": MorphFillStyle[];
-    "morph-line-styles": MorphLineStyle[];
-    "start-edges": Shape.Json;
-    "end-edges": Shape.Json;
+    character_id: number;
+    start_bounds: Rect.Json;
+    end_bounds: Rect.Json;
+    uses_non_scaling_strokes: boolean;
+    uses_scaling_strokes: boolean;
+    offset: number;
+    morph_fill_styles: MorphFillStyle[];
+    morph_line_styles: MorphLineStyle[];
+    start_edges: Shape.Json;
+    end_edges: Shape.Json;
   }
 
   export const type: DocumentType<DefineMorphShape2> = new DocumentType<DefineMorphShape2>({
@@ -52,6 +52,6 @@ export namespace DefineMorphShape2 {
       startEdges: {type: Shape.type},
       endEdges: {type: Shape.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

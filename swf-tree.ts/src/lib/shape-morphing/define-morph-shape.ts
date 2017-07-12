@@ -22,14 +22,14 @@ export interface DefineMorphShape extends SwfTagBase {
 export namespace DefineMorphShape {
   export interface Json {
     type: "define-morph-shape";
-    "character-id": number;
-    "start-bounds": Rect.Json;
-    "end-bounds": Rect.Json;
-    "offset": number;
-    "morph-fill-styles": MorphFillStyle[];
-    "morph-line-styles": MorphLineStyle[];
-    "start-edges": Shape.Json;
-    "end-edges": Shape.Json;
+    character_id: number;
+    start_bounds: Rect.Json;
+    end_bounds: Rect.Json;
+    offset: number;
+    morph_fill_styles: MorphFillStyle[];
+    morph_line_styles: MorphLineStyle[];
+    start_edges: Shape.Json;
+    end_edges: Shape.Json;
   }
 
   export const type: DocumentType<DefineMorphShape> = new DocumentType<DefineMorphShape>({
@@ -44,6 +44,6 @@ export namespace DefineMorphShape {
       startEdges: {type: Shape.type},
       endEdges: {type: Shape.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -12,7 +12,7 @@ export namespace FrameLabel {
   export interface Json {
     type: "frame-label";
     name: string;
-    anchorFlag?: boolean;
+    anchor_flag?: boolean;
   }
 
   export const type: DocumentType<FrameLabel> = new DocumentType<FrameLabel>({
@@ -21,6 +21,6 @@ export namespace FrameLabel {
       name: {type: new Ucs2StringType({maxLength: Infinity})},
       anchorFlag: {type: new BooleanType(), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

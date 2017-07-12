@@ -9,8 +9,8 @@ export interface ColorStop {
 
 export namespace ColorStop {
   export interface Json {
-    "color": Rgba.Json;
-    "ratio": number;
+    color: Rgba.Json;
+    ratio: number;
   }
 
   export const type: DocumentType<ColorStop> = new DocumentType<ColorStop>({
@@ -18,6 +18,6 @@ export namespace ColorStop {
       color: {type: Rgba.type},
       ratio: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace PushDuplicate {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.PushDuplicate})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

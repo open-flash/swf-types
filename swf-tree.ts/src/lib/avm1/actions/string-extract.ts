@@ -15,6 +15,6 @@ export namespace StringExtract {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.StringExtract})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

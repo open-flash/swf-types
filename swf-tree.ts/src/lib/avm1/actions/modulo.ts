@@ -15,6 +15,6 @@ export namespace Modulo {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Modulo})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace StringLength {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.StringLength})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

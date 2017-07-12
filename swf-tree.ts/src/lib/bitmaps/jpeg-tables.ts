@@ -10,7 +10,7 @@ export interface JpegTables extends SwfTagBase {
 export namespace JpegTables {
   export interface Json {
     type: "jpeg-tables";
-    "jpeg-data": string;
+    jpeg_data: string;
   }
 
   export const type: DocumentType<JpegTables> = new DocumentType<JpegTables>({
@@ -18,6 +18,6 @@ export namespace JpegTables {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.JpegTables})},
       jpegData: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

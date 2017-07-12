@@ -16,10 +16,10 @@ export interface PlaceObject extends SwfTagBase {
 export namespace PlaceObject {
   export interface Json {
     type: "place-object";
-    "character-id": number;
+    character_id: number;
     depth: number;
     matrix: Matrix.Json;
-    "color-transform"?: ColorTransform.Json;
+    color_transform?: ColorTransform.Json;
   }
 
   export const type: DocumentType<PlaceObject> = new DocumentType<PlaceObject>({
@@ -30,6 +30,6 @@ export namespace PlaceObject {
       matrix: {type: Matrix.type},
       colorTransform: {type: ColorTransform.type, optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

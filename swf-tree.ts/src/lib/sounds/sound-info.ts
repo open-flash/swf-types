@@ -13,11 +13,11 @@ export interface SoundInfo {
 export namespace SoundInfo {
   export interface Json {
     type: "sound-info";
-    "sync-stop": boolean;
-    "sync-no-multiple": boolean;
-    "in-point"?: number;
-    "out-point"?: number;
-    "envelope-records"?: SoundEnvelope.Json[];
+    sync_stop: boolean;
+    sync_no_multiple: boolean;
+    in_point?: number;
+    out_point?: number;
+    envelope_records?: SoundEnvelope.Json[];
   }
 
   export const type: DocumentType<SoundInfo> = new DocumentType<SoundInfo>({
@@ -28,6 +28,6 @@ export namespace SoundInfo {
       outPoint: {type: new Int32Type(), optional: true},
       envelopeRecords: {type: new ArrayType({itemType: SoundEnvelope.type, maxLength: Infinity}), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

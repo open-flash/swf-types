@@ -9,9 +9,9 @@ export interface AlignmentZoneRecord {
 
 export namespace AlignmentZoneRecord {
   export interface Json {
-    "zone-data": AlignmentZoneData.Json[];
-    "is-zone-mask-x": boolean;
-    "is-zone-mask-y": boolean;
+    zone_data: AlignmentZoneData.Json[];
+    is_zone_mask_x: boolean;
+    is_zone_mask_y: boolean;
   }
 
   export const type: DocumentType<AlignmentZoneRecord> = new DocumentType<AlignmentZoneRecord>({
@@ -20,6 +20,6 @@ export namespace AlignmentZoneRecord {
       isZoneMaskX: {type: new BooleanType()},
       isZoneMaskY: {type: new BooleanType()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

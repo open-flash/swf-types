@@ -19,13 +19,13 @@ export interface DefineShape4 extends SwfTagBase {
 export namespace DefineShape4 {
   export interface Json {
     type: "define-shape4";
-    "shape-id": number;
-    "shape-bounds": Rect.Json;
-    "edge-bounds": Rect.Json;
-    "uses-fill-winding-rule": boolean;
-    "uses-non-scaling-strokes": boolean;
-    "uses-scaling-strokes": boolean;
-    "shapes": ShapeWithStyle.Json;
+    shape_id: number;
+    shape_bounds: Rect.Json;
+    edge_bounds: Rect.Json;
+    uses_fill_winding_rule: boolean;
+    uses_non_scaling_strokes: boolean;
+    uses_scaling_strokes: boolean;
+    shapes: ShapeWithStyle.Json;
   }
 
   export const type: DocumentType<DefineShape4> = new DocumentType<DefineShape4>({
@@ -39,6 +39,6 @@ export namespace DefineShape4 {
       usesScalingStrokes: {type: new BooleanType()},
       shapes: {type: ShapeWithStyle.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

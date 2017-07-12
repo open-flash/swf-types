@@ -17,10 +17,10 @@ export interface DefineText extends SwfTagBase {
 export namespace DefineText {
   export interface Json {
     type: "define-text";
-    "character-id": number;
-    "text-bounds": Rect.Json;
-    "text-matrix": Matrix.Json;
-    "text-records": TextRecord.Json[];
+    character_id: number;
+    text_bounds: Rect.Json;
+    text_matrix: Matrix.Json;
+    text_records: TextRecord.Json[];
   }
 
   export const type: DocumentType<DefineText> = new DocumentType<DefineText>({
@@ -31,6 +31,6 @@ export namespace DefineText {
       textMatrix: {type: Matrix.type},
       fontBoundsTable: {type: new ArrayType({itemType: TextRecord.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

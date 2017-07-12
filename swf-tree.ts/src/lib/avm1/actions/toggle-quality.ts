@@ -15,6 +15,6 @@ export namespace ToggleQuality {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.ToggleQuality})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

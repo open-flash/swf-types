@@ -15,6 +15,6 @@ export namespace Jump {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Jump})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

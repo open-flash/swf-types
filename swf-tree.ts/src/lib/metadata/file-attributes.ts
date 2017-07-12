@@ -16,13 +16,13 @@ export interface FileAttributes extends SwfTagBase {
 export namespace FileAttributes {
   export interface Json {
     type: "file-attributes";
-    useDirectBlit: boolean;
-    useGpu: boolean;
-    hasMetadata: boolean;
-    useAs3: boolean;
-    noCrossDomainCaching: boolean;
-    useRelativeUrls: boolean;
-    useNetwork: boolean;
+    use_direct_blit: boolean;
+    use_gpu: boolean;
+    has_metadata: boolean;
+    use_as3: boolean;
+    no_cross_domain_caching: boolean;
+    use_relative_urls: boolean;
+    use_network: boolean;
   }
 
   export const type: DocumentType<FileAttributes> = new DocumentType<FileAttributes>({
@@ -36,6 +36,6 @@ export namespace FileAttributes {
       useRelativeUrls: {type: new BooleanType()},
       useNetwork: {type: new BooleanType()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

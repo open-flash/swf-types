@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, Int32Type} from "kryo";
-import {Rgb} from "./rgb";
 import {Uint8} from "semantic-types";
+import {Rgb} from "./rgb";
 
 export interface Rgba extends Rgb {
   a: Uint8;
@@ -16,6 +16,6 @@ export namespace Rgba {
       ...Rgb.type.properties,
       a: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

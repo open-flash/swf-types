@@ -15,6 +15,6 @@ export namespace BitRShift {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.BitRShift})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

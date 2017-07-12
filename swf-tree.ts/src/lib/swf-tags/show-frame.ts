@@ -15,6 +15,6 @@ export namespace ShowFrame {
     properties: {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.ShowFrame})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

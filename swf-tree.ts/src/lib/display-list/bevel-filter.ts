@@ -21,19 +21,19 @@ export interface BevelFilter {
 
 export namespace BevelFilter {
   export interface Json {
-    "filter-id": "bevel";
-    "shadow-color": Rgba.Json;
-    "highligh-color": Rgba.Json;
-    "blur-x": number;
-    "blur-y": number;
-    "angle": number;
-    "distance": number;
-    "strength": number;
-    "inner-shadow": boolean;
-    "knockout": boolean;
-    "composite-source": true;
-    "on-top": boolean;
-    "passes": number;
+    filter_id: "bevel";
+    shadow_color: Rgba.Json;
+    highlight_color: Rgba.Json;
+    blur_x: number;
+    blur_y: number;
+    angle: number;
+    distance: number;
+    strength: number;
+    inner_shadow: boolean;
+    knockout: boolean;
+    composite_source: true;
+    on_top: boolean;
+    passes: number;
   }
 
   export const type: DocumentType<BevelFilter> = new DocumentType<BevelFilter>({
@@ -52,6 +52,6 @@ export namespace BevelFilter {
       onTop: {type: new BooleanType()},
       passes: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

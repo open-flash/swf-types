@@ -18,14 +18,14 @@ export interface DefineFontInfo extends SwfTagBase {
 export namespace DefineFontInfo {
   export interface Json {
     type: "define-font-info";
-    "font-id": number;
-    "font-name": string;
-    "is-small": boolean;
-    "is-shift-jis": boolean;
-    "is-ansi": boolean;
-    "is-italic": boolean;
-    "is-bold": boolean;
-    "code-table": number[];
+    font_id: number;
+    font_name: string;
+    is_small: boolean;
+    is_shift_jis: boolean;
+    is_ansi: boolean;
+    is_italic: boolean;
+    is_bold: boolean;
+    code_table: number[];
   }
 
   export const type: DocumentType<DefineFontInfo> = new DocumentType<DefineFontInfo>({
@@ -40,6 +40,6 @@ export namespace DefineFontInfo {
       isBold: {type: new BooleanType()},
       codeTable: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace CallMethod {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.CallMethod})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

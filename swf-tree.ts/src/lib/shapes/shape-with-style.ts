@@ -13,9 +13,9 @@ export interface ShapeWithStyle {
 
 export namespace ShapeWithStyle {
   export interface Json {
-    "fill-styles": FillStyle.Json[];
-    "line-styles": LineStyle.Json[];
-    "shape-records": ShapeRecord.Json[];
+    fill_styles: FillStyle.Json[];
+    line_styles: LineStyle.Json[];
+    shape_records: ShapeRecord.Json[];
   }
 
   export const type: DocumentType<ShapeWithStyle> = new DocumentType<ShapeWithStyle>({
@@ -24,6 +24,6 @@ export namespace ShapeWithStyle {
       lineStyles: {type: new ArrayType({itemType: LineStyle.type, maxLength: Infinity})},
       shapeRecords: {type: new ArrayType({itemType: ShapeRecord.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

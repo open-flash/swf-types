@@ -12,8 +12,8 @@ export interface ScriptLimits extends SwfTagBase {
 export namespace ScriptLimits {
   export interface Json {
     type: "script-limits";
-    "max-recursion-depth": number;
-    "script-timeout-seconds": number;
+    max_recursion_depth: number;
+    script_timeout_seconds: number;
   }
 
   export const type: DocumentType<ScriptLimits> = new DocumentType<ScriptLimits>({
@@ -22,6 +22,6 @@ export namespace ScriptLimits {
       maxRecursionDepth: {type: new Int32Type()},
       scriptTimeoutSeconds: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

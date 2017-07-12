@@ -12,12 +12,12 @@ export interface Matrix {
 
 export namespace Matrix {
   export interface Json {
-    "scale-x"?: number;
-    "scale-y"?: number;
-    "rotate-skew-0"?: number;
-    "rotate-skew-1"?: number;
-    "translate-x"?: number;
-    "translate-y"?: number;
+    scale_x?: number;
+    scale_y?: number;
+    rotate_skew0?: number;
+    rotate_skew1?: number;
+    translate_x?: number;
+    translate_y?: number;
   }
 
   export const type: DocumentType<Matrix> = new DocumentType<Matrix>({
@@ -47,6 +47,6 @@ export namespace Matrix {
         optional: true,
       },
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -17,7 +17,7 @@ pub enum Tag {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct SwfFile {
   pub header: Header,
   pub tags: Vec<Tag>,

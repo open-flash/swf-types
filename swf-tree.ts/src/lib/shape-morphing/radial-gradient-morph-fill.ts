@@ -13,9 +13,9 @@ export interface RadialGradientMorphFill {
 
 export namespace RadialGradientMorphFill {
   export interface Json {
-    "fill-style-type": "radial-gradient";
-    "start-gradient-matrix": Matrix.Json;
-    "end-gradient-matrix": Matrix.Json;
+    fill_style_type: "radial-gradient";
+    start_gradient_matrix: Matrix.Json;
+    end_gradient_matrix: Matrix.Json;
     gradient: MorphGradient.Json;
   }
 
@@ -26,6 +26,6 @@ export namespace RadialGradientMorphFill {
       endGradientMatrix: {type: Rgba.type},
       gradient: {type: MorphGradient.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

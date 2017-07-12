@@ -16,10 +16,10 @@ export interface DefineButton2 extends SwfTagBase {
 export namespace DefineButton {
   export interface Json {
     type: "define-button2";
-    "button-id": number;
-    "track-as-menu": boolean;
-    "characters": ButtonRecord.Json[];
-    "actions": ButtonCondAction.Json[];
+    button_id: number;
+    track_as_menu: boolean;
+    characters: ButtonRecord.Json[];
+    actions: ButtonCondAction.Json[];
   }
 
   export const type: DocumentType<DefineButton2> = new DocumentType<DefineButton2>({
@@ -30,6 +30,6 @@ export namespace DefineButton {
       characters: {type: new ArrayType({itemType: ButtonRecord.type, maxLength: Infinity})},
       actions: {type: new ArrayType({itemType: ButtonCondAction.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

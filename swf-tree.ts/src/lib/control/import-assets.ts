@@ -22,6 +22,6 @@ export namespace ImportAssets {
       url: {type: new Ucs2StringType({maxLength: Infinity})},
       assets: {type: new ArrayType({itemType: NamedTag.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

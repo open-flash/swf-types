@@ -12,9 +12,9 @@ export interface ClippedBitmapFill {
 
 export namespace ClippedBitmapFill {
   export interface Json {
-    "fill-style-type": "clipped-bitmap";
-    "bitmap-id": number;
-    "bitmap-matrix": Matrix.Json;
+    fill_style_type: "clipped-bitmap";
+    bitmap_id: number;
+    bitmap_matrix: Matrix.Json;
   }
 
   export const type: DocumentType<ClippedBitmapFill> = new DocumentType<ClippedBitmapFill>({
@@ -23,6 +23,6 @@ export namespace ClippedBitmapFill {
       bitmapId: {type: new Int32Type()},
       bitmapMatrix: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

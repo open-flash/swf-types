@@ -21,13 +21,13 @@ export interface DefineSound extends SwfTagBase {
 export namespace DefineSound {
   export interface Json {
     type: "define-sound";
-    "sound-id": number;
-    "sound-format": AudioCodingFormat.Json;
-    "sound-rate": SoundRate.Json;
-    "sound-size": SoundSize.Json;
-    "sound-type": SoundType.Json;
-    "sound-sample-count": number;
-    "soundData": string;
+    sound_id: number;
+    sound_format: AudioCodingFormat.Json;
+    sound_rate: SoundRate.Json;
+    sound_size: SoundSize.Json;
+    sound_type: SoundType.Json;
+    sound_sample_count: number;
+    soundData: string;
   }
 
   export const type: DocumentType<DefineSound> = new DocumentType<DefineSound>({
@@ -41,6 +41,6 @@ export namespace DefineSound {
       soundSampleCount: {type: new Int32Type()},
       soundData: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

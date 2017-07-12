@@ -18,6 +18,6 @@ export namespace Constant {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.Constant})},
       value: {type: new Float64Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

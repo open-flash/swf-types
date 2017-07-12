@@ -23,6 +23,6 @@ export namespace FocalRadialGradientFill {
       gradientMatrix: {type: Rgba.type},
       gradient: {type: FocalGradient.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

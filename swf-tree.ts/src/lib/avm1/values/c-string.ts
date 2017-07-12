@@ -17,6 +17,6 @@ export namespace CString {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.CString})},
       value: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

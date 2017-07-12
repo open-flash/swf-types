@@ -23,24 +23,24 @@ export interface ClipEventFlags {
 
 export namespace ClipEventFlags {
   export interface Json {
-    "key-up": boolean;
-    "key-down": boolean;
-    "mouse-up": boolean;
-    "mouse-down": boolean;
-    "unload": boolean;
-    "enter-frame": boolean;
-    "load": boolean;
-    "drag-over": boolean;
-    "roll-out": boolean;
-    "roll-over": boolean;
-    "release-outside": boolean;
-    "release": boolean;
-    "press": boolean;
-    "initialize": boolean;
-    "data": boolean;
-    "construct": boolean;
-    "key-press": boolean;
-    "drag-out": boolean;
+    key_up: boolean;
+    key_down: boolean;
+    mouse_up: boolean;
+    mouse_down: boolean;
+    unload: boolean;
+    enter_frame: boolean;
+    load: boolean;
+    drag_over: boolean;
+    roll_out: boolean;
+    roll_over: boolean;
+    release_outside: boolean;
+    release: boolean;
+    press: boolean;
+    initialize: boolean;
+    data: boolean;
+    construct: boolean;
+    key_press: boolean;
+    drag_out: boolean;
   }
 
   export const type: DocumentType<ClipEventFlags> = new DocumentType<ClipEventFlags>({
@@ -64,6 +64,6 @@ export namespace ClipEventFlags {
       keyPress: {type: new BooleanType()},
       dragOut: {type: new BooleanType()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace If {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.If})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

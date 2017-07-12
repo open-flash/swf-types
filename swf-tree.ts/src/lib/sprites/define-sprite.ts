@@ -14,9 +14,9 @@ export interface DefineSprite extends SwfTagBase {
 export namespace DefineSprite {
   export interface Json {
     type: "define-sprite";
-    "sprite-id": number;
-    "frame-count": number;
-    "control-tags": SwfTag.Json[];
+    sprite_id: number;
+    frame_count: number;
+    control_tags: SwfTag.Json[];
   }
 
   export const type: DocumentType<DefineSprite> = new DocumentType<DefineSprite>({
@@ -26,6 +26,6 @@ export namespace DefineSprite {
       frameCount: {type: new Int32Type()},
       controlTags: {type: new ArrayType({itemType: SwfTag.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

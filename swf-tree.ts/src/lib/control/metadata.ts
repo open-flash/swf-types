@@ -18,6 +18,6 @@ export namespace Metadata {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.Metadata})},
       metadata: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

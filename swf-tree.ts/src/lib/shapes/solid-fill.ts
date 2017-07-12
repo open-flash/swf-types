@@ -9,8 +9,8 @@ export interface SolidFill {
 
 export namespace SolidFill {
   export interface Json {
-    "fill-style-type": "solid";
-    "color": Rgba.Json;
+    fill_style_type: "solid";
+    color: Rgba.Json;
   }
 
   export const type: DocumentType<SolidFill> = new DocumentType<SolidFill>({
@@ -18,6 +18,6 @@ export namespace SolidFill {
       fillStyleType: {type: new LiteralType({type: FillStyleType.type, value: FillStyleType.Solid})},
       color: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

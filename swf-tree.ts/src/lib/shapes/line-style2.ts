@@ -22,16 +22,16 @@ export interface LineStyle2 {
 export namespace LineStyle2 {
   export interface Json {
     width: number;
-    "start-cap-style": CapStyle.Json;
-    "join-style": JoinStyle.Json;
-    "no-h-scale": boolean;
-    "no-v-scale": boolean;
-    "pixel-hinting": boolean;
-    "no-close": boolean;
-    "end-cap-style": CapStyle.Json;
-    "miter-limit-factor"?: number;
+    start_cap_style: CapStyle.Json;
+    join_style: JoinStyle.Json;
+    no_h_scale: boolean;
+    no_v_scale: boolean;
+    pixel_hinting: boolean;
+    no_close: boolean;
+    end_cap_style: CapStyle.Json;
+    miter_limit_factor?: number;
     color?: Rgba.Json;
-    "fill-type"?: FillStyle.Json;
+    fill_type?: FillStyle.Json;
   }
 
   export const type: DocumentType<LineStyle2> = new DocumentType<LineStyle2>({
@@ -48,6 +48,6 @@ export namespace LineStyle2 {
       color: {type: Rgba.type, optional: true},
       fillType: {type: FillStyle.type, optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

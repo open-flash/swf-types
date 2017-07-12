@@ -15,6 +15,6 @@ export namespace InitObject {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.InitObject})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

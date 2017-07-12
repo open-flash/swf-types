@@ -19,6 +19,6 @@ export namespace SetBackgroundColor {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.SetBackgroundColor})},
       color: {type: Rgb.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

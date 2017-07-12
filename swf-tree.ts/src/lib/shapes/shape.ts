@@ -7,13 +7,13 @@ export interface Shape {
 
 export namespace Shape {
   export interface Json {
-    "shape-records": ShapeRecord.Json[];
+    shape_records: ShapeRecord.Json[];
   }
 
   export const type: DocumentType<Shape> = new DocumentType<Shape>({
     properties: {
       shapeRecords: {type: new ArrayType({itemType: ShapeRecord.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

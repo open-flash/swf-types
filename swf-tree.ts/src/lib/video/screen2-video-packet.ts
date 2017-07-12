@@ -15,13 +15,13 @@ export interface Screen2VideoPacket {
 
 export namespace Screen2VideoPacket {
   export interface Json {
-    "image-width": number;
-    "image-height": number;
-    "block-width": number;
-    "block-height": number;
-    "palette-info": ScreenImageBlock.Json;
-    "blocks": Screen2ImageBlock.Json[];
-    "i-frame-image": Screen2ImageBlock.Json[];
+    image_width: number;
+    image_height: number;
+    block_width: number;
+    block_height: number;
+    palette_info: ScreenImageBlock.Json;
+    blocks: Screen2ImageBlock.Json[];
+    i_frame_image: Screen2ImageBlock.Json[];
   }
 
   export const type: DocumentType<Screen2VideoPacket> = new DocumentType<Screen2VideoPacket>({
@@ -34,6 +34,6 @@ export namespace Screen2VideoPacket {
       blocks: {type: new ArrayType({itemType: Screen2ImageBlock.type, maxLength: Infinity})},
       iFrameImage: {type: new ArrayType({itemType: Screen2ImageBlock.type, maxLength: Infinity}), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

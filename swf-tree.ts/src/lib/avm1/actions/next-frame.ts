@@ -15,6 +15,6 @@ export namespace NextFrame {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.NextFrame})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

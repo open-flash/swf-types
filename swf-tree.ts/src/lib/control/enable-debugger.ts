@@ -18,6 +18,6 @@ export namespace EnableDebugger {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.EnableDebugger})},
       password: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

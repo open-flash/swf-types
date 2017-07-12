@@ -15,6 +15,6 @@ export namespace StackSwap {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.StackSwap})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

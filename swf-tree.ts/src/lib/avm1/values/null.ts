@@ -14,6 +14,6 @@ export namespace Null {
     properties: {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.Null})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

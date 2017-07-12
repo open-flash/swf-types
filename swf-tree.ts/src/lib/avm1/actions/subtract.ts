@@ -15,6 +15,6 @@ export namespace Subtract {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Subtract})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

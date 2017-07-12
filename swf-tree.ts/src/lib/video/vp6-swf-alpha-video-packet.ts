@@ -7,8 +7,8 @@ export interface Vp6SwfAlphaVideoPacket {
 
 export namespace Vp6SwfAlphaVideoPacket {
   export interface Json {
-    "data": string;
-    "alpha-data": string;
+    data: string;
+    alpha_data: string;
   }
 
   export const type: DocumentType<Vp6SwfAlphaVideoPacket> = new DocumentType<Vp6SwfAlphaVideoPacket>({
@@ -16,6 +16,6 @@ export namespace Vp6SwfAlphaVideoPacket {
       data: {type: new BufferType({maxLength: Infinity})},
       alphaData: {type: new BufferType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

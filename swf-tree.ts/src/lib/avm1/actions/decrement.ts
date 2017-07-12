@@ -15,6 +15,6 @@ export namespace Decrement {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Decrement})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

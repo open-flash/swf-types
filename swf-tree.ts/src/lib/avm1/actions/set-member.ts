@@ -15,6 +15,6 @@ export namespace SetMember {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.SetMember})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

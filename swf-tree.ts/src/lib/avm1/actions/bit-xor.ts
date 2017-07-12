@@ -15,6 +15,6 @@ export namespace BitXor {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.BitXor})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

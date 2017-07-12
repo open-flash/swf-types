@@ -20,13 +20,13 @@ export interface StyleChange {
 export namespace StyleChange {
   export interface Json {
     type: "style-change";
-    "move-delta-x"?: number;
-    "move-delta-y"?: number;
-    "fillStyle0"?: number;
-    "fillStyle1"?: number;
-    "lineStyle"?: number;
-    "fillStyles": FillStyle.Json[];
-    "lineStyles": (LineStyle.Json | LineStyle2.Json)[];
+    move_delta_x?: number;
+    move_delta_y?: number;
+    fillStyle0?: number;
+    fillStyle1?: number;
+    lineStyle?: number;
+    fillStyles: FillStyle.Json[];
+    lineStyles: (LineStyle.Json | LineStyle2.Json)[];
   }
 
   export const type: DocumentType<StyleChange> = new DocumentType<StyleChange>({
@@ -40,6 +40,6 @@ export namespace StyleChange {
       fillStyles: {type: new ArrayType({itemType: FillStyle.type, maxLength: Infinity})},
       lineStyles: {type: new ArrayType({itemType: LineStyle2.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

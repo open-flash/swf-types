@@ -13,9 +13,9 @@ export interface DefineBitsJpeg3 extends SwfTagBase {
 export namespace DefineBitsJpeg3 {
   export interface Json {
     type: "define-bits-jpeg3";
-    "character-id": number;
-    "image-data": string;
-    "bitmap-alpha-data"?: string;
+    character_id: number;
+    image_data: string;
+    bitmap_alpha_data?: string;
   }
 
   export const type: DocumentType<DefineBitsJpeg3> = new DocumentType<DefineBitsJpeg3>({
@@ -25,6 +25,6 @@ export namespace DefineBitsJpeg3 {
       imageData: {type: new Ucs2StringType({maxLength: Infinity})},
       bitmapAlphaData: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

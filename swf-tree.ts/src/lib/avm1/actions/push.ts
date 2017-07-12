@@ -19,6 +19,6 @@ export namespace Push {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Push})},
       values: {type: new ArrayType({itemType: Value.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

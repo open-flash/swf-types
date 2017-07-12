@@ -15,6 +15,6 @@ export namespace Throw {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Throw})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

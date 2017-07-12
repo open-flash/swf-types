@@ -13,8 +13,8 @@ export interface DefineScalingGrid extends SwfTagBase {
 export namespace DefineScalingGrid {
   export interface Json {
     type: "define-scaling-grid";
-    "character-id": number;
-    "splitter": Rect.Json;
+    character_id: number;
+    splitter: Rect.Json;
   }
 
   export const type: DocumentType<DefineScalingGrid> = new DocumentType<DefineScalingGrid>({
@@ -23,6 +23,6 @@ export namespace DefineScalingGrid {
       characterId: {type: new Int32Type()},
       splitter: {type: Rect.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -23,9 +23,9 @@ export interface VideoFrame extends SwfTagBase {
 export namespace VideoFrame {
   export interface Json {
     type: "video-frame";
-    "stream-id": number;
-    "frame-num": number;
-    "video-data": H263VideoPacket
+    stream_id: number;
+    frame_num: number;
+    video_data: H263VideoPacket
       | ScreenVideoPacket
       | Screen2VideoPacket
       | Vp6SwfVideoPacket
@@ -40,6 +40,6 @@ export namespace VideoFrame {
       frameNum: {type: new Int32Type()},
       videoData: {type: null as any},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

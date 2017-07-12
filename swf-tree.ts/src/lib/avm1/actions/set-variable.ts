@@ -15,6 +15,6 @@ export namespace SetVariable {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.SetVariable})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

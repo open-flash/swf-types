@@ -1,4 +1,4 @@
-import {Uint32} from "../integer-names";
+import {Uint32} from "semantic-types";
 import {FixedPoint} from "./fixed-point";
 import {FixedPointType} from "./type";
 

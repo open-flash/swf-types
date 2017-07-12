@@ -18,6 +18,6 @@ export namespace SwfFile {
       header: {type: SwfHeader.type},
       tags: {type: new ArrayType({itemType: SwfTag.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

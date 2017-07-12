@@ -15,6 +15,6 @@ export namespace DefineFunction {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.DefineFunction})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

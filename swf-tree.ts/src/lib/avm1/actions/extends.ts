@@ -15,6 +15,6 @@ export namespace Extends {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Extends})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

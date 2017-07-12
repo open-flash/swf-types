@@ -10,10 +10,10 @@ export interface Rect {
 
 export namespace Rect {
   export interface Json {
-    "x-min": number;
-    "x-max": number;
-    "y-min": number;
-    "y-max": number;
+    x_min: number;
+    x_max: number;
+    y_min: number;
+    y_max: number;
   }
 
   export const type: DocumentType<Rect> = new DocumentType<Rect>({
@@ -23,6 +23,6 @@ export namespace Rect {
       yMin: {type: new Int32Type()},
       yMax: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

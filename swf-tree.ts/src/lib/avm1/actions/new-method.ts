@@ -15,6 +15,6 @@ export namespace NewMethod {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.NewMethod})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

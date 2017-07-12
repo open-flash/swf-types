@@ -19,12 +19,12 @@ export interface DefineVideoStream extends SwfTagBase {
 export namespace DefineVideoStream {
   export interface Json {
     type: "define-video-stream";
-    "character-id": number;
-    "frame-count": number;
-    "width": number;
-    "height": number;
-    "deblocking": VideoDeblocking.Json;
-    "use-video-smoothing": boolean;
+    character_id: number;
+    frame_count: number;
+    width: number;
+    height: number;
+    deblocking: VideoDeblocking.Json;
+    use_video_smoothing: boolean;
     codec: VideoCodec.Json;
   }
 
@@ -39,6 +39,6 @@ export namespace DefineVideoStream {
       useVideoSmoothing: {type: new BooleanType()},
       codec: {type: VideoCodec.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

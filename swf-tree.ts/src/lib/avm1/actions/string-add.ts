@@ -15,6 +15,6 @@ export namespace StringAdd {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.StringAdd})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -18,6 +18,6 @@ export namespace LineStyle {
       width: {type: new Int32Type()},
       color: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

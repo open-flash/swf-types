@@ -9,8 +9,8 @@ export interface Mp3SoundData {
 
 export namespace Mp3SoundData {
   export interface Json {
-    "seek-samples": number;
-    "mp3-frames": Mp3Frame.Json[];
+    seek_samples: number;
+    mp3_frames: Mp3Frame.Json[];
   }
 
   export const type: DocumentType<Mp3SoundData> = new DocumentType<Mp3SoundData>({
@@ -18,6 +18,6 @@ export namespace Mp3SoundData {
       seekSamples: {type: new Int32Type()},
       mp3Frames: {type: Mp3Frame.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

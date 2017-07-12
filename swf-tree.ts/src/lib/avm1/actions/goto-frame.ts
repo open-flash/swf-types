@@ -19,6 +19,6 @@ export namespace GotoFrame {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.GotoFrame})},
       frame: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -14,6 +14,6 @@ export namespace Undefined {
     properties: {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.Undefined})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

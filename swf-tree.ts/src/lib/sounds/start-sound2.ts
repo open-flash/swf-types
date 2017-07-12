@@ -12,8 +12,8 @@ export interface StartSound2 extends SwfTagBase {
 export namespace StartSound2 {
   export interface Json {
     type: "start-sound";
-    "sound-class-name": string;
-    "sound-info": SoundInfo.Json;
+    sound_class_name: string;
+    sound_info: SoundInfo.Json;
   }
 
   export const type: DocumentType<StartSound2> = new DocumentType<StartSound2>({
@@ -22,6 +22,6 @@ export namespace StartSound2 {
       soundClassName: {type: new Ucs2StringType({maxLength: Infinity})},
       soundInfo: {type: SoundInfo.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

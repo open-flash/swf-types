@@ -9,8 +9,8 @@ export interface GlyphEntry {
 
 export namespace GlyphEntry {
   export interface Json {
-    "glyph-entry": number;
-    "glyph-advance": number;
+    glyph_entry: number;
+    glyph_advance: number;
   }
 
   export const type: DocumentType<GlyphEntry> = new DocumentType<GlyphEntry>({
@@ -18,6 +18,6 @@ export namespace GlyphEntry {
       glyphIndex: {type: new Int32Type()},
       glyphAdvance: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

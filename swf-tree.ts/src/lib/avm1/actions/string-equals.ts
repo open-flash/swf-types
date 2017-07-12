@@ -15,6 +15,6 @@ export namespace StringEquals {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.StringEquals})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

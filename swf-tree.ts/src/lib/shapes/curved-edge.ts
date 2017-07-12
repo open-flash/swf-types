@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
-import {ShapeRecordType} from "./shape-record-type";
 import {Int32} from "../avm1/values/int32";
+import {ShapeRecordType} from "./shape-record-type";
 
 export interface CurvedEdge {
   type: ShapeRecordType.CurvedEdge;
@@ -13,10 +13,10 @@ export interface CurvedEdge {
 export namespace CurvedEdge {
   export interface Json {
     type: "curved-edge";
-    "control-delta-x": number;
-    "control-delta-y": number;
-    "anchor-delta-x": number;
-    "anchor-delta-y": number;
+    control_delta_x: number;
+    control_delta_y: number;
+    anchor_delta_x: number;
+    anchor_delta_y: number;
   }
 
   export const type: DocumentType<CurvedEdge> = new DocumentType<CurvedEdge>({
@@ -27,6 +27,6 @@ export namespace CurvedEdge {
       anchorDeltaX: {type: new Int32Type()},
       anchorDeltay: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -1,6 +1,6 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type} from "kryo";
-import {Action} from "../avm1/action";
 import {Uint32} from "semantic-types";
+import {Action} from "../avm1/action";
 
 export interface ButtonCondAction {
   idleToOverDown: boolean;
@@ -18,17 +18,17 @@ export interface ButtonCondAction {
 
 export namespace ButtonCondAction {
   export interface Json {
-    "idle-to-over-down": boolean;
-    "out-down-to-idle": boolean;
-    "out-down-to-over-down": boolean;
-    "over-down-to-out-down": boolean;
-    "over-down-to-over-up": boolean;
-    "over-up-to-over-down": boolean;
-    "over-up-to-idle": boolean;
-    "idle-to-over-up": boolean;
-    "over-down-to-idle": boolean;
-    "key-press": number;
-    "actions": Action.Json[];
+    idle_to_over_down: boolean;
+    out_down_to_idle: boolean;
+    out_down_to_over_down: boolean;
+    over_down_to_out_down: boolean;
+    over_down_to_over_up: boolean;
+    over_up_to_over_down: boolean;
+    over_up_to_idle: boolean;
+    idle_to_over_up: boolean;
+    over_down_to_idle: boolean;
+    key_press: number;
+    actions: Action.Json[];
   }
 
   export const type: DocumentType<ButtonCondAction> = new DocumentType<ButtonCondAction>({
@@ -45,6 +45,6 @@ export namespace ButtonCondAction {
       keyPress: {type: new Int32Type()},
       actions: {type: new ArrayType({itemType: Action.type, maxLength: Infinity}), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

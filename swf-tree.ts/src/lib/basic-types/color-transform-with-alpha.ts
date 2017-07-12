@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, Float64Type} from "kryo";
-import {ColorTransform} from "./color-transform";
 import {Sint16} from "semantic-types";
+import {ColorTransform} from "./color-transform";
 
 export interface ColorTransformWithAlpha extends ColorTransform {
   alphaMultTerm?: Sint16;
@@ -9,8 +9,8 @@ export interface ColorTransformWithAlpha extends ColorTransform {
 
 export namespace ColorTransformWithAlpha {
   export interface Json extends ColorTransform.Json {
-    "alpha-mult-term"?: number;
-    "alpha-add-term"?: number;
+    alpha_mult_term?: number;
+    alpha_add_term?: number;
   }
 
   export const type: DocumentType<ColorTransformWithAlpha> = new DocumentType<ColorTransformWithAlpha>({
@@ -25,6 +25,6 @@ export namespace ColorTransformWithAlpha {
         optional: true,
       },
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

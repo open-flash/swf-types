@@ -15,6 +15,6 @@ export namespace RandomNumber {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.RandomNumber})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

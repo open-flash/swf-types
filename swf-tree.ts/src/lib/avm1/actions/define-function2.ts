@@ -26,16 +26,16 @@ export namespace DefineFunction2 {
   export interface Json {
     action: "define-function2";
     name: string;
-    preloadParent: boolean;
-    preloadRoot: boolean;
-    suppressSuper: boolean;
-    preloadSuper: boolean;
-    suppressArguments: boolean;
-    preloadArguments: boolean;
-    suppressThis: boolean;
-    preloadThis: boolean;
-    preloadGlobal: boolean;
-    registerCount: number;
+    preload_parent: boolean;
+    preload_root: boolean;
+    suppress_super: boolean;
+    preload_super: boolean;
+    suppress_arguments: boolean;
+    preload_arguments: boolean;
+    suppress_this: boolean;
+    preload_this: boolean;
+    preload_global: boolean;
+    register_count: number;
     parameters: Parameter.Json[];
     body: Action.Json[];
   }
@@ -58,6 +58,6 @@ export namespace DefineFunction2 {
       // TODO(demurgos): solve circular dependency
       body: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -12,10 +12,10 @@ export interface BlurFilter {
 
 export namespace BlurFilter {
   export interface Json {
-    "filter-id": "blur";
-    "blur-x": number;
-    "blur-y": number;
-    "passes": number;
+    filter_id: "blur";
+    blur_x: number;
+    blur_y: number;
+    passes: number;
   }
 
   export const type: DocumentType<BlurFilter> = new DocumentType<BlurFilter>({
@@ -25,6 +25,6 @@ export namespace BlurFilter {
       blurY: {type: new Float64Type()},
       passes: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

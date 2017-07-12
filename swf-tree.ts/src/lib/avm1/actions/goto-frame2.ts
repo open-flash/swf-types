@@ -15,6 +15,6 @@ export namespace GotoFrame2 {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.GotoFrame2})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

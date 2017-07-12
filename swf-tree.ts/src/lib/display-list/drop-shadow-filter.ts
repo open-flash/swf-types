@@ -1,7 +1,7 @@
 import {BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
+import {Sfixed16p16, Sfixed8p8, Uint8} from "semantic-types";
 import {Rgba} from "../basic-types/rgba";
 import {FilterId} from "./filter-id";
-import {Sfixed16p16, Sfixed8p8, Uint8} from "semantic-types";
 
 export interface DropShadowFilter {
   filterId: FilterId.DropShadow;
@@ -19,17 +19,17 @@ export interface DropShadowFilter {
 
 export namespace DropShadowFilter {
   export interface Json {
-    "filter-id": "drop-shadow";
-    "drop-shadow-color": Rgba.Json;
-    "blur-x": number;
-    "blur-y": number;
-    "angle": number;
-    "distance": number;
-    "strength": number;
-    "inner-shadow": boolean;
-    "knockout": boolean;
-    "composite-source": true;
-    "passes": number;
+    filter_id: "drop-shadow";
+    drop_shadow_color: Rgba.Json;
+    blur_x: number;
+    blur_y: number;
+    angle: number;
+    distance: number;
+    strength: number;
+    inner_shadow: boolean;
+    knockout: boolean;
+    composite_source: true;
+    passes: number;
   }
 
   export const type: DocumentType<DropShadowFilter> = new DocumentType<DropShadowFilter>({
@@ -46,6 +46,6 @@ export namespace DropShadowFilter {
       compositeSource: {type: new LiteralType({type: new BooleanType(), value: true})},
       passes: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

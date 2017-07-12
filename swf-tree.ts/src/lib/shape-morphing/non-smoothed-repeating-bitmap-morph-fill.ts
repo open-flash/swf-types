@@ -13,10 +13,10 @@ export interface NonSmoothedRepeatingBitmapMorphFill {
 
 export namespace NonSmoothedRepeatingBitmapMorphFill {
   export interface Json {
-    "fill-style-type": "non-smoothed-repeating-bitmap";
-    "bitmap-id": number;
-    "start-bitmap-matrix": Matrix.Json;
-    "end-bitmap-matrix": Matrix.Json;
+    fill_style_type: "non-smoothed-repeating-bitmap";
+    bitmap_id: number;
+    start_bitmap_matrix: Matrix.Json;
+    end_bitmap_matrix: Matrix.Json;
   }
 
   /* tslint:disable-next-line:max-line-length */
@@ -32,6 +32,6 @@ export namespace NonSmoothedRepeatingBitmapMorphFill {
       startBitmapMatrix: {type: Rgba.type},
       endBitmapMatrix: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

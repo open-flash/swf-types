@@ -3,28 +3,28 @@ use basic_types::{Matrix, Rect, SRgb, StraightSRgba, ColorTransformWithAlpha};
 use shapes::{BlendMode, ClipAction, Filter, Shape};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Scene {
   pub offset: u32,
   pub name: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Label {
   pub frame: u32,
   pub name: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct DefineSceneAndFrameLabelData {
   pub scenes: Vec<Scene>,
   pub labels: Vec<Label>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct DefineShape {
   pub id: u16,
   pub bounds: Rect,
@@ -35,13 +35,13 @@ pub struct DefineShape {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct DoAction {
   pub actions: Vec<avm1::Action>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct FileAttributes {
   pub use_direct_blit: bool,
   pub use_gpu: bool,
@@ -53,7 +53,7 @@ pub struct FileAttributes {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct PlaceObject {
   pub depth: u16,
   pub character_id: Option<u16>,
@@ -72,20 +72,20 @@ pub struct PlaceObject {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Metadata {
   pub metadata: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct SetBackgroundColor {
   /// Color of the display background
   pub color: SRgb,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Unknown {
   pub code: u16,
   pub data: Vec<u8>,

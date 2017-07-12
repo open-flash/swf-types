@@ -15,6 +15,6 @@ export namespace Not {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Not})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

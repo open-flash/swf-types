@@ -15,6 +15,6 @@ export namespace GetTime {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.GetTime})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

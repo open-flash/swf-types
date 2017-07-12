@@ -12,12 +12,12 @@ export interface ColorTransform {
 
 export namespace ColorTransform {
   export interface Json {
-    "red-mult-term"?: number;
-    "green-mult-term"?: number;
-    "blue-mult-term"?: number;
-    "red-add-term"?: number;
-    "green-add-term"?: number;
-    "blue-add-term"?: number;
+    red_mult_term?: number;
+    green_mult_term?: number;
+    blue_mult_term?: number;
+    red_add_term?: number;
+    green_add_term?: number;
+    blue_add_term?: number;
   }
 
   export const type: DocumentType<ColorTransform> = new DocumentType<ColorTransform>({
@@ -47,6 +47,6 @@ export namespace ColorTransform {
         optional: true,
       },
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

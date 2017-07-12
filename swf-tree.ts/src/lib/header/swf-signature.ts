@@ -10,9 +10,9 @@ export interface SwfSignature {
 
 export namespace SwfSignature {
   export interface Json {
-    "compression-method": CompressionMethod.Json;
-    "swf-version": number;
-    "uncompressed-file-length": number;
+    compression_method: CompressionMethod.Json;
+    swf_version: number;
+    uncompressed_file_length: number;
   }
 
   export const type: DocumentType<SwfSignature> = new DocumentType<SwfSignature>({
@@ -21,6 +21,6 @@ export namespace SwfSignature {
       swfVersion: {type: new Int32Type()},
       uncompressedFileLength: {type: new Float64Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

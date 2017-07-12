@@ -11,9 +11,9 @@ export interface ClipAction {
 
 export namespace ClipAction {
   export interface Json {
-    "event-flags": ClipEventFlags.Json;
-    "key-code"?: number;
-    "actions": Action.Json;
+    event_flags: ClipEventFlags.Json;
+    key_code?: number;
+    actions: Action.Json;
   }
 
   export const type: DocumentType<ClipAction> = new DocumentType<ClipAction>({
@@ -22,6 +22,6 @@ export namespace ClipAction {
       keyCode: {type: new Int32Type()},
       actions: {type: Action.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

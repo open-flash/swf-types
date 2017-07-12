@@ -9,9 +9,9 @@ export interface Vp6FlvVideoPacket {
 
 export namespace Vp6FlvVideoPacket {
   export interface Json {
-    "horizontal-adjustment": number;
-    "vertical-adjustment": number;
-    "data": string;
+    horizontal_adjustment: number;
+    vertical_adjustment: number;
+    data: string;
   }
 
   export const type: DocumentType<Vp6FlvVideoPacket> = new DocumentType<Vp6FlvVideoPacket>({
@@ -20,6 +20,6 @@ export namespace Vp6FlvVideoPacket {
       verticalAdjustment: {type: new Int32Type()},
       data: {type: new BufferType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

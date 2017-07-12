@@ -13,8 +13,8 @@ export interface DefineBitsLossless extends SwfTagBase {
 export namespace DefineBitsLossless {
   export interface Json {
     type: "define-bits";
-    "character-id": number;
-    "jpeg-data": string;
+    character_id: number;
+    jpeg_data: string;
   }
 
   export const type: DocumentType<DefineBitsLossless> = new DocumentType<DefineBitsLossless>({
@@ -23,6 +23,6 @@ export namespace DefineBitsLossless {
       characterId: {type: new Int32Type()},
       jpegData: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

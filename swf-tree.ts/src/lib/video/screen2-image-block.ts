@@ -22,6 +22,6 @@ export namespace Screen2ImageBlock {
       header: {type: undefined as any, optional: true},
       data: {type: new BufferType({maxLength: Infinity}), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

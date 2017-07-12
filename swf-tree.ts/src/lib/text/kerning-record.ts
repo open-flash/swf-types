@@ -9,9 +9,9 @@ export interface KerningRecord {
 
 export namespace KerningRecord {
   export interface Json {
-    "font-kerning-code1": number;
-    "font-kerning-code2": number;
-    "font-kerning-adjustment": number;
+    font_kerning_code1: number;
+    font_kerning_code2: number;
+    font_kerning_adjustment: number;
   }
 
   export const type: DocumentType<KerningRecord> = new DocumentType<KerningRecord>({
@@ -20,6 +20,6 @@ export namespace KerningRecord {
       fontKerningCode2: {type: new Int32Type()},
       fontKerningAdjustment: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

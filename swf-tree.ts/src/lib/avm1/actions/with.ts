@@ -15,6 +15,6 @@ export namespace With {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.With})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

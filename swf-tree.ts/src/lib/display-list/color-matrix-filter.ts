@@ -1,6 +1,6 @@
 import {ArrayType, CaseStyle, DocumentType, Float64Type, LiteralType} from "kryo";
-import {FilterId} from "./filter-id";
 import {Float32} from "semantic-types";
+import {FilterId} from "./filter-id";
 
 export interface ColorMatrixFilter {
   filterId: FilterId.ColorMatrix;
@@ -9,7 +9,7 @@ export interface ColorMatrixFilter {
 
 export namespace ColorMatrixFilter {
   export interface Json {
-    "filter-id": "color-matrix";
+    filter_id: "color-matrix";
     matrix: number[];
   }
 
@@ -18,6 +18,6 @@ export namespace ColorMatrixFilter {
       filterId: {type: new LiteralType({type: FilterId.type, value: FilterId.ColorMatrix})},
       matrix: {type: new ArrayType({itemType: new Float64Type(), /* minLength: 20, */ maxLength: 20})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

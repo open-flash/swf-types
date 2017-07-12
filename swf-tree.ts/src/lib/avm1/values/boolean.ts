@@ -17,6 +17,6 @@ export namespace Boolean {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.Boolean})},
       value: {type: new BooleanType()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

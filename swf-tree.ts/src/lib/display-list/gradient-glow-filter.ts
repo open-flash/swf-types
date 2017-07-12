@@ -1,7 +1,7 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
+import {Sfixed16p16, Sfixed8p8, Uint8} from "semantic-types";
 import {ColorStop} from "../gradients/color-stop";
 import {FilterId} from "./filter-id";
-import {Sfixed16p16, Sfixed8p8, Uint8} from "semantic-types";
 
 export interface GradientGlowFilter {
   filterId: FilterId.GradientGlow;
@@ -21,18 +21,18 @@ export interface GradientGlowFilter {
 
 export namespace GradientGlowFilter {
   export interface Json {
-    "filter-id": "gradient-glow";
-    "gradient": ColorStop.Json[];
-    "blur-x": number;
-    "blur-y": number;
-    "angle": number;
-    "distance": number;
-    "strength": number;
-    "inner-shadow": boolean;
-    "knockout": boolean;
-    "composite-source": true;
-    "on-top": boolean;
-    "passes": number;
+    filter_id: "gradient-glow";
+    gradient: ColorStop.Json[];
+    blur_x: number;
+    blur_y: number;
+    angle: number;
+    distance: number;
+    strength: number;
+    inner_shadow: boolean;
+    knockout: boolean;
+    composite_source: true;
+    on_top: boolean;
+    passes: number;
   }
 
   export const type: DocumentType<GradientGlowFilter> = new DocumentType<GradientGlowFilter>({
@@ -50,6 +50,6 @@ export namespace GradientGlowFilter {
       onTop: {type: new BooleanType()},
       passes: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

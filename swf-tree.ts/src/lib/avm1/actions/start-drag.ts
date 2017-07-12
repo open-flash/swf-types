@@ -15,6 +15,6 @@ export namespace StartDrag {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.StartDrag})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

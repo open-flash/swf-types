@@ -15,6 +15,6 @@ export namespace Delete2 {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Delete2})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

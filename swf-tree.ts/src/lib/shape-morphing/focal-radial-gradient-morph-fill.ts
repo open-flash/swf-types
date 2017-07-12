@@ -13,9 +13,9 @@ export interface FocalRadialGradientMorphFill {
 
 export namespace FocalRadialGradientMorphFill {
   export interface Json {
-    "fill-style-type": "focal-radial-gradient";
-    "start-gradient-matrix": Matrix.Json;
-    "end-gradient-matrix": Matrix.Json;
+    fill_style_type: "focal-radial-gradient";
+    start_gradient_matrix: Matrix.Json;
+    end_gradient_matrix: Matrix.Json;
     gradient: any;
   }
 
@@ -26,6 +26,6 @@ export namespace FocalRadialGradientMorphFill {
       endGradientMatrix: {type: Rgba.type},
       gradient: null as any,
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

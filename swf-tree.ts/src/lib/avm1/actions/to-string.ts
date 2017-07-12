@@ -15,6 +15,6 @@ export namespace ToString {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.ToString})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

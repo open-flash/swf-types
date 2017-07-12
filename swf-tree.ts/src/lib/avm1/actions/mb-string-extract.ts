@@ -15,6 +15,6 @@ export namespace MbStringExtract {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.MbStringExtract})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

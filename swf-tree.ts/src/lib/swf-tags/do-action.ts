@@ -19,6 +19,6 @@ export namespace DoAction {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DoAction})},
       actions: {type: new ArrayType({itemType: avm1.Action.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

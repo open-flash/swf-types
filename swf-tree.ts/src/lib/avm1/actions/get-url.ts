@@ -21,6 +21,6 @@ export namespace GetUrl {
       url: {type: new Ucs2StringType({maxLength: Infinity})},
       target: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

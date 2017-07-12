@@ -1,4 +1,4 @@
-import {Int32} from "../integer-names";
+import {Sint32} from "semantic-types";
 import {FixedPoint} from "./fixed-point";
 import {FixedPointType} from "./type";
 
@@ -15,7 +15,7 @@ export class Fixed16P16 extends FixedPoint {
     super(epsilons, Fixed16P16.signed, Fixed16P16.intBits, Fixed16P16.fracBits);
   }
 
-  static fromEpsilons(epsilons: Int32): Fixed16P16 {
+  static fromEpsilons(epsilons: Sint32): Fixed16P16 {
     return new Fixed16P16(epsilons);
   }
 

@@ -15,6 +15,6 @@ export namespace Try {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Try})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace Return {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Return})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

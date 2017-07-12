@@ -14,12 +14,12 @@ export interface TextRecord {
 
 export namespace TextRecord {
   export interface Json {
-    "font-id"?: number;
-    "font-color"?: Rgba.Json;
-    "x-offset": number;
-    "y-offset": number;
-    "text-height": number;
-    "glyph-entries": GlyphEntry.Json[];
+    font_id?: number;
+    font_color?: Rgba.Json;
+    x_offset: number;
+    y_offset: number;
+    text_height: number;
+    glyph_entries: GlyphEntry.Json[];
   }
 
   export const type: DocumentType<TextRecord> = new DocumentType<TextRecord>({
@@ -31,6 +31,6 @@ export namespace TextRecord {
       textHeight: {type: new Int32Type(), optional: true},
       glyphEntries: {type: new ArrayType({itemType: GlyphEntry.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -6,13 +6,13 @@ export interface Vp6SwfVideoPacket {
 
 export namespace Vp6SwfVideoPacket {
   export interface Json {
-    "data": string;
+    data: string;
   }
 
   export const type: DocumentType<Vp6SwfVideoPacket> = new DocumentType<Vp6SwfVideoPacket>({
     properties: {
       data: {type: new BufferType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace Call {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Call})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

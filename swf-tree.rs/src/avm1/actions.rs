@@ -2,14 +2,14 @@ use ordered_float::OrderedFloat;
 
 // Action code 0x81
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct GotoFrame {
   pub frame: usize,
 }
 
 // Action code 0x83
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct GetUrl {
   pub url: String,
   pub target: String,
@@ -17,21 +17,21 @@ pub struct GetUrl {
 
 // Action code 0x87
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct StoreRegister {
   pub register_number: u8,
 }
 
 // Action code 0x88
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct ConstantPool {
   pub constant_pool: Vec<String>,
 }
 
 // Action code 0x8a
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct WaitForFrame {
   pub frame: usize,
   pub skip_count: usize,
@@ -40,28 +40,28 @@ pub struct WaitForFrame {
 
 // Action code 0x8b
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct SetTarget {
   pub target_name: String,
 }
 
 // Action code 0x8c
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct GoToLabel {
   pub label: String,
 }
 
 // Action code 0x8d
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct WaitForFrame2 {
   pub skip_count: usize,
   // TODO: body: Vec<Action> ?
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Parameter {
   pub register: u8,
   pub name: String,
@@ -69,7 +69,7 @@ pub struct Parameter {
 
 // Action code 0x8e
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct DefineFunction2 {
   // Empty string if anonymous
   pub name: String,
@@ -96,7 +96,7 @@ pub enum CatchTarget {
 
 // Action code 0x8f
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Try {
   pub try_size: usize,
   pub catch_target: CatchTarget,
@@ -106,7 +106,7 @@ pub struct Try {
 
 // Action code 0x94
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct With {
   pub code_size: usize,
   // TODO: body: Vec<Action>
@@ -128,14 +128,14 @@ pub enum Value {
 
 // Action code 0x96
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Push {
   pub values: Vec<Value>,
 }
 
 // Action code 0x99
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Jump {
   pub branch_offset: i16,
 }
@@ -150,7 +150,7 @@ pub enum SendVarsMethod {
 
 // Action code 0x9a
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct GetUrl2 {
   pub send_vars_method: SendVarsMethod,
   pub load_target: bool,
@@ -159,7 +159,7 @@ pub struct GetUrl2 {
 
 // Action code 0x9b
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct DefineFunction {
   // Empty string if anonymous
   pub name: String,
@@ -169,21 +169,21 @@ pub struct DefineFunction {
 
 // Action code 0x9d
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct If {
   pub branch_offset: i16,
 }
 
 // Action code 0x9f
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct GotoFrame2 {
   pub play: bool,
   pub scene_bias: Option<usize>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct UnknownAction {
   pub code: u8,
   pub data: Vec<u8>,

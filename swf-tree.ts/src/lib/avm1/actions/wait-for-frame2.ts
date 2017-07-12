@@ -11,7 +11,7 @@ export interface WaitForFrame2 extends ActionBase {
 export namespace WaitForFrame2 {
   export interface Json {
     action: "wait-for-frame2";
-    skipCount: number;
+    skip_count: number;
   }
 
   export const type: DocumentType<WaitForFrame2> = new DocumentType<WaitForFrame2>({
@@ -19,6 +19,6 @@ export namespace WaitForFrame2 {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.WaitForFrame2})},
       skipCount: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

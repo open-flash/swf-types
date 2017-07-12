@@ -20,16 +20,16 @@ export interface ButtonRecord {
 
 export namespace ButtonRecord {
   export interface Json {
-    "state-hit-test": boolean;
-    "state-down": boolean;
-    "state-over": boolean;
-    "state-up": boolean;
-    "character-id": number;
-    "place-depth": number;
-    "place-matrix": Matrix.Json;
-    "color-transform"?: ColorTransformWithAlpha.Json;
-    "filter-list"?: Filter.Json[];
-    "blend-mode"?: BlendMode.Json;
+    state_hit_test: boolean;
+    state_down: boolean;
+    state_over: boolean;
+    state_up: boolean;
+    character_id: number;
+    place_depth: number;
+    place_matrix: Matrix.Json;
+    color_transform?: ColorTransformWithAlpha.Json;
+    filter_list?: Filter.Json[];
+    blend_mode?: BlendMode.Json;
   }
 
   export const type: DocumentType<ButtonRecord> = new DocumentType<ButtonRecord>({
@@ -45,6 +45,6 @@ export namespace ButtonRecord {
       fontAdanceTable: {type: new ArrayType({itemType: Filter.type, maxLength: Infinity}), optional: true},
       blendMode: {type: BlendMode.type, optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

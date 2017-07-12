@@ -15,6 +15,6 @@ export namespace PreviousFrame {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.PreviousFrame})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

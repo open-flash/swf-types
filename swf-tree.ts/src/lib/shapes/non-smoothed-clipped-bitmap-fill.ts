@@ -12,9 +12,9 @@ export interface NonSmoothedClippedBitmapFill {
 
 export namespace NonSmoothedClippedBitmapFill {
   export interface Json {
-    "fill-style-type": "non-smoothed-clipped-bitmap";
-    "bitmap-id": number;
-    "bitmap-matrix": Matrix.Json;
+    fill_style_type: "non-smoothed-clipped-bitmap";
+    bitmap_id: number;
+    bitmap_matrix: Matrix.Json;
   }
 
   export const type: DocumentType<NonSmoothedClippedBitmapFill> = new DocumentType<NonSmoothedClippedBitmapFill>({
@@ -23,6 +23,6 @@ export namespace NonSmoothedClippedBitmapFill {
       bitmapId: {type: new Int32Type()},
       bitmapMatrix: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace Unknown {
     properties: {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.Unknown})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

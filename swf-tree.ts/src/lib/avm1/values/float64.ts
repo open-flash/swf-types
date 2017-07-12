@@ -18,6 +18,6 @@ export namespace Float64 {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.Float64})},
       value: {type: new Float64Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

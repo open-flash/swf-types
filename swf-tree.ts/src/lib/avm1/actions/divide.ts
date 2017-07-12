@@ -15,6 +15,6 @@ export namespace Divide {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Divide})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

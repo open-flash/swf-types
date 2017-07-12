@@ -14,9 +14,9 @@ export interface DefineFont extends SwfTagBase {
 export namespace DefineFont {
   export interface Json {
     type: "define-font";
-    "font-id": number;
-    "offset-table": number[];
-    "glyph-shape-table": Shape[];
+    font_id: number;
+    offset_table: number[];
+    glyph_shape_table: Shape[];
   }
 
   export const type: DocumentType<DefineFont> = new DocumentType<DefineFont>({
@@ -26,6 +26,6 @@ export namespace DefineFont {
       offsetTable: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
       glyphShapeTable: {type: new ArrayType({itemType: Shape.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

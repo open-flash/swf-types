@@ -15,6 +15,6 @@ export namespace GetProperty {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.GetProperty})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

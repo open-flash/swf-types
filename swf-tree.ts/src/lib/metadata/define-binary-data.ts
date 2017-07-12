@@ -1,7 +1,7 @@
 import {BufferType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {Uint16} from "semantic-types";
 import {SwfTagType} from "../swf-tag-type";
 import {SwfTagBase} from "../swf-tags/_base";
-import {Uint16} from "semantic-types";
 
 export interface DefineBinaryData extends SwfTagBase {
   type: SwfTagType.DefineBinaryData;
@@ -13,7 +13,7 @@ export namespace DefineBinaryData {
   export interface Json {
     type: "define-binary-data";
     id: number;
-    "data": string;
+    data: string;
   }
 
   export const type: DocumentType<DefineBinaryData> = new DocumentType<DefineBinaryData>({
@@ -22,6 +22,6 @@ export namespace DefineBinaryData {
       id: {type: new Int32Type()},
       data: {type: new BufferType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

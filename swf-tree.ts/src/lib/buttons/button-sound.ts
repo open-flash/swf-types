@@ -9,8 +9,8 @@ export interface ButtonSound {
 
 export namespace ButtonSound {
   export interface Json {
-    "sound-id": number;
-    "sound-info": SoundInfo.Json;
+    sound_id: number;
+    sound_info: SoundInfo.Json;
   }
 
   export const type: DocumentType<ButtonSound> = new DocumentType<ButtonSound>({
@@ -18,6 +18,6 @@ export namespace ButtonSound {
       soundId: {type: new Int32Type()},
       soundInfo: {type: SoundInfo.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

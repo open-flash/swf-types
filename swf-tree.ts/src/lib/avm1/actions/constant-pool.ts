@@ -10,7 +10,7 @@ export interface ConstantPool extends ActionBase {
 export namespace ConstantPool {
   export interface Json {
     action: "constant-pool";
-    "constant-pool": string[];
+    constant_pool: string[];
   }
 
   export const type: DocumentType<ConstantPool> = new DocumentType<ConstantPool>({
@@ -18,6 +18,6 @@ export namespace ConstantPool {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.ConstantPool})},
       constantPool: {type: new ArrayType({itemType: new Ucs2StringType({maxLength: Infinity}), maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

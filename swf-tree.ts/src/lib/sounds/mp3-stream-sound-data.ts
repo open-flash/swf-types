@@ -8,8 +8,8 @@ export interface Mp3StreamSoundData {
 
 export namespace Mp3StreamSoundData {
   export interface Json {
-    "sample-count": number;
-    "mp3-sound-data": any;
+    sample_count: number;
+    mp3_sound_data: any;
   }
 
   export const type: DocumentType<Mp3StreamSoundData> = new DocumentType<Mp3StreamSoundData>({
@@ -17,6 +17,6 @@ export namespace Mp3StreamSoundData {
       sampleCount: {type: new Int32Type()},
       mp3SoundData: {type: null as any},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

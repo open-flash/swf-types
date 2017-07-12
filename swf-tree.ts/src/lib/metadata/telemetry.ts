@@ -10,14 +10,14 @@ export interface Telemetry extends SwfTagBase {
 export namespace Telemetry {
   export interface Json {
     type: "enable-telemetry";
-    "password-hash"?: string;
+    password_hash?: string;
   }
 
   export const type: DocumentType<Telemetry> = new DocumentType<Telemetry>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.EnableTelemetry})},
+      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.Telemetry})},
       passwordHash: {type: new BufferType({maxLength: Infinity}), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

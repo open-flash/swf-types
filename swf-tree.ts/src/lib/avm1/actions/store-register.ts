@@ -11,7 +11,7 @@ export interface StoreRegister extends ActionBase {
 export namespace StoreRegister {
   export interface Json {
     action: "store-register";
-    "register-number": number;
+    register_number: number;
   }
 
   export const type: DocumentType<StoreRegister> = new DocumentType<StoreRegister>({
@@ -19,6 +19,6 @@ export namespace StoreRegister {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.StoreRegister})},
       registerNumber: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

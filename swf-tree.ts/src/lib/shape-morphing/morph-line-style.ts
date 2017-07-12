@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, Int32Type} from "kryo";
-import {Rgba} from "../basic-types/rgba";
 import {Uint16} from "semantic-types";
+import {Rgba} from "../basic-types/rgba";
 
 export interface MorphLineStyle {
   startWidth: Uint16;
@@ -11,10 +11,10 @@ export interface MorphLineStyle {
 
 export namespace MorphLineStyle {
   export interface Json {
-    "start-width": number;
-    "end-width": number;
-    "start-color": Rgba.Json;
-    "end-color": Rgba.Json;
+    start_width: number;
+    end_width: number;
+    start_color: Rgba.Json;
+    end_color: Rgba.Json;
   }
 
   export const type: DocumentType<MorphLineStyle> = new DocumentType<MorphLineStyle>({
@@ -24,6 +24,6 @@ export namespace MorphLineStyle {
       startColor: {type: Rgba.type},
       endColor: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

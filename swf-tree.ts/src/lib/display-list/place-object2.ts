@@ -23,13 +23,13 @@ export namespace PlaceObject2 {
   export interface Json {
     type: "place-object2";
     depth: number;
-    "character-id"?: number;
+    character_id?: number;
     matrix: Matrix.Json;
-    "color-transform"?: ColorTransform.Json;
+    color_transform?: ColorTransform.Json;
     ratio?: number;
     name?: string;
-    "clip-depth"?: number;
-    "clip-actions"?: ClipAction.Json[];
+    clip_depth?: number;
+    clip_actions?: ClipAction.Json[];
   }
 
   export const type: DocumentType<PlaceObject2> = new DocumentType<PlaceObject2>({
@@ -44,6 +44,6 @@ export namespace PlaceObject2 {
       clipDepth: {type: new Int32Type(), optional: true},
       clipActions: {type: new ArrayType({itemType: ClipAction.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

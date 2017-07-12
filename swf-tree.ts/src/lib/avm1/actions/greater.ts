@@ -15,6 +15,6 @@ export namespace Greater {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Greater})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

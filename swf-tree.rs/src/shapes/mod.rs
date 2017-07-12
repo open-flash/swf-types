@@ -5,7 +5,7 @@ pub mod filters;
 pub mod joins;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(tag = "type", rename_all = "kebab-case")]
 pub enum Filter {
   Blur(filters::Blur),
 }
@@ -38,13 +38,13 @@ pub enum CapStyle {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(tag = "type", rename_all = "kebab-case")]
 pub enum FillStyle {
   Solid(fills::Solid),
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(tag = "type", rename_all = "kebab-case")]
 pub enum JoinStyle {
   Bevel,
   Miter(joins::Miter),
@@ -52,7 +52,7 @@ pub enum JoinStyle {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct LineStyle {
   pub width: u16,
   pub start_cap: CapStyle,
@@ -65,7 +65,7 @@ pub struct LineStyle {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct CurvedEdge {
   pub control_x: i32,
   pub control_y: i32,
@@ -74,14 +74,14 @@ pub struct CurvedEdge {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct StraightEdge {
   pub delta_x: i32,
   pub delta_y: i32,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct StyleChange {
   pub delta_x: i32,
   pub delta_y: i32,
@@ -93,7 +93,7 @@ pub struct StyleChange {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(tag = "type", rename_all = "kebab-case")]
 pub enum ShapeRecord {
   CurvedEdge(CurvedEdge),
   StraightEdge(StraightEdge),
@@ -101,7 +101,7 @@ pub enum ShapeRecord {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct Shape {
   pub fill_styles: Vec<FillStyle>,
   pub line_styles: Vec<LineStyle>,
@@ -109,7 +109,7 @@ pub struct Shape {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct ClipEventFlags {
   pub key_up: bool,
   pub key_down: bool,
@@ -132,7 +132,7 @@ pub struct ClipEventFlags {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
+#[serde(rename_all = "snake_case")]
 pub struct ClipAction {
   pub event_flags: ClipEventFlags,
   pub key_code: Option<u8>,

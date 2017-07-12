@@ -15,9 +15,9 @@ export interface DefineShape2 extends SwfTagBase {
 export namespace DefineShape2 {
   export interface Json {
     type: "define-shape2";
-    "shape-id": number;
-    "shape-bounds": Rect.Json;
-    "shapes": ShapeWithStyle.Json;
+    shape_id: number;
+    shape_bounds: Rect.Json;
+    shapes: ShapeWithStyle.Json;
   }
 
   export const type: DocumentType<DefineShape2> = new DocumentType<DefineShape2>({
@@ -27,6 +27,6 @@ export namespace DefineShape2 {
       shapeBounds: {type: Rect.type},
       shapes: {type: ShapeWithStyle.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

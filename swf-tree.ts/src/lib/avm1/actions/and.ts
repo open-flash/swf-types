@@ -15,6 +15,6 @@ export namespace And {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.And})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

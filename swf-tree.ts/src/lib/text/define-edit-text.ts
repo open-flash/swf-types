@@ -37,30 +37,30 @@ export interface DefineEditText extends SwfTagBase {
 export namespace DefineText {
   export interface Json {
     type: "define-edit-text";
-    "character-id": number;
-    "bounds": Rect.Json;
-    "word-wrap": boolean;
+    character_id: number;
+    bounds: Rect.Json;
+    word_wrap: boolean;
     multiline: boolean;
     password: boolean;
     readonly: boolean;
-    "auto-size": boolean;
-    "no-select": boolean;
+    auto_size: boolean;
+    no_select: boolean;
     border: boolean;
-    "was-static": boolean;
+    was_static: boolean;
     html: boolean;
-    "use-glyph-font": boolean;
-    "font-id"?: Uint16;
-    "font-height"?: Uint16;
-    "font-class"?: string;
-    "text-color"?: Rgba;
-    "max-length"?: Uint16;
+    use_glyph_font: boolean;
+    font_id?: Uint16;
+    font_height?: Uint16;
+    font_class?: string;
+    text_color?: Rgba;
+    max_length?: Uint16;
     align?: TextAlignment;
-    "left-margin"?: Uint16;
-    "right-margin"?: Uint16;
+    left_margin?: Uint16;
+    right_margin?: Uint16;
     indent?: Uint16;
     leading?: Sint16;
-    "variable-name": string;
-    "initial-text"?: string;
+    variable_name: string;
+    initial_text?: string;
   }
 
   export const type: DocumentType<DefineEditText> = new DocumentType<DefineEditText>({
@@ -91,6 +91,6 @@ export namespace DefineText {
       variableName: {type: new Ucs2StringType({maxLength: Infinity})},
       initialText: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

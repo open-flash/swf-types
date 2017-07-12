@@ -15,6 +15,6 @@ export namespace CloneSprite {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.CloneSprite})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

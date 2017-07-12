@@ -13,10 +13,10 @@ export interface RepeatingBitmapMorphFill {
 
 export namespace RepeatingBitmapMorphFill {
   export interface Json {
-    "fill-style-type": "repeating-bitmap";
-    "bitmap-id": number;
-    "start-bitmap-matrix": Matrix.Json;
-    "end-bitmap-matrix": Matrix.Json;
+    fill_style_type: "repeating-bitmap";
+    bitmap_id: number;
+    start_bitmap_matrix: Matrix.Json;
+    end_bitmap_matrix: Matrix.Json;
   }
 
   export const type: DocumentType<RepeatingBitmapMorphFill> = new DocumentType<RepeatingBitmapMorphFill>({
@@ -26,6 +26,6 @@ export namespace RepeatingBitmapMorphFill {
       startBitmapMatrix: {type: Rgba.type},
       endBitmapMatrix: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

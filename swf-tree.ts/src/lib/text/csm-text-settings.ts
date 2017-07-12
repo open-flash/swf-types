@@ -16,11 +16,11 @@ export interface CsmTextSettings extends SwfTagBase {
 export namespace DefineFont4 {
   export interface Json {
     type: "define-csm-text-settings";
-    "font-id": number;
-    "use-advanced-renderer": boolean;
-    "grid-fit": GridFitting.Json;
-    "thickness": number;
-    "sharpness": number;
+    font_id: number;
+    use_advanced_renderer: boolean;
+    grid_fit: GridFitting.Json;
+    thickness: number;
+    sharpness: number;
   }
 
   export const type: DocumentType<CsmTextSettings> = new DocumentType<CsmTextSettings>({
@@ -32,6 +32,6 @@ export namespace DefineFont4 {
       thickness: {type: new Float64Type()},
       sharpness: {type: new Float64Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

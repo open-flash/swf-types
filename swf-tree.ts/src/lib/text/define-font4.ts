@@ -16,11 +16,11 @@ export interface DefineFont4 extends SwfTagBase {
 export namespace DefineFont4 {
   export interface Json {
     type: "define-font4";
-    "font-id": number;
-    "font-name": string;
-    "is-italic": boolean;
-    "is-bold": boolean;
-    "font-data"?: FontData.Json;
+    font_id: number;
+    font_name: string;
+    is_italic: boolean;
+    is_bold: boolean;
+    font_data?: FontData.Json;
   }
 
   export const type: DocumentType<DefineFont4> = new DocumentType<DefineFont4>({
@@ -32,6 +32,6 @@ export namespace DefineFont4 {
       isBold: {type: new BooleanType()},
       fontData: {type: FontData.type, optional: true},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

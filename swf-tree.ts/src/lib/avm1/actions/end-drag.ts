@@ -15,6 +15,6 @@ export namespace EndDrag {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.EndDrag})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

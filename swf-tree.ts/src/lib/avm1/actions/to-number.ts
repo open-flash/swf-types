@@ -15,6 +15,6 @@ export namespace ToNumber {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.ToNumber})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

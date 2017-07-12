@@ -15,6 +15,6 @@ export namespace GetUrl2 {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.GetUrl2})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

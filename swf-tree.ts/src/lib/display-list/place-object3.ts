@@ -32,18 +32,18 @@ export namespace PlaceObject3 {
   export interface Json {
     type: "place-object3";
     depth: number;
-    "class-name"?: string;
-    "character-id"?: number;
+    class_name?: string;
+    character_id?: number;
     matrix: Matrix.Json;
-    "color-transform"?: ColorTransform.Json;
+    color_transform?: ColorTransform.Json;
     ratio?: number;
     name?: string;
-    "clip-depth"?: number;
-    "surface-filter-list"?: Filter.Json[];
-    "blend-mode"?: BlendMode.Json[];
-    "bitmap-cache"?: boolean;
-    "background-color"?: Rgba.Json;
-    "clip-actions"?: ClipAction.Json[];
+    clip_depth?: number;
+    surface_filter_list?: Filter.Json[];
+    blend_mode?: BlendMode.Json[];
+    bitmap_cache?: boolean;
+    background_color?: Rgba.Json;
+    clip_actions?: ClipAction.Json[];
   }
 
   export const type: DocumentType<PlaceObject3> = new DocumentType<PlaceObject3>({
@@ -62,6 +62,6 @@ export namespace PlaceObject3 {
       backgroundColor: {type: Rgba.type, optional: true},
       clipActions: {type: new ArrayType({itemType: ClipAction.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

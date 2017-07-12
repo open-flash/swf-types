@@ -11,8 +11,8 @@ export interface AdpcmStereoPacket {
 
 export namespace AdpcmStereoPacket {
   export interface Json {
-    "sample-count": number;
-    "mp3-sound-data": any;
+    sample_count: number;
+    mp3_sound_data: any;
   }
 
   export const type: DocumentType<AdpcmStereoPacket> = new DocumentType<AdpcmStereoPacket>({
@@ -20,6 +20,6 @@ export namespace AdpcmStereoPacket {
       sampleCount: {type: new Int32Type()},
       mp3SoundData: {type: null as any},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

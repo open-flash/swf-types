@@ -18,6 +18,6 @@ export namespace GotoLabel {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.GotoLabel})},
       label: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

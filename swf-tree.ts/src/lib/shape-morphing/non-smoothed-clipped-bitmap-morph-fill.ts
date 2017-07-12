@@ -1,8 +1,8 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {Uint16} from "semantic-types";
 import {Matrix} from "../basic-types/matrix";
 import {Rgba} from "../basic-types/rgba";
 import {FillStyleType} from "../shapes/fill-style-type";
-import {Uint16} from "semantic-types";
 
 export interface NonSmoothedClippedBitmapMorphFill {
   fillStypeType: FillStyleType.NonSmoothedClippedBitmap;
@@ -13,10 +13,10 @@ export interface NonSmoothedClippedBitmapMorphFill {
 
 export namespace NonSmoothedClippedBitmapMorphFill {
   export interface Json {
-    "fill-style-type": "non-smoothed-clipped-bitmap";
-    "bitmap-id": number;
-    "start-bitmap-matrix": Matrix.Json;
-    "end-bitmap-matrix": Matrix.Json;
+    fill_style_type: "non-smoothed-clipped-bitmap";
+    bitmap_id: number;
+    start_bitmap_matrix: Matrix.Json;
+    end_bitmap_matrix: Matrix.Json;
   }
 
   /* tslint:disable-next-line:max-line-length */
@@ -27,6 +27,6 @@ export namespace NonSmoothedClippedBitmapMorphFill {
       startBitmapMatrix: {type: Rgba.type},
       endBitmapMatrix: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -11,10 +11,10 @@ export interface MorphColorStop {
 
 export namespace MorphColorStop {
   export interface Json {
-    "start-ratio": number;
-    "start-color": Rgba.Json;
-    "end-ratio": number;
-    "end-color": Rgba.Json;
+    start_ratio: number;
+    start_color: Rgba.Json;
+    end_ratio: number;
+    end_color: Rgba.Json;
   }
 
   export const type: DocumentType<MorphColorStop> = new DocumentType<MorphColorStop>({
@@ -24,6 +24,6 @@ export namespace MorphColorStop {
       endRatio: {type: new Int32Type()},
       endColor: {type: Rgba.type},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

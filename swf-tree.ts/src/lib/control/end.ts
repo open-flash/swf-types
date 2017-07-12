@@ -15,6 +15,6 @@ export namespace End {
     properties: {
       type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.End})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

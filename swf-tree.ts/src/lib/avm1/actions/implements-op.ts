@@ -15,6 +15,6 @@ export namespace ImplementsOp {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.ImplementsOp})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

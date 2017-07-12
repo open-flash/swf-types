@@ -15,6 +15,6 @@ export namespace Equals2 {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Equals2})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

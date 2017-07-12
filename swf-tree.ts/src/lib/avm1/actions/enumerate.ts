@@ -15,6 +15,6 @@ export namespace Enumerate {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Enumerate})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

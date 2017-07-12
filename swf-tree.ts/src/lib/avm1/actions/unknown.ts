@@ -11,7 +11,7 @@ export interface Unknown extends ActionBase {
 export namespace Unknown {
   export interface Json {
     action: "unknown";
-    "action-code": number;
+    action_code: number;
   }
 
   export const type: DocumentType<Unknown> = new DocumentType<Unknown>({
@@ -19,6 +19,6 @@ export namespace Unknown {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Unknown})},
       actionCode: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

@@ -15,6 +15,6 @@ export namespace Multiply {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Multiply})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

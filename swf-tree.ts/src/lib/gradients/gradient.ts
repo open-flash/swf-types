@@ -11,9 +11,9 @@ export interface Gradient {
 
 export namespace Gradient {
   export interface Json {
-    "spread-mode": SpreadMode.Json;
-    "interpolation-mode": InterpolationMode;
-    "color-stops": ColorStop.Json[];
+    spread_mode: SpreadMode.Json;
+    interpolation_mode: InterpolationMode;
+    color_stops: ColorStop.Json[];
   }
 
   export const type: DocumentType<Gradient> = new DocumentType<Gradient>({
@@ -22,6 +22,6 @@ export namespace Gradient {
       interpolationMode: {type: InterpolationMode.type},
       colorStops: {type: new ArrayType({itemType: ColorStop.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

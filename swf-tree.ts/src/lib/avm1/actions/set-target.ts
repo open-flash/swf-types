@@ -10,7 +10,7 @@ export interface SetTarget extends ActionBase {
 export namespace SetTarget {
   export interface Json {
     action: "set-target";
-    targetName: string;
+    target_name: string;
   }
 
   export const type: DocumentType<SetTarget> = new DocumentType<SetTarget>({
@@ -18,6 +18,6 @@ export namespace SetTarget {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.SetTarget})},
       targetName: {type: new Ucs2StringType({maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

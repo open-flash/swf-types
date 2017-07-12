@@ -15,6 +15,6 @@ export namespace FsCommand2 {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.FsCommand2})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

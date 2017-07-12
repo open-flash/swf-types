@@ -17,6 +17,6 @@ export namespace Screen2ImageBlockPrimePosition {
       column: {type: new Int32Type()},
       row: {type: new Int32Type()},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

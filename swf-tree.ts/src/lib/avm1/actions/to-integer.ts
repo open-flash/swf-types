@@ -15,6 +15,6 @@ export namespace ToInteger {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.ToInteger})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }

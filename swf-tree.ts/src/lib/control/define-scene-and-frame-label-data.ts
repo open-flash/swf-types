@@ -23,6 +23,6 @@ export namespace DefineSceneAndFrameLabelData {
       scenes: {type: new ArrayType({itemType: Scene.type, maxLength: Infinity})},
       labels: {type: new ArrayType({itemType: Label.type, maxLength: Infinity})},
     },
-    rename: CaseStyle.KebabCase,
+    rename: CaseStyle.SnakeCase,
   });
 }
