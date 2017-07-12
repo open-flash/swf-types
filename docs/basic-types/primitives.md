@@ -59,3 +59,11 @@ n can be in the inclusive range [1, 32].
   | [1, 8]     | `u8`      |
   | [9, 16]    | `u16`     |
   | [17, 32]   | `u32`     |
+
+## Ufixed(i, f)
+
+Unsigned fixed point number with i-bit integral part and f-bit fractional part.
+
+## Sfixed(i, f)
+
+Signed fixed point number with i-bit signed integral part and f-bit fractional part.

@@ -1,5 +1,37 @@
-use header::Header;
-use tags;
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "kebab-case")]
+pub struct ColorTransform {
+  pub red_mult: i16,
+  pub green_mult: i16,
+  pub blue_mult: i16,
+  pub red_add: i16,
+  pub green_add: i16,
+  pub blue_add: i16,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "kebab-case")]
+pub struct ColorTransformWithAlpha {
+  pub red_mult: i16,
+  pub green_mult: i16,
+  pub blue_mult: i16,
+  pub alpha_mult: i16,
+  pub red_add: i16,
+  pub green_add: i16,
+  pub blue_add: i16,
+  pub alpha_add: i16,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "kebab-case")]
+pub struct Matrix {
+  pub scale_x: i32,
+  pub scale_y: i32,
+  pub rotate_skew_0: i32,
+  pub rotate_skew_1: i32,
+  pub translate_x: i32,
+  pub translate_y: i32,
+}
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
@@ -27,24 +59,4 @@ pub struct StraightSRgba {
   pub g: u8,
   pub b: u8,
   pub a: u8,
-}
-
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(tag = "type", rename_all = "kebab-case")]
-pub enum Tag {
-  Unknown(tags::Unknown),
-  End,
-  ShowFrame,
-  PlaceObject(tags::PlaceObject),
-  SetBackgroundColor(tags::SetBackgroundColor),
-  DoAction(tags::DoAction),
-  FileAttributes(tags::FileAttributes),
-  DefineSceneAndFrameLabelData(tags::DefineSceneAndFrameLabelData),
-}
-
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "kebab-case")]
-pub struct SwfFile {
-  pub header: Header,
-  pub tags: Vec<Tag>,
 }

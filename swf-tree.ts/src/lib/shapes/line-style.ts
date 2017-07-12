@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, Int32Type} from "kryo";
-\import {Rgba} from "../basic-types/rgba";
 import {Uint16} from "semantic-types";
+import {Rgba} from "../basic-types/rgba";
 
 export interface LineStyle {
   width: Uint16;

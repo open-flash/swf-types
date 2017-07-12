@@ -1,5 +1,6 @@
 use avm1;
-use basic_types::SRgb;
+use basic_types::{Matrix, Rect, SRgb, StraightSRgba, ColorTransformWithAlpha};
+use shapes::{BlendMode, ClipAction, Filter, Shape};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
@@ -24,6 +25,17 @@ pub struct DefineSceneAndFrameLabelData {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
+pub struct DefineShape {
+  pub id: u16,
+  pub bounds: Rect,
+  pub edge_bounds: Option<Rect>,
+  pub has_fill_winding: bool,
+  pub has_non_scaling_strokes: bool,
+  pub shape: Shape,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "kebab-case")]
 pub struct DoAction {
   pub actions: Vec<avm1::Action>,
 }
@@ -43,10 +55,26 @@ pub struct FileAttributes {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub struct PlaceObject {
-  id: u16,
-  depth: u16,
-  //  matrix: Matrix,
-  //  color_transform: Some(ColoTransform),
+  pub depth: u16,
+  pub character_id: Option<u16>,
+  pub class_name: Option<String>,
+  pub matrix: Option<Matrix>,
+  pub color_transform: Option<ColorTransformWithAlpha>,
+  pub ratio: Option<u16>,
+  pub name: Option<String>,
+  pub clip_depth: Option<u16>,
+  pub filters: Vec<Filter>,
+  pub blend_mode: Option<BlendMode>,
+  pub bitmap_cache: Option<bool>,
+  pub visible: Option<bool>,
+  pub background_color: Option<StraightSRgba>,
+  pub clip_actions: Vec<ClipAction>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "kebab-case")]
+pub struct Metadata {
+  pub metadata: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

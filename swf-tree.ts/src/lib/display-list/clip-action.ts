@@ -3,7 +3,6 @@ import {Uint8} from "semantic-types";
 import {Action} from "../avm1/action";
 import {ClipEventFlags} from "./clip-event-flags";
 
-// TODO: rename to simply ClipAction
 export interface ClipAction {
   eventFlags: ClipEventFlags;
   keyCode?: Uint8;

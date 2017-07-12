@@ -14,7 +14,7 @@ of `TagType`.
 - Typescript: enum
 - Rust: Implicit, name of the corresponding `Tag` variant.
 
-**Important node**: Since this defines the AST of SWF files, there are less tags than in the
+**Important note**: Since this defines the AST of SWF files, there are less tags than in the
 original documentation. Some tags have the same AST but different grammars.
 
 ```

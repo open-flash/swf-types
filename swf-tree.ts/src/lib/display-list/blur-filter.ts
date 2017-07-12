@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
-import {Fixed16P16} from "../../fixed-point/fixed16p16";
 import {Uint8} from "semantic-types";
+import {Fixed16P16} from "../basic-types/fixed-point/fixed16p16";
 import {FilterId} from "./filter-id";
 
 export interface BlurFilter {

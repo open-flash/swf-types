@@ -3,7 +3,7 @@ import {Rgba} from "../basic-types/rgba";
 import {FillStyleType} from "./fill-style-type";
 
 export interface SolidFill {
-  fillStypeType: FillStyleType.Solid;
+  fillStyleType: FillStyleType.Solid;
   color: Rgba;
 }
 
