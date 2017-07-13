@@ -21,7 +21,7 @@ export namespace CurvedEdge {
 
   export const type: DocumentType<CurvedEdge> = new DocumentType<CurvedEdge>({
     properties: {
-      type: {type: new LiteralType({type: ShapeRecordType.type, value: ShapeRecordType.StyleChange})},
+      type: {type: new LiteralType({type: ShapeRecordType.type, value: ShapeRecordType.CurvedEdge})},
       controlDeltaX: {type: new Int32Type()},
       controlDeltay: {type: new Int32Type()},
       anchorDeltaX: {type: new Int32Type()},

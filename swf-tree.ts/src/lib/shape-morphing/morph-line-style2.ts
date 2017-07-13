@@ -1,6 +1,6 @@
 import {BooleanType, CaseStyle, DocumentType, Int32Type} from "kryo";
 import {Uint16} from "semantic-types";
-import {Rgba} from "../basic-types/rgba";
+import {StraightSRgba} from "../basic-types/straight-s-rgba";
 import {CapStyle} from "../shapes/cap-style";
 import {FillStyle} from "../shapes/fill-style";
 import {JoinStyle} from "../shapes/join-style";
@@ -16,8 +16,8 @@ export interface MorphLineStyle2 {
   noClose: boolean;
   endCapStyle: CapStyle;
   miterLimitFactor?: Uint16;
-  startColor?: Rgba;
-  endColor?: Rgba;
+  startColor?: StraightSRgba;
+  endColor?: StraightSRgba;
   fillType?: FillStyle;
 }
 
@@ -33,8 +33,8 @@ export namespace MorphLineStyle2 {
     no_close: boolean;
     end_cap_style: CapStyle.Json;
     miter_limit_factor?: number;
-    start_color?: Rgba.Json;
-    end_color?: Rgba.Json;
+    start_color?: StraightSRgba.Json;
+    end_color?: StraightSRgba.Json;
     fill_type?: FillStyle.Json;
   }
 
@@ -50,8 +50,8 @@ export namespace MorphLineStyle2 {
       noClose: {type: new BooleanType()},
       endCapStyle: {type: CapStyle.type},
       miterLimitFactor: {type: new Int32Type(), optional: true},
-      startColor: {type: Rgba.type, optional: true},
-      endColor: {type: Rgba.type, optional: true},
+      startColor: {type: StraightSRgba.type, optional: true},
+      endColor: {type: StraightSRgba.type, optional: true},
       fillType: {type: FillStyle.type, optional: true},
     },
     rename: CaseStyle.SnakeCase,

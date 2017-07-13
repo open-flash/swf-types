@@ -40,6 +40,6 @@ export namespace FillStyle {
       RepeatingBitmapFill.type,
       SolidFill.type,
     ],
-    tag: "fillStypeType",
+    tag: "fillStyleType",
   });
 }

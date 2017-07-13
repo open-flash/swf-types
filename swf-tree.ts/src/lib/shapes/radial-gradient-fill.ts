@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, LiteralType} from "kryo";
 import {Matrix} from "../basic-types/matrix";
-import {Rgba} from "../basic-types/rgba";
+import {StraightSRgba} from "../basic-types/straight-s-rgba";
 import {Gradient} from "../gradients/gradient";
 import {FillStyleType} from "./fill-style-type";
 
@@ -20,7 +20,7 @@ export namespace RadialGradientFill {
   export const type: DocumentType<RadialGradientFill> = new DocumentType<RadialGradientFill>({
     properties: {
       fillStyleType: {type: new LiteralType({type: FillStyleType.type, value: FillStyleType.RadialGradient})},
-      gradientMatrix: {type: Rgba.type},
+      gradientMatrix: {type: StraightSRgba.type},
       gradient: {type: Gradient.type},
     },
     rename: CaseStyle.SnakeCase,

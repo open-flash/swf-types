@@ -1,6 +1,6 @@
 import {BooleanType, CaseStyle, DocumentType, Int32Type} from "kryo";
 import {Uint16} from "semantic-types";
-import {Rgba} from "../basic-types/rgba";
+import {StraightSRgba} from "../basic-types/straight-s-rgba";
 import {CapStyle} from "./cap-style";
 import {FillStyle} from "./fill-style";
 import {JoinStyle} from "./join-style";
@@ -15,7 +15,7 @@ export interface LineStyle2 {
   noClose: boolean;
   endCapStyle: CapStyle;
   miterLimitFactor?: Uint16;
-  color?: Rgba;
+  color?: StraightSRgba;
   fillType?: FillStyle;
 }
 
@@ -30,7 +30,7 @@ export namespace LineStyle2 {
     no_close: boolean;
     end_cap_style: CapStyle.Json;
     miter_limit_factor?: number;
-    color?: Rgba.Json;
+    color?: StraightSRgba.Json;
     fill_type?: FillStyle.Json;
   }
 
@@ -45,7 +45,7 @@ export namespace LineStyle2 {
       noClose: {type: new BooleanType()},
       endCapStyle: {type: CapStyle.type},
       miterLimitFactor: {type: new Int32Type(), optional: true},
-      color: {type: Rgba.type, optional: true},
+      color: {type: StraightSRgba.type, optional: true},
       fillType: {type: FillStyle.type, optional: true},
     },
     rename: CaseStyle.SnakeCase,

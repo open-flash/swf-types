@@ -1,6 +1,6 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
 import {Float32, Uint8} from "semantic-types";
-import {Rgba} from "../basic-types/rgba";
+import {StraightSRgba} from "../basic-types/straight-s-rgba";
 import {FilterId} from "./filter-id";
 
 export interface ConvolutionFilter {
@@ -10,7 +10,7 @@ export interface ConvolutionFilter {
   divisor: Float32;
   bias: Float32;
   matrix: Float32[];
-  defaultColor: Rgba;
+  defaultColor: StraightSRgba;
   clamp: boolean;
   preserveAlpha: boolean;
 }
@@ -23,7 +23,7 @@ export namespace ConvolutionFilter {
     divisor: number;
     bias: number;
     matrix: number[];
-    default_color: Rgba.Json;
+    default_color: StraightSRgba.Json;
     clamp: boolean;
     preserve_alpha: boolean;
   }
@@ -36,7 +36,7 @@ export namespace ConvolutionFilter {
       divisor: {type: new Float64Type()},
       bias: {type: new Float64Type()},
       matrix: {type: new ArrayType({itemType: new Float64Type(), /* minLength: 20, */ maxLength: 20})},
-      defaultColor: {type: Rgba.type},
+      defaultColor: {type: StraightSRgba.type},
       clamp: {type: new BooleanType()},
       preserveAlpha: {type: new BooleanType()},
     },

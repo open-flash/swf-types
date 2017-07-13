@@ -3,7 +3,7 @@ import {Uint16} from "semantic-types";
 import {ColorTransform} from "../basic-types/color-transform";
 import {ColorTransformWithAlpha} from "../basic-types/color-transform-with-alpha";
 import {Matrix} from "../basic-types/matrix";
-import {Rgba} from "../basic-types/rgba";
+import {StraightSRgba} from "../basic-types/straight-s-rgba";
 import {BlendMode} from "../display-list/blend-mode";
 import {ClipAction} from "../display-list/clip-action";
 import {Filter} from "../display-list/filter";
@@ -24,7 +24,7 @@ export interface PlaceObject extends _Tag {
   blendMode?: BlendMode;
   bitmapCache?: boolean;
   visible?: boolean;
-  backgroundColor?: Rgba;
+  backgroundColor?: StraightSRgba;
   clipActions: ClipAction[];
 }
 
@@ -42,7 +42,7 @@ export namespace PlaceObject {
     filters?: Filter.Json[];
     blend_mode?: BlendMode.Json[];
     bitmap_cache?: boolean;
-    background_color?: Rgba.Json;
+    background_color?: StraightSRgba.Json;
     clip_actions?: ClipAction.Json[];
   }
 
@@ -59,7 +59,7 @@ export namespace PlaceObject {
       filters: {type: new ArrayType({itemType: Filter.type, maxLength: Infinity})},
       bitmapCache: {type: new BooleanType(), optional: true},
       visible: {type: new BooleanType(), optional: true},
-      backgroundColor: {type: Rgba.type, optional: true},
+      backgroundColor: {type: StraightSRgba.type, optional: true},
       clipActions: {type: new ArrayType({itemType: ClipAction.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

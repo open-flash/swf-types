@@ -2,12 +2,12 @@ import {BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralTyp
 import {Uint8} from "semantic-types";
 import {Fixed16P16} from "../basic-types/fixed-point/fixed16p16";
 import {Fixed8P8} from "../basic-types/fixed-point/fixed8p8";
-import {Rgba} from "../basic-types/rgba";
+import {StraightSRgba} from "../basic-types/straight-s-rgba";
 import {FilterId} from "./filter-id";
 
 export interface GlowFilter {
   filterId: FilterId.Glow;
-  glowColor: Rgba;
+  glowColor: StraightSRgba;
   blurX: Fixed16P16;
   blurY: Fixed16P16;
   strength: Fixed8P8;
@@ -20,7 +20,7 @@ export interface GlowFilter {
 export namespace GlowFilter {
   export interface Json {
     filter_id: "bevel";
-    glow_color: Rgba.Json;
+    glow_color: StraightSRgba.Json;
     blur_x: number;
     blur_y: number;
     strength: number;
@@ -33,7 +33,7 @@ export namespace GlowFilter {
   export const type: DocumentType<GlowFilter> = new DocumentType<GlowFilter>({
     properties: {
       filterId: {type: new LiteralType({type: FilterId.type, value: FilterId.Glow})},
-      glowColor: {type: Rgba.type},
+      glowColor: {type: StraightSRgba.type},
       blurX: {type: new Float64Type()},
       blurY: {type: new Float64Type()},
       strength: {type: new Float64Type()},

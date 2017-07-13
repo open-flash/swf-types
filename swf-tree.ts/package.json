@@ -9,7 +9,10 @@
     "type": "git",
     "url": "git@github.com:demurgos/swf-tree.git"
   },
-  "keywords": ["swf", "ast"],
+  "keywords": [
+    "swf",
+    "ast"
+  ],
   "license": "MIT",
   "scripts": {
     "prepare": "gulp all:tsconfig.json && gulp :tslint.json && gulp all:dist",
@@ -21,7 +24,7 @@
   },
   "dependencies": {
     "incident": "^2.0.0",
-    "kryo": "^0.5.0-alpha.7",
+    "kryo": "^0.5.0-alpha.8",
     "semantic-types": "^0.1.1"
   },
   "devDependencies": {

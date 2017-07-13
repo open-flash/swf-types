@@ -17,7 +17,7 @@ export namespace StraightEdge {
 
   export const type: DocumentType<StraightEdge> = new DocumentType<StraightEdge>({
     properties: {
-      type: {type: new LiteralType({type: ShapeRecordType.type, value: ShapeRecordType.StyleChange})},
+      type: {type: new LiteralType({type: ShapeRecordType.type, value: ShapeRecordType.StraightEdge})},
       deltaX: {type: new Int32Type()},
       deltay: {type: new Int32Type()},
     },

@@ -1,12 +1,12 @@
 import {BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
 import {Sfixed16p16, Sfixed8p8, Uint8} from "semantic-types";
-import {Rgba} from "../basic-types/rgba";
+import {StraightSRgba} from "../basic-types/straight-s-rgba";
 import {FilterId} from "./filter-id";
 
 export interface BevelFilter {
   filterId: FilterId.Bevel;
-  shadowColor: Rgba;
-  highlightColor: Rgba;
+  shadowColor: StraightSRgba;
+  highlightColor: StraightSRgba;
   blurX: Sfixed16p16;
   blurY: Sfixed16p16;
   angle: Sfixed16p16;
@@ -22,8 +22,8 @@ export interface BevelFilter {
 export namespace BevelFilter {
   export interface Json {
     filter_id: "bevel";
-    shadow_color: Rgba.Json;
-    highlight_color: Rgba.Json;
+    shadow_color: StraightSRgba.Json;
+    highlight_color: StraightSRgba.Json;
     blur_x: number;
     blur_y: number;
     angle: number;
@@ -39,8 +39,8 @@ export namespace BevelFilter {
   export const type: DocumentType<BevelFilter> = new DocumentType<BevelFilter>({
     properties: {
       filterId: {type: new LiteralType({type: FilterId.type, value: FilterId.Bevel})},
-      shadowColor: {type: Rgba.type},
-      highlightColor: {type: Rgba.type},
+      shadowColor: {type: StraightSRgba.type},
+      highlightColor: {type: StraightSRgba.type},
       blurX: {type: new Float64Type()},
       blurY: {type: new Float64Type()},
       angle: {type: new Float64Type()},

@@ -1,11 +1,11 @@
 import {BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
 import {Sfixed16p16, Sfixed8p8, Uint8} from "semantic-types";
-import {Rgba} from "../basic-types/rgba";
+import {StraightSRgba} from "../basic-types/straight-s-rgba";
 import {FilterId} from "./filter-id";
 
 export interface DropShadowFilter {
   filterId: FilterId.DropShadow;
-  dropShadowColor: Rgba;
+  dropShadowColor: StraightSRgba;
   blurX: Sfixed16p16;
   blurY: Sfixed16p16;
   angle: Sfixed16p16;
@@ -20,7 +20,7 @@ export interface DropShadowFilter {
 export namespace DropShadowFilter {
   export interface Json {
     filter_id: "drop-shadow";
-    drop_shadow_color: Rgba.Json;
+    drop_shadow_color: StraightSRgba.Json;
     blur_x: number;
     blur_y: number;
     angle: number;
@@ -35,7 +35,7 @@ export namespace DropShadowFilter {
   export const type: DocumentType<DropShadowFilter> = new DocumentType<DropShadowFilter>({
     properties: {
       filterId: {type: new LiteralType({type: FilterId.type, value: FilterId.DropShadow})},
-      dropShadowColor: {type: Rgba.type},
+      dropShadowColor: {type: StraightSRgba.type},
       blurX: {type: new Float64Type()},
       blurY: {type: new Float64Type()},
       angle: {type: new Float64Type()},

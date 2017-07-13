@@ -1,7 +1,7 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Matrix} from "../basic-types/matrix";
-import {Rgba} from "../basic-types/rgba";
+import {StraightSRgba} from "../basic-types/straight-s-rgba";
 import {FillStyleType} from "../shapes/fill-style-type";
 
 export interface NonSmoothedClippedBitmapMorphFill {
@@ -24,8 +24,8 @@ export namespace NonSmoothedClippedBitmapMorphFill {
     properties: {
       fillStyleType: {type: new LiteralType({type: FillStyleType.type, value: FillStyleType.NonSmoothedClippedBitmap})},
       bitmapId: {type: new Int32Type()},
-      startBitmapMatrix: {type: Rgba.type},
-      endBitmapMatrix: {type: Rgba.type},
+      startBitmapMatrix: {type: StraightSRgba.type},
+      endBitmapMatrix: {type: StraightSRgba.type},
     },
     rename: CaseStyle.SnakeCase,
   });
