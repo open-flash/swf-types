@@ -1,11 +1,11 @@
 import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
 import {Uint16} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {FontData} from "./font-data";
 
-export interface DefineFont4 extends SwfTagBase {
-  type: SwfTagType.DefineFont4;
+export interface DefineFont4 extends _Tag {
+  type: TagType.DefineFont4;
   fontId: Uint16;
   fontName: string;
   isItalic: boolean;
@@ -25,7 +25,7 @@ export namespace DefineFont4 {
 
   export const type: DocumentType<DefineFont4> = new DocumentType<DefineFont4>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineFont4})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFont4})},
       fontId: {type: new Int32Type()},
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       isItalic: {type: new BooleanType()},

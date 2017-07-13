@@ -1,11 +1,11 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {ColorTransform} from "../basic-types/color-transform";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 
-export interface DefineButtonColorTransform extends SwfTagBase {
-  type: SwfTagType.DefineButtonColorTransform;
+export interface DefineButtonColorTransform extends _Tag {
+  type: TagType.DefineButtonColorTransform;
   buttonId: Uint16;
   transform: ColorTransform;
 }
@@ -19,7 +19,7 @@ export namespace DefineButtonColorTransform {
 
   export const type: DocumentType<DefineButtonColorTransform> = new DocumentType<DefineButtonColorTransform>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineButtonColorTransform})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineButtonColorTransform})},
       buttonId: {type: new Int32Type()},
       transform: {type: ColorTransform.type},
     },

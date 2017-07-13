@@ -1,12 +1,12 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {ButtonCondAction} from "./button-cond-action";
 import {ButtonRecord} from "./button-record";
 
-export interface DefineButton2 extends SwfTagBase {
-  type: SwfTagType.DefineButton2;
+export interface DefineButton2 extends _Tag {
+  type: TagType.DefineButton2;
   buttonId: Uint16;
   trackAsMenu: boolean;
   characters: ButtonRecord[];
@@ -24,7 +24,7 @@ export namespace DefineButton {
 
   export const type: DocumentType<DefineButton2> = new DocumentType<DefineButton2>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineButton2})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineButton2})},
       buttonId: {type: new Int32Type()},
       trackAsMenu: {type: new BooleanType()},
       characters: {type: new ArrayType({itemType: ButtonRecord.type, maxLength: Infinity})},

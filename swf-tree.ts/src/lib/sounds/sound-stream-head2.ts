@@ -1,14 +1,14 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Sint16, Uint16} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {AudioCodingFormat} from "./audio-coding-format";
 import {SoundRate} from "./sound-rate";
 import {SoundSize} from "./sound-size";
 import {SoundType} from "./sound-type";
 
-export interface SoundStreamHead2 extends SwfTagBase {
-  type: SwfTagType.SoundStreamHead2;
+export interface SoundStreamHead2 extends _Tag {
+  type: TagType.SoundStreamHead2;
   playbackSoundRate: SoundRate;
   playbackSoundSize: SoundSize;
   playbackSoundType: SoundType;
@@ -36,7 +36,7 @@ export namespace SoundStreamHead2 {
 
   export const type: DocumentType<SoundStreamHead2> = new DocumentType<SoundStreamHead2>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.SoundStreamHead2})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.SoundStreamHead2})},
       playbackSoundRate: {type: SoundRate.type},
       playbackSoundSize: {type: SoundSize.type},
       playbackSoundType: {type: SoundType.type},

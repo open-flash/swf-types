@@ -1,9 +1,9 @@
 import {CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 
-export interface Metadata extends SwfTagBase {
-  type: SwfTagType.Metadata;
+export interface Metadata extends _Tag {
+  type: TagType.Metadata;
   metadata: string;
 }
 
@@ -15,7 +15,7 @@ export namespace Metadata {
 
   export const type: DocumentType<Metadata> = new DocumentType<Metadata>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.Metadata})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.Metadata})},
       metadata: {type: new Ucs2StringType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

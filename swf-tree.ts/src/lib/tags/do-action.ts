@@ -1,10 +1,10 @@
 import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
 import * as avm1 from "../avm1/index";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "./_base";
+import {_Tag} from "./_tag";
+import {TagType} from "./_type";
 
-export interface DoAction extends SwfTagBase {
-  type: SwfTagType.DoAction;
+export interface DoAction extends _Tag {
+  type: TagType.DoAction;
   actions: avm1.Action[];
 }
 
@@ -16,7 +16,7 @@ export namespace DoAction {
 
   export const type: DocumentType<DoAction> = new DocumentType<DoAction>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DoAction})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DoAction})},
       actions: {type: new ArrayType({itemType: avm1.Action.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

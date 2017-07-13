@@ -1,9 +1,9 @@
 import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "./_base";
+import {_Tag} from "./_tag";
+import {TagType} from "./_type";
 
-export interface ShowFrame extends SwfTagBase {
-  type: SwfTagType.ShowFrame;
+export interface ShowFrame extends _Tag {
+  type: TagType.ShowFrame;
 }
 
 export namespace ShowFrame {
@@ -13,7 +13,7 @@ export namespace ShowFrame {
 
   export const type: DocumentType<ShowFrame> = new DocumentType<ShowFrame>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.ShowFrame})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.ShowFrame})},
     },
     rename: CaseStyle.SnakeCase,
   });

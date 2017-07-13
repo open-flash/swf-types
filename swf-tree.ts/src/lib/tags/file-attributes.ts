@@ -1,9 +1,9 @@
 import {BooleanType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "./_tag";
+import {TagType} from "./_type";
 
-export interface FileAttributes extends SwfTagBase {
-  type: SwfTagType.FileAttributes;
+export interface FileAttributes extends _Tag {
+  type: TagType.FileAttributes;
   useDirectBlit: boolean;
   useGpu: boolean;
   hasMetadata: boolean;
@@ -27,7 +27,7 @@ export namespace FileAttributes {
 
   export const type: DocumentType<FileAttributes> = new DocumentType<FileAttributes>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.FileAttributes})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.FileAttributes})},
       useDirectBlit: {type: new BooleanType()},
       useGpu: {type: new BooleanType()},
       hasMetadata: {type: new BooleanType()},

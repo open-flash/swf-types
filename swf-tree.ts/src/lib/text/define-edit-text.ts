@@ -2,12 +2,12 @@ import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2String
 import {Sint16, Uint16} from "semantic-types";
 import {Rect} from "../basic-types/rect";
 import {Rgba} from "../basic-types/rgba";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {TextAlignment} from "./text-alignment";
 
-export interface DefineEditText extends SwfTagBase {
-  type: SwfTagType.DefineEditText;
+export interface DefineEditText extends _Tag {
+  type: TagType.DefineEditText;
   characterId: Uint16;
   bounds: Rect;
   wordWrap: boolean;
@@ -65,7 +65,7 @@ export namespace DefineText {
 
   export const type: DocumentType<DefineEditText> = new DocumentType<DefineEditText>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineEditText})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineEditText})},
       characterId: {type: new Int32Type()},
       bounds: {type: Rect.type},
       wordWrap: {type: new BooleanType()},

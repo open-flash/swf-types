@@ -1,14 +1,14 @@
 import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {Shape} from "../shapes/shape";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {SimpleShape} from "../shapes/simple-shape";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 
-export interface DefineFont extends SwfTagBase {
-  type: SwfTagType.DefineFont;
+export interface DefineFont extends _Tag {
+  type: TagType.DefineFont;
   fontId: Uint16;
   offsetTable: Uint16[];
-  glyphShapeTable: Shape[];
+  glyphShapeTable: SimpleShape[];
 }
 
 export namespace DefineFont {
@@ -16,15 +16,15 @@ export namespace DefineFont {
     type: "define-font";
     font_id: number;
     offset_table: number[];
-    glyph_shape_table: Shape[];
+    glyph_shape_table: SimpleShape[];
   }
 
   export const type: DocumentType<DefineFont> = new DocumentType<DefineFont>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineFont})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFont})},
       fontId: {type: new Int32Type()},
       offsetTable: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
-      glyphShapeTable: {type: new ArrayType({itemType: Shape.type, maxLength: Infinity})},
+      glyphShapeTable: {type: new ArrayType({itemType: SimpleShape.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });

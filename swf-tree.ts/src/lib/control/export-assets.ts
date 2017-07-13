@@ -1,10 +1,10 @@
 import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {NamedTag} from "./named-tag";
 
-export interface ExportAssets extends SwfTagBase {
-  type: SwfTagType.ExportAssets;
+export interface ExportAssets extends _Tag {
+  type: TagType.ExportAssets;
   assets: NamedTag[];
 }
 
@@ -16,7 +16,7 @@ export namespace ExportAssets {
 
   export const type: DocumentType<ExportAssets> = new DocumentType<ExportAssets>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.ExportAssets})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.ExportAssets})},
       assets: {type: new ArrayType({itemType: NamedTag.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

@@ -1,10 +1,10 @@
 import {CaseStyle, DocumentType, LiteralType} from "kryo";
 import {Rgb} from "../basic-types/rgb";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "./_tag";
+import {TagType} from "./_type";
 
-export interface SetBackgroundColor extends SwfTagBase {
-  type: SwfTagType.SetBackgroundColor;
+export interface SetBackgroundColor extends _Tag {
+  type: TagType.SetBackgroundColor;
   color: Rgb;
 }
 
@@ -16,7 +16,7 @@ export namespace SetBackgroundColor {
 
   export const type: DocumentType<SetBackgroundColor> = new DocumentType<SetBackgroundColor>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.SetBackgroundColor})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.SetBackgroundColor})},
       color: {type: Rgb.type},
     },
     rename: CaseStyle.SnakeCase,

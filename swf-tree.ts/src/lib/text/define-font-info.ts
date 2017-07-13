@@ -1,10 +1,10 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
 import {Uint16} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 
-export interface DefineFontInfo extends SwfTagBase {
-  type: SwfTagType.DefineFontInfo;
+export interface DefineFontInfo extends _Tag {
+  type: TagType.DefineFontInfo;
   fontId: Uint16;
   fontName: string;
   isSmall: boolean;
@@ -30,7 +30,7 @@ export namespace DefineFontInfo {
 
   export const type: DocumentType<DefineFontInfo> = new DocumentType<DefineFontInfo>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineFontInfo})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFontInfo})},
       fontId: {type: new Int32Type()},
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       isSmall: {type: new BooleanType()},

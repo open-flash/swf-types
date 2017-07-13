@@ -31,6 +31,7 @@ pub struct DefineShape {
   pub edge_bounds: Option<Rect>,
   pub has_fill_winding: bool,
   pub has_non_scaling_strokes: bool,
+  pub has_scaling_strokes: bool,
   pub shape: Shape,
 }
 

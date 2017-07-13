@@ -22,13 +22,10 @@ pub use basic_types::Rect;
 pub use basic_types::SRgb;
 pub use basic_types::StraightSRgba;
 
-mod header;
-
-pub use header::CompressionMethod;
-pub use header::Header;
-pub use header::HeaderSignature;
-
 mod structure;
 
+pub use structure::CompressionMethod;
+pub use structure::Header;
 pub use structure::SwfFile;
+pub use structure::SwfSignature;
 pub use structure::Tag;

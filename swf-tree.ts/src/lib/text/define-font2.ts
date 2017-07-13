@@ -2,13 +2,13 @@ import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType,
 import {Sint16, Uint16, Uint32} from "semantic-types";
 import {LanguageCode} from "../basic-types/language-code";
 import {Rect} from "../basic-types/rect";
-import {Shape} from "../shapes/shape";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {SimpleShape} from "../shapes/simple-shape";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {KerningRecord} from "./kerning-record";
 
-export interface DefineFont2 extends SwfTagBase {
-  type: SwfTagType.DefineFont2;
+export interface DefineFont2 extends _Tag {
+  type: TagType.DefineFont2;
   fontId: Uint16;
   fontName: string;
   isSmall: boolean;
@@ -18,7 +18,7 @@ export interface DefineFont2 extends SwfTagBase {
   isBold: boolean;
   languageCode: LanguageCode;
   offsetTable: Uint32[];
-  glyphShapeTable: Shape[];
+  glyphShapeTable: SimpleShape[];
   fontAscent?: Uint16;
   fontDescent?: Uint16;
   fontLeading?: Sint16;
@@ -39,7 +39,7 @@ export namespace DefineFont2 {
     is_bold: boolean;
     language_code: LanguageCode.Json;
     offset_table: number[];
-    glyph_shape_table: Shape[];
+    glyph_shape_table: SimpleShape[];
     font_ascent?: number;
     font_descent?: number;
     font_leading?: number;
@@ -50,7 +50,7 @@ export namespace DefineFont2 {
 
   export const type: DocumentType<DefineFont2> = new DocumentType<DefineFont2>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineFont2})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFont2})},
       fontId: {type: new Int32Type()},
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       isSmall: {type: new BooleanType()},
@@ -60,7 +60,7 @@ export namespace DefineFont2 {
       isBold: {type: new BooleanType()},
       languageCode: {type: LanguageCode.type},
       offsetTable: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
-      glyphShapeTable: {type: new ArrayType({itemType: Shape.type, maxLength: Infinity})},
+      glyphShapeTable: {type: new ArrayType({itemType: SimpleShape.type, maxLength: Infinity})},
       fontAscent: {type: new Int32Type(), optional: true},
       fontDescent: {type: new Int32Type(), optional: true},
       fontLeading: {type: new Int32Type(), optional: true},

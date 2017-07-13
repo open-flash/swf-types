@@ -4,23 +4,23 @@ import {ColorTransform} from "../basic-types/color-transform";
 import {ColorTransformWithAlpha} from "../basic-types/color-transform-with-alpha";
 import {Matrix} from "../basic-types/matrix";
 import {Rgba} from "../basic-types/rgba";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
-import {BlendMode} from "./blend-mode";
-import {ClipAction} from "./clip-action";
-import {Filter} from "./filter";
+import {BlendMode} from "../display-list/blend-mode";
+import {ClipAction} from "../display-list/clip-action";
+import {Filter} from "../display-list/filter";
+import {_Tag} from "./_tag";
+import {TagType} from "./_type";
 
-export interface PlaceObject3 extends SwfTagBase {
-  type: SwfTagType.PlaceObject3;
+export interface PlaceObject extends _Tag {
+  type: TagType.PlaceObject;
   depth: Uint16;
-  className?: string;
   characterId?: Uint16;
+  className?: string;
   matrix?: Matrix;
   colorTransform?: ColorTransformWithAlpha;
   ratio?: Uint16;
   name?: string;
   clipDepth?: Uint16;
-  surfaceFilterList: Filter[];
+  filters: Filter[];
   blendMode?: BlendMode;
   bitmapCache?: boolean;
   visible?: boolean;
@@ -28,27 +28,27 @@ export interface PlaceObject3 extends SwfTagBase {
   clipActions: ClipAction[];
 }
 
-export namespace PlaceObject3 {
+export namespace PlaceObject {
   export interface Json {
     type: "place-object3";
     depth: number;
-    class_name?: string;
     character_id?: number;
+    class_name?: string;
     matrix: Matrix.Json;
     color_transform?: ColorTransform.Json;
     ratio?: number;
     name?: string;
     clip_depth?: number;
-    surface_filter_list?: Filter.Json[];
+    filters?: Filter.Json[];
     blend_mode?: BlendMode.Json[];
     bitmap_cache?: boolean;
     background_color?: Rgba.Json;
     clip_actions?: ClipAction.Json[];
   }
 
-  export const type: DocumentType<PlaceObject3> = new DocumentType<PlaceObject3>({
+  export const type: DocumentType<PlaceObject> = new DocumentType<PlaceObject>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.PlaceObject2})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.PlaceObject})},
       depth: {type: new Int32Type()},
       characterId: {type: new Int32Type(), optional: true},
       matrix: {type: Matrix.type, optional: true},
@@ -56,7 +56,7 @@ export namespace PlaceObject3 {
       ratio: {type: new Int32Type(), optional: true},
       name: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
       clipDepth: {type: new Int32Type(), optional: true},
-      surfaceFilterList: {type: new ArrayType({itemType: Filter.type, maxLength: Infinity})},
+      filters: {type: new ArrayType({itemType: Filter.type, maxLength: Infinity})},
       bitmapCache: {type: new BooleanType(), optional: true},
       visible: {type: new BooleanType(), optional: true},
       backgroundColor: {type: Rgba.type, optional: true},

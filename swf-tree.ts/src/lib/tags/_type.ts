@@ -1,17 +1,12 @@
 import {CaseStyle, SimpleEnumType} from "kryo";
 
-export enum SwfTagType {
+export enum TagType {
   CharacterSet,
   CsmTextSettings,
   DebugId,
   DefineBehaviour,
   DefineBinaryData,
-  DefineBits,
-  DefineBitsJpeg2,
-  DefineBitsJpeg3,
-  DefineBitsJpeg4,
-  DefineBitsLossless,
-  DefineBitsLossless2,
+  DefineBitmap,
   DefineButton,
   DefineButton2,
   DefineButtonColorTransform,
@@ -27,14 +22,13 @@ export enum SwfTagType {
   DefineFontInfo2,
   DefineFontName,
   DefineFunction,
+  DefineJpeg,
   DefineMorphShape,
   DefineMorphShape2,
+  DefinePartialJpeg,
   DefineScalingGrid,
   DefineSceneAndFrameLabelData,
   DefineShape,
-  DefineShape2,
-  DefineShape3,
-  DefineShape4,
   DefineSound,
   DefineSprite,
   DefineText,
@@ -48,7 +42,6 @@ export enum SwfTagType {
   DoInitAction,
   EnableDebugger,
   EnableDebugger2,
-  End,
   ExportAssets,
   ExternalFont,
   FileAttributes,
@@ -66,8 +59,6 @@ export enum SwfTagType {
   PathsArePostscript,
   PlaceFunction,
   PlaceObject,
-  PlaceObject2,
-  PlaceObject3,
   ProductInfo,
   Protect,
   RemoveObject,
@@ -89,19 +80,14 @@ export enum SwfTagType {
   Unknown,
 }
 
-export namespace SwfTagType {
+export namespace TagType {
   export type Json =
     "character-set"
     | "csm-text-settings"
     | "debug-id"
     | "define-behaviour"
     | "define-binary-data"
-    | "define-bits"
-    | "define-bits-jpeg2"
-    | "define-bits-jpeg3"
-    | "define-bits-jpeg4"
-    | "define-bits-lossless"
-    | "define-bits-lossless2"
+    | "define-bitmap"
     | "define-button"
     | "define-button2"
     | "define-button-color-transform"
@@ -117,8 +103,10 @@ export namespace SwfTagType {
     | "define-font-info2"
     | "define-font-name"
     | "define-function"
+    | "define-jpeg"
     | "define-morph-shape"
     | "define-morph-shape2"
+    | "define-partial-jpeg"
     | "define-scaling-grid"
     | "define-scene-and-frame-label-data"
     | "define-shape"
@@ -138,7 +126,6 @@ export namespace SwfTagType {
     | "do-init-action"
     | "enable-debugger"
     | "enable-debugger2"
-    | "end"
     | "export-assets"
     | "external-font"
     | "file-attributes"
@@ -156,8 +143,6 @@ export namespace SwfTagType {
     | "paths-are-postscript"
     | "place-function"
     | "place-object"
-    | "place-object2"
-    | "place-object3"
     | "product-info"
     | "protect"
     | "remove-object"
@@ -178,8 +163,8 @@ export namespace SwfTagType {
     | "video-frame"
     | "unknown";
 
-  export const type: SimpleEnumType<SwfTagType> = new SimpleEnumType<SwfTagType>({
-    enum: SwfTagType,
+  export const type: SimpleEnumType<TagType> = new SimpleEnumType<TagType>({
+    enum: TagType,
     rename: CaseStyle.KebabCase,
   });
 }

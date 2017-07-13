@@ -1,14 +1,14 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
 import {Uint16, Uint32} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {AudioCodingFormat} from "./audio-coding-format";
 import {SoundRate} from "./sound-rate";
 import {SoundSize} from "./sound-size";
 import {SoundType} from "./sound-type";
 
-export interface DefineSound extends SwfTagBase {
-  type: SwfTagType.DefineSound;
+export interface DefineSound extends _Tag {
+  type: TagType.DefineSound;
   soundId: Uint16;
   soundFormat: AudioCodingFormat;
   soundRate: SoundRate;
@@ -32,7 +32,7 @@ export namespace DefineSound {
 
   export const type: DocumentType<DefineSound> = new DocumentType<DefineSound>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineSound})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineSound})},
       soundId: {type: new Int32Type()},
       soundFormat: {type: AudioCodingFormat.type},
       soundRate: {type: SoundRate.type},

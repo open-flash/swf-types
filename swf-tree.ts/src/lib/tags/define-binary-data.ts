@@ -1,10 +1,10 @@
 import {BufferType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "./_tag";
+import {TagType} from "./_type";
 
-export interface DefineBinaryData extends SwfTagBase {
-  type: SwfTagType.DefineBinaryData;
+export interface DefineBinaryData extends _Tag {
+  type: TagType.DefineBinaryData;
   id: Uint16;
   data: Uint8Array;
 }
@@ -18,7 +18,7 @@ export namespace DefineBinaryData {
 
   export const type: DocumentType<DefineBinaryData> = new DocumentType<DefineBinaryData>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineBinaryData})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineBinaryData})},
       id: {type: new Int32Type()},
       data: {type: new BufferType({maxLength: Infinity})},
     },

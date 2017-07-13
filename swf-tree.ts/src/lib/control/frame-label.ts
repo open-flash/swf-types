@@ -1,9 +1,9 @@
 import {BooleanType, CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 
-export interface FrameLabel extends SwfTagBase {
-  type: SwfTagType.FrameLabel;
+export interface FrameLabel extends _Tag {
+  type: TagType.FrameLabel;
   name: string;
   anchorFlag?: boolean;
 }
@@ -17,7 +17,7 @@ export namespace FrameLabel {
 
   export const type: DocumentType<FrameLabel> = new DocumentType<FrameLabel>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.FrameLabel})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.FrameLabel})},
       name: {type: new Ucs2StringType({maxLength: Infinity})},
       anchorFlag: {type: new BooleanType(), optional: true},
     },

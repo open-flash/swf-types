@@ -1,9 +1,9 @@
 import {CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 
-export interface SoundStreamBlock extends SwfTagBase {
-  type: SwfTagType.SoundStreamBlock;
+export interface SoundStreamBlock extends _Tag {
+  type: TagType.SoundStreamBlock;
   streamSoundData: Buffer;
 }
 
@@ -15,7 +15,7 @@ export namespace SoundStreamBlock {
 
   export const type: DocumentType<SoundStreamBlock> = new DocumentType<SoundStreamBlock>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.SoundStreamBlock})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.SoundStreamBlock})},
       streamSoundData: {type: new Ucs2StringType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

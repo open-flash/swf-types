@@ -1,11 +1,11 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {ButtonSound} from "./button-sound";
 
-export interface DefineButtonSound extends SwfTagBase {
-  type: SwfTagType.DefineButtonSound;
+export interface DefineButtonSound extends _Tag {
+  type: TagType.DefineButtonSound;
   buttonId: Uint16;
   overUpToIdle?: ButtonSound;
   idleToOverUp?: ButtonSound;
@@ -25,7 +25,7 @@ export namespace DefineButtonSound {
 
   export const type: DocumentType<DefineButtonSound> = new DocumentType<DefineButtonSound>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineButtonSound})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineButtonSound})},
       buttonId: {type: new Int32Type()},
       overUpToIdle: {type: ButtonSound.type, optional: true},
       idleToOverUp: {type: ButtonSound.type, optional: true},

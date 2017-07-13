@@ -1,7 +1,7 @@
-# SetJpegTables
+# JpegTables
 
 ```
-interface SetJpegTables variantof Tag(type) {
+interface JpegTables variantof Tag(type) {
   data: Buffer;
 }
 ```

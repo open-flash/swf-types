@@ -1,11 +1,11 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {SoundInfo} from "./sound-info";
 
-export interface StartSound extends SwfTagBase {
-  type: SwfTagType.StartSound;
+export interface StartSound extends _Tag {
+  type: TagType.StartSound;
   soundId: Uint16;
   soundInfo: SoundInfo;
 }
@@ -19,7 +19,7 @@ export namespace StartSound {
 
   export const type: DocumentType<StartSound> = new DocumentType<StartSound>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.StartSound})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.StartSound})},
       soundId: {type: new Int32Type()},
       soundInfo: {type: SoundInfo.type},
     },

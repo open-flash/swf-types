@@ -1,9 +1,9 @@
 import {CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 
-export interface EnableDebugger extends SwfTagBase {
-  type: SwfTagType.EnableDebugger;
+export interface EnableDebugger extends _Tag {
+  type: TagType.EnableDebugger;
   password: string;
 }
 
@@ -15,7 +15,7 @@ export namespace EnableDebugger {
 
   export const type: DocumentType<EnableDebugger> = new DocumentType<EnableDebugger>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.EnableDebugger})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.EnableDebugger})},
       password: {type: new Ucs2StringType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

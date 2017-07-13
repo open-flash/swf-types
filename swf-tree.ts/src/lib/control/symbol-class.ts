@@ -1,10 +1,10 @@
 import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {NamedTag} from "./named-tag";
 
-export interface SymbolClass extends SwfTagBase {
-  type: SwfTagType.SymbolClass;
+export interface SymbolClass extends _Tag {
+  type: TagType.SymbolClass;
   symbols: NamedTag[];
 }
 
@@ -16,7 +16,7 @@ export namespace SymbolClass {
 
   export const type: DocumentType<SymbolClass> = new DocumentType<SymbolClass>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.SymbolClass})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.SymbolClass})},
       symbols: {type: new ArrayType({itemType: NamedTag.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

@@ -2,12 +2,12 @@ import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Matrix} from "../basic-types/matrix";
 import {Rect} from "../basic-types/rect";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 import {TextRecord} from "./text-record";
 
-export interface DefineText extends SwfTagBase {
-  type: SwfTagType.DefineText;
+export interface DefineText extends _Tag {
+  type: TagType.DefineText;
   characterId: Uint16;
   textBounds: Rect;
   textMatrix: Matrix;
@@ -25,7 +25,7 @@ export namespace DefineText {
 
   export const type: DocumentType<DefineText> = new DocumentType<DefineText>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.DefineText})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineText})},
       characterId: {type: new Int32Type()},
       textBounds: {type: Rect.type},
       textMatrix: {type: Matrix.type},

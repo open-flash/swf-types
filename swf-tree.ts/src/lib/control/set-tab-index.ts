@@ -1,10 +1,10 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 
-export interface SetTabIndex extends SwfTagBase {
-  type: SwfTagType.SetTabIndex;
+export interface SetTabIndex extends _Tag {
+  type: TagType.SetTabIndex;
   depth: Uint16;
   tabIndex: Uint16;
 }
@@ -18,7 +18,7 @@ export namespace SetTabIndex {
 
   export const type: DocumentType<SetTabIndex> = new DocumentType<SetTabIndex>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.SetTabIndex})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.SetTabIndex})},
       depth: {type: new Int32Type()},
       tabIndex: {type: new Int32Type()},
     },

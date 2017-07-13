@@ -4,20 +4,20 @@ import {Ufixed8P8} from "../basic-types/fixed-point/ufixed8p8";
 import {Rect} from "../basic-types/rect";
 import {SwfSignature} from "./swf-signature";
 
-export interface SwfHeader extends SwfSignature {
+export interface Header extends SwfSignature {
   frameSize: Rect;
   frameRate: Ufixed8p8;
   frameCount: Uint16;
 }
 
-export namespace SwfHeader {
+export namespace Header {
   export interface Json extends SwfSignature.Json {
     frame_size: Rect.Json;
     frame_rate: number;
     frame_count: number;
   }
 
-  export const type: DocumentType<SwfHeader> = new DocumentType<SwfHeader>({
+  export const type: DocumentType<Header> = new DocumentType<Header>({
     properties: {
       ...SwfSignature.type.properties,
       frameSize: {type: Rect.type},

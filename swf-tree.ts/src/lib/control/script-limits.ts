@@ -1,10 +1,10 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {SwfTagType} from "../swf-tag-type";
-import {SwfTagBase} from "../swf-tags/_base";
+import {_Tag} from "../tags/_tag";
+import {TagType} from "../tags/_type";
 
-export interface ScriptLimits extends SwfTagBase {
-  type: SwfTagType.ScriptLimits;
+export interface ScriptLimits extends _Tag {
+  type: TagType.ScriptLimits;
   maxRecursionDepth: Uint16;
   scriptTimeoutSeconds: Uint16;
 }
@@ -18,7 +18,7 @@ export namespace ScriptLimits {
 
   export const type: DocumentType<ScriptLimits> = new DocumentType<ScriptLimits>({
     properties: {
-      type: {type: new LiteralType({type: SwfTagType.type, value: SwfTagType.ScriptLimits})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.ScriptLimits})},
       maxRecursionDepth: {type: new Int32Type()},
       scriptTimeoutSeconds: {type: new Int32Type()},
     },
