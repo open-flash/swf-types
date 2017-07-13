@@ -1,9 +1,15 @@
 {
   "name": "swf-tree",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "homepage": "https://github.com/demurgos/swf-tree",
   "description": "Abstract Syntax Tree for SWF",
-  "private": true,
-  "keywords": [],
+  "main": "dist/lib-es2015/lib/index.js",
+  "types": "dist/lib-es2015/lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:demurgos/swf-tree.git"
+  },
+  "keywords": ["swf", "ast"],
   "license": "MIT",
   "scripts": {
     "prepare": "gulp all:tsconfig.json && gulp :tslint.json && gulp all:dist",
