@@ -1,7 +1,6 @@
 import {Incident} from "incident";
 import * as kryo from "kryo";
 import {FixedPoint, FixedPointConstructor} from "./fixed-point";
-import leftPad = require("left-pad");
 
 export type Name = "fixed-point";
 export const name: Name = "fixed-point";
@@ -112,8 +111,9 @@ export class FixedPointType<T extends FixedPoint>
         const sign: "+" | "-" = val.epsilons < 0 ? "-" : "+";
         const fracPart: number = Math.abs(val.epsilons) % Math.pow(2, this.type.fracBits);
         const intPart: number = (Math.abs(val.epsilons) - fracPart) / Math.pow(2, this.type.fracBits);
-        const fracStr: string = leftPad(fracPart.toString(16), this.type.fracBits / 4, "0");
-        const intStr: string = leftPad(intPart.toString(16), this.type.intBits / 4, "0");
+        // TODO(demurgos): Remove `any` when type definitions for ES2018 strings are available
+        const fracStr: string = (fracPart.toString(16) as any).padStart(this.type.fracBits / 4, "0");
+        const intStr: string = (intPart.toString(16) as any).padStart(this.type.intBits / 4, "0");
         return `${sign}0x${intStr}.${fracStr}`;
       default:
         return undefined as never;
