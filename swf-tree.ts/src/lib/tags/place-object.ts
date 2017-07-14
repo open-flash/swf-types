@@ -1,12 +1,12 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
 import {Uint16} from "semantic-types";
-import {ColorTransform} from "../basic-types/color-transform";
-import {ColorTransformWithAlpha} from "../basic-types/color-transform-with-alpha";
-import {Matrix} from "../basic-types/matrix";
-import {StraightSRgba} from "../basic-types/straight-s-rgba";
-import {BlendMode} from "../display-list/blend-mode";
+import {BlendMode} from "../blend-mode";
+import {ColorTransform} from "../color-transform";
+import {ColorTransformWithAlpha} from "../color-transform-with-alpha";
 import {ClipAction} from "../display-list/clip-action";
-import {Filter} from "../display-list/filter";
+import {Filter} from "../filter";
+import {Matrix} from "../matrix";
+import {StraightSRgba8} from "../straight-s-rgba8";
 import {_Tag} from "./_tag";
 import {TagType} from "./_type";
 
@@ -24,7 +24,7 @@ export interface PlaceObject extends _Tag {
   blendMode?: BlendMode;
   bitmapCache?: boolean;
   visible?: boolean;
-  backgroundColor?: StraightSRgba;
+  backgroundColor?: StraightSRgba8;
   clipActions: ClipAction[];
 }
 
@@ -42,7 +42,7 @@ export namespace PlaceObject {
     filters?: Filter.Json[];
     blend_mode?: BlendMode.Json[];
     bitmap_cache?: boolean;
-    background_color?: StraightSRgba.Json;
+    background_color?: StraightSRgba8.Json;
     clip_actions?: ClipAction.Json[];
   }
 
@@ -59,7 +59,7 @@ export namespace PlaceObject {
       filters: {type: new ArrayType({itemType: Filter.type, maxLength: Infinity})},
       bitmapCache: {type: new BooleanType(), optional: true},
       visible: {type: new BooleanType(), optional: true},
-      backgroundColor: {type: StraightSRgba.type, optional: true},
+      backgroundColor: {type: StraightSRgba8.type, optional: true},
       clipActions: {type: new ArrayType({itemType: ClipAction.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

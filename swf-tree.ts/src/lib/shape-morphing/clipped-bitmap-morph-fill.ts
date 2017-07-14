@@ -1,8 +1,8 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {Matrix} from "../basic-types/matrix";
-import {StraightSRgba} from "../basic-types/straight-s-rgba";
-import {FillStyleType} from "../shapes/fill-style-type";
+import {Matrix} from "../matrix";
+import {FillStyleType} from "../shapes/fills/_type";
+import {StraightSRgba8} from "../straight-s-rgba8";
 
 export interface ClippedBitmapMorphFill {
   fillStypeType: FillStyleType.ClippedBitmap;
@@ -23,8 +23,8 @@ export namespace ClippedBitmapMorphFill {
     properties: {
       fillStyleType: {type: new LiteralType({type: FillStyleType.type, value: FillStyleType.ClippedBitmap})},
       bitmapId: {type: new Int32Type()},
-      startBitmapMatrix: {type: StraightSRgba.type},
-      endBitmapMatrix: {type: StraightSRgba.type},
+      startBitmapMatrix: {type: StraightSRgba8.type},
+      endBitmapMatrix: {type: StraightSRgba8.type},
     },
     rename: CaseStyle.SnakeCase,
   });

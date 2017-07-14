@@ -61,6 +61,7 @@ pub struct LineStyle {
   pub no_h_scale: bool,
   pub no_v_scale: bool,
   pub no_close: bool,
+  pub pixel_hinting: bool,
   pub fill: FillStyle,
 }
 

@@ -1,7 +1,7 @@
 import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
 import {Sint16, Uint16} from "semantic-types";
-import {Rect} from "../basic-types/rect";
-import {StraightSRgba} from "../basic-types/straight-s-rgba";
+import {Rect} from "../rect";
+import {StraightSRgba8} from "../straight-s-rgba8";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
 import {TextAlignment} from "./text-alignment";
@@ -23,7 +23,7 @@ export interface DefineEditText extends _Tag {
   fontId?: Uint16;
   fontHeight?: Uint16;
   fontClass?: string;
-  textColor?: StraightSRgba;
+  textColor?: StraightSRgba8;
   maxLength?: Uint16;
   align?: TextAlignment;
   leftMargin?: Uint16;
@@ -52,7 +52,7 @@ export namespace DefineText {
     font_id?: Uint16;
     font_height?: Uint16;
     font_class?: string;
-    text_color?: StraightSRgba;
+    text_color?: StraightSRgba8;
     max_length?: Uint16;
     align?: TextAlignment;
     left_margin?: Uint16;
@@ -81,7 +81,7 @@ export namespace DefineText {
       fontId: {type: new Int32Type(), optional: true},
       fontHeight: {type: new Int32Type(), optional: true},
       fontClass: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
-      textColor: {type: StraightSRgba.type, optional: true},
+      textColor: {type: StraightSRgba8.type, optional: true},
       maxLength: {type: new Int32Type(), optional: true},
       align: {type: TextAlignment.type, optional: true},
       leftMargin: {type: new Int32Type(), optional: true},

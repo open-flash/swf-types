@@ -1,7 +1,7 @@
 import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Matrix} from "../basic-types/matrix";
-import {StraightSRgba} from "../basic-types/straight-s-rgba";
-import {FillStyleType} from "../shapes/fill-style-type";
+import {Matrix} from "../matrix";
+import {FillStyleType} from "../shapes/fills/_type";
+import {StraightSRgba8} from "../straight-s-rgba8";
 
 export interface FocalRadialGradientMorphFill {
   fillStypeType: FillStyleType.FocalRadialGradient;
@@ -22,8 +22,8 @@ export namespace FocalRadialGradientMorphFill {
   export const type: DocumentType<FocalRadialGradientMorphFill> = new DocumentType<FocalRadialGradientMorphFill>({
     properties: {
       fillStyleType: {type: new LiteralType({type: FillStyleType.type, value: FillStyleType.FocalRadialGradient})},
-      startGradientMatrix: {type: StraightSRgba.type},
-      endGradientMatrix: {type: StraightSRgba.type},
+      startGradientMatrix: {type: StraightSRgba8.type},
+      endGradientMatrix: {type: StraightSRgba8.type},
       gradient: null as any,
     },
     rename: CaseStyle.SnakeCase,

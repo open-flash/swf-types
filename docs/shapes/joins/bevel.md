@@ -1,6 +1,6 @@
 # Bevel
 
 ```
-interface Bevel variantof FillStyle(type) {
+interface Bevel variantof JoinStyle(type) {
 }
 ```

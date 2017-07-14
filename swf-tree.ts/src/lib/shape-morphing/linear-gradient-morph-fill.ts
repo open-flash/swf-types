@@ -1,7 +1,7 @@
 import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Matrix} from "../basic-types/matrix";
-import {StraightSRgba} from "../basic-types/straight-s-rgba";
-import {FillStyleType} from "../shapes/fill-style-type";
+import {Matrix} from "../matrix";
+import {FillStyleType} from "../shapes/fills/_type";
+import {StraightSRgba8} from "../straight-s-rgba8";
 import {MorphGradient} from "./morph-gradient";
 
 export interface LinearGradientMorphFill {
@@ -22,8 +22,8 @@ export namespace LinearGradientMorphFill {
   export const type: DocumentType<LinearGradientMorphFill> = new DocumentType<LinearGradientMorphFill>({
     properties: {
       fillStyleType: {type: new LiteralType({type: FillStyleType.type, value: FillStyleType.LinearGradient})},
-      startGradientMatrix: {type: StraightSRgba.type},
-      endGradientMatrix: {type: StraightSRgba.type},
+      startGradientMatrix: {type: StraightSRgba8.type},
+      endGradientMatrix: {type: StraightSRgba8.type},
       gradient: {type: MorphGradient.type},
     },
     rename: CaseStyle.SnakeCase,

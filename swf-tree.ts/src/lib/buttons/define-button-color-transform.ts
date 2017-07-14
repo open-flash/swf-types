@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {ColorTransform} from "../basic-types/color-transform";
+import {ColorTransform} from "../color-transform";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
 

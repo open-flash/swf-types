@@ -1,19 +1,23 @@
-import {CaseStyle, SimpleEnumType} from "kryo";
+import {TaggedUnionType} from "kryo";
+import * as joins from "./joins/index";
 
-export enum JoinStyle {
-  Round,
-  Bevel,
-  Miter,
-}
+export type JoinStyle =
+  joins.Bevel
+  | joins.Miter
+  | joins.Round;
 
 export namespace JoinStyle {
   export type Json =
-    "round"
-    | "bevel"
-    | "miter";
+    joins.Bevel.Json
+    | joins.Miter.Json
+    | joins.Round.Json;
 
-  export const type: SimpleEnumType<JoinStyle> = new SimpleEnumType<JoinStyle>({
-    enum: JoinStyle,
-    rename: CaseStyle.KebabCase,
+  export const type: TaggedUnionType<JoinStyle> = new TaggedUnionType<JoinStyle>({
+    variants: [
+      joins.Bevel.type,
+      joins.Miter.type,
+      joins.Round.type,
+    ],
+    tag: "type",
   });
 }

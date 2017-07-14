@@ -1,6 +1,6 @@
 import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {Tag} from "../structure/tag";
+import {Tag} from "../tag";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
 

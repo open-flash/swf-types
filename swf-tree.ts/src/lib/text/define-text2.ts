@@ -1,7 +1,7 @@
 import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
-import {Matrix} from "../basic-types/matrix";
-import {Rect} from "../basic-types/rect";
+import {Matrix} from "../matrix";
+import {Rect} from "../rect";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
 import {TextRecord} from "./text-record";

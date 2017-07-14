@@ -7,6 +7,7 @@ export {DefineShape} from "./define-shape";
 export {DoAction} from "./do-action";
 export {FileAttributes} from "./file-attributes";
 export {JpegTables} from "./jpeg-tables";
+export {Metadata} from "./metadata";
 export {PlaceObject} from "./place-object";
 export {SetBackgroundColor} from "./set-background-color";
 export {ShowFrame} from "./show-frame";

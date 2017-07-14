@@ -1,6 +1,6 @@
 import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16, Uint32} from "semantic-types";
-import {Rect} from "../basic-types/rect";
+import {Rect} from "../rect";
 import {SimpleShape} from "../shapes/simple-shape";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";

@@ -1,7 +1,7 @@
 import {TaggedUnionType} from "kryo";
-import {CurvedEdge} from "./curved-edge";
-import {StraightEdge} from "./straight-edge";
-import {StyleChange} from "./style-change";
+import {CurvedEdge} from "./records/curved-edge";
+import {StraightEdge} from "./records/straight-edge";
+import {StyleChange} from "./records/style-change";
 
 export type ShapeRecord =
   CurvedEdge

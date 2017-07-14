@@ -1,7 +1,7 @@
 # Miter
 
 ```
-interface Miter variantof FillStyle(type) {
+interface Miter variantof JoinStyle(type) {
   limit: Uint(16);
 }
 ```
