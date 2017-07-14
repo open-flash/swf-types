@@ -4,79 +4,44 @@ pub mod actions;
 #[serde(tag = "action", rename_all = "kebab-case")]
 pub enum Action {
   Unknown(actions::UnknownAction),
-  NextFrame,
-  // 0x04
-  PrevFrame,
-  // 0x05
-  Play,
-  // 0x06
-  Stop,
-  // 0x07
-  ToggleQuality,
-  // 0x08
-  StopSounds,
-  // 0x09
   Add,
-  // 0x0a
-  Subtract,
-  // 0x0b
-  Multiply,
-  // 0x0c
-  Divide,
-  // 0x0d
-  Equals,
-  // 0x0e
-  Less,
-  // 0x0f
   And,
-  // 0x10
-  Or,
-  // 0x11
-  Not,
-  // 0x12
-  StringEquals,
-  // 0x13
-  StringLength,
-  // 0x14
-  StringExtract,
-  // 0x15
-  Pop,
-  // 0x17
-  ToInteger,
-  // 0x17
-  GetVariable,
-  // 0x1c
-  SetVariable,
-  // 0x1d
-  SetTarget2,
-  // 0x20
-  StringAdd,
-  // 0x21
-  GetProperty,
-  // 0x22
-  SetProperty,
-  // 0x23
-  CloneSprite,
-  // 0x24
-  RemoveSprite,
-  // 0x25
-  Trace,
-  // 0x26
-  StartDrag,
-  // 0x27
-  EndDrag,
-  // 0x28
-  StringLess,
-  // 0x29
-  Throw,
-  // 0x2a
   CastOp,
-  // 0x2b
+  CloneSprite,
+  Divide,
+  Equals,
+  EndDrag,
+  FsCommand2,
+  GetProperty,
+  GetVariable,
   ImplementsOp,
-  // 0x2c
-  RandomNumber,
-  // 0x30
+  Less,
   MbStringLength,
+  Multiply,
+  NextFrame,
+  Not,
+  Or,
+  PrevFrame,
+  Play,
+  Pop,
+  RandomNumber,
+  RemoveSprite,
+  SetProperty,
+  SetTarget2,
+  SetVariable,
+  StartDrag,
+  Stop,
+  StopSounds,
+  StringAdd,
+  StringEquals,
+  StringExtract,
+  StringLength,
+  StringLess,
+  Subtract,
+  Throw,
+  ToInteger,
+  ToggleQuality,
+  Trace,
   // 0x31
   CharToAscii,
   // 0x32

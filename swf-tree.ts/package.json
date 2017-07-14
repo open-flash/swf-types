@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "incident": "^2.0.0",
-    "kryo": "^0.5.0-alpha.8",
+    "kryo": "^0.5.0-alpha.9",
     "semantic-types": "^0.1.1"
   },
   "devDependencies": {

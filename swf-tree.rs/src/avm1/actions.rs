@@ -98,18 +98,17 @@ pub enum CatchTarget {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct Try {
-  pub try_size: usize,
+  pub try: Vec<super::Action>,
   pub catch_target: CatchTarget,
-  pub catch_size: usize,
-  pub finally_size: usize,
+  pub catch: Option<Vec<super::Action>>,
+  pub finally: Option<Vec<super::Action>>,
 }
 
 // Action code 0x94
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct With {
-  pub code_size: usize,
-  // TODO: body: Vec<Action>
+  pub with: Vec<super::Action>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -137,7 +136,7 @@ pub struct Push {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct Jump {
-  pub branch_offset: i16,
+  pub offset: isize,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -179,7 +178,7 @@ pub struct If {
 #[serde(rename_all = "snake_case")]
 pub struct GotoFrame2 {
   pub play: bool,
-  pub scene_bias: Option<usize>,
+  pub scene_bias: usize,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
