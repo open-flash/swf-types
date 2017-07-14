@@ -32,7 +32,7 @@ export namespace StyleChange {
       type: {
         type: new LiteralType({
           type: ShapeRecordType.type,
-          value: ShapeRecordType.StyleChange
+          value: ShapeRecordType.StyleChange,
         }),
       },
       deltaX: {type: new Int32Type(), optional: true},

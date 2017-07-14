@@ -1,6 +1,6 @@
 {
   "name": "swf-tree",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/demurgos/swf-tree",
   "description": "Abstract Syntax Tree for SWF",
   "main": "dist/lib-es2015/lib/index.js",

@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Matrix} from "../../matrix";
 import {Gradient} from "../../gradients/gradient";
+import {Matrix} from "../../matrix";
 import {StraightSRgba8} from "../../straight-s-rgba8";
 import {FillStyleType} from "./_type";
 

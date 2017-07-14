@@ -1,7 +1,14 @@
 [package]
 name = "swf-tree"
-version = "0.1.0"
+version = "0.0.3"
 authors = ["Charles Samborski <demurgos@demurgos.net>"]
+description = "Abstract Syntax Tree (AST) for SWF files"
+documentation = "https://github.com/demurgos/swf-tree"
+homepage = "https://github.com/demurgos/swf-tree"
+repository = "https://github.com/demurgos/swf-tree"
+readme = "./README.md"
+keywords = ["ast", "swf"]
+license = "MIT"
 
 [lib]
 name = "swf_tree"
