@@ -1,25 +1,27 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
-import {Sint32} from "semantic-types";
+import {CaseStyle, DocumentType, LiteralType} from "kryo";
+import {Vector2D} from "../../vector-2d";
 import {ShapeRecordType} from "./_type";
 
 export interface StraightEdge {
   type: ShapeRecordType.StraightEdge;
-  deltaX: Sint32;
-  deltaY: Sint32;
+  endDelta: Vector2D;
 }
 
 export namespace StraightEdge {
   export interface Json {
     type: "straight-edge";
-    delta_x: number;
-    delta_y: number;
+    end_delta: Vector2D.Json;
   }
 
   export const type: DocumentType<StraightEdge> = new DocumentType<StraightEdge>({
     properties: {
-      type: {type: new LiteralType({type: ShapeRecordType.type, value: ShapeRecordType.StraightEdge})},
-      deltaX: {type: new Int32Type()},
-      deltaY: {type: new Int32Type()},
+      type: {
+        type: new LiteralType({
+          type: ShapeRecordType.type,
+          value: ShapeRecordType.StraightEdge,
+        }),
+      },
+      endDelta: {type: Vector2D.type},
     },
     rename: CaseStyle.SnakeCase,
   });

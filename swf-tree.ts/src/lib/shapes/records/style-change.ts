@@ -1,13 +1,13 @@
 import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
-import {Sint32, Uint32} from "semantic-types";
+import {Uint32} from "semantic-types";
 import {FillStyle} from "../fill-style";
 import {LineStyle} from "../line-style";
 import {ShapeRecordType} from "./_type";
+import {Vector2D} from "../../vector-2d";
 
 export interface StyleChange {
   type: ShapeRecordType.StyleChange;
-  deltaX?: Sint32;
-  deltaY?: Sint32;
+  moveTo?: Vector2D;
   leftFill?: Uint32;
   rightFill?: Uint32;
   lineStyle?: Uint32;
@@ -18,8 +18,7 @@ export interface StyleChange {
 export namespace StyleChange {
   export interface Json {
     type: "style-change";
-    delta_x?: number;
-    delta_y?: number;
+    move_to?: number;
     left_fill?: number;
     right_fill?: number;
     line_style?: number;
@@ -35,8 +34,7 @@ export namespace StyleChange {
           value: ShapeRecordType.StyleChange,
         }),
       },
-      deltaX: {type: new Int32Type(), optional: true},
-      deltaY: {type: new Int32Type(), optional: true},
+      moveTo: {type: Vector2D.type, optional: true},
       leftFill: {type: new Int32Type(), optional: true},
       rightFill: {type: new Int32Type(), optional: true},
       lineStyle: {type: new Int32Type(), optional: true},

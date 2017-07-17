@@ -1,6 +1,8 @@
 use avm1;
-use basic_types::{Matrix, Rect, SRgb, StraightSRgba, ColorTransformWithAlpha};
-use shapes::{BlendMode, ClipAction, Filter, Shape};
+use basic_types::{Matrix, Rect, SRgb8, StraightSRgba8, ColorTransformWithAlpha};
+use shapes::{ClipAction, Shape};
+use BlendMode;
+use Filter;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
@@ -68,7 +70,7 @@ pub struct PlaceObject {
   pub blend_mode: Option<BlendMode>,
   pub bitmap_cache: Option<bool>,
   pub visible: Option<bool>,
-  pub background_color: Option<StraightSRgba>,
+  pub background_color: Option<StraightSRgba8>,
   pub clip_actions: Vec<ClipAction>,
 }
 
@@ -82,7 +84,7 @@ pub struct Metadata {
 #[serde(rename_all = "snake_case")]
 pub struct SetBackgroundColor {
   /// Color of the display background
-  pub color: SRgb,
+  pub color: SRgb8,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

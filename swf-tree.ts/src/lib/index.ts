@@ -12,6 +12,7 @@ export {Rect} from "./rect";
 export {SRgb8} from "./s-rgb8";
 export {StraightSRgba8} from "./straight-s-rgba8";
 export {Tag} from "./tag";
+export {Vector2D} from "./vector-2d";
 
 export {CompressionMethod} from "./structure/compression-method";
 export {Header} from "./structure/header";

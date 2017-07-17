@@ -9,6 +9,7 @@ extern crate serde_derive;
 extern crate serde_json;
 
 pub mod avm1;
+pub mod filters;
 pub mod fixed_point;
 pub mod shapes;
 pub mod tags;
@@ -19,8 +20,9 @@ pub use basic_types::ColorTransform;
 pub use basic_types::ColorTransformWithAlpha;
 pub use basic_types::Matrix;
 pub use basic_types::Rect;
-pub use basic_types::SRgb;
-pub use basic_types::StraightSRgba;
+pub use basic_types::SRgb8;
+pub use basic_types::StraightSRgba8;
+pub use basic_types::Vector2D;
 
 mod structure;
 
@@ -29,3 +31,28 @@ pub use structure::Header;
 pub use structure::SwfFile;
 pub use structure::SwfSignature;
 pub use structure::Tag;
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "kebab-case")]
+pub enum BlendMode {
+  Normal,
+  Layer,
+  Multiply,
+  Screen,
+  Lighten,
+  Darken,
+  Difference,
+  Add,
+  Subtract,
+  Invert,
+  Alpha,
+  Erase,
+  Overlay,
+  Hardlight,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(tag = "type", rename_all = "kebab-case")]
+pub enum Filter {
+  Blur(filters::Blur),
+}

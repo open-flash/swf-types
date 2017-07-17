@@ -45,7 +45,7 @@ pub struct Rect {
 // Color point in the sRGB color space with 8-bit color depth
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
-pub struct SRgb {
+pub struct SRgb8 {
   pub r: u8,
   pub g: u8,
   pub b: u8,
@@ -54,9 +54,16 @@ pub struct SRgb {
 // Color point with straight alpha in the sRGB color space with 8-bit color depth
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
-pub struct StraightSRgba {
+pub struct StraightSRgba8 {
   pub r: u8,
   pub g: u8,
   pub b: u8,
   pub a: u8,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct Vector2D {
+  pub x: i32,
+  pub y: i32,
 }

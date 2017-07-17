@@ -2,12 +2,12 @@ extern crate swf_tree;
 
 extern crate serde_json;
 
-use swf_tree::{SRgb, Tag, tags};
+use swf_tree::{SRgb8, Tag, tags};
 
 fn main() {
   println!("NotImplemented: This should be an example program trying to parse a JSON file");
 
-  let rgb: SRgb = SRgb { r: 2, g: 4, b: 8 };
+  let rgb: SRgb8 = SRgb8 { r: 2, g: 4, b: 8 };
 
   let attrs = tags::FileAttributes {
     use_direct_blit: true,

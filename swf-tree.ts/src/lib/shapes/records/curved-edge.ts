@@ -1,31 +1,30 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
-import {Sint32} from "semantic-types";
+import {CaseStyle, DocumentType, LiteralType} from "kryo";
+import {Vector2D} from "../../vector-2d";
 import {ShapeRecordType} from "./_type";
 
 export interface CurvedEdge {
   type: ShapeRecordType.CurvedEdge;
-  controlX: Sint32;
-  controlY: Sint32;
-  deltaX: Sint32;
-  deltaY: Sint32;
+  controlDelta: Vector2D;
+  endDelta: Vector2D;
 }
 
 export namespace CurvedEdge {
   export interface Json {
     type: "curved-edge";
-    control_x: number;
-    control_y: number;
-    delta_x: number;
-    delta_y: number;
+    control_delta: Vector2D.Json;
+    end_delta: Vector2D.Json;
   }
 
   export const type: DocumentType<CurvedEdge> = new DocumentType<CurvedEdge>({
     properties: {
-      type: {type: new LiteralType({type: ShapeRecordType.type, value: ShapeRecordType.CurvedEdge})},
-      controlX: {type: new Int32Type()},
-      controly: {type: new Int32Type()},
-      deltaX: {type: new Int32Type()},
-      deltaY: {type: new Int32Type()},
+      type: {
+        type: new LiteralType({
+          type: ShapeRecordType.type,
+          value: ShapeRecordType.CurvedEdge,
+        }),
+      },
+      controlDelta: {type: Vector2D.type},
+      endDelta: {type: Vector2D.type},
     },
     rename: CaseStyle.SnakeCase,
   });

@@ -2,8 +2,7 @@
 
 ```
 interface StyleChange variantof ShapeRecord(type) {
-  deltaX: Sint(32);
-  deltaY: Sint(32);
+  moveTo: Option(Vector2D);
   leftFill: Option(Usize);
   rightFill: Option(Usize);
   lineStyle: Option(Usize);
