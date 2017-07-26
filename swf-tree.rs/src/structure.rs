@@ -49,9 +49,11 @@ pub struct SwfSignature {
 pub enum Tag {
   Unknown(tags::Unknown),
   DefineSceneAndFrameLabelData(tags::DefineSceneAndFrameLabelData),
+  DefineFont3(tags::DefineFont3),
   DefineShape(tags::DefineShape),
+  DefineSprite(tags::DefineSprite),
   DoAction(tags::DoAction),
-  End,
+  ExportAssets(tags::ExportAssets),
   FileAttributes(tags::FileAttributes),
   Metadata(tags::Metadata),
   PlaceObject(tags::PlaceObject),

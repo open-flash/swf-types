@@ -73,6 +73,12 @@ pub struct LineStyle {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
+pub struct Glyph {
+  pub records: Vec<ShapeRecord>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
 pub struct Shape {
   pub fill_styles: Vec<FillStyle>,
   pub line_styles: Vec<LineStyle>,

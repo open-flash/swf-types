@@ -13,12 +13,15 @@ pub mod filters;
 pub mod fixed_point;
 pub mod shapes;
 pub mod tags;
+pub mod text;
 
 mod basic_types;
 
 pub use basic_types::ColorTransform;
 pub use basic_types::ColorTransformWithAlpha;
+pub use basic_types::LanguageCode;
 pub use basic_types::Matrix;
+pub use basic_types::NamedId;
 pub use basic_types::Rect;
 pub use basic_types::SRgb8;
 pub use basic_types::StraightSRgba8;

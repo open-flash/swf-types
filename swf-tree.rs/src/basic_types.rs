@@ -23,6 +23,17 @@ pub struct ColorTransformWithAlpha {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "kebab-case")]
+pub enum LanguageCode {
+  Auto,
+  Latin,
+  Japanese,
+  Korean,
+  SimplifiedChinese,
+  TraditionalChinese,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct Matrix {
   pub scale_x: i32,
@@ -31,6 +42,13 @@ pub struct Matrix {
   pub rotate_skew_1: i32,
   pub translate_x: i32,
   pub translate_y: i32,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct NamedId {
+  pub id: u16,
+  pub name: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

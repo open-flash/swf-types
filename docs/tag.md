@@ -50,9 +50,6 @@ union(type) Tag {
   DefineScalingGrid;
   DefineSceneAndFrameLabelData;
   DefineShape;
-  DefineShape2;
-  DefineShape3;
-  DefineShape4;
   DefineSound;
   DefineSprite;
   DefineText;

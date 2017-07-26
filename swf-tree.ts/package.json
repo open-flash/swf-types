@@ -30,11 +30,11 @@
   "devDependencies": {
     "@types/chai": "^4.0.1",
     "@types/mocha": "^2.2.40",
-    "@types/node": "^8.0.11",
+    "@types/node": "^8.0.17",
     "chai": "^4.1.0",
-    "demurgos-web-build-tools": "^0.14.2",
+    "demurgos-web-build-tools": "^0.14.3",
     "gulp": "github:gulpjs/gulp#4.0",
     "tslint": "^5.5.0",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.2"
   }
 }

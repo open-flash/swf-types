@@ -1,6 +1,8 @@
 use avm1;
-use basic_types::{Matrix, Rect, SRgb8, StraightSRgba8, ColorTransformWithAlpha};
-use shapes::{ClipAction, Shape};
+use basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
+use shapes::{ClipAction, Glyph, Shape};
+use structure::Tag;
+use text::FontLayout;
 use BlendMode;
 use Filter;
 
@@ -16,6 +18,22 @@ pub struct Scene {
 pub struct Label {
   pub frame: u32,
   pub name: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineFont3 {
+  pub id: u16,
+  pub font_name: String,
+  pub is_small: bool,
+  pub is_shift_jis: bool,
+  pub is_ansi: bool,
+  pub is_italic: bool,
+  pub is_bold: bool,
+  pub language: LanguageCode,
+  pub glyphs: Vec<Glyph>,
+  pub code_units: Vec<u16>,
+  pub layout: Option<FontLayout>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -39,8 +57,22 @@ pub struct DefineShape {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
+pub struct DefineSprite {
+  pub id: u16,
+  pub frame_count: usize,
+  pub tags: Vec<Tag>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
 pub struct DoAction {
   pub actions: Vec<avm1::Action>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct ExportAssets {
+  pub assets: Vec<NamedId>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
