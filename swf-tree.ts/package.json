@@ -1,13 +1,13 @@
 {
   "name": "swf-tree",
   "version": "0.0.3",
-  "homepage": "https://github.com/demurgos/swf-tree",
+  "homepage": "https://github.com/open-flash/swf-tree",
   "description": "Abstract Syntax Tree for SWF",
   "main": "dist/lib-es2015/lib/index.js",
   "types": "dist/lib-es2015/lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git@github.com:demurgos/swf-tree.git"
+    "url": "git@github.com:open-flash/swf-tree.git"
   },
   "keywords": [
     "swf",
