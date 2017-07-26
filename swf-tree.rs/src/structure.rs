@@ -27,7 +27,7 @@ pub struct Header {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
-pub struct SwfFile {
+pub struct Movie {
   pub header: Header,
   pub tags: Vec<Tag>,
 }

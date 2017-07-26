@@ -31,7 +31,7 @@ mod structure;
 
 pub use structure::CompressionMethod;
 pub use structure::Header;
-pub use structure::SwfFile;
+pub use structure::Movie;
 pub use structure::SwfSignature;
 pub use structure::Tag;
 

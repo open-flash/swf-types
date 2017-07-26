@@ -16,7 +16,7 @@ export {Vector2D} from "./vector-2d";
 
 export {CompressionMethod} from "./structure/compression-method";
 export {Header} from "./structure/header";
-export {SwfFile} from "./structure/swf-file";
+export {Movie} from "./structure/movie";
 export {SwfSignature} from "./structure/swf-signature";
 
 export {FilterType} from "./filters/_type";

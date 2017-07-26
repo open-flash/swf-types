@@ -1,9 +1,9 @@
-# SwfFile
+# Movie
 
 This is the root node of the AST.
 
 ```
-interface SwfFile {
+interface Movie {
   header: Header;
   tags: Tag[];
 }
