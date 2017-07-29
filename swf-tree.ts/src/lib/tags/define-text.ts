@@ -2,34 +2,34 @@ import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Matrix} from "../matrix";
 import {Rect} from "../rect";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
-import {TextRecord} from "./text-record";
+import {TextRecord} from "../text/text-record";
+import {_Tag} from "./_tag";
+import {TagType} from "./_type";
 
 export interface DefineText extends _Tag {
   type: TagType.DefineText;
-  characterId: Uint16;
-  textBounds: Rect;
-  textMatrix: Matrix;
-  textRecords: TextRecord[];
+  id: Uint16;
+  bounds: Rect;
+  matrix: Matrix;
+  records: TextRecord[];
 }
 
 export namespace DefineText {
   export interface Json {
     type: "define-text";
-    character_id: number;
-    text_bounds: Rect.Json;
-    text_matrix: Matrix.Json;
-    text_records: TextRecord.Json[];
+    id: number;
+    bounds: Rect.Json;
+    matrix: Matrix.Json;
+    records: TextRecord.Json[];
   }
 
   export const type: DocumentType<DefineText> = new DocumentType<DefineText>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineText})},
-      characterId: {type: new Int32Type()},
-      textBounds: {type: Rect.type},
-      textMatrix: {type: Matrix.type},
-      fontBoundsTable: {type: new ArrayType({itemType: TextRecord.type, maxLength: Infinity})},
+      id: {type: new Int32Type()},
+      bounds: {type: Rect.type},
+      matrix: {type: Matrix.type},
+      records: {type: new ArrayType({itemType: TextRecord.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });

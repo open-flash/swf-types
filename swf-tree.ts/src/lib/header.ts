@@ -1,7 +1,7 @@
 import {DocumentType, Int32Type} from "kryo";
 import {Uint16} from "semantic-types";
-import {Ufixed8P8} from "../fixed-point/ufixed8p8";
-import {Rect} from "../rect";
+import {Ufixed8P8} from "./fixed-point/ufixed8p8";
+import {Rect} from "./rect";
 import {SwfSignature} from "./swf-signature";
 
 export interface Header extends SwfSignature {

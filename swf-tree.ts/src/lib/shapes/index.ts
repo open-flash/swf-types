@@ -9,7 +9,7 @@ export {JoinStyle} from "./join-style";
 export {LineStyle} from "./line-style";
 export {Shape} from "./shape";
 export {ShapeRecord} from "./shape-record";
-export {SimpleShape} from "./simple-shape";
+export {Glyph} from "./glyph";
 
 export {FillStyleType} from "./fills/_type";
 export {JoinStyleType} from "./joins/_type";

@@ -5,31 +5,31 @@ import {GlyphEntry} from "./glyph-entry";
 
 export interface TextRecord {
   fontId?: Uint16;
-  textColor?: StraightSRgba8;
-  xOffset?: Sint16;
-  yOffset?: Sint16;
-  textHeight?: Uint16;
-  glyphEntries: GlyphEntry[];
+  color?: StraightSRgba8;
+  offsetX: Sint16;
+  offsetY: Sint16;
+  fontSize?: Uint16;
+  entries: GlyphEntry[];
 }
 
 export namespace TextRecord {
   export interface Json {
     font_id?: number;
-    font_color?: StraightSRgba8.Json;
-    x_offset: number;
-    y_offset: number;
-    text_height: number;
-    glyph_entries: GlyphEntry.Json[];
+    color?: StraightSRgba8.Json;
+    offset_x: number;
+    offset_y: number;
+    font_size?: number;
+    entries: GlyphEntry.Json[];
   }
 
   export const type: DocumentType<TextRecord> = new DocumentType<TextRecord>({
     properties: {
       fontId: {type: new Int32Type(), optional: true},
-      textColor: {type: StraightSRgba8.type, optional: true},
-      xOffset: {type: new Int32Type(), optional: true},
-      yOffset: {type: new Int32Type(), optional: true},
-      textHeight: {type: new Int32Type(), optional: true},
-      glyphEntries: {type: new ArrayType({itemType: GlyphEntry.type, maxLength: Infinity})},
+      color: {type: StraightSRgba8.type, optional: true},
+      offsetX: {type: new Int32Type(), optional: true},
+      offsetY: {type: new Int32Type(), optional: true},
+      fontSize: {type: new Int32Type(), optional: true},
+      entries: {type: new ArrayType({itemType: GlyphEntry.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });

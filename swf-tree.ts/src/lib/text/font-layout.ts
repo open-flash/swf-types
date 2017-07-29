@@ -1,10 +1,6 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
-import {Sint16, Uint16, Uint32} from "semantic-types";
-import {LanguageCode} from "../language-code";
+import {ArrayType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {Sint16, Uint16} from "semantic-types";
 import {Rect} from "../rect";
-import {SimpleShape} from "../shapes/simple-shape";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
 import {KerningRecord} from "./kerning-record";
 
 export interface FontLayout {

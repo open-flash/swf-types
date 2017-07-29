@@ -2,13 +2,13 @@ import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2String
 import {Sint16, Uint16} from "semantic-types";
 import {Rect} from "../rect";
 import {StraightSRgba8} from "../straight-s-rgba8";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
-import {TextAlignment} from "./text-alignment";
+import {TextAlignment} from "../text/text-alignment";
+import {_Tag} from "./_tag";
+import {TagType} from "./_type";
 
-export interface DefineEditText extends _Tag {
-  type: TagType.DefineEditText;
-  characterId: Uint16;
+export interface DefineDynamicText extends _Tag {
+  type: TagType.DefineDynamicText;
+  id: Uint16;
   bounds: Rect;
   wordWrap: boolean;
   multiline: boolean;
@@ -21,22 +21,22 @@ export interface DefineEditText extends _Tag {
   html: boolean;
   useGlyphFont: boolean;
   fontId?: Uint16;
-  fontHeight?: Uint16;
+  fontSize?: Uint16;
   fontClass?: string;
-  textColor?: StraightSRgba8;
+  color?: StraightSRgba8;
   maxLength?: Uint16;
   align?: TextAlignment;
-  leftMargin?: Uint16;
-  rightMargin?: Uint16;
-  indent?: Uint16;
-  leading?: Sint16;
+  marginLeft?: Uint16;
+  marginRight?: Uint16;
+  indent: Uint16;
+  leading: Sint16;
   variableName: string;
   initialText?: string;
 }
 
-export namespace DefineText {
+export namespace DefineDynamicText {
   export interface Json {
-    type: "define-edit-text";
+    type: "define-dynamic-text";
     character_id: number;
     bounds: Rect.Json;
     word_wrap: boolean;
@@ -49,23 +49,23 @@ export namespace DefineText {
     was_static: boolean;
     html: boolean;
     use_glyph_font: boolean;
-    font_id?: Uint16;
-    font_height?: Uint16;
+    font_id?: number;
+    font_size?: number;
     font_class?: string;
-    text_color?: StraightSRgba8;
-    max_length?: Uint16;
-    align?: TextAlignment;
-    left_margin?: Uint16;
-    right_margin?: Uint16;
-    indent?: Uint16;
-    leading?: Sint16;
+    color?: StraightSRgba8.Json;
+    max_length?: number;
+    align?: TextAlignment.Json;
+    margin_left: number;
+    margin_right: number;
+    indent: number;
+    leading: number;
     variable_name: string;
     initial_text?: string;
   }
 
-  export const type: DocumentType<DefineEditText> = new DocumentType<DefineEditText>({
+  export const type: DocumentType<DefineDynamicText> = new DocumentType<DefineDynamicText>({
     properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineEditText})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineDynamicText})},
       characterId: {type: new Int32Type()},
       bounds: {type: Rect.type},
       wordWrap: {type: new BooleanType()},
@@ -79,15 +79,15 @@ export namespace DefineText {
       html: {type: new BooleanType()},
       useGlyphFont: {type: new BooleanType()},
       fontId: {type: new Int32Type(), optional: true},
-      fontHeight: {type: new Int32Type(), optional: true},
+      fontSize: {type: new Int32Type(), optional: true},
       fontClass: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
-      textColor: {type: StraightSRgba8.type, optional: true},
+      color: {type: StraightSRgba8.type, optional: true},
       maxLength: {type: new Int32Type(), optional: true},
       align: {type: TextAlignment.type, optional: true},
-      leftMargin: {type: new Int32Type(), optional: true},
-      rightMargin: {type: new Int32Type(), optional: true},
-      indent: {type: new Int32Type(), optional: true},
-      leading: {type: new Int32Type(), optional: true},
+      marginLeft: {type: new Int32Type()},
+      marginRight: {type: new Int32Type()},
+      indent: {type: new Int32Type()},
+      leading: {type: new Int32Type()},
       variableName: {type: new Ucs2StringType({maxLength: Infinity})},
       initialText: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
     },

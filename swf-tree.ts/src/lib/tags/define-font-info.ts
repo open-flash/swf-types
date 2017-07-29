@@ -4,8 +4,8 @@ import {LanguageCode} from "../language-code";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
 
-export interface DefineFontInfo2 extends _Tag {
-  type: TagType.DefineFontInfo2;
+export interface DefineFontInfo extends _Tag {
+  type: TagType.DefineFontInfo;
   fontId: Uint16;
   fontName: string;
   isSmall: boolean;
@@ -13,13 +13,13 @@ export interface DefineFontInfo2 extends _Tag {
   isAnsi: boolean;
   isItalic: boolean;
   isBold: boolean;
-  languageCode: LanguageCode;
-  codeTable: Uint16[];
+  language?: LanguageCode;
+  codeUnits: Uint16[];
 }
 
-export namespace DefineFontInfo2 {
+export namespace DefineFontInfo {
   export interface Json {
-    type: "define-font-info2";
+    type: "define-font-info";
     font_id: number;
     font_name: string;
     is_small: boolean;
@@ -27,13 +27,13 @@ export namespace DefineFontInfo2 {
     is_ansi: boolean;
     is_italic: boolean;
     is_bold: boolean;
-    language_code: LanguageCode.Json;
-    code_table: number[];
+    language?: LanguageCode.Json;
+    code_units: number[];
   }
 
-  export const type: DocumentType<DefineFontInfo2> = new DocumentType<DefineFontInfo2>({
+  export const type: DocumentType<DefineFontInfo> = new DocumentType<DefineFontInfo>({
     properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFontInfo2})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFontInfo})},
       fontId: {type: new Int32Type()},
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       isSmall: {type: new BooleanType()},
@@ -41,8 +41,8 @@ export namespace DefineFontInfo2 {
       isAnsi: {type: new BooleanType()},
       isItalic: {type: new BooleanType()},
       isBold: {type: new BooleanType()},
-      languageCode: {type: LanguageCode.type},
-      codeTable: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
+      language: {type: LanguageCode.type, optional: true},
+      codeUnits: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });

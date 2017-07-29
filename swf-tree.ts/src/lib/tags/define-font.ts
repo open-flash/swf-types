@@ -9,13 +9,13 @@ import {
 } from "kryo";
 import {Uint16, Uint32} from "semantic-types";
 import {LanguageCode} from "../language-code";
-import {SimpleShape} from "../shapes/simple-shape";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
-import {FontLayout} from "./font-layout";
+import {Glyph} from "../shapes/glyph";
+import {FontLayout} from "../text/font-layout";
+import {_Tag} from "./_tag";
+import {TagType} from "./_type";
 
-export interface DefineFont3 extends _Tag {
-  type: TagType.DefineFont3;
+export interface DefineFont extends _Tag {
+  type: TagType.DefinePartialFont;
   id: Uint16;
   fontName: string;
   isSmall: boolean;
@@ -24,14 +24,14 @@ export interface DefineFont3 extends _Tag {
   isItalic: boolean;
   isBold: boolean;
   language: LanguageCode;
-  offsets: Uint32[];
-  glyphs: SimpleShape[];
+  glyphs?: Glyph[];
+  codeUnits?: Uint16[];
   layout?: FontLayout;
 }
 
-export namespace DefineFont3 {
+export namespace DefineFont {
   export interface Json {
-    type: "define-font3";
+    type: "define-font";
     id: number;
     font_name: string;
     is_small: boolean;
@@ -40,14 +40,14 @@ export namespace DefineFont3 {
     is_italic: boolean;
     is_bold: boolean;
     language: LanguageCode.Json;
-    offsets: number[];
-    glyphs: SimpleShape[];
+    glyphs?: Glyph[];
+    code_units?: number[];
     layout?: FontLayout.Json;
   }
 
-  export const type: DocumentType<DefineFont3> = new DocumentType<DefineFont3>({
+  export const type: DocumentType<DefineFont> = new DocumentType<DefineFont>({
     properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFont3})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefinePartialFont})},
       id: {type: new Int32Type()},
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       isSmall: {type: new BooleanType()},
@@ -56,10 +56,9 @@ export namespace DefineFont3 {
       isItalic: {type: new BooleanType()},
       isBold: {type: new BooleanType()},
       language: {type: LanguageCode.type},
-      offsets: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
-      glyphs: {type: new ArrayType({itemType: SimpleShape.type, maxLength: Infinity})},
-      layout: {type: new Int32Type(), optional: true},
-      fontDescent: {type: FontLayout.type, optional: true},
+      glyphs: {type: new ArrayType({itemType: Glyph.type, maxLength: Infinity}), optional: true},
+      codeUnits: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity}), optional: true},
+      layout: {type: FontLayout.type, optional: true},
     },
     rename: CaseStyle.SnakeCase,
   });
