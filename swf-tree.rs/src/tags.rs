@@ -1,5 +1,6 @@
 use avm1;
 use basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
+use helpers::{buffer_to_hex, hex_to_buffer};
 use ordered_float::OrderedFloat;
 use shapes::{ClipAction, Glyph, Shape};
 use structure::Tag;
@@ -21,6 +22,7 @@ pub struct CsmTextSettings {
 #[serde(rename_all = "snake_case")]
 pub struct DefineBinaryData {
   pub id: u16,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }
 
@@ -30,6 +32,7 @@ pub struct DefineBitmap {
   pub id: u16,
   pub width: u16,
   pub height: u16,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }
 
@@ -40,6 +43,7 @@ pub struct DefineCffFont {
   pub font_name: String,
   pub is_italic: bool,
   pub is_bold: bool,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }
 
@@ -122,7 +126,10 @@ pub struct DefineFontName {
 #[serde(rename_all = "snake_case")]
 pub struct DefineJpeg {
   pub id: u16,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub image: Vec<u8>,
+  // TODO(demurgos): Serialize optional buffers to hex
+  // #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub alpha: Option<Vec<u8>>,
   pub deblocking: Option<u16>,
 }
@@ -138,6 +145,7 @@ pub struct DefinePartialFont {
 #[serde(rename_all = "snake_case")]
 pub struct DefinePartialJpeg {
   pub id: u16,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }
 
@@ -221,6 +229,7 @@ pub struct FileAttributes {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct JpegTables {
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }
 
@@ -256,11 +265,13 @@ pub struct SetBackgroundColor {
   pub color: SRgb8,
 }
 
-pub type ShowFrame = ();
+// pub type ShowFrame = ();
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct Telemetry {
+  // TODO(demurgos): Serialize optional buffers to hex
+  // #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub password: Option<Vec<u8>>,
 }
 
@@ -268,5 +279,6 @@ pub struct Telemetry {
 #[serde(rename_all = "snake_case")]
 pub struct Unknown {
   pub code: u16,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }

@@ -1,3 +1,4 @@
+use helpers::{buffer_to_hex, hex_to_buffer};
 use ordered_float::OrderedFloat;
 
 // Action code 0x81
@@ -185,5 +186,6 @@ pub struct GotoFrame2 {
 #[serde(rename_all = "snake_case")]
 pub struct UnknownAction {
   pub code: u8,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }

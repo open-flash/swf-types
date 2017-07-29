@@ -19,6 +19,7 @@ name = "swf-tree"
 path = "src/main.rs"
 
 [dependencies]
+hex = "^0.2.0"
 lazy_static = "^0.2.8"
 libflate = "^0.1.4"
 nom = "^2.2"

@@ -69,6 +69,6 @@ pub enum Tag {
   Metadata(tags::Metadata),
   PlaceObject(tags::PlaceObject),
   SetBackgroundColor(tags::SetBackgroundColor),
-  ShowFrame(tags::ShowFrame),
+  ShowFrame,
   Unknown(tags::Unknown),
 }

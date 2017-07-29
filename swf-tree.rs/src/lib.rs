@@ -1,3 +1,4 @@
+extern crate hex;
 #[macro_use]
 extern crate lazy_static;
 extern crate num_traits;
@@ -7,6 +8,8 @@ extern crate serde;
 #[macro_use]
 extern crate serde_derive;
 extern crate serde_json;
+
+mod helpers;
 
 pub mod avm1;
 pub mod filters;
