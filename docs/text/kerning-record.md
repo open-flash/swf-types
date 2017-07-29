@@ -2,8 +2,8 @@
 
 ```
 interface KerningRecord {
-  leftCodePoint: Uint(16);
-  rightCodePoint: Uint(16);
+  left: Uint(16);
+  right: Uint(16);
   adjustment: Sint(16);
 }
 ```

@@ -1,17 +1,15 @@
-# DefineFont3
+# DefineFontInfo
 
 ```
-interface DefineFont3 variantof Tag(type) {
-  id: Uint(16);
+interface DefineFontInfo variantof Tag(type) {
+  fontId: Uint(16);
   fontName: String;
   isSmall: Boolean;
   isShiftJis: Boolean;
   isAnsi: Boolean;
   isItalic: Boolean;
   isBold: Boolean;
-  language: LanguageCode;
-  glyphs: Glyph[];
+  language?: LanguageCode;
   codeUnits: Uint(16)[];
-  layout: Option(FontLayout);
 }
 ```

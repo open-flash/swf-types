@@ -99,7 +99,7 @@ The type of optional properties is wrapped in `Option()`, for example `Optional(
 
 **TODO**
 
-## Containes
+## Containers
 
 **TODO**
 
