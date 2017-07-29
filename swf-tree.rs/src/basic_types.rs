@@ -1,9 +1,11 @@
+use fixed_point::{Fixed16P16, Fixed8P8};
+
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct ColorTransform {
-  pub red_mult: i16,
-  pub green_mult: i16,
-  pub blue_mult: i16,
+  pub red_mult: Fixed8P8,
+  pub green_mult: Fixed8P8,
+  pub blue_mult: Fixed8P8,
   pub red_add: i16,
   pub green_add: i16,
   pub blue_add: i16,
@@ -12,10 +14,10 @@ pub struct ColorTransform {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct ColorTransformWithAlpha {
-  pub red_mult: i16,
-  pub green_mult: i16,
-  pub blue_mult: i16,
-  pub alpha_mult: i16,
+  pub red_mult: Fixed8P8,
+  pub green_mult: Fixed8P8,
+  pub blue_mult: Fixed8P8,
+  pub alpha_mult: Fixed8P8,
   pub red_add: i16,
   pub green_add: i16,
   pub blue_add: i16,
@@ -36,10 +38,10 @@ pub enum LanguageCode {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct Matrix {
-  pub scale_x: i32,
-  pub scale_y: i32,
-  pub rotate_skew_0: i32,
-  pub rotate_skew_1: i32,
+  pub scale_x: Fixed16P16,
+  pub scale_y: Fixed16P16,
+  pub rotate_skew0: Fixed16P16,
+  pub rotate_skew1: Fixed16P16,
   pub translate_x: i32,
   pub translate_y: i32,
 }

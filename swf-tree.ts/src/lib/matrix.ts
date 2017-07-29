@@ -1,5 +1,5 @@
 import {CaseStyle, DocumentType, Int32Type} from "kryo";
-import {Sint16} from "semantic-types";
+import {Sint32} from "semantic-types";
 import {Fixed16P16} from "./fixed-point/fixed16p16";
 
 export interface Matrix {
@@ -7,8 +7,8 @@ export interface Matrix {
   scaleY: Fixed16P16;
   rotateSkew0: Fixed16P16;
   rotateSkew1: Fixed16P16;
-  translateX: Sint16;
-  translateY: Sint16;
+  translateX: Sint32;
+  translateY: Sint32;
 }
 
 export namespace Matrix {
