@@ -1,6 +1,6 @@
 {
   "name": "swf-tree",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/open-flash/swf-tree",
   "description": "Abstract Syntax Tree for SWF",
   "main": "dist/lib-es2015/lib/index.js",
