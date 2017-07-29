@@ -1,28 +1,80 @@
 use avm1;
 use basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
+use ordered_float::OrderedFloat;
 use shapes::{ClipAction, Glyph, Shape};
 use structure::Tag;
-use text::FontLayout;
+use text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
 use BlendMode;
 use Filter;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
-pub struct Scene {
-  pub offset: u32,
-  pub name: String,
+pub struct CsmTextSettings {
+  pub text_id: u16,
+  pub renderer: TextRenderer,
+  pub fitting: GridFitting,
+  pub thickness: OrderedFloat<f32>,
+  pub sharpness: OrderedFloat<f32>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
-pub struct Label {
-  pub frame: u32,
-  pub name: String,
+pub struct DefineBinaryData {
+  pub id: u16,
+  pub data: Vec<u8>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
-pub struct DefineFont3 {
+pub struct DefineBitmap {
+  pub id: u16,
+  pub width: u16,
+  pub height: u16,
+  pub data: Vec<u8>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineCffFont {
+  pub id: u16,
+  pub font_name: String,
+  pub is_italic: bool,
+  pub is_bold: bool,
+  pub data: Vec<u8>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineDynamicText {
+  pub id: u16,
+  pub bounds: String,
+  pub word_wrap: bool,
+  pub multiline: bool,
+  pub password: bool,
+  pub readonly: bool,
+  pub auto_size: bool,
+  pub no_select: bool,
+  pub border: bool,
+  pub was_static: bool,
+  pub html: bool,
+  pub use_glyph_font: bool,
+  pub font_id: Option<u16>,
+  pub font_size: Option<u16>,
+  pub font_class: Option<String>,
+  pub color: Option<StraightSRgba8>,
+  pub max_length: u16,
+  pub align: Option<TextAlignment>,
+  pub margin_left: u16,
+  pub margin_right: u16,
+  pub indent: u16,
+  pub leading: u16,
+  pub variable_name: String,
+  pub initial_text: Option<String>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineFont {
   pub id: u16,
   pub font_name: String,
   pub is_small: bool,
@@ -31,9 +83,62 @@ pub struct DefineFont3 {
   pub is_italic: bool,
   pub is_bold: bool,
   pub language: LanguageCode,
-  pub glyphs: Vec<Glyph>,
-  pub code_units: Vec<u16>,
+  pub glyphs: Option<Vec<Glyph>>,
+  pub code_units: Option<Vec<u16>>,
   pub layout: Option<FontLayout>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineFontAlignZones {
+  pub font_id: u16,
+  pub csm_table_hint: CsmTableHint,
+  pub zones: Vec<FontAlignmentZone>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineFontInfo {
+  pub font_id: u16,
+  pub font_name: String,
+  pub is_small: bool,
+  pub is_shift_jis: bool,
+  pub is_ansi: bool,
+  pub is_italic: bool,
+  pub is_bold: bool,
+  pub language: Option<LanguageCode>,
+  pub code_units: Vec<u16>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineFontName {
+  pub font_id: u16,
+  pub name: String,
+  pub copyright: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineJpeg {
+  pub id: u16,
+  pub image: Vec<u8>,
+  pub alpha: Option<Vec<u8>>,
+  pub deblocking: Option<u16>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefinePartialFont {
+  pub id: u16,
+  pub glyphs: Vec<Glyph>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefinePartialJpeg {
+  pub id: u16,
+  pub data: Vec<u8>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -41,6 +146,22 @@ pub struct DefineFont3 {
 pub struct DefineSceneAndFrameLabelData {
   pub scenes: Vec<Scene>,
   pub labels: Vec<Label>,
+}
+
+// TODO(demurgos): Move to a different file since it is not a tag
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct Scene {
+  pub offset: u32,
+  pub name: String,
+}
+
+// TODO(demurgos): Move to a different file since it is not a tag
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct Label {
+  pub frame: u32,
+  pub name: String,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -61,6 +182,16 @@ pub struct DefineSprite {
   pub id: u16,
   pub frame_count: usize,
   pub tags: Vec<Tag>,
+}
+
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineText {
+  pub id: u16,
+  pub bounds: Rect,
+  pub matrix: Matrix,
+  pub tags: Vec<TextRecord>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -89,6 +220,18 @@ pub struct FileAttributes {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
+pub struct JpegTables {
+  pub data: Vec<u8>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct Metadata {
+  pub metadata: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
 pub struct PlaceObject {
   pub depth: u16,
   pub character_id: Option<u16>,
@@ -108,15 +251,17 @@ pub struct PlaceObject {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
-pub struct Metadata {
-  pub metadata: String,
-}
-
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "snake_case")]
 pub struct SetBackgroundColor {
   /// Color of the display background
   pub color: SRgb8,
+}
+
+pub type ShowFrame = ();
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct Telemetry {
+  pub password: Option<Vec<u8>>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

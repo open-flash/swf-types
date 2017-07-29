@@ -7,7 +7,7 @@ import {TagType} from "../tags/_type";
 export interface DefinePartialFont extends _Tag {
   type: TagType.DefinePartialFont;
   id: Uint16;
-  glyphs?: Glyph[];
+  glyphs: Glyph[];
 }
 
 export namespace DefinePartialFont {

@@ -2,7 +2,7 @@
 
 ```
 interface DefineDynamicText variantof Tag(type) {
-  fontId: Uint(16);
+  id: Uint(16);
   bounds: Rect;
   wordWrap: Boolean;
   multiline: Boolean;

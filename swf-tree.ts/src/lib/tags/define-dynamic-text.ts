@@ -37,7 +37,7 @@ export interface DefineDynamicText extends _Tag {
 export namespace DefineDynamicText {
   export interface Json {
     type: "define-dynamic-text";
-    character_id: number;
+    id: number;
     bounds: Rect.Json;
     word_wrap: boolean;
     multiline: boolean;
@@ -66,7 +66,7 @@ export namespace DefineDynamicText {
   export const type: DocumentType<DefineDynamicText> = new DocumentType<DefineDynamicText>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineDynamicText})},
-      characterId: {type: new Int32Type()},
+      id: {type: new Int32Type()},
       bounds: {type: Rect.type},
       wordWrap: {type: new BooleanType()},
       multiline: {type: new BooleanType()},

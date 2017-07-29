@@ -2,7 +2,7 @@
 
 ```
 enum GlyphEntry {
-  index: Uint(32);
+  index: UintSize;
   advance: Sint(32);
 }
 ```

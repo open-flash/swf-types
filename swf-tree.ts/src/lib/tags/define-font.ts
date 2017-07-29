@@ -15,7 +15,7 @@ import {_Tag} from "./_tag";
 import {TagType} from "./_type";
 
 export interface DefineFont extends _Tag {
-  type: TagType.DefinePartialFont;
+  type: TagType.DefineFont;
   id: Uint16;
   fontName: string;
   isSmall: boolean;
@@ -47,7 +47,7 @@ export namespace DefineFont {
 
   export const type: DocumentType<DefineFont> = new DocumentType<DefineFont>({
     properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefinePartialFont})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFont})},
       id: {type: new Int32Type()},
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       isSmall: {type: new BooleanType()},
