@@ -16,6 +16,7 @@ pub enum CapStyle {
 #[serde(rename_all = "snake_case")]
 pub struct ClipAction {
   pub event_flags: ClipEventFlags,
+  #[serde(skip_serializing_if="Option::is_none")]
   pub key_code: Option<u8>,
   pub actions: Vec<Action>,
 }

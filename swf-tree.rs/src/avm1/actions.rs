@@ -101,7 +101,9 @@ pub enum CatchTarget {
 pub struct Try {
   pub try: Vec<super::Action>,
   pub catch_target: CatchTarget,
+  #[serde(skip_serializing_if="Option::is_none")]
   pub catch: Option<Vec<super::Action>>,
+  #[serde(skip_serializing_if="Option::is_none")]
   pub finally: Option<Vec<super::Action>>,
 }
 
