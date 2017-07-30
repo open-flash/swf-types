@@ -30,13 +30,13 @@ pub use basic_types::SRgb8;
 pub use basic_types::StraightSRgba8;
 pub use basic_types::Vector2D;
 
-mod structure;
+mod movie;
 
-pub use structure::CompressionMethod;
-pub use structure::Header;
-pub use structure::Movie;
-pub use structure::SwfSignature;
-pub use structure::Tag;
+pub use movie::CompressionMethod;
+pub use movie::Header;
+pub use movie::Movie;
+pub use movie::SwfSignature;
+pub use movie::Tag;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]

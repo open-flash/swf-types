@@ -3,7 +3,7 @@ use basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, 
 use helpers::{buffer_to_hex, hex_to_buffer};
 use ordered_float::OrderedFloat;
 use shapes::{ClipAction, Glyph, Shape};
-use structure::Tag;
+use movie::Tag;
 use text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
 use BlendMode;
 use Filter;
@@ -204,7 +204,6 @@ pub struct DefineSprite {
   pub frame_count: usize,
   pub tags: Vec<Tag>,
 }
-
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]

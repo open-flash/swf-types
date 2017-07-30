@@ -12,6 +12,7 @@ export {DefinePartialFont} from "./define-partial-font";
 export {DefinePartialJpeg} from "./define-partial-jpeg";
 export {DefineSceneAndFrameLabelData} from "./define-scene-and-frame-label-data";
 export {DefineShape} from "./define-shape";
+export {DefineSprite} from "./define-sprite";
 export {DefineText} from "./define-text";
 export {DoAction} from "./do-action";
 export {FileAttributes} from "./file-attributes";

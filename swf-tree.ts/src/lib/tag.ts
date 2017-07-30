@@ -16,6 +16,7 @@ export type Tag =
   | tags.DefinePartialJpeg
   | tags.DefineSceneAndFrameLabelData
   | tags.DefineShape
+  | tags.DefineSprite
   | tags.DefineText
   | tags.DoAction
   | tags.FileAttributes
@@ -43,6 +44,7 @@ export namespace Tag {
     | tags.DefinePartialJpeg.Json
     | tags.DefineSceneAndFrameLabelData.Json
     | tags.DefineShape.Json
+    | tags.DefineSprite.Json
     | tags.DefineText.Json
     | tags.DoAction.Json
     | tags.FileAttributes.Json
@@ -70,6 +72,7 @@ export namespace Tag {
       tags.DefinePartialJpeg.type,
       tags.DefineSceneAndFrameLabelData.type,
       tags.DefineShape.type,
+      tags.DefineSprite.type,
       tags.DefineText.type,
       tags.DoAction.type,
       tags.FileAttributes.type,
