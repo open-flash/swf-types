@@ -212,7 +212,7 @@ pub struct DefineText {
   pub id: u16,
   pub bounds: Rect,
   pub matrix: Matrix,
-  pub tags: Vec<TextRecord>,
+  pub records: Vec<TextRecord>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

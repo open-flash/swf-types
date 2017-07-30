@@ -62,6 +62,7 @@ pub enum Tag {
   DefineSceneAndFrameLabelData(tags::DefineSceneAndFrameLabelData),
   DefineShape(tags::DefineShape),
   DefineSprite(tags::DefineSprite),
+  DefineText(tags::DefineText),
   DoAction(tags::DoAction),
   ExportAssets(tags::ExportAssets),
   FileAttributes(tags::FileAttributes),

@@ -12,7 +12,7 @@ pub enum CsmTableHint {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct FontAlignmentZone {
-  pub u8: Vec<FontAlignmentZoneData>,
+  pub data: Vec<FontAlignmentZoneData>,
   pub has_x: bool,
   pub has_y: bool,
 }
