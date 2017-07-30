@@ -1,5 +1,5 @@
 import {ArrayType, CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {Action as _Action} from "../../circular-references";
+import {Action as $Action} from "../../_circular-references";
 import {Action} from "../action";
 import {ActionType} from "../action-type";
 import {ActionBase} from "./_base";
@@ -30,7 +30,7 @@ export namespace DefineFunction {
         }),
       },
       // TODO(demurgos): solve circular dependency
-      body: {type: new ArrayType({itemType: _Action.type, maxLength: Infinity})},
+      body: {type: new ArrayType({itemType: $Action.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });

@@ -1,5 +1,6 @@
 import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
+import {Tag as $Tag} from "../_circular-references";
 import {Tag} from "../tag";
 import {_Tag} from "./_tag";
 import {TagType} from "./_type";
@@ -24,7 +25,7 @@ export namespace DefineSprite {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineSprite})},
       id: {type: new Int32Type()},
       frameCount: {type: new Int32Type()},
-      tags: {type: new ArrayType({itemType: Tag.type, maxLength: Infinity})},
+      tags: {type: new ArrayType({itemType: $Tag.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });

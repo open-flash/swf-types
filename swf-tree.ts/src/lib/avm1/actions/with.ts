@@ -1,5 +1,5 @@
 import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Action as _Action} from "../../circular-references";
+import {Action as $Action} from "../../_circular-references";
 import {Action} from "../action";
 import {ActionType} from "../action-type";
 import {ActionBase} from "./_base";
@@ -19,7 +19,7 @@ export namespace With {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.With})},
       // TODO(demurgos): solve circular dependency
-      with: {type: new ArrayType({itemType: _Action.type, maxLength: Infinity})},
+      with: {type: new ArrayType({itemType: $Action.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });

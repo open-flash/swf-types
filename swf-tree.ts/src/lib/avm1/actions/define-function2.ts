@@ -1,6 +1,6 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
 import {UintSize} from "semantic-types";
-import {Action as _Action} from "../../circular-references";
+import {Action as $Action} from "../../_circular-references";
 import {Action} from "../action";
 import {ActionType} from "../action-type";
 import {Parameter} from "../parameter";
@@ -57,7 +57,7 @@ export namespace DefineFunction2 {
       registerCount: {type: new Int32Type()},
       parameters: {type: new ArrayType({itemType: Parameter.type, maxLength: Infinity})},
       // TODO(demurgos): solve circular dependency
-      body: {type: new ArrayType({itemType: _Action.type, maxLength: Infinity})},
+      body: {type: new ArrayType({itemType: $Action.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });
