@@ -30,7 +30,7 @@ export interface PlaceObject extends _Tag {
 
 export namespace PlaceObject {
   export interface Json {
-    type: "place-object3";
+    type: "place-object";
     depth: number;
     character_id?: number;
     class_name?: string;
