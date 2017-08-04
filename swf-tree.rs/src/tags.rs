@@ -62,23 +62,23 @@ pub struct DefineDynamicText {
   pub was_static: bool,
   pub html: bool,
   pub use_glyph_font: bool,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub font_id: Option<u16>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub font_size: Option<u16>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub font_class: Option<String>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub color: Option<StraightSRgba8>,
   pub max_length: u16,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub align: Option<TextAlignment>,
   pub margin_left: u16,
   pub margin_right: u16,
   pub indent: u16,
   pub leading: u16,
   pub variable_name: String,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub initial_text: Option<String>,
 }
 
@@ -93,11 +93,11 @@ pub struct DefineFont {
   pub is_italic: bool,
   pub is_bold: bool,
   pub language: LanguageCode,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub glyphs: Option<Vec<Glyph>>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub code_units: Option<Vec<u16>>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub layout: Option<FontLayout>,
 }
 
@@ -119,7 +119,7 @@ pub struct DefineFontInfo {
   pub is_ansi: bool,
   pub is_italic: bool,
   pub is_bold: bool,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub language: Option<LanguageCode>,
   pub code_units: Vec<u16>,
 }
@@ -140,9 +140,9 @@ pub struct DefineJpeg {
   pub image: Vec<u8>,
   // TODO(demurgos): Serialize optional buffers to hex
   // #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub alpha: Option<Vec<u8>>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub deblocking: Option<u16>,
 }
 
@@ -189,7 +189,7 @@ pub struct Label {
 pub struct DefineShape {
   pub id: u16,
   pub bounds: Rect,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub edge_bounds: Option<Rect>,
   pub has_fill_winding: bool,
   pub has_non_scaling_strokes: bool,
@@ -255,30 +255,38 @@ pub struct Metadata {
 #[serde(rename_all = "snake_case")]
 pub struct PlaceObject {
   pub depth: u16,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub character_id: Option<u16>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub class_name: Option<String>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub matrix: Option<Matrix>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub color_transform: Option<ColorTransformWithAlpha>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub ratio: Option<u16>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub name: Option<String>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub clip_depth: Option<u16>,
   pub filters: Vec<Filter>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub blend_mode: Option<BlendMode>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub bitmap_cache: Option<bool>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub visible: Option<bool>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub background_color: Option<StraightSRgba8>,
   pub clip_actions: Vec<ClipAction>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct RemoveObject {
+  pub depth: u16,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub character_id: Option<u16>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -295,7 +303,7 @@ pub struct SetBackgroundColor {
 pub struct Telemetry {
   // TODO(demurgos): Serialize optional buffers to hex
   // #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub password: Option<Vec<u8>>,
 }
 

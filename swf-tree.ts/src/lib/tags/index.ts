@@ -19,6 +19,7 @@ export {FileAttributes} from "./file-attributes";
 export {JpegTables} from "./jpeg-tables";
 export {Metadata} from "./metadata";
 export {PlaceObject} from "./place-object";
+export {RemoveObject} from "./remove-object";
 export {SetBackgroundColor} from "./set-background-color";
 export {ShowFrame} from "./show-frame";
 export {Telemetry} from "./telemetry";

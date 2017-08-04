@@ -69,6 +69,7 @@ pub enum Tag {
   JpegTables(tags::JpegTables),
   Metadata(tags::Metadata),
   PlaceObject(tags::PlaceObject),
+  RemoveObject(tags::RemoveObject),
   SetBackgroundColor(tags::SetBackgroundColor),
   ShowFrame,
   Unknown(tags::Unknown),

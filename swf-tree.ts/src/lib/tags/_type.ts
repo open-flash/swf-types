@@ -59,7 +59,6 @@ export enum TagType {
   ProductInfo,
   Protect,
   RemoveObject,
-  RemoveObject2,
   ScriptLimits,
   SetBackgroundColor,
   SetTabIndex,
@@ -143,7 +142,6 @@ export namespace TagType {
     | "product-info"
     | "protect"
     | "remove-object"
-    | "remove-object2"
     | "script-limits"
     | "set-background-color"
     | "set-tab-index"

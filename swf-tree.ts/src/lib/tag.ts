@@ -24,6 +24,7 @@ export type Tag =
   | tags.JpegTables
   | tags.Metadata
   | tags.PlaceObject
+  | tags.RemoveObject
   | tags.SetBackgroundColor
   | tags.ShowFrame
   | tags.Telemetry
@@ -52,6 +53,7 @@ export namespace Tag {
     | tags.JpegTables.Json
     | tags.Metadata.Json
     | tags.PlaceObject.Json
+    | tags.RemoveObject.Json
     | tags.SetBackgroundColor.Json
     | tags.ShowFrame.Json
     | tags.Telemetry.Json
@@ -80,6 +82,7 @@ export namespace Tag {
       tags.JpegTables.type,
       tags.Metadata.type,
       tags.PlaceObject.type,
+      tags.RemoveObject.type,
       tags.SetBackgroundColor.type,
       tags.ShowFrame.type,
       tags.Telemetry.type,
