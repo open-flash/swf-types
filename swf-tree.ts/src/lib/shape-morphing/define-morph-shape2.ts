@@ -1,10 +1,10 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
 import {Uint16, Uint32} from "semantic-types";
+import {Glyph} from "../glyph";
+import {MorphFillStyle} from "../morph-fill-style";
 import {Rect} from "../rect";
-import {Glyph} from "../shapes/glyph";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
-import {MorphFillStyle} from "./morph-fill-style";
 import {MorphLineStyle} from "./morph-line-style";
 
 export interface DefineMorphShape2 extends _Tag {

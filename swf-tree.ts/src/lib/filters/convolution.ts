@@ -1,12 +1,12 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
-import {Float32, Uint8} from "semantic-types";
+import {Float32, UintSize} from "semantic-types";
 import {StraightSRgba8} from "../straight-s-rgba8";
 import {FilterType} from "./_type";
 
 export interface Convolution {
   filter: FilterType.Convolution;
-  matrixX: Uint8;
-  matrixY: Uint8;
+  matrixWidth: UintSize;
+  matrixHeight: UintSize;
   divisor: Float32;
   bias: Float32;
   matrix: Float32[];
@@ -18,8 +18,8 @@ export interface Convolution {
 export namespace Convolution {
   export interface Json {
     filter: "convolution";
-    matrix_x: number;
-    matrix_y: number;
+    matrix_width: number;
+    matrixHeight: number;
     divisor: number;
     bias: number;
     matrix: number[];
@@ -31,8 +31,8 @@ export namespace Convolution {
   export const type: DocumentType<Convolution> = new DocumentType<Convolution>({
     properties: {
       filter: {type: new LiteralType({type: FilterType.type, value: FilterType.Convolution})},
-      matrixX: {type: new Int32Type()},
-      matrixY: {type: new Int32Type()},
+      matrixWidth: {type: new Int32Type()},
+      matrixHeight: {type: new Int32Type()},
       divisor: {type: new Float64Type()},
       bias: {type: new Float64Type()},
       matrix: {type: new ArrayType({itemType: new Float64Type(), /* minLength: 20, */ maxLength: 20})},

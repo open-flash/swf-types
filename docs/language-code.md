@@ -1,9 +1,7 @@
 # LanguageCode
 
-The compression method used for this file. (Irrelevant?)
-
 ```
-interface LanguageCode {
+enum LanguageCode {
   Auto;
   Latin;
   Japanese;

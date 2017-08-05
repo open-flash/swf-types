@@ -8,8 +8,8 @@ import {
   Ucs2StringType,
 } from "kryo";
 import {Uint16, Uint32} from "semantic-types";
+import {Glyph} from "../glyph";
 import {LanguageCode} from "../language-code";
-import {Glyph} from "../shapes/glyph";
 import {FontLayout} from "../text/font-layout";
 import {_Tag} from "./_tag";
 import {TagType} from "./_type";

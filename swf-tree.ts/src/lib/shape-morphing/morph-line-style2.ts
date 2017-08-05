@@ -1,8 +1,8 @@
 import {BooleanType, CaseStyle, DocumentType, Int32Type} from "kryo";
 import {Uint16} from "semantic-types";
-import {CapStyle} from "../shapes/cap-style";
-import {FillStyle} from "../shapes/fill-style";
-import {JoinStyle} from "../shapes/join-style";
+import {CapStyle} from "../cap-style";
+import {FillStyle} from "../fill-style";
+import {JoinStyle} from "../join-style";
 import {StraightSRgba8} from "../straight-s-rgba8";
 
 export interface MorphLineStyle2 {

@@ -1,22 +1,23 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
-import {Sfixed16p16, Sfixed8p8, Uint8} from "semantic-types";
-import {ColorStop} from "../gradients/color-stop";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {Uint4} from "semantic-types";
+import {ColorStop} from "../color-stop";
+import {Fixed16P16} from "../fixed-point/fixed16p16";
+import {Fixed8P8} from "../fixed-point/fixed8p8";
 import {FilterType} from "./_type";
 
 export interface GradientGlow {
   filter: FilterType.GradientGlow;
   gradient: ColorStop[];
-  blurX: Sfixed16p16;
-  blurY: Sfixed16p16;
-  angle: Sfixed16p16;
-  distance: Sfixed16p16;
-  strength: Sfixed8p8;
-  innerShadow: boolean;
+  blurX: Fixed16P16;
+  blurY: Fixed16P16;
+  angle: Fixed16P16;
+  distance: Fixed16P16;
+  strength: Fixed8P8;
+  inner: boolean;
   knockout: boolean;
-  compositeSource: true;
+  compositeSource: boolean;
   onTop: boolean;
-  passes: Uint8;
-  // TODO (some weird spec)
+  passes: Uint4;
 }
 
 export namespace GradientGlow {
@@ -28,9 +29,9 @@ export namespace GradientGlow {
     angle: number;
     distance: number;
     strength: number;
-    inner_shadow: boolean;
+    inner: boolean;
     knockout: boolean;
-    composite_source: true;
+    composite_source: boolean;
     on_top: boolean;
     passes: number;
   }
@@ -39,14 +40,14 @@ export namespace GradientGlow {
     properties: {
       filter: {type: new LiteralType({type: FilterType.type, value: FilterType.GradientGlow})},
       gradient: {type: new ArrayType({itemType: ColorStop.type, maxLength: Infinity})},
-      blurX: {type: new Float64Type()},
-      blurY: {type: new Float64Type()},
-      angle: {type: new Float64Type()},
-      distance: {type: new Float64Type()},
-      strength: {type: new Float64Type()},
-      innerShadow: {type: new BooleanType()},
+      blurX: {type: Fixed16P16.type},
+      blurY: {type: Fixed16P16.type},
+      angle: {type: Fixed16P16.type},
+      distance: {type: Fixed16P16.type},
+      strength: {type: Fixed8P8.type},
+      inner: {type: new BooleanType()},
       knockout: {type: new BooleanType()},
-      compositeSource: {type: new LiteralType({type: new BooleanType(), value: true})},
+      compositeSource: {type: new BooleanType()},
       onTop: {type: new BooleanType()},
       passes: {type: new Int32Type()},
     },
