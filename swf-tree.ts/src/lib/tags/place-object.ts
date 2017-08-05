@@ -1,9 +1,9 @@
 import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
 import {Uint16} from "semantic-types";
 import {BlendMode} from "../blend-mode";
+import {ClipActions} from "../clip-actions";
 import {ColorTransform} from "../color-transform";
 import {ColorTransformWithAlpha} from "../color-transform-with-alpha";
-import {ClipActions} from "../clip-actions";
 import {Filter} from "../filter";
 import {Matrix} from "../matrix";
 import {StraightSRgba8} from "../straight-s-rgba8";
