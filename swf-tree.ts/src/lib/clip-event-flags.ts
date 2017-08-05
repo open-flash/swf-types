@@ -5,13 +5,14 @@ export interface ClipEventFlags {
   keyDown: boolean;
   mouseUp: boolean;
   mouseDown: boolean;
+  mouseMove: boolean;
   unload: boolean;
-  enterFrane: boolean;
+  enterFrame: boolean;
   load: boolean;
   dragOver: boolean;
   rollOut: boolean;
   rollOver: boolean;
-  release_outside: boolean;
+  releaseOutside: boolean;
   release: boolean;
   press: boolean;
   initialize: boolean;
@@ -27,8 +28,9 @@ export namespace ClipEventFlags {
     key_down: boolean;
     mouse_up: boolean;
     mouse_down: boolean;
+    mouse_move: boolean;
     unload: boolean;
-    enter_frane: boolean;
+    enter_frame: boolean;
     load: boolean;
     drag_over: boolean;
     roll_out: boolean;
@@ -49,13 +51,14 @@ export namespace ClipEventFlags {
       keyDown: {type: new BooleanType()},
       mouseUp: {type: new BooleanType()},
       mouseDown: {type: new BooleanType()},
+      mouseMove: {type: new BooleanType()},
       unload: {type: new BooleanType()},
-      enterFrane: {type: new BooleanType()},
+      enterFrame: {type: new BooleanType()},
       load: {type: new BooleanType()},
       dragOver: {type: new BooleanType()},
       rollOut: {type: new BooleanType()},
       rollOver: {type: new BooleanType()},
-      release_outside: {type: new BooleanType()},
+      releaseOutside: {type: new BooleanType()},
       release: {type: new BooleanType()},
       press: {type: new BooleanType()},
       initialize: {type: new BooleanType()},

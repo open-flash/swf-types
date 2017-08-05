@@ -10,6 +10,8 @@ export {avm1, fillStyles, filters, joinStyles, shapeRecords, tags, text};
 
 export {BlendMode} from "./blend-mode";
 export {CapStyle} from "./cap-style";
+export {ClipActions} from "./clip-actions";
+export {ClipEventFlags} from "./clip-event-flags";
 export {ColorSpace} from "./color-space";
 export {ColorStop} from "./color-stop";
 export {ColorTransform} from "./color-transform";

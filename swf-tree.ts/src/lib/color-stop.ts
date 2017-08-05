@@ -3,20 +3,20 @@ import {Uint8} from "semantic-types";
 import {StraightSRgba8} from "./straight-s-rgba8";
 
 export interface ColorStop {
-  color: StraightSRgba8;
   ratio: Uint8;
+  color: StraightSRgba8;
 }
 
 export namespace ColorStop {
   export interface Json {
-    color: StraightSRgba8.Json;
     ratio: number;
+    color: StraightSRgba8.Json;
   }
 
   export const type: DocumentType<ColorStop> = new DocumentType<ColorStop>({
     properties: {
-      color: {type: StraightSRgba8.type},
       ratio: {type: new Int32Type()},
+      color: {type: StraightSRgba8.type},
     },
     rename: CaseStyle.SnakeCase,
   });

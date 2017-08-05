@@ -284,9 +284,9 @@ pub struct PlaceObject {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct RemoveObject {
-  pub depth: u16,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub character_id: Option<u16>,
+  pub depth: u16,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

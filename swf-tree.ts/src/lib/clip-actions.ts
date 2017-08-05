@@ -4,20 +4,20 @@ import {Action as $Action} from "./_circular-references";
 import {Action} from "./avm1/action";
 import {ClipEventFlags} from "./clip-event-flags";
 
-export interface ClipAction {
+export interface ClipActions {
   events: ClipEventFlags;
   keyCode?: Uint8;
   actions: Action[];
 }
 
-export namespace ClipAction {
+export namespace ClipActions {
   export interface Json {
     events: ClipEventFlags.Json;
     key_code?: number;
     records: Action.Json[];
   }
 
-  export const type: DocumentType<ClipAction> = new DocumentType<ClipAction>({
+  export const type: DocumentType<ClipActions> = new DocumentType<ClipActions>({
     properties: {
       events: {type: new ArrayType({itemType: $Action.type, maxLength: Infinity})},
       keyCode: {type: new Int32Type(), optional: true},

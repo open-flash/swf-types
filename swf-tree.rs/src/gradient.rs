@@ -18,8 +18,8 @@ pub enum ColorSpace {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct ColorStop {
-  pub color: StraightSRgba8,
   pub ratio: u8,
+  pub color: StraightSRgba8,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

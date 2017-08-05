@@ -3,7 +3,7 @@ import {Uint16} from "semantic-types";
 import {BlendMode} from "../blend-mode";
 import {ColorTransform} from "../color-transform";
 import {ColorTransformWithAlpha} from "../color-transform-with-alpha";
-import {ClipAction} from "../display-list/clip-action";
+import {ClipActions} from "../clip-actions";
 import {Filter} from "../filter";
 import {Matrix} from "../matrix";
 import {StraightSRgba8} from "../straight-s-rgba8";
@@ -25,7 +25,7 @@ export interface PlaceObject extends _Tag {
   bitmapCache?: boolean;
   visible?: boolean;
   backgroundColor?: StraightSRgba8;
-  clipActions: ClipAction[];
+  clipActions?: ClipActions[];
 }
 
 export namespace PlaceObject {
@@ -43,7 +43,7 @@ export namespace PlaceObject {
     blend_mode?: BlendMode.Json[];
     bitmap_cache?: boolean;
     background_color?: StraightSRgba8.Json;
-    clip_actions?: ClipAction.Json[];
+    clip_actions?: ClipActions.Json[];
   }
 
   export const type: DocumentType<PlaceObject> = new DocumentType<PlaceObject>({
@@ -60,7 +60,7 @@ export namespace PlaceObject {
       bitmapCache: {type: new BooleanType(), optional: true},
       visible: {type: new BooleanType(), optional: true},
       backgroundColor: {type: StraightSRgba8.type, optional: true},
-      clipActions: {type: new ArrayType({itemType: ClipAction.type, maxLength: Infinity})},
+      clipActions: {type: new ArrayType({itemType: ClipActions.type, maxLength: Infinity}), optional: true},
     },
     rename: CaseStyle.SnakeCase,
   });
