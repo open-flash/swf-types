@@ -76,10 +76,11 @@ pub struct DefineDynamicText {
   pub margin_left: u16,
   pub margin_right: u16,
   pub indent: u16,
-  pub leading: u16,
-  pub variable_name: String,
+  pub leading: i16,
   #[serde(skip_serializing_if = "Option::is_none")]
-  pub initial_text: Option<String>,
+  pub variable_name: Option<String>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub text: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -222,6 +223,19 @@ pub struct DoAction {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
+pub struct DoInitAction {
+  pub sprite_id: u16,
+  pub actions: Vec<avm1::Action>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct EnableDebugger {
+  pub password: String,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
 pub struct ExportAssets {
   pub assets: Vec<NamedId>,
 }
@@ -236,6 +250,13 @@ pub struct FileAttributes {
   pub no_cross_domain_caching: bool,
   pub use_relative_urls: bool,
   pub use_network: bool,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct ImportAssets {
+  pub url: String,
+  pub assets: Vec<NamedId>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

@@ -26,12 +26,12 @@ export interface DefineDynamicText extends _Tag {
   color?: StraightSRgba8;
   maxLength?: Uint16;
   align?: TextAlignment;
-  marginLeft?: Uint16;
-  marginRight?: Uint16;
+  marginLeft: Uint16;
+  marginRight: Uint16;
   indent: Uint16;
   leading: Sint16;
-  variableName: string;
-  initialText?: string;
+  variableName?: string;
+  text?: string;
 }
 
 export namespace DefineDynamicText {
@@ -59,8 +59,8 @@ export namespace DefineDynamicText {
     margin_right: number;
     indent: number;
     leading: number;
-    variable_name: string;
-    initial_text?: string;
+    variable_name?: string;
+    text?: string;
   }
 
   export const type: DocumentType<DefineDynamicText> = new DocumentType<DefineDynamicText>({
@@ -88,8 +88,8 @@ export namespace DefineDynamicText {
       marginRight: {type: new Int32Type()},
       indent: {type: new Int32Type()},
       leading: {type: new Int32Type()},
-      variableName: {type: new Ucs2StringType({maxLength: Infinity})},
-      initialText: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
+      variableName: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
+      text: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
     },
     rename: CaseStyle.SnakeCase,
   });

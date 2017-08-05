@@ -23,8 +23,8 @@ interface DefineDynamicText variantof Tag(type) {
   marginLeft: Uint(16);
   marginRight: Uint(16);
   indent: Uint(16);
-  leading: Uint(16);
-  variableName: String;
-  initialText?: String;
+  leading: Sint(16);
+  variableName: Option(String);
+  text: Option(String);
 }
 ```

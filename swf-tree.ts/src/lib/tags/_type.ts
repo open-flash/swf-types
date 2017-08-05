@@ -38,7 +38,6 @@ export enum TagType {
   DoAction,
   DoInitAction,
   EnableDebugger,
-  EnableDebugger2,
   ExportAssets,
   ExternalFont,
   FileAttributes,
@@ -49,7 +48,6 @@ export enum TagType {
   GenerateFrame,
   GenTagObjects,
   ImportAssets,
-  ImportAssets2,
   JpegTables,
   Metadata,
   NameCharacter,
@@ -121,7 +119,6 @@ export namespace TagType {
     | "do-action"
     | "do-init-action"
     | "enable-debugger"
-    | "enable-debugger2"
     | "export-assets"
     | "external-font"
     | "file-attributes"
@@ -132,7 +129,6 @@ export namespace TagType {
     | "generate-frame"
     | "genTag-objects"
     | "import-assets"
-    | "import-assets2"
     | "jpeg-tables"
     | "metadata"
     | "name-character"

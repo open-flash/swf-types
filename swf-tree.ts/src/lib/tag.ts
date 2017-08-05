@@ -20,7 +20,11 @@ export type Tag =
   | tags.DefineSprite
   | tags.DefineText
   | tags.DoAction
+  | tags.DoInitAction
+  | tags.EnableDebugger
+  | tags.ExportAssets
   | tags.FileAttributes
+  | tags.ImportAssets
   | tags.JpegTables
   | tags.Metadata
   | tags.PlaceObject
@@ -49,7 +53,11 @@ export namespace Tag {
     | tags.DefineSprite.Json
     | tags.DefineText.Json
     | tags.DoAction.Json
+    | tags.DoInitAction.Json
+    | tags.EnableDebugger.Json
+    | tags.ExportAssets.Json
     | tags.FileAttributes.Json
+    | tags.ImportAssets.Json
     | tags.JpegTables.Json
     | tags.Metadata.Json
     | tags.PlaceObject.Json
@@ -78,7 +86,11 @@ export namespace Tag {
       tags.DefineSprite.type,
       tags.DefineText.type,
       tags.DoAction.type,
+      tags.DoInitAction.type,
+      tags.EnableDebugger.type,
+      tags.ExportAssets.type,
       tags.FileAttributes.type,
+      tags.ImportAssets.type,
       tags.JpegTables.type,
       tags.Metadata.type,
       tags.PlaceObject.type,
