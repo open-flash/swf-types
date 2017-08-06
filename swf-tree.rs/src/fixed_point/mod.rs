@@ -22,7 +22,7 @@ macro_rules! signed_fixed_point_impl {
           f,
           "{}0x{:0int_width$x}.{:0frac_width$x}",
           if self.epsilon < 0 {"-"} else {"+"},
-          self.epsilon >> $frac_bits,
+          (self.epsilon >> $frac_bits).abs(),
           self.epsilon & ((1 << $frac_bits) - 1),
           int_width = $int_bits / 4,
           frac_width = $frac_bits / 4,
