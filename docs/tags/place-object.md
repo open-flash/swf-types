@@ -2,6 +2,7 @@
 
 ```
 interface PlaceObject variantof Tag(type) {
+  isMove: Boolean;
   depth: Uint(16);
   characterId: Option(Uint(16));
   className: Option(String);
@@ -10,11 +11,11 @@ interface PlaceObject variantof Tag(type) {
   ratio: Option(Uint(16));
   name: Option(String);
   clipDepth: Option(Uint(16));
-  filters: Filter[];
+  filters: Option(Filter[]);
   blendMode: Option(BlendMode);
   bitmapCache: Option(boolean);
   visible: Option(boolean);
   backgroundColor: Option(StraightSRgba);
-  clipActions: ClipAction[];
+  clipActions: Option(ClipAction[]);
 }
 ```

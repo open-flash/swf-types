@@ -83,7 +83,9 @@ pub enum BlendMode {
 pub enum Filter {
   Blur(filters::Blur),
   Bevel(filters::Bevel),
+  ColorMatrix(filters::ColorMatrix),
   Convolution(filters::Convolution),
+  DropShadow(filters::DropShadow),
   Glow(filters::Glow),
   GradientBevel(filters::GradientBevel),
   GradientGlow(filters::GradientGlow),

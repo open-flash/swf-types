@@ -1,5 +1,5 @@
 import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
-import {Sint16, Uint16} from "semantic-types";
+import {Sint16, Uint16, UintSize} from "semantic-types";
 import {Rect} from "../rect";
 import {StraightSRgba8} from "../straight-s-rgba8";
 import {TextAlignment} from "../text/text-alignment";
@@ -21,10 +21,10 @@ export interface DefineDynamicText extends _Tag {
   html: boolean;
   useGlyphFont: boolean;
   fontId?: Uint16;
-  fontSize?: Uint16;
   fontClass?: string;
+  fontSize?: Uint16;
   color?: StraightSRgba8;
-  maxLength?: Uint16;
+  maxLength?: UintSize;
   align?: TextAlignment;
   marginLeft: Uint16;
   marginRight: Uint16;
@@ -50,8 +50,8 @@ export namespace DefineDynamicText {
     html: boolean;
     use_glyph_font: boolean;
     font_id?: number;
-    font_size?: number;
     font_class?: string;
+    font_size?: number;
     color?: StraightSRgba8.Json;
     max_length?: number;
     align?: TextAlignment.Json;
@@ -79,8 +79,8 @@ export namespace DefineDynamicText {
       html: {type: new BooleanType()},
       useGlyphFont: {type: new BooleanType()},
       fontId: {type: new Int32Type(), optional: true},
-      fontSize: {type: new Int32Type(), optional: true},
       fontClass: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
+      fontSize: {type: new Int32Type(), optional: true},
       color: {type: StraightSRgba8.type, optional: true},
       maxLength: {type: new Int32Type(), optional: true},
       align: {type: TextAlignment.type, optional: true},

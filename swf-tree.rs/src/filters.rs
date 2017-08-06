@@ -72,7 +72,6 @@ pub struct Glow {
   pub inner: bool,
   pub knockout: bool,
   pub composite_source: bool,
-  pub on_top: bool,
   pub passes: u8,
 }
 

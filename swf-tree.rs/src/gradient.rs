@@ -27,5 +27,5 @@ pub struct ColorStop {
 pub struct Gradient {
   pub spread: GradientSpread,
   pub color_space: ColorSpace,
-  pub colors: ColorStop,
+  pub colors: Vec<ColorStop>,
 }

@@ -12,6 +12,7 @@ import {TagType} from "./_type";
 
 export interface PlaceObject extends _Tag {
   type: TagType.PlaceObject;
+  isMove: boolean;
   depth: Uint16;
   characterId?: Uint16;
   className?: string;
@@ -20,7 +21,7 @@ export interface PlaceObject extends _Tag {
   ratio?: Uint16;
   name?: string;
   clipDepth?: Uint16;
-  filters: Filter[];
+  filters?: Filter[];
   blendMode?: BlendMode;
   bitmapCache?: boolean;
   visible?: boolean;
@@ -31,6 +32,7 @@ export interface PlaceObject extends _Tag {
 export namespace PlaceObject {
   export interface Json {
     type: "place-object";
+    isMove: boolean;
     depth: number;
     character_id?: number;
     class_name?: string;
@@ -49,6 +51,7 @@ export namespace PlaceObject {
   export const type: DocumentType<PlaceObject> = new DocumentType<PlaceObject>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.PlaceObject})},
+      isMove: {type: new BooleanType()},
       depth: {type: new Int32Type()},
       characterId: {type: new Int32Type(), optional: true},
       matrix: {type: Matrix.type, optional: true},
@@ -56,7 +59,7 @@ export namespace PlaceObject {
       ratio: {type: new Int32Type(), optional: true},
       name: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
       clipDepth: {type: new Int32Type(), optional: true},
-      filters: {type: new ArrayType({itemType: Filter.type, maxLength: Infinity})},
+      filters: {type: new ArrayType({itemType: Filter.type, maxLength: Infinity}), optional: true},
       bitmapCache: {type: new BooleanType(), optional: true},
       visible: {type: new BooleanType(), optional: true},
       backgroundColor: {type: StraightSRgba8.type, optional: true},

@@ -51,7 +51,7 @@ pub struct DefineCffFont {
 #[serde(rename_all = "snake_case")]
 pub struct DefineDynamicText {
   pub id: u16,
-  pub bounds: String,
+  pub bounds: Rect,
   pub word_wrap: bool,
   pub multiline: bool,
   pub password: bool,
@@ -65,12 +65,13 @@ pub struct DefineDynamicText {
   #[serde(skip_serializing_if = "Option::is_none")]
   pub font_id: Option<u16>,
   #[serde(skip_serializing_if = "Option::is_none")]
-  pub font_size: Option<u16>,
-  #[serde(skip_serializing_if = "Option::is_none")]
   pub font_class: Option<String>,
   #[serde(skip_serializing_if = "Option::is_none")]
+  pub font_size: Option<u16>,
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub color: Option<StraightSRgba8>,
-  pub max_length: u16,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub max_length: Option<usize>,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub align: Option<TextAlignment>,
   pub margin_left: u16,
@@ -275,6 +276,7 @@ pub struct Metadata {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct PlaceObject {
+  pub is_move: bool,
   pub depth: u16,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub character_id: Option<u16>,
@@ -290,7 +292,8 @@ pub struct PlaceObject {
   pub name: Option<String>,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub clip_depth: Option<u16>,
-  pub filters: Vec<Filter>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub filters: Option<Vec<Filter>>,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub blend_mode: Option<BlendMode>,
   #[serde(skip_serializing_if = "Option::is_none")]
@@ -299,7 +302,8 @@ pub struct PlaceObject {
   pub visible: Option<bool>,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub background_color: Option<StraightSRgba8>,
-  pub clip_actions: Vec<ClipAction>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub clip_actions: Option<Vec<ClipAction>>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
