@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint8} from "semantic-types";
 import {ActionType} from "../action-type";
 import {ActionBase} from "./_base";
@@ -17,7 +17,7 @@ export namespace StoreRegister {
   export const type: DocumentType<StoreRegister> = new DocumentType<StoreRegister>({
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.StoreRegister})},
-      registerNumber: {type: new Int32Type()},
+      registerNumber: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

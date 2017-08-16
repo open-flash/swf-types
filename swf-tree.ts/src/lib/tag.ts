@@ -1,5 +1,4 @@
 import {TaggedUnionType} from "kryo";
-import {Tag as $Tag} from "./_circular-references";
 import * as tags from "./tags/index";
 
 export type Tag =
@@ -67,7 +66,7 @@ export namespace Tag {
     | tags.Telemetry.Json
     | tags.Unknown.Json;
 
-  export const type: TaggedUnionType<Tag> = Object.assign($Tag.type, new TaggedUnionType<Tag>({
+  export const type: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     variants: [
       tags.CsmTextSettings.type,
       tags.DefineBinaryData.type,

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint16, Uint16} from "semantic-types";
 
 export interface KerningRecord {
@@ -16,9 +16,9 @@ export namespace KerningRecord {
 
   export const type: DocumentType<KerningRecord> = new DocumentType<KerningRecord>({
     properties: {
-      left: {type: new Int32Type()},
-      right: {type: new Int32Type()},
-      adjustment: {type: new Int32Type()},
+      left: {type: new IntegerType()},
+      right: {type: new IntegerType()},
+      adjustment: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

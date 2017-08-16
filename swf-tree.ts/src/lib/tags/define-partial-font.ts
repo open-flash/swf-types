@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Glyph} from "../glyph";
 import {_Tag} from "./_tag";
@@ -20,7 +20,7 @@ export namespace DefinePartialFont {
   export const type: DocumentType<DefinePartialFont> = new DocumentType<DefinePartialFont>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefinePartialFont})},
-      id: {type: new Int32Type()},
+      id: {type: new IntegerType()},
       glyphs: {type: new ArrayType({itemType: Glyph.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

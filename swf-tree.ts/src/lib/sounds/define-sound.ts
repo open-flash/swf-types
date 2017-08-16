@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
 import {Uint16, Uint32} from "semantic-types";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
@@ -33,12 +33,12 @@ export namespace DefineSound {
   export const type: DocumentType<DefineSound> = new DocumentType<DefineSound>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineSound})},
-      soundId: {type: new Int32Type()},
+      soundId: {type: new IntegerType()},
       soundFormat: {type: AudioCodingFormat.type},
       soundRate: {type: SoundRate.type},
       soundSize: {type: SoundSize.type},
       soundType: {type: SoundType.type},
-      soundSampleCount: {type: new Int32Type()},
+      soundSampleCount: {type: new IntegerType()},
       soundData: {type: new Ucs2StringType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

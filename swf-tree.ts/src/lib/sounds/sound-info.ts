@@ -1,4 +1,4 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint32} from "semantic-types";
 import {SoundEnvelope} from "./sound-envelope";
 
@@ -24,8 +24,8 @@ export namespace SoundInfo {
     properties: {
       syncStop: {type: new BooleanType()},
       syncNoMultiple: {type: new BooleanType()},
-      inPoint: {type: new Int32Type(), optional: true},
-      outPoint: {type: new Int32Type(), optional: true},
+      inPoint: {type: new IntegerType(), optional: true},
+      outPoint: {type: new IntegerType(), optional: true},
       envelopeRecords: {type: new ArrayType({itemType: SoundEnvelope.type, maxLength: Infinity}), optional: true},
     },
     rename: CaseStyle.SnakeCase,

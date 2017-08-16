@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
+import {BooleanType, CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType} from "kryo";
 import {Uint4} from "semantic-types";
 import {Fixed16P16} from "../fixed-point/fixed16p16";
 import {Fixed8P8} from "../fixed-point/fixed8p8";
@@ -52,7 +52,7 @@ export namespace Bevel {
       knockout: {type: new BooleanType()},
       compositeSource: {type: new BooleanType()},
       onTop: {type: new BooleanType()},
-      passes: {type: new Int32Type()},
+      passes: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

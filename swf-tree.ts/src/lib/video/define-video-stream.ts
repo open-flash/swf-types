@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
@@ -31,10 +31,10 @@ export namespace DefineVideoStream {
   export const type: DocumentType<DefineVideoStream> = new DocumentType<DefineVideoStream>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineVideoStream})},
-      characterId: {type: new Int32Type()},
-      frameCount: {type: new Int32Type()},
-      width: {type: new Int32Type()},
-      height: {type: new Int32Type()},
+      characterId: {type: new IntegerType()},
+      frameCount: {type: new IntegerType()},
+      width: {type: new IntegerType()},
+      height: {type: new IntegerType()},
       deblocking: {type: VideoDeblocking.type},
       useVideoSmoothing: {type: new BooleanType()},
       codec: {type: VideoCodec.type},

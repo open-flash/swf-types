@@ -1,4 +1,4 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16, Uint32} from "semantic-types";
 import {Glyph} from "../glyph";
 import {MorphFillStyle} from "../morph-fill-style";
@@ -41,12 +41,12 @@ export namespace DefineMorphShape2 {
   export const type: DocumentType<DefineMorphShape2> = new DocumentType<DefineMorphShape2>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineMorphShape2})},
-      characterId: {type: new Int32Type()},
+      characterId: {type: new IntegerType()},
       startBounds: {type: Rect.type},
       endBounds: {type: Rect.type},
       usesNonScalingStrokes: {type: new BooleanType()},
       usesScalingStrokes: {type: new BooleanType()},
-      offset: {type: new Int32Type()},
+      offset: {type: new IntegerType()},
       morphFilleStyles: {type: new ArrayType({itemType: MorphFillStyle.type, maxLength: Infinity})},
       morphLineStyles: {type: new ArrayType({itemType: MorphLineStyle.type, maxLength: Infinity})},
       startEdges: {type: Glyph.type},

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Float64Type, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, Float64Type, IntegerType} from "kryo";
 import {Uint32, Uint8} from "semantic-types";
 import {CompressionMethod} from "./compression-method";
 
@@ -18,7 +18,7 @@ export namespace SwfSignature {
   export const type: DocumentType<SwfSignature> = new DocumentType<SwfSignature>({
     properties: {
       compressionMethod: {type: CompressionMethod.type},
-      swfVersion: {type: new Int32Type()},
+      swfVersion: {type: new IntegerType()},
       uncompressedFileLength: {type: new Float64Type()},
     },
     rename: CaseStyle.SnakeCase,

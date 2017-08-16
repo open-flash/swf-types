@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Rect} from "../rect";
 import {Shape} from "../shape";
@@ -31,7 +31,7 @@ export namespace DefineShape {
   export const type: DocumentType<DefineShape> = new DocumentType<DefineShape>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineShape})},
-      id: {type: new Int32Type()},
+      id: {type: new IntegerType()},
       bounds: {type: Rect.type},
       edgeBounds: {type: Rect.type, optional: true},
       hasFillWinding: {type: new BooleanType()},

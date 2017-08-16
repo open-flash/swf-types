@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
@@ -19,8 +19,8 @@ export namespace ScriptLimits {
   export const type: DocumentType<ScriptLimits> = new DocumentType<ScriptLimits>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.ScriptLimits})},
-      maxRecursionDepth: {type: new Int32Type()},
-      scriptTimeoutSeconds: {type: new Int32Type()},
+      maxRecursionDepth: {type: new IntegerType()},
+      scriptTimeoutSeconds: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

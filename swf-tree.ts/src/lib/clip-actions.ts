@@ -1,6 +1,5 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint8} from "semantic-types";
-import {Action as $Action} from "./_circular-references";
 import {Action} from "./avm1/action";
 import {ClipEventFlags} from "./clip-event-flags";
 
@@ -19,9 +18,9 @@ export namespace ClipActions {
 
   export const type: DocumentType<ClipActions> = new DocumentType<ClipActions>({
     properties: {
-      events: {type: new ArrayType({itemType: $Action.type, maxLength: Infinity})},
-      keyCode: {type: new Int32Type(), optional: true},
-      actions: {type: new ArrayType({itemType: $Action.type, maxLength: Infinity})},
+      events: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
+      keyCode: {type: new IntegerType(), optional: true},
+      actions: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });

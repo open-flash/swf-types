@@ -1,5 +1,4 @@
 import {TaggedUnionType} from "kryo";
-import {Action as $Action} from "../_circular-references";
 import * as actions from "./actions/index";
 
 export type Action =
@@ -211,7 +210,7 @@ export namespace Action {
     | actions.WaitForFrame2.Json
     | actions.With.Json;
 
-  export const type: TaggedUnionType<Action> = Object.assign($Action.type, new TaggedUnionType<Action>({
+  export const type: TaggedUnionType<Action> = new TaggedUnionType<Action>(() => ({
     variants: [
       actions.Unknown.type,
       actions.Add.type,

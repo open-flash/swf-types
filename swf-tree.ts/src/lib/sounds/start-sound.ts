@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
@@ -20,7 +20,7 @@ export namespace StartSound {
   export const type: DocumentType<StartSound> = new DocumentType<StartSound>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.StartSound})},
-      soundId: {type: new Int32Type()},
+      soundId: {type: new IntegerType()},
       soundInfo: {type: SoundInfo.type},
     },
     rename: CaseStyle.SnakeCase,

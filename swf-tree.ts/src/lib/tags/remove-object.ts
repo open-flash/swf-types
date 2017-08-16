@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "./_tag";
 import {TagType} from "./_type";
@@ -19,8 +19,8 @@ export namespace RemoveObject {
   export const type: DocumentType<RemoveObject> = new DocumentType<RemoveObject>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.RemoveObject})},
-      characterId: {type: new Int32Type(), optional: true},
-      depth: {type: new Int32Type()},
+      characterId: {type: new IntegerType(), optional: true},
+      depth: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

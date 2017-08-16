@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {JoinStyleType} from "./_type";
 

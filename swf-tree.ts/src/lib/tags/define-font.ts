@@ -3,7 +3,7 @@ import {
   BooleanType,
   CaseStyle,
   DocumentType,
-  Int32Type,
+  IntegerType,
   LiteralType,
   Ucs2StringType,
 } from "kryo";
@@ -48,7 +48,7 @@ export namespace DefineFont {
   export const type: DocumentType<DefineFont> = new DocumentType<DefineFont>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFont})},
-      id: {type: new Int32Type()},
+      id: {type: new IntegerType()},
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       isSmall: {type: new BooleanType()},
       isShiftJis: {type: new BooleanType()},
@@ -57,7 +57,7 @@ export namespace DefineFont {
       isBold: {type: new BooleanType()},
       language: {type: LanguageCode.type},
       glyphs: {type: new ArrayType({itemType: Glyph.type, maxLength: Infinity}), optional: true},
-      codeUnits: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity}), optional: true},
+      codeUnits: {type: new ArrayType({itemType: new IntegerType(), maxLength: Infinity}), optional: true},
       layout: {type: FontLayout.type, optional: true},
     },
     rename: CaseStyle.SnakeCase,

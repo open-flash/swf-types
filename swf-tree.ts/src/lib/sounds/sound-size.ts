@@ -1,4 +1,4 @@
-import {Int32Type, LiteralType, UnionType, VersionedType} from "kryo";
+import {IntegerType, LiteralType, UnionType, VersionedType} from "kryo";
 
 export type SoundSize = 8 | 16;
 
@@ -7,8 +7,8 @@ export namespace SoundSize {
 
   export const type: UnionType<SoundSize> = new UnionType<SoundSize>({
     variants: [
-      new LiteralType({type: new Int32Type, value: 8 as SoundSize}),
-      new LiteralType({type: new Int32Type, value: 16 as SoundSize}),
+      new LiteralType({type: new IntegerType, value: 8 as SoundSize}),
+      new LiteralType({type: new IntegerType, value: 16 as SoundSize}),
     ],
     matcher: (
       value: any,

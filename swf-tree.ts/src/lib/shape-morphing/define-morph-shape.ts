@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16, Uint32} from "semantic-types";
 import {Glyph} from "../glyph";
 import {MorphFillStyle} from "../morph-fill-style";
@@ -35,10 +35,10 @@ export namespace DefineMorphShape {
   export const type: DocumentType<DefineMorphShape> = new DocumentType<DefineMorphShape>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineMorphShape})},
-      characterId: {type: new Int32Type()},
+      characterId: {type: new IntegerType()},
       startBounds: {type: Rect.type},
       endBounds: {type: Rect.type},
-      offset: {type: new Int32Type()},
+      offset: {type: new IntegerType()},
       morphFilleStyles: {type: new ArrayType({itemType: MorphFillStyle.type, maxLength: Infinity})},
       morphLineStyles: {type: new ArrayType({itemType: MorphLineStyle.type, maxLength: Infinity})},
       startEdges: {type: Glyph.type},

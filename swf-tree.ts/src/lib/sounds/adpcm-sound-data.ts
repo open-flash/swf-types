@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 
 export interface AdpcmSoundData {
   adpcmCodeSize: 2 | 3 | 4 | 5;
@@ -13,7 +13,7 @@ export namespace AdpcmSoundData {
 
   export const type: DocumentType<AdpcmSoundData> = new DocumentType<AdpcmSoundData>({
     properties: {
-      sampleCount: {type: new Int32Type()},
+      sampleCount: {type: new IntegerType()},
       mp3SoundData: {type: null as any},
     },
     rename: CaseStyle.SnakeCase,

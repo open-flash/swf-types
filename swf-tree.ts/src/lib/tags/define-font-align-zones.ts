@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {CsmTableHint} from "../text/csm-table-hint";
 import {FontAlignmentZone} from "../text/font-alignment-zone";
@@ -23,7 +23,7 @@ export namespace DefineFontAlignZones {
   export const type: DocumentType<DefineFontAlignZones> = new DocumentType<DefineFontAlignZones>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFontAlignZones})},
-      fontId: {type: new Int32Type()},
+      fontId: {type: new IntegerType()},
       csmTableHint: {type: CsmTableHint.type},
       zones: {type: new ArrayType({itemType: FontAlignmentZone.type, maxLength: Infinity})},
     },

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Sint16, Uint16} from "semantic-types";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
@@ -44,8 +44,8 @@ export namespace SoundStreamHead2 {
       streamSoundRate: {type: SoundRate.type},
       streamSoundSize: {type: new LiteralType({type: SoundSize.type, value: 16})},
       streamSoundType: {type: SoundType.type},
-      streamSoundSampleCount: {type: new Int32Type()},
-      latencySeek: {type: new Int32Type(), optional: true},
+      streamSoundSampleCount: {type: new IntegerType()},
+      latencySeek: {type: new IntegerType(), optional: true},
     },
     rename: CaseStyle.SnakeCase,
   });

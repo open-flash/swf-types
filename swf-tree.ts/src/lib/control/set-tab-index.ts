@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
@@ -19,8 +19,8 @@ export namespace SetTabIndex {
   export const type: DocumentType<SetTabIndex> = new DocumentType<SetTabIndex>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.SetTabIndex})},
-      depth: {type: new Int32Type()},
-      tabIndex: {type: new Int32Type()},
+      depth: {type: new IntegerType()},
+      tabIndex: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

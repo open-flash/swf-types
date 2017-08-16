@@ -1,4 +1,4 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
 import {Uint16} from "semantic-types";
 import {BlendMode} from "../blend-mode";
 import {ClipActions} from "../clip-actions";
@@ -52,13 +52,13 @@ export namespace PlaceObject {
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.PlaceObject})},
       isMove: {type: new BooleanType()},
-      depth: {type: new Int32Type()},
-      characterId: {type: new Int32Type(), optional: true},
+      depth: {type: new IntegerType()},
+      characterId: {type: new IntegerType(), optional: true},
       matrix: {type: Matrix.type, optional: true},
       colorTransform: {type: ColorTransform.type, optional: true},
-      ratio: {type: new Int32Type(), optional: true},
+      ratio: {type: new IntegerType(), optional: true},
       name: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
-      clipDepth: {type: new Int32Type(), optional: true},
+      clipDepth: {type: new IntegerType(), optional: true},
       filters: {type: new ArrayType({itemType: Filter.type, maxLength: Infinity}), optional: true},
       bitmapCache: {type: new BooleanType(), optional: true},
       visible: {type: new BooleanType(), optional: true},

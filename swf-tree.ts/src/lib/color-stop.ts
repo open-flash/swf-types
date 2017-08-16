@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint8} from "semantic-types";
 import {StraightSRgba8} from "./straight-s-rgba8";
 
@@ -15,7 +15,7 @@ export namespace ColorStop {
 
   export const type: DocumentType<ColorStop> = new DocumentType<ColorStop>({
     properties: {
-      ratio: {type: new Int32Type()},
+      ratio: {type: new IntegerType()},
       color: {type: StraightSRgba8.type},
     },
     rename: CaseStyle.SnakeCase,

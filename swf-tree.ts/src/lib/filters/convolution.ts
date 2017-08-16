@@ -1,4 +1,4 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType} from "kryo";
 import {Float32, UintSize} from "semantic-types";
 import {StraightSRgba8} from "../straight-s-rgba8";
 import {FilterType} from "./_type";
@@ -31,8 +31,8 @@ export namespace Convolution {
   export const type: DocumentType<Convolution> = new DocumentType<Convolution>({
     properties: {
       filter: {type: new LiteralType({type: FilterType.type, value: FilterType.Convolution})},
-      matrixWidth: {type: new Int32Type()},
-      matrixHeight: {type: new Int32Type()},
+      matrixWidth: {type: new IntegerType()},
+      matrixHeight: {type: new IntegerType()},
       divisor: {type: new Float64Type()},
       bias: {type: new Float64Type()},
       matrix: {type: new ArrayType({itemType: new Float64Type(), /* minLength: 20, */ maxLength: 20})},

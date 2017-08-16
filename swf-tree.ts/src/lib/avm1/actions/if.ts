@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {SintSize} from "semantic-types";
 import {ActionType} from "../action-type";
 import {ActionBase} from "./_base";
@@ -17,7 +17,7 @@ export namespace If {
   export const type: DocumentType<If> = new DocumentType<If>({
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.If})},
-      offset: {type: new Int32Type()},
+      offset: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

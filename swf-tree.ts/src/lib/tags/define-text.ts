@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Matrix} from "../matrix";
 import {Rect} from "../rect";
@@ -26,7 +26,7 @@ export namespace DefineText {
   export const type: DocumentType<DefineText> = new DocumentType<DefineText>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineText})},
-      id: {type: new Int32Type()},
+      id: {type: new IntegerType()},
       bounds: {type: Rect.type},
       matrix: {type: Matrix.type},
       records: {type: new ArrayType({itemType: TextRecord.type, maxLength: Infinity})},

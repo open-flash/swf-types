@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint16, Uint16} from "semantic-types";
 import {Rect} from "../rect";
 import {KerningRecord} from "./kerning-record";
@@ -24,10 +24,10 @@ export namespace FontLayout {
 
   export const type: DocumentType<FontLayout> = new DocumentType<FontLayout>({
     properties: {
-      ascent: {type: new Int32Type()},
-      descent: {type: new Int32Type()},
-      leading: {type: new Int32Type()},
-      advances: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
+      ascent: {type: new IntegerType()},
+      descent: {type: new IntegerType()},
+      leading: {type: new IntegerType()},
+      advances: {type: new ArrayType({itemType: new IntegerType(), maxLength: Infinity})},
       bounds: {type: new ArrayType({itemType: Rect.type, maxLength: Infinity})},
       kerning: {type: new ArrayType({itemType: KerningRecord.type, maxLength: Infinity})},
     },

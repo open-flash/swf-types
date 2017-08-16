@@ -1,4 +1,4 @@
-import {BufferType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {BufferType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "./_tag";
 import {TagType} from "./_type";
@@ -23,10 +23,10 @@ export namespace DefineJpeg {
   export const type: DocumentType<DefineJpeg> = new DocumentType<DefineJpeg>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineJpeg})},
-      id: {type: new Int32Type()},
+      id: {type: new IntegerType()},
       image: {type: new BufferType({maxLength: Infinity})},
       alpha: {type: new BufferType({maxLength: Infinity}), optional: true},
-      deblocking: {type: new Int32Type(), optional: true},
+      deblocking: {type: new IntegerType(), optional: true},
     },
     rename: CaseStyle.SnakeCase,
   });

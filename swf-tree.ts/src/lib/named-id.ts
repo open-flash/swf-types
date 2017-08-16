@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, Ucs2StringType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, Ucs2StringType} from "kryo";
 import {Uint16} from "semantic-types";
 
 export interface NamedId {
@@ -14,7 +14,7 @@ export namespace NamedId {
 
   export const type: DocumentType<NamedId> = new DocumentType<NamedId>({
     properties: {
-      id: {type: new Int32Type()},
+      id: {type: new IntegerType()},
       name: {type: new Ucs2StringType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

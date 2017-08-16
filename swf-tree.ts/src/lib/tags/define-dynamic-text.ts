@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
+import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
 import {Sint16, Uint16, UintSize} from "semantic-types";
 import {Rect} from "../rect";
 import {StraightSRgba8} from "../straight-s-rgba8";
@@ -66,7 +66,7 @@ export namespace DefineDynamicText {
   export const type: DocumentType<DefineDynamicText> = new DocumentType<DefineDynamicText>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineDynamicText})},
-      id: {type: new Int32Type()},
+      id: {type: new IntegerType()},
       bounds: {type: Rect.type},
       wordWrap: {type: new BooleanType()},
       multiline: {type: new BooleanType()},
@@ -78,16 +78,16 @@ export namespace DefineDynamicText {
       wasStatic: {type: new BooleanType()},
       html: {type: new BooleanType()},
       useGlyphFont: {type: new BooleanType()},
-      fontId: {type: new Int32Type(), optional: true},
+      fontId: {type: new IntegerType(), optional: true},
       fontClass: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
-      fontSize: {type: new Int32Type(), optional: true},
+      fontSize: {type: new IntegerType(), optional: true},
       color: {type: StraightSRgba8.type, optional: true},
-      maxLength: {type: new Int32Type(), optional: true},
+      maxLength: {type: new IntegerType(), optional: true},
       align: {type: TextAlignment.type, optional: true},
-      marginLeft: {type: new Int32Type()},
-      marginRight: {type: new Int32Type()},
-      indent: {type: new Int32Type()},
-      leading: {type: new Int32Type()},
+      marginLeft: {type: new IntegerType()},
+      marginRight: {type: new IntegerType()},
+      indent: {type: new IntegerType()},
+      leading: {type: new IntegerType()},
       variableName: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
       text: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
     },

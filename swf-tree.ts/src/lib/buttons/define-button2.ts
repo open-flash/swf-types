@@ -1,4 +1,4 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
@@ -25,7 +25,7 @@ export namespace DefineButton {
   export const type: DocumentType<DefineButton2> = new DocumentType<DefineButton2>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineButton2})},
-      buttonId: {type: new Int32Type()},
+      buttonId: {type: new IntegerType()},
       trackAsMenu: {type: new BooleanType()},
       characters: {type: new ArrayType({itemType: ButtonRecord.type, maxLength: Infinity})},
       actions: {type: new ArrayType({itemType: ButtonCondAction.type, maxLength: Infinity})},

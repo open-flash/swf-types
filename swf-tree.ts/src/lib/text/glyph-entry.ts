@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint32, Uint32} from "semantic-types";
 
 export interface GlyphEntry {
@@ -14,8 +14,8 @@ export namespace GlyphEntry {
 
   export const type: DocumentType<GlyphEntry> = new DocumentType<GlyphEntry>({
     properties: {
-      index: {type: new Int32Type()},
-      advance: {type: new Int32Type()},
+      index: {type: new IntegerType()},
+      advance: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

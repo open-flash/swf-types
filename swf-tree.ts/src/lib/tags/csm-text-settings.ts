@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType} from "kryo";
 import {Float32, Uint16} from "semantic-types";
 import {GridFitting} from "../text/grid-fitting";
 import {TextRenderer} from "../text/text-renderer";
@@ -27,7 +27,7 @@ export namespace CsmTextSettings {
   export const type: DocumentType<CsmTextSettings> = new DocumentType<CsmTextSettings>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.CsmTextSettings})},
-      textId: {type: new Int32Type()},
+      textId: {type: new IntegerType()},
       renderer: {type: TextRenderer.type},
       fitting: {type: GridFitting.type},
       thickness: {type: new Float64Type()},

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {StraightSRgba as _StraightSRgba, Uint8} from "semantic-types";
 import {SRgb8} from "./s-rgb8";
 
@@ -13,7 +13,7 @@ export namespace StraightSRgba8 {
   export const type: DocumentType<StraightSRgba8> = new DocumentType<StraightSRgba8>({
     properties: {
       ...SRgb8.type.properties,
-      a: {type: new Int32Type()},
+      a: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

@@ -1,4 +1,4 @@
-import {BufferType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {BufferType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint8} from "semantic-types";
 
 export interface Vp6FlvAlphaVideoPacket {
@@ -18,8 +18,8 @@ export namespace Vp6FlvAlphaVideoPacket {
 
   export const type: DocumentType<Vp6FlvAlphaVideoPacket> = new DocumentType<Vp6FlvAlphaVideoPacket>({
     properties: {
-      horizontalAdjustment: {type: new Int32Type()},
-      verticalAdjustment: {type: new Int32Type()},
+      horizontalAdjustment: {type: new IntegerType()},
+      verticalAdjustment: {type: new IntegerType()},
       data: {type: new BufferType({maxLength: Infinity})},
       alphaData: {type: new BufferType({maxLength: Infinity})},
     },

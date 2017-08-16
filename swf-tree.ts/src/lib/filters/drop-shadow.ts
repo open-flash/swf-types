@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint5} from "semantic-types";
 import {Fixed16P16} from "../fixed-point/fixed16p16";
 import {Fixed8P8} from "../fixed-point/fixed8p8";
@@ -46,7 +46,7 @@ export namespace DropShadow {
       inner: {type: new BooleanType()},
       knockout: {type: new BooleanType()},
       compositeSource: {type: new BooleanType()},
-      passes: {type: new Int32Type()},
+      passes: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

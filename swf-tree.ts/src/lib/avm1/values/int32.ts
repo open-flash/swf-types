@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Sint32 as Int32Primitive} from "semantic-types";
 import {ValueType} from "../value-type";
 
@@ -16,7 +16,7 @@ export namespace Int32 {
   export const type: DocumentType<Int32> = new DocumentType<Int32>({
     properties: {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.Int32})},
-      value: {type: new Int32Type()},
+      value: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

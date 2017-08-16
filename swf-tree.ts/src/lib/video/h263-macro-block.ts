@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {TagType} from "../tags/_type";
 
 export interface H263MacroBlock {
@@ -21,8 +21,8 @@ export namespace H263MacroBlock {
   export const type: DocumentType<H263MacroBlock> = new DocumentType<H263MacroBlock>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineSprite})},
-      spriteId: {type: new Int32Type()},
-      frameCount: {type: new Int32Type()},
+      spriteId: {type: new IntegerType()},
+      frameCount: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

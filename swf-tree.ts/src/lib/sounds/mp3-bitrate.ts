@@ -1,4 +1,4 @@
-import {Int32Type, LiteralType, UnionType, VersionedType} from "kryo";
+import {IntegerType, LiteralType, UnionType, VersionedType} from "kryo";
 
 export type SoundRate = 32000;
 
@@ -7,10 +7,10 @@ export namespace SoundRate {
 
   export const type: UnionType<SoundRate> = new UnionType<SoundRate>({
     variants: [
-      new LiteralType({type: new Int32Type, value: 5500 as SoundRate}),
-      new LiteralType({type: new Int32Type, value: 11000 as SoundRate}),
-      new LiteralType({type: new Int32Type, value: 22000 as SoundRate}),
-      new LiteralType({type: new Int32Type, value: 44000 as SoundRate}),
+      new LiteralType({type: new IntegerType, value: 5500 as SoundRate}),
+      new LiteralType({type: new IntegerType, value: 11000 as SoundRate}),
+      new LiteralType({type: new IntegerType, value: 22000 as SoundRate}),
+      new LiteralType({type: new IntegerType, value: 44000 as SoundRate}),
     ],
     matcher: (
       value: any,

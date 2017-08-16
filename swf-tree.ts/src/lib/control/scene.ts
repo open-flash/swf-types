@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, Ucs2StringType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, Ucs2StringType} from "kryo";
 
 export interface Scene {
   offset: number;
@@ -13,7 +13,7 @@ export namespace Scene {
 
   export const type: DocumentType<Scene> = new DocumentType<Scene>({
     properties: {
-      offset: {type: new Int32Type()},
+      offset: {type: new IntegerType()},
       name: {type: new Ucs2StringType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

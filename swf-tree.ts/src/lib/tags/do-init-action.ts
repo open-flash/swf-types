@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import * as avm1 from "../avm1/index";
 import {_Tag} from "./_tag";
@@ -20,7 +20,7 @@ export namespace DoInitAction {
   export const type: DocumentType<DoInitAction> = new DocumentType<DoInitAction>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DoInitAction})},
-      spriteid: {type: new Int32Type()},
+      spriteid: {type: new IntegerType()},
       actions: {type: new ArrayType({itemType: avm1.Action.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "./_tag";
 import {TagType} from "./_type";
@@ -21,7 +21,7 @@ export namespace DefineFontName {
   export const type: DocumentType<DefineFontName> = new DocumentType<DefineFontName>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFontName})},
-      fontId: {type: new Int32Type()},
+      fontId: {type: new IntegerType()},
       name: {type: new Ucs2StringType({maxLength: Infinity})},
       copyright: {type: new Ucs2StringType({maxLength: Infinity})},
     },

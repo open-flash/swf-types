@@ -1,4 +1,4 @@
-import {BufferType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {BufferType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "./_tag";
 import {TagType} from "./_type";
@@ -19,7 +19,7 @@ export namespace DefineBinaryData {
   export const type: DocumentType<DefineBinaryData> = new DocumentType<DefineBinaryData>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineBinaryData})},
-      id: {type: new Int32Type()},
+      id: {type: new IntegerType()},
       data: {type: new BufferType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

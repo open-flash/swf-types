@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Matrix} from "../matrix";
 import {StraightSRgba8} from "../straight-s-rgba8";
@@ -26,7 +26,7 @@ export namespace Bitmap {
   export const type: DocumentType<Bitmap> = new DocumentType<Bitmap>({
     properties: {
       type: {type: new LiteralType({type: MorphFillStyleType.type, value: MorphFillStyleType.Bitmap})},
-      bitmapId: {type: new Int32Type()},
+      bitmapId: {type: new IntegerType()},
       startMatrix: {type: StraightSRgba8.type},
       endMatrix: {type: StraightSRgba8.type},
       repeating: {type: new BooleanType()},

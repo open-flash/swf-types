@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
@@ -26,7 +26,7 @@ export namespace DefineButtonSound {
   export const type: DocumentType<DefineButtonSound> = new DocumentType<DefineButtonSound>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineButtonSound})},
-      buttonId: {type: new Int32Type()},
+      buttonId: {type: new IntegerType()},
       overUpToIdle: {type: ButtonSound.type, optional: true},
       idleToOverUp: {type: ButtonSound.type, optional: true},
       overUpToOverDown: {type: ButtonSound.type, optional: true},

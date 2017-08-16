@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {BooleanType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint16} from "semantic-types";
 import {CapStyle} from "../cap-style";
 import {FillStyle} from "../fill-style";
@@ -40,8 +40,8 @@ export namespace MorphLineStyle2 {
 
   export const type: DocumentType<MorphLineStyle2> = new DocumentType<MorphLineStyle2>({
     properties: {
-      startWidth: {type: new Int32Type()},
-      endWidth: {type: new Int32Type()},
+      startWidth: {type: new IntegerType()},
+      endWidth: {type: new IntegerType()},
       startCapStyle: {type: CapStyle.type},
       joinStyle: {type: JoinStyle.type},
       noHScale: {type: new BooleanType()},
@@ -49,7 +49,7 @@ export namespace MorphLineStyle2 {
       pixelHinting: {type: new BooleanType()},
       noClose: {type: new BooleanType()},
       endCapStyle: {type: CapStyle.type},
-      miterLimitFactor: {type: new Int32Type(), optional: true},
+      miterLimitFactor: {type: new IntegerType(), optional: true},
       startColor: {type: StraightSRgba8.type, optional: true},
       endColor: {type: StraightSRgba8.type, optional: true},
       fillType: {type: FillStyle.type, optional: true},

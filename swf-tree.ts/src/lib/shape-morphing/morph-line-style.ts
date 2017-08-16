@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint16} from "semantic-types";
 import {StraightSRgba8} from "../straight-s-rgba8";
 
@@ -19,8 +19,8 @@ export namespace MorphLineStyle {
 
   export const type: DocumentType<MorphLineStyle> = new DocumentType<MorphLineStyle>({
     properties: {
-      startWidth: {type: new Int32Type()},
-      endWidth: {type: new Int32Type()},
+      startWidth: {type: new IntegerType()},
+      endWidth: {type: new IntegerType()},
       startColor: {type: StraightSRgba8.type},
       endColor: {type: StraightSRgba8.type},
     },

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Float64Type, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType} from "kryo";
 import {Uint5} from "semantic-types";
 import {Fixed16P16} from "../fixed-point/fixed16p16";
 import {FilterType} from "./_type";
@@ -23,7 +23,7 @@ export namespace Blur {
       filter: {type: new LiteralType({type: FilterType.type, value: FilterType.Blur})},
       blurX: {type: new Float64Type()},
       blurY: {type: new Float64Type()},
-      passes: {type: new Int32Type()},
+      passes: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

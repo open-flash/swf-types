@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint8} from "semantic-types";
 
 export interface Screen2ImageBlockDiffPosition {
@@ -14,8 +14,8 @@ export namespace Screen2ImageBlockDiffPosition {
 
   export const type: DocumentType<Screen2ImageBlockDiffPosition> = new DocumentType<Screen2ImageBlockDiffPosition>({
     properties: {
-      rowStart: {type: new Int32Type()},
-      height: {type: new Int32Type()},
+      rowStart: {type: new IntegerType()},
+      height: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

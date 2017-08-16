@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint8} from "semantic-types";
 import {CatchTargetType} from "./_type";
 
@@ -16,7 +16,7 @@ export namespace Register {
   export const type: DocumentType<Register> = new DocumentType<Register>({
     properties: {
       type: {type: new LiteralType({type: CatchTargetType.type, value: CatchTargetType.Register})},
-      register: {type: new Int32Type()},
+      register: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint8} from "semantic-types";
 
 export interface Screen2ImageBlockPrimePosition {
@@ -14,8 +14,8 @@ export namespace Screen2ImageBlockPrimePosition {
 
   export const type: DocumentType<Screen2ImageBlockPrimePosition> = new DocumentType<Screen2ImageBlockPrimePosition>({
     properties: {
-      column: {type: new Int32Type()},
-      row: {type: new Int32Type()},
+      column: {type: new IntegerType()},
+      row: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

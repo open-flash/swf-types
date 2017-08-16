@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint16, Uint16} from "semantic-types";
 import {StraightSRgba8} from "../straight-s-rgba8";
 import {GlyphEntry} from "./glyph-entry";
@@ -24,11 +24,11 @@ export namespace TextRecord {
 
   export const type: DocumentType<TextRecord> = new DocumentType<TextRecord>({
     properties: {
-      fontId: {type: new Int32Type(), optional: true},
+      fontId: {type: new IntegerType(), optional: true},
       color: {type: StraightSRgba8.type, optional: true},
-      offsetX: {type: new Int32Type(), optional: true},
-      offsetY: {type: new Int32Type(), optional: true},
-      fontSize: {type: new Int32Type(), optional: true},
+      offsetX: {type: new IntegerType(), optional: true},
+      offsetY: {type: new IntegerType(), optional: true},
+      fontSize: {type: new IntegerType(), optional: true},
       entries: {type: new ArrayType({itemType: GlyphEntry.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

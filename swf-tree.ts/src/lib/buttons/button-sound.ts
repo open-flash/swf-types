@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint16} from "semantic-types";
 import {SoundInfo} from "../sounds/sound-info";
 
@@ -15,7 +15,7 @@ export namespace ButtonSound {
 
   export const type: DocumentType<ButtonSound> = new DocumentType<ButtonSound>({
     properties: {
-      soundId: {type: new Int32Type()},
+      soundId: {type: new IntegerType()},
       soundInfo: {type: SoundInfo.type},
     },
     rename: CaseStyle.SnakeCase,

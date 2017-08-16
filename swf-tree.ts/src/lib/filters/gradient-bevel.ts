@@ -1,4 +1,4 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint4} from "semantic-types";
 import {ColorStop} from "../color-stop";
 import {Fixed16P16} from "../fixed-point/fixed16p16";
@@ -49,7 +49,7 @@ export namespace GradientBevel {
       knockout: {type: new BooleanType()},
       compositeSource: {type: new BooleanType()},
       onTop: {type: new BooleanType()},
-      passes: {type: new Int32Type()},
+      passes: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

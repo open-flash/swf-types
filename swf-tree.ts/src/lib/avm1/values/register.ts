@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint8} from "semantic-types";
 import {ValueType} from "../value-type";
 
@@ -16,7 +16,7 @@ export namespace Register {
   export const type: DocumentType<Register> = new DocumentType<Register>({
     properties: {
       type: {type: new LiteralType({type: ValueType.type, value: ValueType.Register})},
-      value: {type: new Int32Type()},
+      value: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

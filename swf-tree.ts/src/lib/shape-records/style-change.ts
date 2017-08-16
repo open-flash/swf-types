@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint32} from "semantic-types";
 import {FillStyle} from "../fill-style";
 import {LineStyle} from "../line-style";
@@ -35,9 +35,9 @@ export namespace StyleChange {
         }),
       },
       moveTo: {type: Vector2D.type, optional: true},
-      leftFill: {type: new Int32Type(), optional: true},
-      rightFill: {type: new Int32Type(), optional: true},
-      lineStyle: {type: new Int32Type(), optional: true},
+      leftFill: {type: new IntegerType(), optional: true},
+      rightFill: {type: new IntegerType(), optional: true},
+      lineStyle: {type: new IntegerType(), optional: true},
       fillStyles: {
         type: new ArrayType({itemType: FillStyle.type, maxLength: Infinity}),
         optional: true,

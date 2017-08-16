@@ -1,4 +1,4 @@
-import {DocumentType, Int32Type} from "kryo";
+import {DocumentType, IntegerType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Ufixed8P8} from "./fixed-point/ufixed8p8";
 import {Rect} from "./rect";
@@ -22,7 +22,7 @@ export namespace Header {
       ...SwfSignature.type.properties,
       frameSize: {type: Rect.type},
       frameRate: {type: Ufixed8P8.type},
-      frameCount: {type: new Int32Type()},
+      frameCount: {type: new IntegerType()},
     },
     rename: SwfSignature.type.rename,
   });

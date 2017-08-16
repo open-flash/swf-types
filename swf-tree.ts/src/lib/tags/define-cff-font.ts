@@ -3,7 +3,7 @@ import {
   BufferType,
   CaseStyle,
   DocumentType,
-  Int32Type,
+  IntegerType,
   LiteralType,
   Ucs2StringType,
 } from "kryo";
@@ -33,7 +33,7 @@ export namespace DefineCffFont {
   export const type: DocumentType<DefineCffFont> = new DocumentType<DefineCffFont>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineCffFont})},
-      id: {type: new Int32Type()},
+      id: {type: new IntegerType()},
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       isItalic: {type: new BooleanType()},
       isBold: {type: new BooleanType()},

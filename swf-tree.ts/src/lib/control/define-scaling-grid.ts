@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Rect} from "../rect";
 import {_Tag} from "../tags/_tag";
@@ -20,7 +20,7 @@ export namespace DefineScalingGrid {
   export const type: DocumentType<DefineScalingGrid> = new DocumentType<DefineScalingGrid>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineScalingGrid})},
-      characterId: {type: new Int32Type()},
+      characterId: {type: new IntegerType()},
       splitter: {type: Rect.type},
     },
     rename: CaseStyle.SnakeCase,

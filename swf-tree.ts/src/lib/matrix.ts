@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint32} from "semantic-types";
 import {Fixed16P16} from "./fixed-point/fixed16p16";
 
@@ -27,8 +27,8 @@ export namespace Matrix {
       scaleY: {type: Fixed16P16.type},
       rotateSkew0: {type: Fixed16P16.type},
       rotateSkew1: {type: Fixed16P16.type},
-      translateX: {type: new Int32Type()},
-      translateY: {type: new Int32Type()},
+      translateX: {type: new IntegerType()},
+      translateY: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

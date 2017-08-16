@@ -1,4 +1,4 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint32} from "semantic-types";
 import {Action} from "../avm1/action";
 
@@ -42,7 +42,7 @@ export namespace ButtonCondAction {
       overUpToIdle: {type: new BooleanType()},
       idleToOverUp: {type: new BooleanType()},
       overDownToIdle: {type: new BooleanType()},
-      keyPress: {type: new Int32Type()},
+      keyPress: {type: new IntegerType()},
       actions: {type: new ArrayType({itemType: Action.type, maxLength: Infinity}), optional: true},
     },
     rename: CaseStyle.SnakeCase,

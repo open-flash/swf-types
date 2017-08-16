@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {BooleanType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint16} from "semantic-types";
 import {CapStyle} from "./cap-style";
 import {FillStyle} from "./fill-style";
@@ -31,7 +31,7 @@ export namespace LineStyle {
 
   export const type: DocumentType<LineStyle> = new DocumentType<LineStyle>({
     properties: {
-      width: {type: new Int32Type()},
+      width: {type: new IntegerType()},
       startCap: {type: CapStyle.type},
       endCap: {type: CapStyle.type},
       join: {type: JoinStyle.type},

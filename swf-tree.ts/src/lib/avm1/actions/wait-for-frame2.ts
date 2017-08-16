@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {UintSize} from "semantic-types";
 import {ActionType} from "../action-type";
 import {ActionBase} from "./_base";
@@ -17,7 +17,7 @@ export namespace WaitForFrame2 {
   export const type: DocumentType<WaitForFrame2> = new DocumentType<WaitForFrame2>({
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.WaitForFrame2})},
-      skipCount: {type: new Int32Type()},
+      skipCount: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

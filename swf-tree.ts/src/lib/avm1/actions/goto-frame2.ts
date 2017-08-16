@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {UintSize} from "semantic-types";
 import {ActionType} from "../action-type";
 import {ActionBase} from "./_base";
@@ -20,7 +20,7 @@ export namespace GotoFrame2 {
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.GotoFrame2})},
       play: {type: new BooleanType()},
-      sceneBias: {type: new Int32Type()},
+      sceneBias: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

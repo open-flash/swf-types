@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint16, Uint8} from "semantic-types";
 import {ScreenImageBlock} from "./screen-image-block";
 
@@ -21,10 +21,10 @@ export namespace ScreenVideoPacket {
 
   export const type: DocumentType<ScreenVideoPacket> = new DocumentType<ScreenVideoPacket>({
     properties: {
-      imageWidth: {type: new Int32Type()},
-      imageHeight: {type: new Int32Type()},
-      blockWidth: {type: new Int32Type()},
-      blockHeight: {type: new Int32Type()},
+      imageWidth: {type: new IntegerType()},
+      imageHeight: {type: new IntegerType()},
+      blockWidth: {type: new IntegerType()},
+      blockHeight: {type: new IntegerType()},
       blocks: {type: new ArrayType({itemType: ScreenImageBlock.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint16} from "semantic-types";
 import {ColorTransform} from "./color-transform";
 import {Fixed8P8} from "./fixed-point/fixed8p8";
@@ -18,7 +18,7 @@ export namespace ColorTransformWithAlpha {
     properties: {
       ...ColorTransform.type.properties,
       alphaMult: {type: Fixed8P8.type},
-      alphaAdd: {type: new Int32Type()},
+      alphaAdd: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

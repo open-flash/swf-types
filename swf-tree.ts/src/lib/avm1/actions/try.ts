@@ -1,5 +1,4 @@
 import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Action as $Action} from "../../_circular-references";
 import {Action} from "../action";
 import {ActionType} from "../action-type";
 import {CatchTarget} from "../catch-target";
@@ -25,13 +24,10 @@ export namespace Try {
   export const type: DocumentType<Try> = new DocumentType<Try>({
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Try})},
-      // TODO(demurgos): solve circular dependency
-      try: {type: new ArrayType({itemType: $Action.type, maxLength: Infinity})},
-      // TODO(demurgos): solve circular dependency
-      catch: {type: new ArrayType({itemType: $Action.type, maxLength: Infinity}), optional: true},
+      try: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
+      catch: {type: new ArrayType({itemType: Action.type, maxLength: Infinity}), optional: true},
       catchTarget: {type: CatchTarget.type, optional: true},
-      // TODO(demurgos): solve circular dependency
-      finally: {type: new ArrayType({itemType: $Action.type, maxLength: Infinity}), optional: true},
+      finally: {type: new ArrayType({itemType: Action.type, maxLength: Infinity}), optional: true},
     },
     rename: CaseStyle.SnakeCase,
   });

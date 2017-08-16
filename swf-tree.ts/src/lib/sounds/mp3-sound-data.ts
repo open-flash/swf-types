@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint16} from "semantic-types";
 import {Mp3Frame} from "./mp3-frame";
 
@@ -15,7 +15,7 @@ export namespace Mp3SoundData {
 
   export const type: DocumentType<Mp3SoundData> = new DocumentType<Mp3SoundData>({
     properties: {
-      seekSamples: {type: new Int32Type()},
+      seekSamples: {type: new IntegerType()},
       mp3Frames: {type: Mp3Frame.type},
     },
     rename: CaseStyle.SnakeCase,

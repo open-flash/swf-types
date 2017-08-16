@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint16} from "semantic-types";
 
 export interface Rect {
@@ -18,10 +18,10 @@ export namespace Rect {
 
   export const type: DocumentType<Rect> = new DocumentType<Rect>({
     properties: {
-      xMin: {type: new Int32Type()},
-      xMax: {type: new Int32Type()},
-      yMin: {type: new Int32Type()},
-      yMax: {type: new Int32Type()},
+      xMin: {type: new IntegerType()},
+      xMax: {type: new IntegerType()},
+      yMin: {type: new IntegerType()},
+      yMax: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

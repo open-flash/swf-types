@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, Ucs2StringType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, Ucs2StringType} from "kryo";
 
 export interface Label {
   frame: number;
@@ -13,7 +13,7 @@ export namespace Label {
 
   export const type: DocumentType<Label> = new DocumentType<Label>({
     properties: {
-      frame: {type: new Int32Type()},
+      frame: {type: new IntegerType()},
       name: {type: new Ucs2StringType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

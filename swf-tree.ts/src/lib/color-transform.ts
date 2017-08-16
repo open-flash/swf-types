@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint16} from "semantic-types";
 import {Fixed8P8} from "./fixed-point/fixed8p8";
 
@@ -26,9 +26,9 @@ export namespace ColorTransform {
       redMult: {type: Fixed8P8.type},
       greenMult: {type: Fixed8P8.type},
       blueMult: {type: Fixed8P8.type},
-      redAdd: {type: new Int32Type()},
-      greenAdd: {type: new Int32Type()},
-      blueAdd: {type: new Int32Type()},
+      redAdd: {type: new IntegerType()},
+      greenAdd: {type: new IntegerType()},
+      blueAdd: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

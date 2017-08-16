@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {ActionType} from "../action-type";
 import {ActionBase} from "./_base";
@@ -17,7 +17,7 @@ export namespace GotoFrame {
   export const type: DocumentType<GotoFrame> = new DocumentType<GotoFrame>({
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.GotoFrame})},
-      frame: {type: new Int32Type()},
+      frame: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

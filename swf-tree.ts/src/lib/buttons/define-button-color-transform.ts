@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {ColorTransform} from "../color-transform";
 import {_Tag} from "../tags/_tag";
@@ -20,7 +20,7 @@ export namespace DefineButtonColorTransform {
   export const type: DocumentType<DefineButtonColorTransform> = new DocumentType<DefineButtonColorTransform>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineButtonColorTransform})},
-      buttonId: {type: new Int32Type()},
+      buttonId: {type: new IntegerType()},
       transform: {type: ColorTransform.type},
     },
     rename: CaseStyle.SnakeCase,

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Mp3ChannelMode} from "./mp3-channel-mode";
 import {Mp3Layer} from "./mp3-layer";
 import {MpegVersion} from "./mpeg-version";
@@ -24,7 +24,7 @@ export namespace Mp3Frame {
 
   export const type: DocumentType<Mp3Frame> = new DocumentType<Mp3Frame>({
     properties: {
-      seekSamples: {type: new Int32Type()},
+      seekSamples: {type: new IntegerType()},
       mp3Frames: {type: null as any},
     },
     rename: CaseStyle.SnakeCase,

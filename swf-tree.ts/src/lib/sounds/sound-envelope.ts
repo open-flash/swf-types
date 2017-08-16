@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint16, Uint32} from "semantic-types";
 
 export interface SoundEnvelope {
@@ -16,9 +16,9 @@ export namespace SoundEnvelope {
 
   export const type: DocumentType<SoundEnvelope> = new DocumentType<SoundEnvelope>({
     properties: {
-      pos44: {type: new Int32Type()},
-      leftLevel: {type: new Int32Type()},
-      rightLevel: {type: new Int32Type()},
+      pos44: {type: new IntegerType()},
+      leftLevel: {type: new IntegerType()},
+      rightLevel: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

@@ -1,4 +1,4 @@
-import {BufferType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {BufferType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "./_tag";
 import {TagType} from "./_type";
@@ -23,9 +23,9 @@ export namespace DefineBitmap {
   export const type: DocumentType<DefineBitmap> = new DocumentType<DefineBitmap>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineBitmap})},
-      id: {type: new Int32Type()},
-      width: {type: new Int32Type()},
-      height: {type: new Int32Type()},
+      id: {type: new IntegerType()},
+      width: {type: new IntegerType()},
+      height: {type: new IntegerType()},
       data: {type: new BufferType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

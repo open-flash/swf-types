@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Sint16, Uint32} from "semantic-types";
 
 export interface AdpcmMonoPacket {
@@ -15,7 +15,7 @@ export namespace AdpcmMonoPacket {
 
   export const type: DocumentType<AdpcmMonoPacket> = new DocumentType<AdpcmMonoPacket>({
     properties: {
-      sampleCount: {type: new Int32Type()},
+      sampleCount: {type: new IntegerType()},
       mp3SoundData: {type: null as any},
     },
     rename: CaseStyle.SnakeCase,

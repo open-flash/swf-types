@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {SRgb as _SRgb, Uint8} from "semantic-types";
 
 export interface SRgb8 extends _SRgb<Uint8> {
@@ -13,9 +13,9 @@ export namespace SRgb8 {
 
   export const type: DocumentType<SRgb8> = new DocumentType<SRgb8>({
     properties: {
-      r: {type: new Int32Type()},
-      g: {type: new Int32Type()},
-      b: {type: new Int32Type()},
+      r: {type: new IntegerType()},
+      g: {type: new IntegerType()},
+      b: {type: new IntegerType()},
     },
     rename: CaseStyle.SnakeCase,
   });

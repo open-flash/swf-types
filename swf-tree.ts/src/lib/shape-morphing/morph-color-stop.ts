@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type} from "kryo";
+import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint8} from "semantic-types";
 import {StraightSRgba8} from "../straight-s-rgba8";
 
@@ -19,9 +19,9 @@ export namespace MorphColorStop {
 
   export const type: DocumentType<MorphColorStop> = new DocumentType<MorphColorStop>({
     properties: {
-      startRatio: {type: new Int32Type()},
+      startRatio: {type: new IntegerType()},
       startColor: {type: StraightSRgba8.type},
-      endRatio: {type: new Int32Type()},
+      endRatio: {type: new IntegerType()},
       endColor: {type: StraightSRgba8.type},
     },
     rename: CaseStyle.SnakeCase,

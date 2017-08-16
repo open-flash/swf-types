@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "../tags/_tag";
 import {TagType} from "../tags/_type";
@@ -36,8 +36,8 @@ export namespace VideoFrame {
   export const type: DocumentType<VideoFrame> = new DocumentType<VideoFrame>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.VideoFrame})},
-      streamId: {type: new Int32Type()},
-      frameNum: {type: new Int32Type()},
+      streamId: {type: new IntegerType()},
+      frameNum: {type: new IntegerType()},
       videoData: {type: null as any},
     },
     rename: CaseStyle.SnakeCase,

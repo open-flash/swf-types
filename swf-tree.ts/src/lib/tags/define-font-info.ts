@@ -1,4 +1,4 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type, LiteralType, Ucs2StringType} from "kryo";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
 import {Uint16} from "semantic-types";
 import {LanguageCode} from "../language-code";
 import {_Tag} from "../tags/_tag";
@@ -34,7 +34,7 @@ export namespace DefineFontInfo {
   export const type: DocumentType<DefineFontInfo> = new DocumentType<DefineFontInfo>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFontInfo})},
-      fontId: {type: new Int32Type()},
+      fontId: {type: new IntegerType()},
       fontName: {type: new Ucs2StringType({maxLength: Infinity})},
       isSmall: {type: new BooleanType()},
       isShiftJis: {type: new BooleanType()},
@@ -42,7 +42,7 @@ export namespace DefineFontInfo {
       isItalic: {type: new BooleanType()},
       isBold: {type: new BooleanType()},
       language: {type: LanguageCode.type, optional: true},
-      codeUnits: {type: new ArrayType({itemType: new Int32Type(), maxLength: Infinity})},
+      codeUnits: {type: new ArrayType({itemType: new IntegerType(), maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
   });

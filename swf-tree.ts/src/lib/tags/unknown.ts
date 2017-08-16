@@ -1,4 +1,4 @@
-import {BufferType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {BufferType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {_Tag} from "./_tag";
 import {TagType} from "./_type";
@@ -19,7 +19,7 @@ export namespace Unknown {
   export const type: DocumentType<Unknown> = new DocumentType<Unknown>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.Unknown})},
-      code: {type: new Int32Type()},
+      code: {type: new IntegerType()},
       data: {type: new BufferType({maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,

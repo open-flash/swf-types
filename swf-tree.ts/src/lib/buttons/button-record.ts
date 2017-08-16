@@ -1,4 +1,4 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Int32Type} from "kryo";
+import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint16} from "semantic-types";
 import {BlendMode} from "../blend-mode";
 import {ColorTransformWithAlpha} from "../color-transform-with-alpha";
@@ -38,8 +38,8 @@ export namespace ButtonRecord {
       stateDown: {type: new BooleanType()},
       stateOver: {type: new BooleanType()},
       stateUp: {type: new BooleanType()},
-      characterId: {type: new Int32Type()},
-      placeDepth: {type: new Int32Type()},
+      characterId: {type: new IntegerType()},
+      placeDepth: {type: new IntegerType()},
       placeMatrix: {type: Matrix.type},
       colorTransform: {type: ColorTransformWithAlpha.type, optional: true},
       fontAdanceTable: {type: new ArrayType({itemType: Filter.type, maxLength: Infinity}), optional: true},

@@ -1,4 +1,4 @@
-import {ArrayType, CaseStyle, DocumentType, Int32Type, LiteralType} from "kryo";
+import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
 import {Uint16} from "semantic-types";
 import {Action} from "../avm1/action";
 import {_Tag} from "../tags/_tag";
@@ -23,7 +23,7 @@ export namespace DefineButton {
   export const type: DocumentType<DefineButton> = new DocumentType<DefineButton>({
     properties: {
       type: {type: new LiteralType({type: TagType.type, value: TagType.DefineButton})},
-      buttonId: {type: new Int32Type()},
+      buttonId: {type: new IntegerType()},
       characters: {type: new ArrayType({itemType: ButtonRecord.type, maxLength: Infinity})},
       actions: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
     },
