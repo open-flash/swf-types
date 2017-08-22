@@ -2,6 +2,6 @@
 
 ```
 interface CurvedEdge variantof ShapeRecord(type) {
-  endDelta: Vector2D;
+  delta: Vector2D;
 }
 ```

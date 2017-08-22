@@ -4,13 +4,13 @@ import {ShapeRecordType} from "./_type";
 
 export interface StraightEdge {
   type: ShapeRecordType.StraightEdge;
-  endDelta: Vector2D;
+  delta: Vector2D;
 }
 
 export namespace StraightEdge {
   export interface Json {
     type: "straight-edge";
-    end_delta: Vector2D.Json;
+    delta: Vector2D.Json;
   }
 
   export const type: DocumentType<StraightEdge> = new DocumentType<StraightEdge>({
@@ -21,7 +21,7 @@ export namespace StraightEdge {
           value: ShapeRecordType.StraightEdge,
         }),
       },
-      endDelta: {type: Vector2D.type},
+      delta: {type: Vector2D.type},
     },
     rename: CaseStyle.SnakeCase,
   });

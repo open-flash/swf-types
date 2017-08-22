@@ -5,14 +5,14 @@ import {ShapeRecordType} from "./_type";
 export interface CurvedEdge {
   type: ShapeRecordType.CurvedEdge;
   controlDelta: Vector2D;
-  endDelta: Vector2D;
+  anchorDelta: Vector2D;
 }
 
 export namespace CurvedEdge {
   export interface Json {
     type: "curved-edge";
     control_delta: Vector2D.Json;
-    end_delta: Vector2D.Json;
+    anchor_delta: Vector2D.Json;
   }
 
   export const type: DocumentType<CurvedEdge> = new DocumentType<CurvedEdge>({
@@ -24,7 +24,7 @@ export namespace CurvedEdge {
         }),
       },
       controlDelta: {type: Vector2D.type},
-      endDelta: {type: Vector2D.type},
+      anchorDelta: {type: Vector2D.type},
     },
     rename: CaseStyle.SnakeCase,
   });

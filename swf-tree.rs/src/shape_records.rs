@@ -6,13 +6,13 @@ use shapes::LineStyle;
 #[serde(rename_all = "snake_case")]
 pub struct CurvedEdge {
   pub control_delta: Vector2D,
-  pub end_delta: Vector2D,
+  pub anchor_delta: Vector2D,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct StraightEdge {
-  pub end_delta: Vector2D,
+  pub delta: Vector2D,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
