@@ -1,6 +1,6 @@
 import {CaseStyle, DocumentType, IntegerType} from "kryo";
 import {Uint8} from "semantic-types";
-import {StraightSRgba8} from "../straight-s-rgba8";
+import {StraightSRgba8} from "./straight-s-rgba8";
 
 export interface MorphColorStop {
   startRatio: Uint8;
@@ -11,10 +11,10 @@ export interface MorphColorStop {
 
 export namespace MorphColorStop {
   export interface Json {
-    start_ratio: number;
-    start_color: StraightSRgba8.Json;
-    end_ratio: number;
-    end_color: StraightSRgba8.Json;
+    startRatio: number;
+    startColor: StraightSRgba8.Json;
+    endRatio: number;
+    endColor: StraightSRgba8.Json;
   }
 
   export const type: DocumentType<MorphColorStop> = new DocumentType<MorphColorStop>({

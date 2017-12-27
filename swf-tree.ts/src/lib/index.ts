@@ -2,11 +2,12 @@ import * as avm1 from "./avm1/index";
 import * as fillStyles from "./fill-styles/index";
 import * as filters from "./filters/index";
 import * as joinStyles from "./join-styles/index";
+import * as morphFillStyles from "./morph-fill-styles/index";
 import * as shapeRecords from "./shape-records/index";
 import * as tags from "./tags/index";
 import * as text from "./text/index";
 
-export {avm1, fillStyles, filters, joinStyles, shapeRecords, tags, text};
+export {avm1, fillStyles, filters, joinStyles, morphFillStyles, shapeRecords, tags, text};
 
 export {BlendMode} from "./blend-mode";
 export {CapStyle} from "./cap-style";
@@ -26,7 +27,11 @@ export {Header} from "./header";
 export {JoinStyle} from "./join-style";
 export {LanguageCode} from "./language-code";
 export {LineStyle} from "./line-style";
+export {MorphLineStyle} from "./morph-line-style";
 export {Matrix} from "./matrix";
+export {MorphColorStop} from "./morph-color-stop";
+export {MorphFillStyle} from "./morph-fill-style";
+export {MorphGradient} from "./morph-gradient";
 export {Movie} from "./movie";
 export {NamedId} from "./named-id";
 export {Rect} from "./rect";
@@ -41,6 +46,7 @@ export {Vector2D} from "./vector-2d";
 export {FillStyleType} from "./fill-styles/_type";
 export {FilterType} from "./filters/_type";
 export {JoinStyleType} from "./join-styles/_type";
+export {MorphFillStyleType} from "./morph-fill-styles/_type";
 export {ShapeRecordType} from "./shape-records/_type";
 export {TagType} from "./tags/_type";
 

@@ -1,4 +1,4 @@
-import {TaggedUnionType} from "kryo";
+import {DocumentType, TaggedUnionType} from "kryo";
 import * as morphFillStyles from "./morph-fill-styles/index";
 
 export type MorphFillStyle =
@@ -17,7 +17,7 @@ export namespace MorphFillStyle {
     | morphFillStyles.Solid.Json;
 
   export const type: TaggedUnionType<MorphFillStyle> = new TaggedUnionType<MorphFillStyle>({
-    variants: [
+    variants: <DocumentType<MorphFillStyle>[]> [
       morphFillStyles.Bitmap.type,
       morphFillStyles.FocalGradient.type,
       morphFillStyles.LinearGradient.type,
