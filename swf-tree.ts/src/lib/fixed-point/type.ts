@@ -1,6 +1,8 @@
-import {Incident} from "incident";
+import { Incident } from "incident";
 import * as kryo from "kryo";
-import {FixedPoint, FixedPointConstructor} from "./fixed-point";
+import { FixedPoint, FixedPointConstructor } from "./fixed-point";
+import { createNotImplementedError } from "kryo/errors/not-implemented";
+import { createInvalidTypeError } from "kryo/errors/invalid-type";
 
 export type Name = "fixed-point";
 export const name: Name = "fixed-point";
@@ -29,10 +31,7 @@ export interface Options<T extends FixedPoint> {
   type: FixedPointConstructor<T>;
 }
 
-export class FixedPointType<T extends FixedPoint>
-  implements kryo.VersionedType<T, json.Input, json.Output, Diff>,
-    kryo.SerializableType<T, "bson", bson.Input, bson.Output>,
-    kryo.SerializableType<T, "qs", qs.Input, qs.Output> {
+export class FixedPointType<T extends FixedPoint> implements kryo.VersionedType<T, json.Input, json.Output, Diff> {
 
   readonly name: Name = name;
   readonly type: FixedPointConstructor<T>;
@@ -53,76 +52,49 @@ export class FixedPointType<T extends FixedPoint>
   }
 
   toJSON(): json.Type {
-    throw kryo.errors.NotImplementedError.create("FixedPointType#toJSON");
+    throw createNotImplementedError("FixedPointType#toJSON");
   }
 
-  readTrusted(format: "bson", val: bson.Output): T;
-  readTrusted(format: "json", val: json.Output): T;
-  readTrusted(format: "qs", val: qs.Output): T;
-  readTrusted(format: "bson" | "json" | "qs", input: string): T {
-    switch (format) {
-      case "bson":
-      case "json":
-      case "qs":
-        const execArray: RegExpExecArray = this.outPattern.exec(input)!;
-        const sign: -1 | 1 = execArray[1] === "-" ? -1 : 1;
-        const intPart: number = parseInt(execArray[2], 16);
-        const fracPart: number = parseInt(execArray[3], 16);
-        const epsilons: number = sign * (intPart * Math.pow(2, this.type.fracBits) + fracPart);
-        return this.type.fromEpsilons(epsilons);
-      default:
-        return undefined as never;
-    }
+  readTrustedJson(input: json.Output): T {
+    const execArray: RegExpExecArray = this.outPattern.exec(input)!;
+    const sign: -1 | 1 = execArray[1] === "-" ? -1 : 1;
+    const intPart: number = parseInt(execArray[2], 16);
+    const fracPart: number = parseInt(execArray[3], 16);
+    const epsilons: number = sign * (intPart * Math.pow(2, this.type.fracBits) + fracPart);
+    return this.type.fromEpsilons(epsilons);
   }
 
-  read(format: "bson" | "json" | "qs", input: any): T {
-    switch (format) {
-      case "bson":
-      case "json":
-      case "qs":
-        if (typeof input !== "string") {
-          throw kryo.errors.WrongTypeError.create("string", input);
-        }
-        const execArray: RegExpExecArray | null = this.outPattern.exec(input);
-        if (execArray === null) {
-          throw new Incident(
-            "InvalidFixedPoint",
-            "The provided input does not matched the expected pattern",
-          );
-        }
-        const sign: -1 | 1 = execArray[1] === "-" ? -1 : 1;
-        const intPart: number = parseInt(execArray[2], 16);
-        const fracPart: number = parseInt(execArray[3], 16);
-        const epsilons: number = sign * (intPart * Math.pow(2, this.type.fracBits) + fracPart);
-        return this.type.fromEpsilons(epsilons);
-      default:
-        throw kryo.errors.UnknownFormatError.create(format);
+  readJson(input: any): T {
+    if (typeof input !== "string") {
+      throw createInvalidTypeError("string", input);
     }
+    const execArray: RegExpExecArray | null = this.outPattern.exec(input);
+    if (execArray === null) {
+      throw new Incident(
+        "InvalidFixedPoint",
+        "The provided input does not matched the expected pattern",
+      );
+    }
+    const sign: -1 | 1 = execArray[1] === "-" ? -1 : 1;
+    const intPart: number = parseInt(execArray[2], 16);
+    const fracPart: number = parseInt(execArray[3], 16);
+    const epsilons: number = sign * (intPart * Math.pow(2, this.type.fracBits) + fracPart);
+    return this.type.fromEpsilons(epsilons);
   }
 
-  write(format: "bson", val: T): bson.Output;
-  write(format: "json", val: T): json.Output;
-  write(format: "qs", val: T): qs.Output;
-  write(format: "bson" | "json" | "qs", val: T): any {
-    switch (format) {
-      case "bson":
-      case "json":
-      case "qs":
-        const sign: "+" | "-" = val.epsilons < 0 ? "-" : "+";
-        const fracPart: number = Math.abs(val.epsilons) % Math.pow(2, this.type.fracBits);
-        const intPart: number = (Math.abs(val.epsilons) - fracPart) / Math.pow(2, this.type.fracBits);
-        // TODO(demurgos): Remove `any` when type definitions for ES2018 strings are available
-        const fracStr: string = (fracPart.toString(16) as any).padStart(this.type.fracBits / 4, "0");
-        const intStr: string = (intPart.toString(16) as any).padStart(this.type.intBits / 4, "0");
-        return `${sign}0x${intStr}.${fracStr}`;
-      default:
-        return undefined as never;
-    }
+  writeJson(val: T): json.Output {
+    const sign: "+" | "-" = val.epsilons < 0 ? "-" : "+";
+    const fracPart: number = Math.abs(val.epsilons) % Math.pow(2, this.type.fracBits);
+    const intPart: number = (Math.abs(val.epsilons) - fracPart) / Math.pow(2, this.type.fracBits);
+    // TODO(demurgos): Remove `any` when type definitions for ES2018 strings are available
+    const fracStr: string = (fracPart.toString(16) as any).padStart(this.type.fracBits / 4, "0");
+    const intStr: string = (intPart.toString(16) as any).padStart(this.type.intBits / 4, "0");
+    return `${sign}0x${intStr}.${fracStr}`;
   }
 
   testError(val: T): Error | undefined {
     if (!(val instanceof <any> this.type)) {
-      return kryo.errors.WrongTypeError.create("FixedPointNumber", val);
+      return createInvalidTypeError("FixedPointNumber", val);
     }
     return undefined;
   }
