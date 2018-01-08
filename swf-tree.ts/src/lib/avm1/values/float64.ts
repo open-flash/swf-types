@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, Float64Type, LiteralType} from "kryo";
-import {Float64 as Float64Primitive} from "semantic-types";
-import {ValueType} from "../value-type";
+import { CaseStyle, DocumentType, Float64Type, LiteralType } from "kryo";
+import {Float64 as Float64Primitive } from "semantic-types";
+import { ValueType } from "../value-type";
 
 export interface Float64 {
   type: ValueType.Float64;

@@ -1,8 +1,8 @@
-import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Label} from "../control/label";
-import {Scene} from "../control/scene";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { ArrayType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { Label } from "../control/label";
+import { Scene } from "../control/scene";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DefineSceneAndFrameLabelData extends _Tag {
   type: TagType.DefineSceneAndFrameLabelData;

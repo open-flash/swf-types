@@ -1,9 +1,9 @@
-import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Fixed8P8} from "../fixed-point/fixed8p8";
-import {Matrix} from "../matrix";
-import {MorphGradient} from "../morph-gradient";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {MorphFillStyleType} from "./_type";
+import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { Fixed8P8 } from "../fixed-point/fixed8p8";
+import { Matrix } from "../matrix";
+import { MorphGradient } from "../morph-gradient";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { MorphFillStyleType } from "./_type";
 
 export interface FocalGradient {
   type: MorphFillStyleType.FocalGradient;

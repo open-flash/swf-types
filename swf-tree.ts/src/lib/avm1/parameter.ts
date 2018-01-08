@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, IntegerType, Ucs2StringType} from "kryo";
-import {Uint8} from "semantic-types";
+import { CaseStyle, DocumentType, IntegerType, Ucs2StringType } from "kryo";
+import { Uint8 } from "semantic-types";
 
 // TODO(demurgos): rename to RegisterParameter or make register optional (undefined if 0)
 export interface Parameter {

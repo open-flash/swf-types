@@ -1,6 +1,6 @@
-import {ArrayType, CaseStyle, DocumentType} from "kryo";
-import {Header} from "./header";
-import {Tag} from "./tag";
+import { ArrayType, CaseStyle, DocumentType } from "kryo";
+import { Header } from "./header";
+import { Tag } from "./tag";
 
 export interface Movie {
   header: Header;

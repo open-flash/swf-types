@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint8} from "semantic-types";
-import {Action} from "./avm1/action";
-import {ClipEventFlags} from "./clip-event-flags";
+import { ArrayType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint8 } from "semantic-types";
+import { Action } from "./avm1/action";
+import { ClipEventFlags } from "./clip-event-flags";
 
 export interface ClipActions {
   events: ClipEventFlags;

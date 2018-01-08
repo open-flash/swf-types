@@ -1,12 +1,12 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
-import {H263VideoPacket} from "./h263-video-packet";
-import {ScreenVideoPacket} from "./screen-video-packet";
-import {Screen2VideoPacket} from "./screen2-video-packet";
-import {Vp6SwfAlphaVideoPacket} from "./vp6-swf-alpha-video-packet";
-import {Vp6SwfVideoPacket} from "./vp6-swf-video-packet";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { _Tag } from "../tags/_tag";
+import { TagType } from "../tags/_type";
+import { H263VideoPacket } from "./h263-video-packet";
+import { ScreenVideoPacket } from "./screen-video-packet";
+import { Screen2VideoPacket } from "./screen2-video-packet";
+import { Vp6SwfAlphaVideoPacket } from "./vp6-swf-alpha-video-packet";
+import { Vp6SwfVideoPacket } from "./vp6-swf-video-packet";
 
 export interface VideoFrame extends _Tag {
   type: TagType.VideoFrame;

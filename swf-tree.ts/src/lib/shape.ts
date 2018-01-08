@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType} from "kryo";
-import {FillStyle} from "./fill-style";
-import {LineStyle} from "./line-style";
-import {ShapeRecord} from "./shape-record";
+import { ArrayType, CaseStyle, DocumentType } from "kryo";
+import { FillStyle } from "./fill-style";
+import { LineStyle } from "./line-style";
+import { ShapeRecord } from "./shape-record";
 
 export interface Shape {
   fillStyles: FillStyle[];

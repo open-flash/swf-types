@@ -1,9 +1,9 @@
-import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint5} from "semantic-types";
-import {Fixed16P16} from "../fixed-point/fixed16p16";
-import {Fixed8P8} from "../fixed-point/fixed8p8";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {FilterType} from "./_type";
+import { BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint5 } from "semantic-types";
+import { Fixed16P16 } from "../fixed-point/fixed16p16";
+import { Fixed8P8 } from "../fixed-point/fixed8p8";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { FilterType } from "./_type";
 
 export interface DropShadow {
   filter: FilterType.DropShadow;

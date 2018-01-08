@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint8} from "semantic-types";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint8 } from "semantic-types";
 
 export interface Screen2ImageBlockDiffPosition {
   rowStart: Uint8;

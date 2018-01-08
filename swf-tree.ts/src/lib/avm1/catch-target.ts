@@ -1,4 +1,4 @@
-import {TaggedUnionType} from "kryo";
+import { TaggedUnionType } from "kryo";
 import * as catchTargets from "./catch-targets/index";
 
 export type CatchTarget = catchTargets.Register | catchTargets.Variable;

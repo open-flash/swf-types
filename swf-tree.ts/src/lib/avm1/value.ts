@@ -1,4 +1,4 @@
-import {TaggedUnionType} from "kryo";
+import { TaggedUnionType } from "kryo";
 import * as values from "./values/index";
 
 export type Value =

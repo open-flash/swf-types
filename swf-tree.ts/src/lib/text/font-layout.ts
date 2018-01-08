@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Sint16, Uint16} from "semantic-types";
-import {Rect} from "../rect";
-import {KerningRecord} from "./kerning-record";
+import { ArrayType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Sint16, Uint16 } from "semantic-types";
+import { Rect } from "../rect";
+import { KerningRecord } from "./kerning-record";
 
 export interface FontLayout {
   ascent: Uint16;

@@ -1,6 +1,6 @@
-import {Uint16} from "semantic-types";
-import {FixedPoint} from "./fixed-point";
-import {FixedPointType} from "./type";
+import { Uint16 } from "semantic-types";
+import { FixedPoint } from "./fixed-point";
+import { FixedPointType } from "./type";
 
 /**
  * Unsigned Fixed-Point number with an 8-bit integer part and an 8-bit fractional part

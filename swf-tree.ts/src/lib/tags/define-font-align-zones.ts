@@ -1,9 +1,9 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {CsmTableHint} from "../text/csm-table-hint";
-import {FontAlignmentZone} from "../text/font-alignment-zone";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { CsmTableHint } from "../text/csm-table-hint";
+import { FontAlignmentZone } from "../text/font-alignment-zone";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DefineFontAlignZones extends _Tag {
   type: TagType.DefineFontAlignZones;

@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
+import { ArrayType, CaseStyle, DocumentType, LiteralType } from "kryo";
 import * as avm1 from "../avm1/index";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DoAction extends _Tag {
   type: TagType.DoAction;

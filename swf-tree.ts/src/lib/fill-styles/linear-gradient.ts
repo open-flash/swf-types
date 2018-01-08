@@ -1,8 +1,8 @@
-import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Gradient} from "../gradient";
-import {Matrix} from "../matrix";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {FillStyleType} from "./_type";
+import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { Gradient } from "../gradient";
+import { Matrix } from "../matrix";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { FillStyleType } from "./_type";
 
 export interface LinearGradient {
   type: FillStyleType.LinearGradient;

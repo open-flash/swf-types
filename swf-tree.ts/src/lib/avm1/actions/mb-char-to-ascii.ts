@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {ActionType} from "../action-type";
-import {ActionBase} from "./_base";
+import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { ActionType } from "../action-type";
+import { ActionBase } from "./_base";
 
 export interface MbCharToAscii extends ActionBase {
   action: ActionType.MbCharToAscii;

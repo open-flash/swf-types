@@ -1,4 +1,4 @@
-import {TaggedUnionType} from "kryo";
+import { TaggedUnionType } from "kryo";
 import * as actions from "./actions/index";
 
 export type Action =

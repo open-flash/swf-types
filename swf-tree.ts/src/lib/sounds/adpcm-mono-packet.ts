@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Sint16, Uint32} from "semantic-types";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Sint16, Uint32 } from "semantic-types";
 
 export interface AdpcmMonoPacket {
   initialSample: Sint16;

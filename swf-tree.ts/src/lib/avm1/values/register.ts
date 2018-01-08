@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint8} from "semantic-types";
-import {ValueType} from "../value-type";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint8 } from "semantic-types";
+import { ValueType } from "../value-type";
 
 export interface Register {
   type: ValueType.Register;

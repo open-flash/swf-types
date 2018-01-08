@@ -17,9 +17,9 @@
   "license": "MIT",
   "scripts": {
     "prepare": "gulp all:tsconfig.json && gulp :tslint.json && gulp dist",
-    "test": "gulp :lint && gulp lib-test",
-    "prestart": "gulp main:build",
-    "start": "node build/main/main/main.js",
+    "test": "gulp :lint && gulp test",
+    "prestart": "gulp example:build",
+    "start": "node build/example/example/main.js",
     "prepublishOnly": "npm test",
     "lint": "gulp :lint:fix"
   },

@@ -1,23 +1,25 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
-import {Uint16} from "semantic-types";
-import {BlendMode} from "../blend-mode";
-import {ClipActions} from "../clip-actions";
-import {ColorTransform} from "../color-transform";
-import {ColorTransformWithAlpha} from "../color-transform-with-alpha";
-import {Filter} from "../filter";
-import {Matrix} from "../matrix";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { BlendMode } from "../blend-mode";
+import { ClipActions } from "../clip-actions";
+import { ColorTransform } from "../color-transform";
+import { ColorTransformWithAlpha } from "../color-transform-with-alpha";
+import { Filter } from "../filter";
+import { Matrix } from "../matrix";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface PlaceObject extends _Tag {
   type: TagType.PlaceObject;
+  // TODO: Rename to `isUpdate`
   isMove: boolean;
   depth: Uint16;
   characterId?: Uint16;
   className?: string;
   matrix?: Matrix;
   colorTransform?: ColorTransformWithAlpha;
+  // TODO: Better type? The ratio is `ratio / (1 << 16)`
   ratio?: Uint16;
   name?: string;
   clipDepth?: Uint16;

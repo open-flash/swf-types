@@ -1,4 +1,4 @@
-import {CaseStyle, SimpleEnumType} from "kryo";
+import { CaseStyle, SimpleEnumType } from "kryo";
 
 export enum TagType {
   CharacterSet,
@@ -22,7 +22,6 @@ export enum TagType {
   DefineFunction,
   DefineJpeg,
   DefineMorphShape,
-  DefineMorphShape2,
   DefinePartialJpeg,
   DefineScalingGrid,
   DefineSceneAndFrameLabelData,

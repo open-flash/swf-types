@@ -1,6 +1,6 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint16, Uint8} from "semantic-types";
-import {ScreenImageBlock} from "./screen-image-block";
+import { ArrayType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint16, Uint8 } from "semantic-types";
+import { ScreenImageBlock } from "./screen-image-block";
 
 export interface ScreenVideoPacket {
   imageWidth: Uint16;

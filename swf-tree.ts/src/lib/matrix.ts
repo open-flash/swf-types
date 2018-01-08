@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Sint32} from "semantic-types";
-import {Fixed16P16} from "./fixed-point/fixed16p16";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Sint32 } from "semantic-types";
+import { Fixed16P16 } from "./fixed-point/fixed16p16";
 
 export interface Matrix {
   scaleX: Fixed16P16;

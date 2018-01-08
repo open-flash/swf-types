@@ -1,6 +1,6 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint32} from "semantic-types";
-import {SoundEnvelope} from "./sound-envelope";
+import { ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint32 } from "semantic-types";
+import { SoundEnvelope } from "./sound-envelope";
 
 export interface SoundInfo {
   syncStop: boolean;

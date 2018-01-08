@@ -1,6 +1,6 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint32} from "semantic-types";
-import {Action} from "../avm1/action";
+import { ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint32 } from "semantic-types";
+import { Action } from "../avm1/action";
 
 export interface ButtonCondAction {
   idleToOverDown: boolean;

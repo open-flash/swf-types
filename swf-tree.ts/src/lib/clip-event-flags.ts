@@ -1,4 +1,4 @@
-import {BooleanType, CaseStyle, DocumentType} from "kryo";
+import { BooleanType, CaseStyle, DocumentType } from "kryo";
 
 export interface ClipEventFlags {
   keyUp: boolean;

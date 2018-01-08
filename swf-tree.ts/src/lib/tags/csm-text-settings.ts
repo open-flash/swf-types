@@ -1,9 +1,9 @@
-import {CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType} from "kryo";
-import {Float32, Uint16} from "semantic-types";
-import {GridFitting} from "../text/grid-fitting";
-import {TextRenderer} from "../text/text-renderer";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType } from "kryo";
+import { Float32, Uint16 } from "semantic-types";
+import { GridFitting } from "../text/grid-fitting";
+import { TextRenderer } from "../text/text-renderer";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface CsmTextSettings extends _Tag {
   type: TagType.CsmTextSettings;

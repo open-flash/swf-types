@@ -1,9 +1,9 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
-import {UintSize} from "semantic-types";
-import {Action} from "../action";
-import {ActionType} from "../action-type";
-import {Parameter} from "../parameter";
-import {ActionBase} from "./_base";
+import { ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType } from "kryo";
+import { UintSize } from "semantic-types";
+import { Action } from "../action";
+import { ActionType } from "../action-type";
+import { Parameter } from "../parameter";
+import { ActionBase } from "./_base";
 
 export interface DefineFunction2 extends ActionBase {
   action: ActionType.DefineFunction2;
@@ -40,7 +40,7 @@ export namespace DefineFunction2 {
     body: Action.Json[];
   }
 
-  export const type: DocumentType<DefineFunction2> = new DocumentType<DefineFunction2>({
+  export const type: DocumentType<DefineFunction2> = new DocumentType<DefineFunction2>(() => ({
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.DefineFunction2})},
       name: {type: new Ucs2StringType({maxLength: Infinity})},
@@ -58,5 +58,5 @@ export namespace DefineFunction2 {
       body: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
     },
     rename: CaseStyle.SnakeCase,
-  });
+  }));
 }

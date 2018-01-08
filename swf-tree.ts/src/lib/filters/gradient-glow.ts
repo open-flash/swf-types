@@ -1,9 +1,9 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint4} from "semantic-types";
-import {ColorStop} from "../color-stop";
-import {Fixed16P16} from "../fixed-point/fixed16p16";
-import {Fixed8P8} from "../fixed-point/fixed8p8";
-import {FilterType} from "./_type";
+import { ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint4 } from "semantic-types";
+import { ColorStop } from "../color-stop";
+import { Fixed16P16 } from "../fixed-point/fixed16p16";
+import { Fixed8P8 } from "../fixed-point/fixed8p8";
+import { FilterType } from "./_type";
 
 export interface GradientGlow {
   filter: FilterType.GradientGlow;

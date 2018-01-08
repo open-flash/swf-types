@@ -1,5 +1,5 @@
-import {BooleanType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {ValueType} from "../value-type";
+import { BooleanType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { ValueType } from "../value-type";
 
 export interface Boolean {
   type: ValueType.Boolean;

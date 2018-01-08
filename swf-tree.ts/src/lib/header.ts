@@ -1,8 +1,8 @@
-import {DocumentType, IntegerType} from "kryo";
-import {Uint16} from "semantic-types";
-import {Ufixed8P8} from "./fixed-point/ufixed8p8";
-import {Rect} from "./rect";
-import {SwfSignature} from "./swf-signature";
+import { DocumentType, IntegerType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { Ufixed8P8 } from "./fixed-point/ufixed8p8";
+import { Rect } from "./rect";
+import { SwfSignature } from "./swf-signature";
 
 export interface Header extends SwfSignature {
   frameSize: Rect;
@@ -17,7 +17,7 @@ export namespace Header {
     frame_count: number;
   }
 
-  export const type: DocumentType<Header> = new DocumentType<Header>({
+  export const type: DocumentType<Header> = new DocumentType<Header>(() => ({
     properties: {
       ...SwfSignature.type.properties,
       frameSize: {type: Rect.type},
@@ -25,5 +25,5 @@ export namespace Header {
       frameCount: {type: new IntegerType()},
     },
     rename: SwfSignature.type.rename,
-  });
+  }));
 }

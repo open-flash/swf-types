@@ -1,6 +1,6 @@
-import {BooleanType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { BooleanType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface FileAttributes extends _Tag {
   type: TagType.FileAttributes;

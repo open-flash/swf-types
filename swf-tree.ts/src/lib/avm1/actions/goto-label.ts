@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {ActionType} from "../action-type";
-import {ActionBase} from "./_base";
+import { CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
+import { ActionType } from "../action-type";
+import { ActionBase } from "./_base";
 
 export interface GotoLabel extends ActionBase {
   action: ActionType.GotoLabel;

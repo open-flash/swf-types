@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16, Uint32, Uint8} from "semantic-types";
-import {TagType} from "../tags/_type";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16, Uint32, Uint8 } from "semantic-types";
+import { TagType } from "../tags/_type";
 
 export interface H263VideoPacket {
   version: Uint32;

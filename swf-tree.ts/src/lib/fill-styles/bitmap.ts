@@ -1,8 +1,8 @@
-import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {Matrix} from "../matrix";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {FillStyleType} from "./_type";
+import { BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { Matrix } from "../matrix";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { FillStyleType } from "./_type";
 
 export interface Bitmap {
   type: FillStyleType.Bitmap;

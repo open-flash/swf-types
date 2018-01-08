@@ -1,7 +1,7 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface RemoveObject extends _Tag {
   type: TagType.RemoveObject;

@@ -1,4 +1,4 @@
-import {IntegerType, LiteralType, UnionType, VersionedType} from "kryo";
+import { IntegerType, LiteralType, UnionType, VersionedType } from "kryo";
 import { Serializer, Type } from "kryo/types";
 
 export type SoundRate = 5500 | 11000 | 22000 | 44000;

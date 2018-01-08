@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface Metadata extends _Tag {
   type: TagType.Metadata;

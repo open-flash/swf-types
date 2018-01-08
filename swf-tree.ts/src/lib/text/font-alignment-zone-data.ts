@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, Float64Type} from "kryo";
-import {Float16} from "semantic-types";
+import { CaseStyle, DocumentType, Float64Type } from "kryo";
+import { Float16 } from "semantic-types";
 
 export interface FontAlignmentZoneData {
   origin: Float16;

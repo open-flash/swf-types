@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {TagType} from "../tags/_type";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { TagType } from "../tags/_type";
 
 export interface H263BlockData {
   isCodedMacroBlock: boolean;

@@ -1,4 +1,4 @@
-import {TaggedUnionType} from "kryo";
+import { TaggedUnionType } from "kryo";
 import * as tags from "./tags/index";
 
 export type Tag =
@@ -12,6 +12,7 @@ export type Tag =
   | tags.DefineFontInfo
   | tags.DefineFontName
   | tags.DefineJpeg
+  | tags.DefineMorphShape
   | tags.DefinePartialFont
   | tags.DefinePartialJpeg
   | tags.DefineSceneAndFrameLabelData
@@ -45,6 +46,7 @@ export namespace Tag {
     | tags.DefineFontInfo.Json
     | tags.DefineFontName.Json
     | tags.DefineJpeg.Json
+    | tags.DefineMorphShape.Json
     | tags.DefinePartialFont.Json
     | tags.DefinePartialJpeg.Json
     | tags.DefineSceneAndFrameLabelData.Json
@@ -78,6 +80,7 @@ export namespace Tag {
       tags.DefineFontInfo.type,
       tags.DefineFontName.type,
       tags.DefineJpeg.type,
+      tags.DefineMorphShape.type,
       tags.DefinePartialFont.type,
       tags.DefinePartialJpeg.type,
       tags.DefineSceneAndFrameLabelData.type,

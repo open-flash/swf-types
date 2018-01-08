@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {JoinStyleType} from "./_type";
+import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { JoinStyleType } from "./_type";
 
 export interface Round {
   type: JoinStyleType.Round;

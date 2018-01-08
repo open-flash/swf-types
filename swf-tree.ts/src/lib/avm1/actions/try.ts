@@ -1,8 +1,8 @@
-import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Action} from "../action";
-import {ActionType} from "../action-type";
-import {CatchTarget} from "../catch-target";
-import {ActionBase} from "./_base";
+import { ArrayType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { Action } from "../action";
+import { ActionType } from "../action-type";
+import { CatchTarget } from "../catch-target";
+import { ActionBase } from "./_base";
 
 export interface Try extends ActionBase {
   action: ActionType.Try;
@@ -21,7 +21,7 @@ export namespace Try {
     finally?: Action.Json[];
   }
 
-  export const type: DocumentType<Try> = new DocumentType<Try>({
+  export const type: DocumentType<Try> = new DocumentType<Try>(() => ({
     properties: {
       action: {type: new LiteralType({type: ActionType.type, value: ActionType.Try})},
       try: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
@@ -30,5 +30,5 @@ export namespace Try {
       finally: {type: new ArrayType({itemType: Action.type, maxLength: Infinity}), optional: true},
     },
     rename: CaseStyle.SnakeCase,
-  });
+  }));
 }

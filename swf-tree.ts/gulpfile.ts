@@ -75,7 +75,6 @@ const test: buildTools.MochaTarget = {
   tscOptions: {
     skipLibCheck: true,
   },
-  copy: [{files: ["test/scrapping/**/*.html"]}],
   clean: {
     dirs: ["build/test"],
   },

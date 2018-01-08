@@ -7,12 +7,12 @@ import {
   LiteralType,
   Ucs2StringType,
 } from "kryo";
-import {Uint16, Uint32} from "semantic-types";
-import {Glyph} from "../glyph";
-import {LanguageCode} from "../language-code";
-import {FontLayout} from "../text/font-layout";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { Uint16, Uint32 } from "semantic-types";
+import { Glyph } from "../glyph";
+import { LanguageCode } from "../language-code";
+import { FontLayout } from "../text/font-layout";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DefineFont extends _Tag {
   type: TagType.DefineFont;

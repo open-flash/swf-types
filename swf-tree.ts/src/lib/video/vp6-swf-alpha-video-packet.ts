@@ -1,4 +1,4 @@
-import {BufferType, CaseStyle, DocumentType} from "kryo";
+import { BufferType, CaseStyle, DocumentType } from "kryo";
 
 export interface Vp6SwfAlphaVideoPacket {
   data: Uint8Array;

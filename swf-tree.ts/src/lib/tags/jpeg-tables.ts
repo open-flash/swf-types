@@ -1,6 +1,6 @@
-import {BufferType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { BufferType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface JpegTables extends _Tag {
   type: TagType.JpegTables;

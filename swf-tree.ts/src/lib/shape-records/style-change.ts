@@ -1,9 +1,9 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint32} from "semantic-types";
-import {FillStyle} from "../fill-style";
-import {LineStyle} from "../line-style";
-import {Vector2D} from "../vector-2d";
-import {ShapeRecordType} from "./_type";
+import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint32 } from "semantic-types";
+import { FillStyle } from "../fill-style";
+import { LineStyle } from "../line-style";
+import { Vector2D } from "../vector-2d";
+import { ShapeRecordType } from "./_type";
 
 export interface StyleChange {
   type: ShapeRecordType.StyleChange;

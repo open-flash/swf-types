@@ -1,7 +1,7 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {SintSize} from "semantic-types";
-import {ActionType} from "../action-type";
-import {ActionBase} from "./_base";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { SintSize } from "semantic-types";
+import { ActionType } from "../action-type";
+import { ActionBase } from "./_base";
 
 export interface Jump extends ActionBase {
   action: ActionType.Jump;

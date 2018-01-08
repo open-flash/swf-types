@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {ActionType} from "../action-type";
-import {Value} from "../value";
-import {ActionBase} from "./_base";
+import { ArrayType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { ActionType } from "../action-type";
+import { Value } from "../value";
+import { ActionBase } from "./_base";
 
 export interface Push extends ActionBase {
   action: ActionType.Push;

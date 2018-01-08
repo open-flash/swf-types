@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Sint16} from "semantic-types";
-import {Fixed8P8} from "./fixed-point/fixed8p8";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Sint16 } from "semantic-types";
+import { Fixed8P8 } from "./fixed-point/fixed8p8";
 
 export interface ColorTransform {
   redMult: Fixed8P8;

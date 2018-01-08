@@ -1,5 +1,5 @@
-import {ArrayType, CaseStyle, DocumentType} from "kryo";
-import {ShapeRecord} from "./shape-record";
+import { ArrayType, CaseStyle, DocumentType } from "kryo";
+import { ShapeRecord } from "./shape-record";
 
 export interface Glyph {
   records: ShapeRecord[];

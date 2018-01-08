@@ -1,11 +1,12 @@
-import {BooleanType, CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint16} from "semantic-types";
-import {CapStyle} from "./cap-style";
-import {JoinStyle} from "./join-style";
-import {MorphFillStyle} from "./morph-fill-style";
+import { BooleanType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { CapStyle } from "./cap-style";
+import { JoinStyle } from "./join-style";
+import { MorphFillStyle } from "./morph-fill-style";
 
 export interface MorphLineStyle {
-  width: Uint16;
+  startWidth: Uint16;
+  endWidth: Uint16;
   startCap: CapStyle;
   endCap: CapStyle;
   join: JoinStyle;
@@ -18,7 +19,8 @@ export interface MorphLineStyle {
 
 export namespace MorphLineStyle {
   export interface Json {
-    width: number;
+    start_width: number;
+    end_width: number;
     start_cap: CapStyle.Json;
     end_cap: CapStyle.Json;
     join: JoinStyle.Json;
@@ -31,7 +33,8 @@ export namespace MorphLineStyle {
 
   export const type: DocumentType<MorphLineStyle> = new DocumentType<MorphLineStyle>({
     properties: {
-      width: {type: new IntegerType()},
+      startWidth: {type: new IntegerType()},
+      endWidth: {type: new IntegerType()},
       startCap: {type: CapStyle.type},
       endCap: {type: CapStyle.type},
       join: {type: JoinStyle.type},

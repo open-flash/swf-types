@@ -1,8 +1,8 @@
 import { Incident } from "incident";
 import * as kryo from "kryo";
-import { FixedPoint, FixedPointConstructor } from "./fixed-point";
-import { createNotImplementedError } from "kryo/errors/not-implemented";
 import { createInvalidTypeError } from "kryo/errors/invalid-type";
+import { createNotImplementedError } from "kryo/errors/not-implemented";
+import { FixedPoint, FixedPointConstructor } from "./fixed-point";
 
 export type Name = "fixed-point";
 export const name: Name = "fixed-point";

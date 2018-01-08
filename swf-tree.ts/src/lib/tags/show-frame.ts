@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface ShowFrame extends _Tag {
   type: TagType.ShowFrame;

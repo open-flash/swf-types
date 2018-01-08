@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {CatchTargetType} from "./_type";
+import { CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
+import { CatchTargetType } from "./_type";
 
 export interface Variable {
   type: CatchTargetType.Variable;

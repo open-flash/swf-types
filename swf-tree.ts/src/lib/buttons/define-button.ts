@@ -1,9 +1,9 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {Action} from "../avm1/action";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
-import {ButtonRecord} from "./button-record";
+import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { Action } from "../avm1/action";
+import { _Tag } from "../tags/_tag";
+import { TagType } from "../tags/_type";
+import { ButtonRecord } from "./button-record";
 
 export interface DefineButton extends _Tag {
   type: TagType.DefineButton;

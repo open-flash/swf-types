@@ -1,7 +1,7 @@
-import {BooleanType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {ActionType} from "../action-type";
-import {GetUrl2Method} from "../get-url2-method";
-import {ActionBase} from "./_base";
+import { BooleanType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { ActionType } from "../action-type";
+import { GetUrl2Method } from "../get-url2-method";
+import { ActionBase } from "./_base";
 
 export interface GetUrl2 extends ActionBase {
   action: ActionType.GetUrl2;

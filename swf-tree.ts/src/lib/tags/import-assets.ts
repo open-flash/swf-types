@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {NamedId} from "../named-id";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { ArrayType, CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
+import { NamedId } from "../named-id";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface ImportAssets extends _Tag {
   type: TagType.ImportAssets;

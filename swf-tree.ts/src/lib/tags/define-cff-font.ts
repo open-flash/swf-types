@@ -7,9 +7,9 @@ import {
   LiteralType,
   Ucs2StringType,
 } from "kryo";
-import {Uint16} from "semantic-types";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { Uint16 } from "semantic-types";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DefineCffFont extends _Tag {
   type: TagType.DefineCffFont;

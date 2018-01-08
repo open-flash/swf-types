@@ -1,8 +1,8 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {Glyph} from "../glyph";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { Glyph } from "../glyph";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DefinePartialFont extends _Tag {
   type: TagType.DefinePartialFont;

@@ -1,8 +1,8 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
-import {Uint16} from "semantic-types";
-import {LanguageCode} from "../language-code";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
+import { ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { LanguageCode } from "../language-code";
+import { _Tag } from "../tags/_tag";
+import { TagType } from "../tags/_type";
 
 export interface DefineFontInfo extends _Tag {
   type: TagType.DefineFontInfo;

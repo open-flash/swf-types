@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {MorphFillStyleType} from "./_type";
+import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { MorphFillStyleType } from "./_type";
 
 export interface Solid {
   type: MorphFillStyleType.Solid;

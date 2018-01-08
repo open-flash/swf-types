@@ -1,6 +1,6 @@
-import {ArrayType, CaseStyle, DocumentType, Float64Type, LiteralType} from "kryo";
-import {Float32} from "semantic-types";
-import {FilterType} from "./_type";
+import { ArrayType, CaseStyle, DocumentType, Float64Type, LiteralType } from "kryo";
+import { Float32 } from "semantic-types";
+import { FilterType } from "./_type";
 
 export interface ColorMatrix {
   filter: FilterType.ColorMatrix;

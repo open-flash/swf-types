@@ -1,7 +1,7 @@
-import {CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType} from "kryo";
-import {Uint5} from "semantic-types";
-import {Fixed16P16} from "../fixed-point/fixed16p16";
-import {FilterType} from "./_type";
+import { CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType } from "kryo";
+import { Uint5 } from "semantic-types";
+import { Fixed16P16 } from "../fixed-point/fixed16p16";
+import { FilterType } from "./_type";
 
 export interface Blur {
   filter: FilterType.Blur;

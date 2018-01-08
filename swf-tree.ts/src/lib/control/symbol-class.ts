@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {NamedId} from "../named-id";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
+import { ArrayType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { NamedId } from "../named-id";
+import { _Tag } from "../tags/_tag";
+import { TagType } from "../tags/_type";
 
 export interface SymbolClass extends _Tag {
   type: TagType.SymbolClass;

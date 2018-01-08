@@ -1,5 +1,5 @@
-import {BufferType, CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint8} from "semantic-types";
+import { BufferType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint8 } from "semantic-types";
 
 export interface Vp6FlvAlphaVideoPacket {
   horizontalAdjustment: Uint8;

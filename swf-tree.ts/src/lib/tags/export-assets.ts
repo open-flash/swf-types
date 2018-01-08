@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType, LiteralType} from "kryo";
-import {NamedId} from "../named-id";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { ArrayType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { NamedId } from "../named-id";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface ExportAssets extends _Tag {
   type: TagType.ExportAssets;

@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, IntegerType, Ucs2StringType} from "kryo";
+import { CaseStyle, DocumentType, IntegerType, Ucs2StringType } from "kryo";
 
 export interface Label {
   frame: number;

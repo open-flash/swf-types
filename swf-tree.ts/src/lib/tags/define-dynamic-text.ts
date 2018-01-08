@@ -1,10 +1,10 @@
-import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
-import {Sint16, Uint16, UintSize} from "semantic-types";
-import {Rect} from "../rect";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {TextAlignment} from "../text/text-alignment";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType } from "kryo";
+import { Sint16, Uint16, UintSize } from "semantic-types";
+import { Rect } from "../rect";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { TextAlignment } from "../text/text-alignment";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DefineDynamicText extends _Tag {
   type: TagType.DefineDynamicText;

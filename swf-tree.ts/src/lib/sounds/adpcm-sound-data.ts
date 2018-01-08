@@ -1,4 +1,4 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
 
 export interface AdpcmSoundData {
   adpcmCodeSize: 2 | 3 | 4 | 5;

@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, IntegerType, Ucs2StringType} from "kryo";
-import {Uint16} from "semantic-types";
+import { CaseStyle, DocumentType, IntegerType, Ucs2StringType } from "kryo";
+import { Uint16 } from "semantic-types";
 
 export interface NamedId {
   id: Uint16;

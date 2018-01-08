@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {ValueType} from "../value-type";
+import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { ValueType } from "../value-type";
 
 export interface Null {
   type: ValueType.Null;

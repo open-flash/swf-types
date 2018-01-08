@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, Float64Type, IntegerType} from "kryo";
-import {Uint32, Uint8} from "semantic-types";
-import {CompressionMethod} from "./compression-method";
+import { CaseStyle, DocumentType, Float64Type, IntegerType } from "kryo";
+import { Uint32, Uint8 } from "semantic-types";
+import { CompressionMethod } from "./compression-method";
 
 export interface SwfSignature {
   compressionMethod: CompressionMethod;

@@ -1,5 +1,5 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType} from "kryo";
-import {FontAlignmentZoneData} from "./font-alignment-zone-data";
+import { ArrayType, BooleanType, CaseStyle, DocumentType } from "kryo";
+import { FontAlignmentZoneData } from "./font-alignment-zone-data";
 
 export interface FontAlignmentZone {
   data: FontAlignmentZoneData[];

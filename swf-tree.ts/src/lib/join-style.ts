@@ -1,4 +1,4 @@
-import {TaggedUnionType} from "kryo";
+import { TaggedUnionType } from "kryo";
 import * as joinStyles from "./join-styles/index";
 
 export type JoinStyle =

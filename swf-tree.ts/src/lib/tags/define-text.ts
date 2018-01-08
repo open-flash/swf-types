@@ -1,10 +1,10 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {Matrix} from "../matrix";
-import {Rect} from "../rect";
-import {TextRecord} from "../text/text-record";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { Matrix } from "../matrix";
+import { Rect } from "../rect";
+import { TextRecord } from "../text/text-record";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DefineText extends _Tag {
   type: TagType.DefineText;

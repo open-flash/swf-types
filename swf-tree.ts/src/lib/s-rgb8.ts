@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {SRgb as _SRgb, Uint8} from "semantic-types";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import {SRgb as _SRgb, Uint8 } from "semantic-types";
 
 export interface SRgb8 extends _SRgb<Uint8> {
 }

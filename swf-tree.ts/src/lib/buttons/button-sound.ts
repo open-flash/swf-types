@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint16} from "semantic-types";
-import {SoundInfo} from "../sounds/sound-info";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { SoundInfo } from "../sounds/sound-info";
 
 export interface ButtonSound {
   soundId: Uint16;

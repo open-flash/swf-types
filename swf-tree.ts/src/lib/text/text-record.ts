@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Sint16, Uint16} from "semantic-types";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {GlyphEntry} from "./glyph-entry";
+import { ArrayType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Sint16, Uint16 } from "semantic-types";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { GlyphEntry } from "./glyph-entry";
 
 export interface TextRecord {
   fontId?: Uint16;

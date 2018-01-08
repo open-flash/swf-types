@@ -1,7 +1,7 @@
-import {ArrayType, CaseStyle, DocumentType} from "kryo";
-import {ColorSpace} from "./color-space";
-import {ColorStop} from "./color-stop";
-import {GradientSpread} from "./gradient-spread";
+import { ArrayType, CaseStyle, DocumentType } from "kryo";
+import { ColorSpace } from "./color-space";
+import { ColorStop } from "./color-stop";
+import { GradientSpread } from "./gradient-spread";
 
 export interface Gradient {
   spread: GradientSpread;

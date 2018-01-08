@@ -1,8 +1,8 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {ColorTransform} from "../color-transform";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { ColorTransform } from "../color-transform";
+import { _Tag } from "../tags/_tag";
+import { TagType } from "../tags/_type";
 
 export interface DefineButtonColorTransform extends _Tag {
   type: TagType.DefineButtonColorTransform;

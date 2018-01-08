@@ -1,9 +1,9 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint16} from "semantic-types";
-import {BlendMode} from "../blend-mode";
-import {ColorTransformWithAlpha} from "../color-transform-with-alpha";
-import {Filter} from "../filter";
-import {Matrix} from "../matrix";
+import { ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { BlendMode } from "../blend-mode";
+import { ColorTransformWithAlpha } from "../color-transform-with-alpha";
+import { Filter } from "../filter";
+import { Matrix } from "../matrix";
 
 export interface ButtonRecord {
   stateHitTest: boolean;

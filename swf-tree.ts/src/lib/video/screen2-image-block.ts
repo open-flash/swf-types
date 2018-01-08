@@ -1,7 +1,7 @@
-import {BufferType, CaseStyle, DocumentType} from "kryo";
-import {Screen2ImageBlockDiffPosition} from "./screen2-image-block-diff-position";
-import {Screen2ImageBlockPrimePosition} from "./screen2-image-block-prime-position";
-import {Screen2ImageFormat} from "./screen2-image-format";
+import { BufferType, CaseStyle, DocumentType } from "kryo";
+import { Screen2ImageBlockDiffPosition } from "./screen2-image-block-diff-position";
+import { Screen2ImageBlockPrimePosition } from "./screen2-image-block-prime-position";
+import { Screen2ImageFormat } from "./screen2-image-format";
 
 export interface Screen2ImageBlock {
   format: Screen2ImageFormat;

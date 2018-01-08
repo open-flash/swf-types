@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Sint32 as Int32Primitive} from "semantic-types";
-import {ValueType} from "../value-type";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import {Sint32 as Int32Primitive } from "semantic-types";
+import { ValueType } from "../value-type";
 
 export interface Int32 {
   type: ValueType.Int32;

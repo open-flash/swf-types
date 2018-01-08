@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {JoinStyleType} from "./_type";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { JoinStyleType } from "./_type";
 
 export interface Bevel {
   type: JoinStyleType.Bevel;

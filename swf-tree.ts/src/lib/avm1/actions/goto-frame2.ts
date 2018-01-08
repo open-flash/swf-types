@@ -1,7 +1,7 @@
-import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {UintSize} from "semantic-types";
-import {ActionType} from "../action-type";
-import {ActionBase} from "./_base";
+import { BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { UintSize } from "semantic-types";
+import { ActionType } from "../action-type";
+import { ActionBase } from "./_base";
 
 export interface GotoFrame2 extends ActionBase {
   action: ActionType.GotoFrame2;

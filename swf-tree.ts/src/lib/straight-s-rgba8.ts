@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {StraightSRgba as _StraightSRgba, Uint8} from "semantic-types";
-import {SRgb8} from "./s-rgb8";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import {StraightSRgba as _StraightSRgba, Uint8 } from "semantic-types";
+import { SRgb8 } from "./s-rgb8";
 
 export interface StraightSRgba8 extends _StraightSRgba<Uint8> {
 }

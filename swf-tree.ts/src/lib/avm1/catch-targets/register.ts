@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint8} from "semantic-types";
-import {CatchTargetType} from "./_type";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint8 } from "semantic-types";
+import { CatchTargetType } from "./_type";
 
 export interface Register {
   type: CatchTargetType.Register;

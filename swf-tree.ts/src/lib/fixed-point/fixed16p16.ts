@@ -1,6 +1,6 @@
-import {Sint32} from "semantic-types";
-import {FixedPoint} from "./fixed-point";
-import {FixedPointType} from "./type";
+import { Sint32 } from "semantic-types";
+import { FixedPoint } from "./fixed-point";
+import { FixedPointType } from "./type";
 
 /**
  * Signed Fixed-Point number with an 16-bit integer part and an 16-bit fractional part

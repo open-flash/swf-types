@@ -1,9 +1,9 @@
-import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
-import {VideoCodec} from "./video-codec";
-import {VideoDeblocking} from "./video-deblocking";
+import { BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { _Tag } from "../tags/_tag";
+import { TagType } from "../tags/_type";
+import { VideoCodec } from "./video-codec";
+import { VideoDeblocking } from "./video-deblocking";
 
 export interface DefineVideoStream extends _Tag {
   type: TagType.DefineVideoStream;

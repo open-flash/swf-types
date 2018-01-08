@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, Float64Type, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {ValueType} from "../value-type";
+import { CaseStyle, DocumentType, Float64Type, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { ValueType } from "../value-type";
 
 export interface Constant {
   type: ValueType.Constant;

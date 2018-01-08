@@ -1,11 +1,11 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Sint16, Uint16} from "semantic-types";
-import {_Tag} from "../tags/_tag";
-import {TagType} from "../tags/_type";
-import {SoundRate} from "./sound-rate";
-import {SoundSize} from "./sound-size";
-import {SoundType} from "./sound-type";
-import {StreamSoundCompression} from "./stream-sound-compression";
+import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Sint16, Uint16 } from "semantic-types";
+import { _Tag } from "../tags/_tag";
+import { TagType } from "../tags/_type";
+import { SoundRate } from "./sound-rate";
+import { SoundSize } from "./sound-size";
+import { SoundType } from "./sound-type";
+import { StreamSoundCompression } from "./stream-sound-compression";
 
 export interface SoundStreamHead extends _Tag {
   type: TagType.SoundStreamHead;

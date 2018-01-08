@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Uint8} from "semantic-types";
-import {StraightSRgba8} from "./straight-s-rgba8";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Uint8 } from "semantic-types";
+import { StraightSRgba8 } from "./straight-s-rgba8";
 
 export interface ColorStop {
   ratio: Uint8;

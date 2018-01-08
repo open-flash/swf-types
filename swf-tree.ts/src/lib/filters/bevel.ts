@@ -1,9 +1,9 @@
-import {BooleanType, CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType} from "kryo";
-import {Uint4} from "semantic-types";
-import {Fixed16P16} from "../fixed-point/fixed16p16";
-import {Fixed8P8} from "../fixed-point/fixed8p8";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {FilterType} from "./_type";
+import { BooleanType, CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType } from "kryo";
+import { Uint4 } from "semantic-types";
+import { Fixed16P16 } from "../fixed-point/fixed16p16";
+import { Fixed8P8 } from "../fixed-point/fixed8p8";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { FilterType } from "./_type";
 
 export interface Bevel {
   filter: FilterType.Bevel;

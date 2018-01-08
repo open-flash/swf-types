@@ -1,4 +1,4 @@
-import {DocumentType, TaggedUnionType} from "kryo";
+import { DocumentType, TaggedUnionType } from "kryo";
 import * as morphFillStyles from "./morph-fill-styles/index";
 
 export type MorphFillStyle =

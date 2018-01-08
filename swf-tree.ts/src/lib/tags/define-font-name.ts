@@ -1,7 +1,7 @@
-import {CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType} from "kryo";
-import {Uint16} from "semantic-types";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DefineFontName extends _Tag {
   type: TagType.DefineFontName;

@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Sint32} from "semantic-types";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Sint32 } from "semantic-types";
 
 export interface Vector2D {
   x: Sint32;

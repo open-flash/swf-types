@@ -1,9 +1,9 @@
-import {BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
-import {Rect} from "../rect";
-import {Shape} from "../shape";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
+import { Rect } from "../rect";
+import { Shape } from "../shape";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DefineShape extends _Tag {
   type: TagType.DefineShape;

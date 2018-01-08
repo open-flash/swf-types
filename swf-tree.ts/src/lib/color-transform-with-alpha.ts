@@ -1,7 +1,7 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Sint16} from "semantic-types";
-import {ColorTransform} from "./color-transform";
-import {Fixed8P8} from "./fixed-point/fixed8p8";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Sint16 } from "semantic-types";
+import { ColorTransform } from "./color-transform";
+import { Fixed8P8 } from "./fixed-point/fixed8p8";
 
 export interface ColorTransformWithAlpha extends ColorTransform {
   alphaMult: Fixed8P8;

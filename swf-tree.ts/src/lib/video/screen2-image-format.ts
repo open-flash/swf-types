@@ -1,5 +1,5 @@
-import {BooleanType, CaseStyle, DocumentType} from "kryo";
-import {Screen2ColorDepth} from "./screen2-color-depth";
+import { BooleanType, CaseStyle, DocumentType } from "kryo";
+import { Screen2ColorDepth } from "./screen2-color-depth";
 
 export interface Screen2ImageFormat {
   colorDepth: Screen2ColorDepth;

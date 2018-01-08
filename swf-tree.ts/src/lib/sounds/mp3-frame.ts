@@ -1,7 +1,7 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Mp3ChannelMode} from "./mp3-channel-mode";
-import {Mp3Layer} from "./mp3-layer";
-import {MpegVersion} from "./mpeg-version";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Mp3ChannelMode } from "./mp3-channel-mode";
+import { Mp3Layer } from "./mp3-layer";
+import { MpegVersion } from "./mpeg-version";
 
 export interface Mp3Frame {
   mpegVersion: MpegVersion;

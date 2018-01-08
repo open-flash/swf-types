@@ -1,8 +1,8 @@
-import {ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType} from "kryo";
-import {Uint16} from "semantic-types";
+import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { Uint16 } from "semantic-types";
 import * as avm1 from "../avm1/index";
-import {_Tag} from "./_tag";
-import {TagType} from "./_type";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface DoInitAction extends _Tag {
   type: TagType.DoInitAction;

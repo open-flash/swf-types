@@ -1,4 +1,4 @@
-import {TaggedUnionType} from "kryo";
+import { TaggedUnionType } from "kryo";
 import * as fills from "./fill-styles/index";
 
 export type FillStyle =

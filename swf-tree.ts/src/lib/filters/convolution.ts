@@ -1,7 +1,7 @@
-import {ArrayType, BooleanType, CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType} from "kryo";
-import {Float32, UintSize} from "semantic-types";
-import {StraightSRgba8} from "../straight-s-rgba8";
-import {FilterType} from "./_type";
+import { ArrayType, BooleanType, CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType } from "kryo";
+import { Float32, UintSize } from "semantic-types";
+import { StraightSRgba8 } from "../straight-s-rgba8";
+import { FilterType } from "./_type";
 
 export interface Convolution {
   filter: FilterType.Convolution;

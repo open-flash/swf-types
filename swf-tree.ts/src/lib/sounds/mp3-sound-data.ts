@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, IntegerType} from "kryo";
-import {Sint16} from "semantic-types";
-import {Mp3Frame} from "./mp3-frame";
+import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { Sint16 } from "semantic-types";
+import { Mp3Frame } from "./mp3-frame";
 
 export interface Mp3SoundData {
   seekSamples: Sint16;

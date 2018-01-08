@@ -1,5 +1,5 @@
-import {CaseStyle, DocumentType, LiteralType, Ucs2StringType} from "kryo";
-import {ValueType} from "../value-type";
+import { CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
+import { ValueType } from "../value-type";
 
 export interface CString {
   type: ValueType.CString;

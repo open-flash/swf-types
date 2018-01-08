@@ -1,6 +1,6 @@
-import {CaseStyle, DocumentType, LiteralType} from "kryo";
-import {Vector2D} from "../vector-2d";
-import {ShapeRecordType} from "./_type";
+import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { Vector2D } from "../vector-2d";
+import { ShapeRecordType } from "./_type";
 
 export interface StraightEdge {
   type: ShapeRecordType.StraightEdge;

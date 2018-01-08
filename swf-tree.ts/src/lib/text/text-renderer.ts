@@ -1,4 +1,4 @@
-import {CaseStyle, SimpleEnumType} from "kryo";
+import { CaseStyle, SimpleEnumType } from "kryo";
 
 export enum TextRenderer {
   Normal,
