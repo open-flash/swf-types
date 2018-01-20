@@ -1,5 +1,7 @@
 # Basic data types
 
+TODO: Remove endianness (irrelevant in the AST)
+
 ## Int8
 
 ## Int16Le

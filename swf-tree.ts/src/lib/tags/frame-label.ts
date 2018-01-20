@@ -1,6 +1,6 @@
 import { BooleanType, CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
-import { _Tag } from "../tags/_tag";
-import { TagType } from "../tags/_type";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
 export interface FrameLabel extends _Tag {
   type: TagType.FrameLabel;

@@ -59,6 +59,13 @@ pub use shapes::LineStyle;
 pub use shapes::Shape;
 pub use shapes::ShapeRecord;
 
+mod sound;
+
+pub use sound::AudioCodingFormat;
+pub use sound::SoundRate;
+pub use sound::SoundSize;
+pub use sound::SoundType;
+
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub enum BlendMode {

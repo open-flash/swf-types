@@ -1,14 +1,14 @@
 import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
 import { Sint16, Uint16 } from "semantic-types";
-import { _Tag } from "../tags/_tag";
-import { TagType } from "../tags/_type";
-import { AudioCodingFormat } from "./audio-coding-format";
-import { SoundRate } from "./sound-rate";
-import { SoundSize } from "./sound-size";
-import { SoundType } from "./sound-type";
+import { AudioCodingFormat } from "../sound/audio-coding-format";
+import { SoundRate } from "../sound/sound-rate";
+import { SoundSize } from "../sound/sound-size";
+import { SoundType } from "../sound/sound-type";
+import { _Tag } from "./_tag";
+import { TagType } from "./_type";
 
-export interface SoundStreamHead2 extends _Tag {
-  type: TagType.SoundStreamHead2;
+export interface SoundStreamHead extends _Tag {
+  type: TagType.SoundStreamHead;
   playbackSoundRate: SoundRate;
   playbackSoundSize: SoundSize;
   playbackSoundType: SoundType;
@@ -20,9 +20,9 @@ export interface SoundStreamHead2 extends _Tag {
   latencySeek?: Sint16;
 }
 
-export namespace SoundStreamHead2 {
+export namespace SoundStreamHead {
   export interface Json {
-    type: "sound-stream-head2";
+    type: "sound-stream-head";
     playback_sound_rate: SoundRate.Json;
     playback_sound_size: SoundSize;
     playback_sound_type: SoundType.Json;
@@ -34,9 +34,9 @@ export namespace SoundStreamHead2 {
     latency_seek?: number;
   }
 
-  export const type: DocumentType<SoundStreamHead2> = new DocumentType<SoundStreamHead2>({
+  export const type: DocumentType<SoundStreamHead> = new DocumentType<SoundStreamHead>({
     properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.SoundStreamHead2})},
+      type: {type: new LiteralType({type: TagType.type, value: TagType.SoundStreamHead})},
       playbackSoundRate: {type: SoundRate.type},
       playbackSoundSize: {type: SoundSize.type},
       playbackSoundType: {type: SoundType.type},

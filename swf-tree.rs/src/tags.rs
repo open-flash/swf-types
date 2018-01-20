@@ -5,6 +5,7 @@ use ordered_float::OrderedFloat;
 use shapes::{ClipAction, Glyph, Shape};
 use movie::Tag;
 use text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
+use sound;
 use BlendMode;
 use Filter;
 
@@ -255,6 +256,14 @@ pub struct FileAttributes {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
+pub struct FrameLabel {
+  pub name: String,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub anchor_flag: Option<bool>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
 pub struct ImportAssets {
   pub url: String,
   pub assets: Vec<NamedId>,
@@ -322,6 +331,28 @@ pub struct SetBackgroundColor {
 }
 
 // pub type ShowFrame = ();
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct SoundStreamBlock {
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
+  pub data: Vec<u8>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct SoundStreamHead {
+  pub playback_sound_rate: sound::SoundRate,
+  pub playback_sound_size: sound::SoundSize,
+  pub playback_sound_type: sound::SoundType,
+  pub stream_sound_compression: sound::AudioCodingFormat,
+  pub stream_sound_rate: sound::SoundRate,
+  pub stream_sound_size: sound::SoundSize,
+  pub stream_sound_type: sound::SoundType,
+  pub stream_sound_sample_count: u16,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub latency_seek: Option<i16>,
+}
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]

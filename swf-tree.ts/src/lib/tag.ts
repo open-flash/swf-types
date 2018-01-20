@@ -24,6 +24,7 @@ export type Tag =
   | tags.EnableDebugger
   | tags.ExportAssets
   | tags.FileAttributes
+  | tags.FrameLabel
   | tags.ImportAssets
   | tags.JpegTables
   | tags.Metadata
@@ -31,6 +32,8 @@ export type Tag =
   | tags.RemoveObject
   | tags.SetBackgroundColor
   | tags.ShowFrame
+  | tags.SoundStreamBlock
+  | tags.SoundStreamHead
   | tags.Telemetry
   | tags.Unknown;
 
@@ -58,6 +61,7 @@ export namespace Tag {
     | tags.EnableDebugger.Json
     | tags.ExportAssets.Json
     | tags.FileAttributes.Json
+    | tags.FrameLabel.Json
     | tags.ImportAssets.Json
     | tags.JpegTables.Json
     | tags.Metadata.Json
@@ -65,6 +69,8 @@ export namespace Tag {
     | tags.RemoveObject.Json
     | tags.SetBackgroundColor.Json
     | tags.ShowFrame.Json
+    | tags.SoundStreamBlock.Json
+    | tags.SoundStreamHead.Json
     | tags.Telemetry.Json
     | tags.Unknown.Json;
 
@@ -92,6 +98,7 @@ export namespace Tag {
       tags.EnableDebugger.type,
       tags.ExportAssets.type,
       tags.FileAttributes.type,
+      tags.FrameLabel.type,
       tags.ImportAssets.type,
       tags.JpegTables.type,
       tags.Metadata.type,
@@ -99,6 +106,8 @@ export namespace Tag {
       tags.RemoveObject.type,
       tags.SetBackgroundColor.type,
       tags.ShowFrame.type,
+      tags.SoundStreamBlock.type,
+      tags.SoundStreamHead.type,
       tags.Telemetry.type,
       tags.Unknown.type,
     ],

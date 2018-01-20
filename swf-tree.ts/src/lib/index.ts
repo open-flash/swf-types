@@ -41,6 +41,7 @@ export { Rect } from "./rect";
 export { SRgb8 } from "./s-rgb8";
 export { Shape } from "./shape";
 export { ShapeRecord } from "./shape-record";
+export { SpriteTag } from "./sprite-tag";
 export { StraightSRgba8 } from "./straight-s-rgba8";
 export { SwfSignature } from "./swf-signature";
 export { Tag } from "./tag";

@@ -68,6 +68,7 @@ pub enum Tag {
   EnableDebugger(tags::EnableDebugger),
   ExportAssets(tags::ExportAssets),
   FileAttributes(tags::FileAttributes),
+  FrameLabel(tags::FrameLabel),
   ImportAssets(tags::ImportAssets),
   JpegTables(tags::JpegTables),
   Metadata(tags::Metadata),

@@ -60,9 +60,8 @@ export enum TagType {
   SetBackgroundColor,
   SetTabIndex,
   ShowFrame,
-  SoundStreamHead,
-  SoundStreamHead2,
   SoundStreamBlock,
+  SoundStreamHead,
   StartSound,
   StartSound2,
   StopSound,
@@ -103,9 +102,6 @@ export namespace TagType {
     | "define-scaling-grid"
     | "define-scene-and-frame-label-data"
     | "define-shape"
-    | "define-shape2"
-    | "define-shape3"
-    | "define-shape4"
     | "define-sound"
     | "define-sprite"
     | "define-text"
@@ -141,9 +137,8 @@ export namespace TagType {
     | "set-background-color"
     | "set-tab-index"
     | "show-frame"
-    | "sound-stream-head"
-    | "sound-stream-head2"
     | "sound-stream-block"
+    | "sound-stream-head"
     | "start-sound"
     | "start-sound2"
     | "stop-sound"

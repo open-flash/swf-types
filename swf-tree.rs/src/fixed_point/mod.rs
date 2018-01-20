@@ -150,7 +150,6 @@ unsigned_fixed_point_impl!(Ufixed16P16, u32, 16, 16);
 mod tests {
   use super::Fixed16P16;
   use serde_json;
-  use std::fmt::Write;
 
   #[test]
   fn test_eq() {
