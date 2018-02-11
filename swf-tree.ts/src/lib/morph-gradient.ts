@@ -1,7 +1,9 @@
-import { ArrayType, CaseStyle, DocumentType } from "kryo";
-import { ColorSpace } from "./color-space";
-import { GradientSpread } from "./gradient-spread";
-import { MorphColorStop } from "./morph-color-stop";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $ColorSpace, ColorSpace } from "./color-space";
+import { $GradientSpread, GradientSpread } from "./gradient-spread";
+import { $MorphColorStop, MorphColorStop } from "./morph-color-stop";
 
 export interface MorphGradient {
   spread: GradientSpread;
@@ -9,19 +11,11 @@ export interface MorphGradient {
   colors: MorphColorStop[];
 }
 
-export namespace MorphGradient {
-  export interface Json {
-    spread: GradientSpread.Json;
-    color_space: ColorSpace;
-    colors: MorphColorStop.Json[];
-  }
-
-  export const type: DocumentType<MorphGradient> = new DocumentType<MorphGradient>({
-    properties: {
-      spread: {type: GradientSpread.type},
-      colorSpace: {type: ColorSpace.type},
-      colors: {type: new ArrayType({itemType: MorphColorStop.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $MorphGradient: DocumentIoType<MorphGradient> = new DocumentType<MorphGradient>({
+  properties: {
+    spread: {type: $GradientSpread},
+    colorSpace: {type: $ColorSpace},
+    colors: {type: new ArrayType({itemType: $MorphColorStop, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

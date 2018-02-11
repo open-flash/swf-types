@@ -1,6 +1,9 @@
-import { ArrayType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint16, Uint8 } from "semantic-types";
-import { ScreenImageBlock } from "./screen-image-block";
+import { $ScreenImageBlock, ScreenImageBlock } from "./screen-image-block";
 
 export interface ScreenVideoPacket {
   imageWidth: Uint16;
@@ -10,23 +13,13 @@ export interface ScreenVideoPacket {
   blocks: ScreenImageBlock[];
 }
 
-export namespace ScreenVideoPacket {
-  export interface Json {
-    image_width: number;
-    image_height: number;
-    block_width: number;
-    block_height: number;
-    blocks: ScreenImageBlock.Json[];
-  }
-
-  export const type: DocumentType<ScreenVideoPacket> = new DocumentType<ScreenVideoPacket>({
-    properties: {
-      imageWidth: {type: new IntegerType()},
-      imageHeight: {type: new IntegerType()},
-      blockWidth: {type: new IntegerType()},
-      blockHeight: {type: new IntegerType()},
-      blocks: {type: new ArrayType({itemType: ScreenImageBlock.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $ScreenVideoPacket: DocumentIoType<ScreenVideoPacket> = new DocumentType<ScreenVideoPacket>({
+  properties: {
+    imageWidth: {type: $Uint16},
+    imageHeight: {type: $Uint16},
+    blockWidth: {type: $Uint16},
+    blockHeight: {type: $Uint16},
+    blocks: {type: new ArrayType({itemType: $ScreenImageBlock, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum BlendMode {
   Normal,
@@ -17,25 +18,7 @@ export enum BlendMode {
   Hardlight,
 }
 
-export namespace BlendMode {
-  export type Json =
-    "normal"
-    | "layer"
-    | "multiply"
-    | "screen"
-    | "lighten"
-    | "darken"
-    | "difference"
-    | "add"
-    | "subtract"
-    | "invert"
-    | "alpha"
-    | "erase"
-    | "overlay"
-    | "hardlight";
-
-  export const type: SimpleEnumType<BlendMode> = new SimpleEnumType<BlendMode>({
-    enum: BlendMode,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $BlendMode: TsEnumType<BlendMode> = new TsEnumType<BlendMode>({
+  enum: BlendMode,
+  changeCase: CaseStyle.KebabCase,
+});

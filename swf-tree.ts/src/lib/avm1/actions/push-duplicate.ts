@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface PushDuplicate extends ActionBase {
   action: ActionType.PushDuplicate;
 }
 
-export namespace PushDuplicate {
-  export interface Json {
-    action: "push-duplicate";
-  }
-
-  export const type: DocumentType<PushDuplicate> = new DocumentType<PushDuplicate>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.PushDuplicate})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $PushDuplicate: DocumentIoType<PushDuplicate> = new DocumentType<PushDuplicate>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.PushDuplicate as ActionType.PushDuplicate})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

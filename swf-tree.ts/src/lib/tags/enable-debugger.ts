@@ -1,23 +1,19 @@
-import { CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface EnableDebugger extends _Tag {
   type: TagType.EnableDebugger;
   password: string;
 }
 
-export namespace EnableDebugger {
-  export interface Json {
-    type: "enable-debugger";
-    password: string;
-  }
-
-  export const type: DocumentType<EnableDebugger> = new DocumentType<EnableDebugger>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.EnableDebugger})},
-      password: {type: new Ucs2StringType({maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $EnableDebugger: DocumentIoType<EnableDebugger> = new DocumentType<EnableDebugger>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.EnableDebugger as TagType.EnableDebugger})},
+    password: {type: new Ucs2StringType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

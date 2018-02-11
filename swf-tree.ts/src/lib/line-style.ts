@@ -1,8 +1,11 @@
-import { BooleanType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint16 } from "semantic-types";
-import { CapStyle } from "./cap-style";
-import { FillStyle } from "./fill-style";
-import { JoinStyle } from "./join-style";
+import { $CapStyle, CapStyle } from "./cap-style";
+import { $FillStyle, FillStyle } from "./fill-style";
+import { $JoinStyle, JoinStyle } from "./join-style";
 
 export interface LineStyle {
   width: Uint16;
@@ -16,31 +19,17 @@ export interface LineStyle {
   fill: FillStyle;
 }
 
-export namespace LineStyle {
-  export interface Json {
-    width: number;
-    start_cap: CapStyle.Json;
-    end_cap: CapStyle.Json;
-    join: JoinStyle.Json;
-    no_h_scale: boolean;
-    no_v_scale: boolean;
-    no_close: boolean;
-    pixel_hinting: boolean;
-    fill: FillStyle.Json;
-  }
-
-  export const type: DocumentType<LineStyle> = new DocumentType<LineStyle>({
-    properties: {
-      width: {type: new IntegerType()},
-      startCap: {type: CapStyle.type},
-      endCap: {type: CapStyle.type},
-      join: {type: JoinStyle.type},
-      noHScale: {type: new BooleanType()},
-      noVScale: {type: new BooleanType()},
-      noClose: {type: new BooleanType()},
-      pixelHinting: {type: new BooleanType()},
-      fill: {type: FillStyle.type},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $LineStyle: DocumentIoType<LineStyle> = new DocumentType<LineStyle>({
+  properties: {
+    width: {type: $Uint16},
+    startCap: {type: $CapStyle},
+    endCap: {type: $CapStyle},
+    join: {type: $JoinStyle},
+    noHScale: {type: $Boolean},
+    noVScale: {type: $Boolean},
+    noClose: {type: $Boolean},
+    pixelHinting: {type: $Boolean},
+    fill: {type: $FillStyle},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

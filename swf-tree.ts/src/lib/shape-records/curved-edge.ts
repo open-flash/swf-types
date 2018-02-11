@@ -1,6 +1,8 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { Vector2D } from "../vector-2d";
-import { ShapeRecordType } from "./_type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $Vector2D, Vector2D } from "../vector-2d";
+import { $ShapeRecordType, ShapeRecordType } from "./_type";
 
 export interface CurvedEdge {
   type: ShapeRecordType.CurvedEdge;
@@ -8,24 +10,16 @@ export interface CurvedEdge {
   anchorDelta: Vector2D;
 }
 
-export namespace CurvedEdge {
-  export interface Json {
-    type: "curved-edge";
-    control_delta: Vector2D.Json;
-    anchor_delta: Vector2D.Json;
-  }
-
-  export const type: DocumentType<CurvedEdge> = new DocumentType<CurvedEdge>({
-    properties: {
-      type: {
-        type: new LiteralType({
-          type: ShapeRecordType.type,
-          value: ShapeRecordType.CurvedEdge,
-        }),
-      },
-      controlDelta: {type: Vector2D.type},
-      anchorDelta: {type: Vector2D.type},
+export const $CurvedEdge: DocumentIoType<CurvedEdge> = new DocumentType<CurvedEdge>({
+  properties: {
+    type: {
+      type: new LiteralType({
+        type: $ShapeRecordType,
+        value: ShapeRecordType.CurvedEdge as ShapeRecordType.CurvedEdge,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+    controlDelta: {type: $Vector2D},
+    anchorDelta: {type: $Vector2D},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

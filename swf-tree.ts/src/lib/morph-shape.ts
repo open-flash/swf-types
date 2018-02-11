@@ -1,7 +1,9 @@
-import { ArrayType, CaseStyle, DocumentType } from "kryo";
-import { MorphFillStyle } from "./morph-fill-style";
-import { MorphLineStyle } from "./morph-line-style";
-import { MorphShapeRecord } from "./morph-shape-record";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $MorphFillStyle, MorphFillStyle } from "./morph-fill-style";
+import { $MorphLineStyle, MorphLineStyle } from "./morph-line-style";
+import { $MorphShapeRecord, MorphShapeRecord } from "./morph-shape-record";
 
 export interface MorphShape {
   fillStyles: MorphFillStyle[];
@@ -9,19 +11,11 @@ export interface MorphShape {
   records: MorphShapeRecord[];
 }
 
-export namespace MorphShape {
-  export interface Json {
-    fill_styles: MorphFillStyle.Json[];
-    line_styles: MorphLineStyle.Json[];
-    records: MorphShapeRecord.Json[];
-  }
-
-  export const type: DocumentType<MorphShape> = new DocumentType<MorphShape>({
-    properties: {
-      fillStyles: {type: new ArrayType({itemType: MorphFillStyle.type, maxLength: Infinity})},
-      lineStyles: {type: new ArrayType({itemType: MorphLineStyle.type, maxLength: Infinity})},
-      records: {type: new ArrayType({itemType: MorphShapeRecord.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $MorphShape: DocumentIoType<MorphShape> = new DocumentType<MorphShape>({
+  properties: {
+    fillStyles: {type: new ArrayType({itemType: $MorphFillStyle, maxLength: Infinity})},
+    lineStyles: {type: new ArrayType({itemType: $MorphLineStyle, maxLength: Infinity})},
+    records: {type: new ArrayType({itemType: $MorphShapeRecord, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

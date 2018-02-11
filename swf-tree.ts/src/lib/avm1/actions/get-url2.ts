@@ -1,6 +1,9 @@
-import { BooleanType, CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
-import { GetUrl2Method } from "../get-url2-method";
+import { $Boolean } from "kryo/builtins/boolean";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
+import { $GetUrl2Method, GetUrl2Method } from "../get-url2-method";
 import { ActionBase } from "./_base";
 
 export interface GetUrl2 extends ActionBase {
@@ -10,21 +13,12 @@ export interface GetUrl2 extends ActionBase {
   loadVariables: boolean;
 }
 
-export namespace GetUrl2 {
-  export interface Json {
-    action: "get-url2";
-    method: GetUrl2Method.Json;
-    load_target: boolean;
-    load_variables: boolean;
-  }
-
-  export const type: DocumentType<GetUrl2> = new DocumentType<GetUrl2>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.GetUrl2})},
-      method: {type: GetUrl2Method.type},
-      loadTarget: {type: new BooleanType()},
-      loadVariables: {type: new BooleanType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $GetUrl2: DocumentIoType<GetUrl2> = new DocumentType<GetUrl2>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.GetUrl2 as ActionType.GetUrl2})},
+    method: {type: $GetUrl2Method},
+    loadTarget: {type: $Boolean},
+    loadVariables: {type: $Boolean},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

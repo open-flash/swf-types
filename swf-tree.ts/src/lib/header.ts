@@ -1,8 +1,9 @@
-import { DocumentType, IntegerType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint16 } from "semantic-types";
 import { Ufixed8P8 } from "./fixed-point/ufixed8p8";
-import { Rect } from "./rect";
-import { SwfSignature } from "./swf-signature";
+import { $Rect, Rect } from "./rect";
+import { $SwfSignature, SwfSignature } from "./swf-signature";
 
 export interface Header extends SwfSignature {
   frameSize: Rect;
@@ -10,20 +11,12 @@ export interface Header extends SwfSignature {
   frameCount: Uint16;
 }
 
-export namespace Header {
-  export interface Json extends SwfSignature.Json {
-    frame_size: Rect.Json;
-    frame_rate: number;
-    frame_count: number;
-  }
-
-  export const type: DocumentType<Header> = new DocumentType<Header>(() => ({
-    properties: {
-      ...SwfSignature.type.properties,
-      frameSize: {type: Rect.type},
-      frameRate: {type: Ufixed8P8.type},
-      frameCount: {type: new IntegerType()},
-    },
-    rename: SwfSignature.type.rename,
-  }));
-}
+export const $Header: DocumentIoType<Header> = new DocumentType<Header>(() => ({
+  properties: {
+    ...$SwfSignature.properties,
+    frameSize: {type: $Rect},
+    frameRate: {type: Ufixed8P8},
+    frameCount: {type: $Uint16},
+  },
+  changeCase: $SwfSignature.changeCase,
+}));

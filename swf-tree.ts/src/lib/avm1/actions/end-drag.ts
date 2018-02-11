@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface EndDrag extends ActionBase {
   action: ActionType.EndDrag;
 }
 
-export namespace EndDrag {
-  export interface Json {
-    action: "end-drag";
-  }
-
-  export const type: DocumentType<EndDrag> = new DocumentType<EndDrag>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.EndDrag})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $EndDrag: DocumentIoType<EndDrag> = new DocumentType<EndDrag>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.EndDrag as ActionType.EndDrag})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

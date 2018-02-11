@@ -1,7 +1,10 @@
-import { ArrayType, CaseStyle, DocumentType, LiteralType } from "kryo";
-import { Action } from "../action";
-import { ActionType } from "../action-type";
-import { CatchTarget } from "../catch-target";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $Action, Action } from "../action";
+import { $ActionType, ActionType } from "../action-type";
+import { $CatchTarget, CatchTarget } from "../catch-target";
 import { ActionBase } from "./_base";
 
 export interface Try extends ActionBase {
@@ -12,23 +15,13 @@ export interface Try extends ActionBase {
   finally?: Action[];
 }
 
-export namespace Try {
-  export interface Json {
-    action: "try";
-    try: Action.Json[];
-    catch?: Action.Json[];
-    catch_target?: CatchTarget.Json;
-    finally?: Action.Json[];
-  }
-
-  export const type: DocumentType<Try> = new DocumentType<Try>(() => ({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.Try})},
-      try: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
-      catch: {type: new ArrayType({itemType: Action.type, maxLength: Infinity}), optional: true},
-      catchTarget: {type: CatchTarget.type, optional: true},
-      finally: {type: new ArrayType({itemType: Action.type, maxLength: Infinity}), optional: true},
-    },
-    rename: CaseStyle.SnakeCase,
-  }));
-}
+export const $Try: DocumentIoType<Try> = new DocumentType<Try>(() => ({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.Try as ActionType.Try})},
+    try: {type: new ArrayType({itemType: $Action, maxLength: Infinity})},
+    catch: {type: new ArrayType({itemType: $Action, maxLength: Infinity}), optional: true},
+    catchTarget: {type: $CatchTarget, optional: true},
+    finally: {type: new ArrayType({itemType: $Action, maxLength: Infinity}), optional: true},
+  },
+  changeCase: CaseStyle.SnakeCase,
+}));

@@ -1,6 +1,9 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { LiteralType } from "kryo/types/literal";
 import { UintSize } from "semantic-types";
-import { ActionType } from "../action-type";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface WaitForFrame2 extends ActionBase {
@@ -8,17 +11,10 @@ export interface WaitForFrame2 extends ActionBase {
   skipCount: UintSize;
 }
 
-export namespace WaitForFrame2 {
-  export interface Json {
-    action: "wait-for-frame2";
-    skip_count: number;
-  }
-
-  export const type: DocumentType<WaitForFrame2> = new DocumentType<WaitForFrame2>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.WaitForFrame2})},
-      skipCount: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $WaitForFrame2: DocumentIoType<WaitForFrame2> = new DocumentType<WaitForFrame2>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.WaitForFrame2 as ActionType.WaitForFrame2})},
+    skipCount: {type: new IntegerType()},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

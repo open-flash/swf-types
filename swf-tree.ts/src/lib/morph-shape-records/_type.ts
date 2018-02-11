@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum MorphShapeRecordType {
   MorphCurvedEdge,
@@ -6,14 +7,7 @@ export enum MorphShapeRecordType {
   MorphStyleChange,
 }
 
-export namespace MorphShapeRecordType {
-  export type Json =
-    "morph-curved-edge"
-    | "morph-straight-edge"
-    | "morph-style-change";
-
-  export const type: SimpleEnumType<MorphShapeRecordType> = new SimpleEnumType<MorphShapeRecordType>({
-    enum: MorphShapeRecordType,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $MorphShapeRecordType: TsEnumType<MorphShapeRecordType> = new TsEnumType<MorphShapeRecordType>({
+  enum: MorphShapeRecordType,
+  changeCase: CaseStyle.KebabCase,
+});

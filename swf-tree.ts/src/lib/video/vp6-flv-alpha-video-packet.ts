@@ -1,4 +1,7 @@
-import { BufferType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Uint8 } from "kryo/builtins/uint8";
+import { CaseStyle } from "kryo/case-style";
+import { BufferType } from "kryo/types/buffer";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint8 } from "semantic-types";
 
 export interface Vp6FlvAlphaVideoPacket {
@@ -8,21 +11,12 @@ export interface Vp6FlvAlphaVideoPacket {
   alphaData: Uint8Array;
 }
 
-export namespace Vp6FlvAlphaVideoPacket {
-  export interface Json {
-    horizontal_adjustment: number;
-    vertical_adjustment: number;
-    data: string;
-    alpha_data: string;
-  }
-
-  export const type: DocumentType<Vp6FlvAlphaVideoPacket> = new DocumentType<Vp6FlvAlphaVideoPacket>({
-    properties: {
-      horizontalAdjustment: {type: new IntegerType()},
-      verticalAdjustment: {type: new IntegerType()},
-      data: {type: new BufferType({maxLength: Infinity})},
-      alphaData: {type: new BufferType({maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Vp6FlvAlphaVideoPacket: DocumentIoType<Vp6FlvAlphaVideoPacket> = new DocumentType<Vp6FlvAlphaVideoPacket>({
+  properties: {
+    horizontalAdjustment: {type: $Uint8},
+    verticalAdjustment: {type: $Uint8},
+    data: {type: new BufferType({maxLength: Infinity})},
+    alphaData: {type: new BufferType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

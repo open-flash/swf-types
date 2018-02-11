@@ -1,8 +1,6 @@
+import gulp from "gulp";
+import minimist, { ParsedArgs } from "minimist";
 import * as buildTools from "turbo-gulp";
-
-import * as gulp from "gulp";
-import * as minimist from "minimist";
-import { ParsedArgs } from "minimist";
 
 interface Options {
   devDist?: string;
@@ -70,6 +68,7 @@ const test: buildTools.MochaTarget = {
   project,
   name: "test",
   srcDir: "src",
+  outModules: buildTools.OutModules.Both,
   scripts: ["test/**/*.ts", "lib/**/*.ts"],
   customTypingsDir: "src/custom-typings",
   tscOptions: {

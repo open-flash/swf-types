@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface Return extends ActionBase {
   action: ActionType.Return;
 }
 
-export namespace Return {
-  export interface Json {
-    action: "return";
-  }
-
-  export const type: DocumentType<Return> = new DocumentType<Return>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.Return})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Return: DocumentIoType<Return> = new DocumentType<Return>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.Return as ActionType.Return})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

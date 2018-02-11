@@ -1,8 +1,14 @@
-import { ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType, Ucs2StringType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { LiteralType } from "kryo/types/literal";
+import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { UintSize } from "semantic-types";
-import { Action } from "../action";
-import { ActionType } from "../action-type";
-import { Parameter } from "../parameter";
+import { $Action, Action } from "../action";
+import { $ActionType, ActionType } from "../action-type";
+import { $Parameter, Parameter } from "../parameter";
 import { ActionBase } from "./_base";
 
 export interface DefineFunction2 extends ActionBase {
@@ -22,41 +28,27 @@ export interface DefineFunction2 extends ActionBase {
   body: Action[];
 }
 
-export namespace DefineFunction2 {
-  export interface Json {
-    action: "define-function2";
-    name: string;
-    preload_parent: boolean;
-    preload_root: boolean;
-    suppress_super: boolean;
-    preload_super: boolean;
-    suppress_arguments: boolean;
-    preload_arguments: boolean;
-    suppress_this: boolean;
-    preload_this: boolean;
-    preload_global: boolean;
-    register_count: number;
-    parameters: Parameter.Json[];
-    body: Action.Json[];
-  }
-
-  export const type: DocumentType<DefineFunction2> = new DocumentType<DefineFunction2>(() => ({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.DefineFunction2})},
-      name: {type: new Ucs2StringType({maxLength: Infinity})},
-      preloadParent: {type: new BooleanType()},
-      preloadRoot: {type: new BooleanType()},
-      suppressSuper: {type: new BooleanType()},
-      preloadSuper: {type: new BooleanType()},
-      suppressArguments: {type: new BooleanType()},
-      preloadArguments: {type: new BooleanType()},
-      suppressThis: {type: new BooleanType()},
-      preloadThis: {type: new BooleanType()},
-      preloadGlobal: {type: new BooleanType()},
-      registerCount: {type: new IntegerType()},
-      parameters: {type: new ArrayType({itemType: Parameter.type, maxLength: Infinity})},
-      body: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
+export const $DefineFunction2: DocumentIoType<DefineFunction2> = new DocumentType<DefineFunction2>(() => ({
+  properties: {
+    action: {
+      type: new LiteralType({
+        type: $ActionType,
+        value: ActionType.DefineFunction2 as ActionType.DefineFunction2,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  }));
-}
+    name: {type: new Ucs2StringType({maxLength: Infinity})},
+    preloadParent: {type: $Boolean},
+    preloadRoot: {type: $Boolean},
+    suppressSuper: {type: $Boolean},
+    preloadSuper: {type: $Boolean},
+    suppressArguments: {type: $Boolean},
+    preloadArguments: {type: $Boolean},
+    suppressThis: {type: $Boolean},
+    preloadThis: {type: $Boolean},
+    preloadGlobal: {type: $Boolean},
+    registerCount: {type: new IntegerType()},
+    parameters: {type: new ArrayType({itemType: $Parameter, maxLength: Infinity})},
+    body: {type: new ArrayType({itemType: $Action, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+}));

@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum Mp3ChannelMode {
   Stereo,
@@ -7,15 +8,7 @@ export enum Mp3ChannelMode {
   SingleChannel,
 }
 
-export namespace Mp3ChannelMode {
-  export type Json =
-    "stereo"
-    | "joint-stereo"
-    | "dual-channel"
-    | "singlie-channel";
-
-  export const type: SimpleEnumType<Mp3ChannelMode> = new SimpleEnumType<Mp3ChannelMode>({
-    enum: Mp3ChannelMode,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $Mp3ChannelMode: TsEnumType<Mp3ChannelMode> = new TsEnumType<Mp3ChannelMode>({
+  enum: Mp3ChannelMode,
+  changeCase: CaseStyle.KebabCase,
+});

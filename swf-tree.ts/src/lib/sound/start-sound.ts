@@ -1,8 +1,11 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { _Tag } from "../tags/_tag";
-import { TagType } from "../tags/_type";
-import { SoundInfo } from "./sound-info";
+import { $TagType, TagType } from "../tags/_type";
+import { $SoundInfo, SoundInfo } from "./sound-info";
 
 export interface StartSound extends _Tag {
   type: TagType.StartSound;
@@ -10,19 +13,11 @@ export interface StartSound extends _Tag {
   soundInfo: SoundInfo;
 }
 
-export namespace StartSound {
-  export interface Json {
-    type: "start-sound";
-    sound_id: number;
-    sound_info: SoundInfo.Json;
-  }
-
-  export const type: DocumentType<StartSound> = new DocumentType<StartSound>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.StartSound})},
-      soundId: {type: new IntegerType()},
-      soundInfo: {type: SoundInfo.type},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $StartSound: DocumentIoType<StartSound> = new DocumentType<StartSound>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.StartSound as TagType.StartSound})},
+    soundId: {type: $Uint16},
+    soundInfo: {type: $SoundInfo},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

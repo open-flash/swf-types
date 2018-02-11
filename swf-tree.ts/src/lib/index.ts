@@ -59,7 +59,6 @@ export { Scene } from "./control/scene";
 
 export { Fixed8P8 } from "./fixed-point/fixed8p8";
 export { Fixed16P16 } from "./fixed-point/fixed16p16";
-export { FixedPoint } from "./fixed-point/fixed-point";
-export { FixedPointType } from "./fixed-point/type";
+export { FixedPoint, FixedPointConstructor, FixedPointOptions } from "./fixed-point/fixed-point";
 export { Ufixed8P8 } from "./fixed-point/ufixed8p8";
 export { Ufixed16P16 } from "./fixed-point/ufixed16p16";

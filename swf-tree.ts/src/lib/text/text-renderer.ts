@@ -1,17 +1,12 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum TextRenderer {
   Normal,
   Advanced,
 }
 
-export namespace TextRenderer {
-  export type Json =
-    "normal"
-    | "advanced";
-
-  export const type: SimpleEnumType<TextRenderer> = new SimpleEnumType<TextRenderer>({
-    enum: TextRenderer,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $TextRenderer: TsEnumType<TextRenderer> = new TsEnumType<TextRenderer>({
+  enum: TextRenderer,
+  changeCase: CaseStyle.KebabCase,
+});

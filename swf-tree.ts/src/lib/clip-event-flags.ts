@@ -1,4 +1,6 @@
-import { BooleanType, CaseStyle, DocumentType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 
 export interface ClipEventFlags {
   keyUp: boolean;
@@ -22,51 +24,27 @@ export interface ClipEventFlags {
   dragOut: boolean;
 }
 
-export namespace ClipEventFlags {
-  export interface Json {
-    key_up: boolean;
-    key_down: boolean;
-    mouse_up: boolean;
-    mouse_down: boolean;
-    mouse_move: boolean;
-    unload: boolean;
-    enter_frame: boolean;
-    load: boolean;
-    drag_over: boolean;
-    roll_out: boolean;
-    roll_over: boolean;
-    release_outside: boolean;
-    release: boolean;
-    press: boolean;
-    initialize: boolean;
-    data: boolean;
-    construct: boolean;
-    key_press: boolean;
-    drag_out: boolean;
-  }
-
-  export const type: DocumentType<ClipEventFlags> = new DocumentType<ClipEventFlags>({
-    properties: {
-      keyUp: {type: new BooleanType()},
-      keyDown: {type: new BooleanType()},
-      mouseUp: {type: new BooleanType()},
-      mouseDown: {type: new BooleanType()},
-      mouseMove: {type: new BooleanType()},
-      unload: {type: new BooleanType()},
-      enterFrame: {type: new BooleanType()},
-      load: {type: new BooleanType()},
-      dragOver: {type: new BooleanType()},
-      rollOut: {type: new BooleanType()},
-      rollOver: {type: new BooleanType()},
-      releaseOutside: {type: new BooleanType()},
-      release: {type: new BooleanType()},
-      press: {type: new BooleanType()},
-      initialize: {type: new BooleanType()},
-      data: {type: new BooleanType()},
-      construct: {type: new BooleanType()},
-      keyPress: {type: new BooleanType()},
-      dragOut: {type: new BooleanType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $ClipEventFlags: DocumentIoType<ClipEventFlags> = new DocumentType<ClipEventFlags>({
+  properties: {
+    keyUp: {type: $Boolean},
+    keyDown: {type: $Boolean},
+    mouseUp: {type: $Boolean},
+    mouseDown: {type: $Boolean},
+    mouseMove: {type: $Boolean},
+    unload: {type: $Boolean},
+    enterFrame: {type: $Boolean},
+    load: {type: $Boolean},
+    dragOver: {type: $Boolean},
+    rollOut: {type: $Boolean},
+    rollOver: {type: $Boolean},
+    releaseOutside: {type: $Boolean},
+    release: {type: $Boolean},
+    press: {type: $Boolean},
+    initialize: {type: $Boolean},
+    data: {type: $Boolean},
+    construct: {type: $Boolean},
+    keyPress: {type: $Boolean},
+    dragOut: {type: $Boolean},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

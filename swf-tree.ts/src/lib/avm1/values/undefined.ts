@@ -1,19 +1,15 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ValueType } from "../value-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ValueType, ValueType } from "../value-type";
 
 export interface Undefined {
   type: ValueType.Undefined;
 }
 
-export namespace Undefined {
-  export interface Json {
-    type: "undefined";
-  }
-
-  export const type: DocumentType<Undefined> = new DocumentType<Undefined>({
-    properties: {
-      type: {type: new LiteralType({type: ValueType.type, value: ValueType.Undefined})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Undefined: DocumentIoType<Undefined> = new DocumentType<Undefined>({
+  properties: {
+    type: {type: new LiteralType({type: $ValueType, value: ValueType.Undefined as ValueType.Undefined})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

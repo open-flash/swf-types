@@ -1,23 +1,20 @@
-import { CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { BufferType } from "kryo/types/buffer";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface SoundStreamBlock extends _Tag {
   type: TagType.SoundStreamBlock;
-  data: Buffer;
+  data: Uint8Array;
 }
 
-export namespace SoundStreamBlock {
-  export interface Json {
-    type: "sound-stream-block";
-    data: string;
-  }
-
-  export const type: DocumentType<SoundStreamBlock> = new DocumentType<SoundStreamBlock>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.SoundStreamBlock})},
-      data: {type: new Ucs2StringType({maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $SoundStreamBlock: DocumentIoType<SoundStreamBlock> = new DocumentType<SoundStreamBlock>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.SoundStreamBlock as TagType.SoundStreamBlock})},
+    data: {type: new BufferType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

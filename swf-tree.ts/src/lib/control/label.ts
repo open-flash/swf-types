@@ -1,21 +1,17 @@
-import { CaseStyle, DocumentType, IntegerType, Ucs2StringType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { Ucs2StringType } from "kryo/types/ucs2-string";
 
 export interface Label {
   frame: number;
   name: string;
 }
 
-export namespace Label {
-  export interface Json {
-    frame: number;
-    name: string;
-  }
-
-  export const type: DocumentType<Label> = new DocumentType<Label>({
-    properties: {
-      frame: {type: new IntegerType()},
-      name: {type: new Ucs2StringType({maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Label: DocumentIoType<Label> = new DocumentType<Label>({
+  properties: {
+    frame: {type: new IntegerType()},
+    name: {type: new Ucs2StringType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

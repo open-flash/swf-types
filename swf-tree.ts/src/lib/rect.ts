@@ -1,4 +1,6 @@
-import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Sint16 } from "kryo/builtins/sint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Sint16 } from "semantic-types";
 
 export interface Rect {
@@ -8,21 +10,12 @@ export interface Rect {
   yMax: Sint16;
 }
 
-export namespace Rect {
-  export interface Json {
-    x_min: number;
-    x_max: number;
-    y_min: number;
-    y_max: number;
-  }
-
-  export const type: DocumentType<Rect> = new DocumentType<Rect>({
-    properties: {
-      xMin: {type: new IntegerType()},
-      xMax: {type: new IntegerType()},
-      yMin: {type: new IntegerType()},
-      yMax: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Rect: DocumentIoType<Rect> = new DocumentType<Rect>({
+  properties: {
+    xMin: {type: $Sint16},
+    xMax: {type: $Sint16},
+    yMin: {type: $Sint16},
+    yMax: {type: $Sint16},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

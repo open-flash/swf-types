@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum JoinStyleType {
   Bevel,
@@ -6,14 +7,7 @@ export enum JoinStyleType {
   Round,
 }
 
-export namespace JoinStyleType {
-  export type Json =
-    "bevel"
-    | "miter"
-    | "round";
-
-  export const type: SimpleEnumType<JoinStyleType> = new SimpleEnumType<JoinStyleType>({
-    enum: JoinStyleType,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $JoinStyleType: TsEnumType<JoinStyleType> = new TsEnumType<JoinStyleType>({
+  enum: JoinStyleType,
+  changeCase: CaseStyle.KebabCase,
+});

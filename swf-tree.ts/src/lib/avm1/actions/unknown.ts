@@ -1,6 +1,9 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { LiteralType } from "kryo/types/literal";
 import { Uint8 } from "semantic-types";
-import { ActionType } from "../action-type";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface Unknown extends ActionBase {
@@ -8,17 +11,10 @@ export interface Unknown extends ActionBase {
   actionCode: Uint8;
 }
 
-export namespace Unknown {
-  export interface Json {
-    action: "unknown";
-    action_code: number;
-  }
-
-  export const type: DocumentType<Unknown> = new DocumentType<Unknown>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.Unknown})},
-      actionCode: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Unknown: DocumentIoType<Unknown> = new DocumentType<Unknown>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.Unknown as ActionType.Unknown})},
+    actionCode: {type: new IntegerType()},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

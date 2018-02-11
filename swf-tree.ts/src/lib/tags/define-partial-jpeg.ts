@@ -1,7 +1,11 @@
-import { BufferType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { BufferType } from "kryo/types/buffer";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface DefinePartialJpeg extends _Tag {
   type: TagType.DefinePartialJpeg;
@@ -9,19 +13,11 @@ export interface DefinePartialJpeg extends _Tag {
   data: Uint8Array;
 }
 
-export namespace DefinePartialJpeg {
-  export interface Json {
-    type: "define-partial-jpeg";
-    id: number;
-    data: string;
-  }
-
-  export const type: DocumentType<DefinePartialJpeg> = new DocumentType<DefinePartialJpeg>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefinePartialJpeg})},
-      id: {type: new IntegerType()},
-      data: {type: new BufferType({maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DefinePartialJpeg: DocumentIoType<DefinePartialJpeg> = new DocumentType<DefinePartialJpeg>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefinePartialJpeg as TagType.DefinePartialJpeg})},
+    id: {type: $Uint16},
+    data: {type: new BufferType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

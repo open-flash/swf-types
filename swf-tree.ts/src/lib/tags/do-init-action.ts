@@ -1,8 +1,12 @@
-import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import * as avm1 from "../avm1/index";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface DoInitAction extends _Tag {
   type: TagType.DoInitAction;
@@ -10,19 +14,11 @@ export interface DoInitAction extends _Tag {
   actions: avm1.Action[];
 }
 
-export namespace DoInitAction {
-  export interface Json {
-    type: "do-init-action";
-    sprite_id: number;
-    actions: avm1.Action.Json[];
-  }
-
-  export const type: DocumentType<DoInitAction> = new DocumentType<DoInitAction>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DoInitAction})},
-      spriteid: {type: new IntegerType()},
-      actions: {type: new ArrayType({itemType: avm1.Action.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DoInitAction: DocumentIoType<DoInitAction> = new DocumentType<DoInitAction>(() => ({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.DoInitAction as TagType.DoInitAction})},
+    spriteId: {type: $Uint16},
+    actions: {type: new ArrayType({itemType: avm1.$Action, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+}));

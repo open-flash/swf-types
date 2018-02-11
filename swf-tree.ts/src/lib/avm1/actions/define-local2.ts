@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface DefineLocal2 extends ActionBase {
   action: ActionType.DefineLocal2;
 }
 
-export namespace DefineLocal2 {
-  export interface Json {
-    action: "define-local2";
-  }
-
-  export const type: DocumentType<DefineLocal2> = new DocumentType<DefineLocal2>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.DefineLocal2})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DefineLocal2: DocumentIoType<DefineLocal2> = new DocumentType<DefineLocal2>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.DefineLocal2 as ActionType.DefineLocal2})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

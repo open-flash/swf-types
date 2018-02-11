@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface StrictMode extends ActionBase {
   action: ActionType.StrictMode;
 }
 
-export namespace StrictMode {
-  export interface Json {
-    action: "strict-mode";
-  }
-
-  export const type: DocumentType<StrictMode> = new DocumentType<StrictMode>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.StrictMode})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $StrictMode: DocumentIoType<StrictMode> = new DocumentType<StrictMode>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.StrictMode as ActionType.StrictMode})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface RandomNumber extends ActionBase {
   action: ActionType.RandomNumber;
 }
 
-export namespace RandomNumber {
-  export interface Json {
-    action: "random-number";
-  }
-
-  export const type: DocumentType<RandomNumber> = new DocumentType<RandomNumber>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.RandomNumber})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $RandomNumber: DocumentIoType<RandomNumber> = new DocumentType<RandomNumber>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.RandomNumber as ActionType.RandomNumber})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

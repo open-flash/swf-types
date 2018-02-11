@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface BitAnd extends ActionBase {
   action: ActionType.BitAnd;
 }
 
-export namespace BitAnd {
-  export interface Json {
-    action: "bit-and";
-  }
-
-  export const type: DocumentType<BitAnd> = new DocumentType<BitAnd>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.BitAnd})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $BitAnd: DocumentIoType<BitAnd> = new DocumentType<BitAnd>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.BitAnd as ActionType.BitAnd})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

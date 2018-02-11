@@ -1,7 +1,11 @@
-import { ArrayType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Uint8 } from "kryo/builtins/uint8";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint8 } from "semantic-types";
+import { $Action } from "./avm1";
 import { Action } from "./avm1/action";
-import { ClipEventFlags } from "./clip-event-flags";
+import { $ClipEventFlags, ClipEventFlags } from "./clip-event-flags";
 
 export interface ClipActions {
   events: ClipEventFlags;
@@ -9,19 +13,11 @@ export interface ClipActions {
   actions: Action[];
 }
 
-export namespace ClipActions {
-  export interface Json {
-    events: ClipEventFlags.Json;
-    key_code?: number;
-    records: Action.Json[];
-  }
-
-  export const type: DocumentType<ClipActions> = new DocumentType<ClipActions>({
-    properties: {
-      events: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
-      keyCode: {type: new IntegerType(), optional: true},
-      actions: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $ClipActions: DocumentIoType<ClipActions> = new DocumentType<ClipActions>({
+  properties: {
+    events: {type: $ClipEventFlags},
+    keyCode: {type: $Uint8, optional: true},
+    actions: {type: new ArrayType({itemType: $Action, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

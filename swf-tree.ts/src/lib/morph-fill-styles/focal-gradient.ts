@@ -1,9 +1,10 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Fixed8P8 } from "../fixed-point/fixed8p8";
-import { Matrix } from "../matrix";
-import { MorphGradient } from "../morph-gradient";
-import { StraightSRgba8 } from "../straight-s-rgba8";
-import { MorphFillStyleType } from "./_type";
+import { $Matrix, Matrix } from "../matrix";
+import { $MorphGradient, MorphGradient } from "../morph-gradient";
+import { $MorphFillStyleType, MorphFillStyleType } from "./_type";
 
 export interface FocalGradient {
   type: MorphFillStyleType.FocalGradient;
@@ -14,25 +15,19 @@ export interface FocalGradient {
   endFocalPoint: Fixed8P8;
 }
 
-export namespace FocalGradient {
-  export interface Json {
-    type: "focal-gradient";
-    start_matrix: Matrix.Json;
-    end_matrix: Matrix.Json;
-    gradient: MorphGradient.Json;
-    start_focal_point: string;
-    end_focal_point: string;
-  }
-
-  export const type: DocumentType<FocalGradient> = new DocumentType<FocalGradient>({
-    properties: {
-      type: {type: new LiteralType({type: MorphFillStyleType.type, value: MorphFillStyleType.FocalGradient})},
-      startMatrix: {type: StraightSRgba8.type},
-      endMatrix: {type: StraightSRgba8.type},
-      gradient: {type: MorphGradient.type},
-      startFocalPoint: {type: Fixed8P8.type},
-      endFocalPoint: {type: Fixed8P8.type},
+export const $FocalGradient: DocumentIoType<FocalGradient> = new DocumentType<FocalGradient>({
+  properties: {
+    type: {
+      type: new LiteralType({
+        type: $MorphFillStyleType,
+        value: MorphFillStyleType.FocalGradient as MorphFillStyleType.FocalGradient,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+    startMatrix: {type: $Matrix},
+    endMatrix: {type: $Matrix},
+    gradient: {type: $MorphGradient},
+    startFocalPoint: {type: Fixed8P8},
+    endFocalPoint: {type: Fixed8P8},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

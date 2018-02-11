@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum ActionType {
   Unknown,
@@ -105,108 +106,7 @@ export enum ActionType {
   With,
 }
 
-export namespace ActionType {
-  export type Json =
-    "unknown"
-    | "add"
-    | "add2"
-    | "and"
-    | "ascii-to-char"
-    | "bit-and"
-    | "bit-l-shift"
-    | "bit-r-shift"
-    | "bit-u-r-shift"
-    | "bit-xor"
-    | "call"
-    | "call-function"
-    | "call-method"
-    | "cast-op"
-    | "char-to-ascii"
-    | "clone-sprite"
-    | "constant-pool"
-    | "decrement"
-    | "define-function"
-    | "define-function2"
-    | "define-local"
-    | "define-local2"
-    | "delete"
-    | "delete2"
-    | "divide"
-    | "end-drag"
-    | "enumerate"
-    | "enumerate2"
-    | "equals"
-    | "equals2"
-    | "extends"
-    | "fs-command2"
-    | "get-member"
-    | "get-property"
-    | "get-time"
-    | "get-url"
-    | "get-url2"
-    | "get-variable"
-    | "goto-frame"
-    | "goto-frame2"
-    | "goto-label"
-    | "greater"
-    | "if"
-    | "implements-op"
-    | "increment"
-    | "init-array"
-    | "init-object"
-    | "instance-of"
-    | "jump"
-    | "less"
-    | "less2"
-    | "mb-ascii-to-char"
-    | "mb-char-to-ascii"
-    | "mb-string-extract"
-    | "mb-string-length"
-    | "modulo"
-    | "multiply"
-    | "new-method"
-    | "mew-object"
-    | "next-frame"
-    | "not"
-    | "or"
-    | "play"
-    | "pop"
-    | "previous-frame"
-    | "push"
-    | "random-number"
-    | "remove-sprite"
-    | "return"
-    | "set-member"
-    | "set-property"
-    | "set-target"
-    | "set-target2"
-    | "set-variable"
-    | "stack-swap"
-    | "start-drag"
-    | "stop"
-    | "stop-sounds"
-    | "store-register"
-    | "strict-equals"
-    | "string-extract"
-    | "string-greater"
-    | "string-length"
-    | "string-less"
-    | "subtract"
-    | "target-path"
-    | "throw"
-    | "toggle-quality"
-    | "to-integer"
-    | "to-number"
-    | "to-string"
-    | "trace"
-    | "try"
-    | "type-of"
-    | "wait-for-frame"
-    | "wait-for-frame2"
-    | "with";
-
-  export const type: SimpleEnumType<ActionType> = new SimpleEnumType<ActionType>({
-    enum: ActionType,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $ActionType: TsEnumType<ActionType> = new TsEnumType<ActionType>({
+  enum: ActionType,
+  changeCase: CaseStyle.KebabCase,
+});

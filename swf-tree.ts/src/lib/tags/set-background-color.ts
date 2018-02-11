@@ -1,24 +1,19 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { SRgb8 } from "../s-rgb8";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $SRgb8, SRgb8 } from "../s-rgb8";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface SetBackgroundColor extends _Tag {
   type: TagType.SetBackgroundColor;
   color: SRgb8;
 }
 
-export namespace SetBackgroundColor {
-  export interface Json {
-    type: "set-background-color";
-    color: SRgb8.Json;
-  }
-
-  export const type: DocumentType<SetBackgroundColor> = new DocumentType<SetBackgroundColor>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.SetBackgroundColor})},
-      color: {type: SRgb8.type},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $SetBackgroundColor: DocumentIoType<SetBackgroundColor> = new DocumentType<SetBackgroundColor>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.SetBackgroundColor as TagType.SetBackgroundColor})},
+    color: {type: $SRgb8},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

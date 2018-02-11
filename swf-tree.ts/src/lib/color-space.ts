@@ -1,17 +1,12 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum ColorSpace {
   SRgb,
   LinearRgb,
 }
 
-export namespace ColorSpace {
-  export type Json =
-    "s-rgb"
-    | "linear-rgb";
-
-  export const type: SimpleEnumType<ColorSpace> = new SimpleEnumType<ColorSpace>({
-    enum: ColorSpace,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $ColorSpace: TsEnumType<ColorSpace> = new TsEnumType<ColorSpace>({
+  enum: ColorSpace,
+  changeCase: CaseStyle.KebabCase,
+});

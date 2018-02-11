@@ -1,7 +1,11 @@
-import { BufferType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { BufferType } from "kryo/types/buffer";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface DefineBitmap extends _Tag {
   type: TagType.DefineBitmap;
@@ -11,23 +15,13 @@ export interface DefineBitmap extends _Tag {
   data: Uint8Array;
 }
 
-export namespace DefineBitmap {
-  export interface Json {
-    type: "define-bitmap";
-    id: number;
-    width: number;
-    height: number;
-    data: string;
-  }
-
-  export const type: DocumentType<DefineBitmap> = new DocumentType<DefineBitmap>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineBitmap})},
-      id: {type: new IntegerType()},
-      width: {type: new IntegerType()},
-      height: {type: new IntegerType()},
-      data: {type: new BufferType({maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DefineBitmap: DocumentIoType<DefineBitmap> = new DocumentType<DefineBitmap>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefineBitmap as TagType.DefineBitmap})},
+    id: {type: $Uint16},
+    width: {type: $Uint16},
+    height: {type: $Uint16},
+    data: {type: new BufferType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

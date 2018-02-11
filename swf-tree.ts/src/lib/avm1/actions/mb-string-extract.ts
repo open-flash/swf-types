@@ -1,20 +1,21 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface MbStringExtract extends ActionBase {
   action: ActionType.MbStringExtract;
 }
 
-export namespace MbStringExtract {
-  export interface Json {
-    action: "mb-string-extract";
-  }
-
-  export const type: DocumentType<MbStringExtract> = new DocumentType<MbStringExtract>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.MbStringExtract})},
+export const $MbStringExtract: DocumentIoType<MbStringExtract> = new DocumentType<MbStringExtract>({
+  properties: {
+    action: {
+      type: new LiteralType({
+        type: $ActionType,
+        value: ActionType.MbStringExtract as ActionType.MbStringExtract,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

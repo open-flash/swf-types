@@ -1,8 +1,11 @@
-import { BooleanType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint16 } from "semantic-types";
-import { CapStyle } from "./cap-style";
-import { JoinStyle } from "./join-style";
-import { MorphFillStyle } from "./morph-fill-style";
+import { $CapStyle, CapStyle } from "./cap-style";
+import { $JoinStyle, JoinStyle } from "./join-style";
+import { $MorphFillStyle, MorphFillStyle } from "./morph-fill-style";
 
 export interface MorphLineStyle {
   startWidth: Uint16;
@@ -17,33 +20,18 @@ export interface MorphLineStyle {
   fill: MorphFillStyle;
 }
 
-export namespace MorphLineStyle {
-  export interface Json {
-    start_width: number;
-    end_width: number;
-    start_cap: CapStyle.Json;
-    end_cap: CapStyle.Json;
-    join: JoinStyle.Json;
-    no_h_scale: boolean;
-    no_v_scale: boolean;
-    no_close: boolean;
-    pixel_hinting: boolean;
-    fill: MorphFillStyle.Json;
-  }
-
-  export const type: DocumentType<MorphLineStyle> = new DocumentType<MorphLineStyle>({
-    properties: {
-      startWidth: {type: new IntegerType()},
-      endWidth: {type: new IntegerType()},
-      startCap: {type: CapStyle.type},
-      endCap: {type: CapStyle.type},
-      join: {type: JoinStyle.type},
-      noHScale: {type: new BooleanType()},
-      noVScale: {type: new BooleanType()},
-      noClose: {type: new BooleanType()},
-      pixelHinting: {type: new BooleanType()},
-      fill: {type: MorphFillStyle.type},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $MorphLineStyle: DocumentIoType<MorphLineStyle> = new DocumentType<MorphLineStyle>({
+  properties: {
+    startWidth: {type: $Uint16},
+    endWidth: {type: $Uint16},
+    startCap: {type: $CapStyle},
+    endCap: {type: $CapStyle},
+    join: {type: $JoinStyle},
+    noHScale: {type: $Boolean},
+    noVScale: {type: $Boolean},
+    noClose: {type: $Boolean},
+    pixelHinting: {type: $Boolean},
+    fill: {type: $MorphFillStyle},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

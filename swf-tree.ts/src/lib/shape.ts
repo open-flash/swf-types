@@ -1,7 +1,9 @@
-import { ArrayType, CaseStyle, DocumentType } from "kryo";
-import { FillStyle } from "./fill-style";
-import { LineStyle } from "./line-style";
-import { ShapeRecord } from "./shape-record";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $FillStyle, FillStyle } from "./fill-style";
+import { $LineStyle, LineStyle } from "./line-style";
+import { $ShapeRecord, ShapeRecord } from "./shape-record";
 
 export interface Shape {
   fillStyles: FillStyle[];
@@ -9,19 +11,11 @@ export interface Shape {
   records: ShapeRecord[];
 }
 
-export namespace Shape {
-  export interface Json {
-    fill_styles: FillStyle.Json[];
-    line_styles: LineStyle.Json[];
-    records: ShapeRecord.Json[];
-  }
-
-  export const type: DocumentType<Shape> = new DocumentType<Shape>({
-    properties: {
-      fillStyles: {type: new ArrayType({itemType: FillStyle.type, maxLength: Infinity})},
-      lineStyles: {type: new ArrayType({itemType: LineStyle.type, maxLength: Infinity})},
-      records: {type: new ArrayType({itemType: ShapeRecord.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Shape: DocumentIoType<Shape> = new DocumentType<Shape>({
+  properties: {
+    fillStyles: {type: new ArrayType({itemType: $FillStyle, maxLength: Infinity})},
+    lineStyles: {type: new ArrayType({itemType: $LineStyle, maxLength: Infinity})},
+    records: {type: new ArrayType({itemType: $ShapeRecord, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

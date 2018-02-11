@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface GetMember extends ActionBase {
   action: ActionType.GetMember;
 }
 
-export namespace GetMember {
-  export interface Json {
-    action: "get-member";
-  }
-
-  export const type: DocumentType<GetMember> = new DocumentType<GetMember>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.GetMember})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $GetMember: DocumentIoType<GetMember> = new DocumentType<GetMember>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.GetMember as ActionType.GetMember})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

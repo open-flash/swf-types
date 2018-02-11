@@ -1,8 +1,12 @@
-import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { Glyph } from "../glyph";
+import { $Glyph, Glyph } from "../glyph";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface DefinePartialFont extends _Tag {
   type: TagType.DefinePartialFont;
@@ -10,19 +14,11 @@ export interface DefinePartialFont extends _Tag {
   glyphs: Glyph[];
 }
 
-export namespace DefinePartialFont {
-  export interface Json {
-    type: "define-partial-font";
-    id: number;
-    glyphs: Glyph[];
-  }
-
-  export const type: DocumentType<DefinePartialFont> = new DocumentType<DefinePartialFont>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefinePartialFont})},
-      id: {type: new IntegerType()},
-      glyphs: {type: new ArrayType({itemType: Glyph.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DefinePartialFont: DocumentIoType<DefinePartialFont> = new DocumentType<DefinePartialFont>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefinePartialFont as TagType.DefinePartialFont})},
+    id: {type: $Uint16},
+    glyphs: {type: new ArrayType({itemType: $Glyph, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

@@ -1,7 +1,11 @@
-import { BufferType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { BufferType } from "kryo/types/buffer";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface DefineBinaryData extends _Tag {
   type: TagType.DefineBinaryData;
@@ -9,19 +13,11 @@ export interface DefineBinaryData extends _Tag {
   data: Uint8Array;
 }
 
-export namespace DefineBinaryData {
-  export interface Json {
-    type: "define-binary-data";
-    id: number;
-    data: string;
-  }
-
-  export const type: DocumentType<DefineBinaryData> = new DocumentType<DefineBinaryData>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineBinaryData})},
-      id: {type: new IntegerType()},
-      data: {type: new BufferType({maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DefineBinaryData: DocumentIoType<DefineBinaryData> = new DocumentType<DefineBinaryData>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefineBinaryData as TagType.DefineBinaryData})},
+    id: {type: new IntegerType()},
+    data: {type: new BufferType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

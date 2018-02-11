@@ -1,21 +1,19 @@
-import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Any } from "kryo/builtins/any";
+import { $Uint8 } from "kryo/builtins/uint8";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { WhiteListType } from "kryo/types/white-list";
 
 export interface AdpcmSoundData {
   adpcmCodeSize: 2 | 3 | 4 | 5;
   adpcmPackets: any[];
 }
 
-export namespace AdpcmSoundData {
-  export interface Json {
-    sample_count: number;
-    mp3_sound_data: any;
-  }
-
-  export const type: DocumentType<AdpcmSoundData> = new DocumentType<AdpcmSoundData>({
-    properties: {
-      sampleCount: {type: new IntegerType()},
-      mp3SoundData: {type: null as any},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $AdpcmSoundData: DocumentIoType<AdpcmSoundData> = new DocumentType<AdpcmSoundData>({
+  properties: {
+    adpcmCodeSize: {type: new WhiteListType({itemType: $Uint8, values: [2, 3, 4, 5] as (2 | 3 | 4 | 5)[]})},
+    adpcmPackets: {type: new ArrayType({itemType: $Any, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

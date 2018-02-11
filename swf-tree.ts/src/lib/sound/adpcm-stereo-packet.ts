@@ -1,4 +1,8 @@
-import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Sint16 } from "kryo/builtins/sint16";
+import { $Uint32 } from "kryo/builtins/uint32";
+import { CaseStyle } from "kryo/case-style";
+import { BufferType } from "kryo/types/buffer";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Sint16, Uint32 } from "semantic-types";
 
 export interface AdpcmStereoPacket {
@@ -6,20 +10,16 @@ export interface AdpcmStereoPacket {
   initialIndexLeft: Uint32;
   initialSampleRight: Sint16;
   initialIndexRight: Uint32;
-  adpcmCodeData: Buffer;
+  adpcmCodeData: Uint8Array;
 }
 
-export namespace AdpcmStereoPacket {
-  export interface Json {
-    sample_count: number;
-    mp3_sound_data: any;
-  }
-
-  export const type: DocumentType<AdpcmStereoPacket> = new DocumentType<AdpcmStereoPacket>({
-    properties: {
-      sampleCount: {type: new IntegerType()},
-      mp3SoundData: {type: null as any},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $AdpcmStereoPacket: DocumentIoType<AdpcmStereoPacket> = new DocumentType<AdpcmStereoPacket>({
+  properties: {
+    initialSampleLeft: {type: $Sint16},
+    initialIndexLeft: {type: $Uint32},
+    initialSampleRight: {type: $Sint16},
+    initialIndexRight: {type: $Uint32},
+    adpcmCodeData: {type: new BufferType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

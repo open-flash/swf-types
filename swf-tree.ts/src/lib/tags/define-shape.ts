@@ -1,9 +1,13 @@
-import { BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { Rect } from "../rect";
-import { Shape } from "../shape";
+import { $Rect, Rect } from "../rect";
+import { $Shape, Shape } from "../shape";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface DefineShape extends _Tag {
   type: TagType.DefineShape;
@@ -16,29 +20,16 @@ export interface DefineShape extends _Tag {
   shape: Shape;
 }
 
-export namespace DefineShape {
-  export interface Json {
-    type: "define-shape";
-    id: number;
-    bounds: Rect.Json;
-    edge_bounds?: Rect.Json;
-    has_fill_winding: boolean;
-    has_non_scaling_strokes: boolean;
-    has_scaling_strokes: boolean;
-    shape: Shape.Json;
-  }
-
-  export const type: DocumentType<DefineShape> = new DocumentType<DefineShape>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineShape})},
-      id: {type: new IntegerType()},
-      bounds: {type: Rect.type},
-      edgeBounds: {type: Rect.type, optional: true},
-      hasFillWinding: {type: new BooleanType()},
-      hasNonScalingStrokes: {type: new BooleanType()},
-      hasScalingStrokes: {type: new BooleanType()},
-      shape: {type: Shape.type},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DefineShape: DocumentIoType<DefineShape> = new DocumentType<DefineShape>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefineShape as TagType.DefineShape})},
+    id: {type: $Uint16},
+    bounds: {type: $Rect},
+    edgeBounds: {type: $Rect, optional: true},
+    hasFillWinding: {type: $Boolean},
+    hasNonScalingStrokes: {type: $Boolean},
+    hasScalingStrokes: {type: $Boolean},
+    shape: {type: $Shape},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

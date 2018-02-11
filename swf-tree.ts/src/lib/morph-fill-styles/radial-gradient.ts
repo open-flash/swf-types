@@ -1,8 +1,9 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { Matrix } from "../matrix";
-import { MorphGradient } from "../morph-gradient";
-import { StraightSRgba8 } from "../straight-s-rgba8";
-import { MorphFillStyleType } from "./_type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $Matrix, Matrix } from "../matrix";
+import { $MorphGradient, MorphGradient } from "../morph-gradient";
+import { $MorphFillStyleType, MorphFillStyleType } from "./_type";
 
 export interface RadialGradient {
   type: MorphFillStyleType.RadialGradient;
@@ -11,21 +12,17 @@ export interface RadialGradient {
   gradient: MorphGradient;
 }
 
-export namespace RadialGradient {
-  export interface Json {
-    type: "radial-gradient";
-    start_matrix: Matrix.Json;
-    end_matrix: Matrix.Json;
-    gradient: MorphGradient.Json;
-  }
-
-  export const type: DocumentType<RadialGradient> = new DocumentType<RadialGradient>({
-    properties: {
-      type: {type: new LiteralType({type: MorphFillStyleType.type, value: MorphFillStyleType.RadialGradient})},
-      startMatrix: {type: StraightSRgba8.type},
-      endMatrix: {type: StraightSRgba8.type},
-      gradient: {type: MorphGradient.type},
+export const $RadialGradient: DocumentIoType<RadialGradient> = new DocumentType<RadialGradient>({
+  properties: {
+    type: {
+      type: new LiteralType({
+        type: $MorphFillStyleType,
+        value: MorphFillStyleType.RadialGradient as MorphFillStyleType.RadialGradient,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+    startMatrix: {type: $Matrix},
+    endMatrix: {type: $Matrix},
+    gradient: {type: $MorphGradient},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

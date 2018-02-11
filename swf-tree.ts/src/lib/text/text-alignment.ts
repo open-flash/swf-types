@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum TextAlignment {
   Left,
@@ -7,15 +8,7 @@ export enum TextAlignment {
   Justify,
 }
 
-export namespace TextAlignment {
-  export type Json =
-    "left"
-    | "right"
-    | "center"
-    | "justify";
-
-  export const type: SimpleEnumType<TextAlignment> = new SimpleEnumType<TextAlignment>({
-    enum: TextAlignment,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $TextAlignment: TsEnumType<TextAlignment> = new TsEnumType<TextAlignment>({
+  enum: TextAlignment,
+  changeCase: CaseStyle.KebabCase,
+});

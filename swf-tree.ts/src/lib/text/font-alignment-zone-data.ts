@@ -1,4 +1,6 @@
-import { CaseStyle, DocumentType, Float64Type } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { Float64Type } from "kryo/types/float64";
 import { Float16 } from "semantic-types";
 
 export interface FontAlignmentZoneData {
@@ -6,17 +8,10 @@ export interface FontAlignmentZoneData {
   size: Float16;
 }
 
-export namespace FontAlignmentZoneData {
-  export interface Json {
-    origin: number;
-    size: number;
-  }
-
-  export const type: DocumentType<FontAlignmentZoneData> = new DocumentType<FontAlignmentZoneData>({
-    properties: {
-      origin: {type: new Float64Type()},
-      size: {type: new Float64Type()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $FontAlignmentZoneData: DocumentIoType<FontAlignmentZoneData> = new DocumentType<FontAlignmentZoneData>({
+  properties: {
+    origin: {type: new Float64Type()},
+    size: {type: new Float64Type()},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

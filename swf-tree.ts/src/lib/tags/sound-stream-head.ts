@@ -1,11 +1,15 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Sint16 } from "kryo/builtins/sint16";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Sint16, Uint16 } from "semantic-types";
-import { AudioCodingFormat } from "../sound/audio-coding-format";
-import { SoundRate } from "../sound/sound-rate";
-import { SoundSize } from "../sound/sound-size";
-import { SoundType } from "../sound/sound-type";
+import { $AudioCodingFormat, AudioCodingFormat } from "../sound/audio-coding-format";
+import { $SoundRate, SoundRate } from "../sound/sound-rate";
+import { $SoundSize, SoundSize } from "../sound/sound-size";
+import { $SoundType, SoundType } from "../sound/sound-type";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface SoundStreamHead extends _Tag {
   type: TagType.SoundStreamHead;
@@ -20,33 +24,18 @@ export interface SoundStreamHead extends _Tag {
   latencySeek?: Sint16;
 }
 
-export namespace SoundStreamHead {
-  export interface Json {
-    type: "sound-stream-head";
-    playback_sound_rate: SoundRate.Json;
-    playback_sound_size: SoundSize;
-    playback_sound_type: SoundType.Json;
-    stream_sound_compression: AudioCodingFormat.Json;
-    stream_sound_rate: SoundRate.Json;
-    stream_sound_size: SoundSize;
-    stream_sound_type: SoundType.Json;
-    stream_sound_sample_count: number;
-    latency_seek?: number;
-  }
-
-  export const type: DocumentType<SoundStreamHead> = new DocumentType<SoundStreamHead>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.SoundStreamHead})},
-      playbackSoundRate: {type: SoundRate.type},
-      playbackSoundSize: {type: SoundSize.type},
-      playbackSoundType: {type: SoundType.type},
-      streamSoundCompression: {type: AudioCodingFormat.type},
-      streamSoundRate: {type: SoundRate.type},
-      streamSoundSize: {type: new LiteralType({type: SoundSize.type, value: 16})},
-      streamSoundType: {type: SoundType.type},
-      streamSoundSampleCount: {type: new IntegerType()},
-      latencySeek: {type: new IntegerType(), optional: true},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $SoundStreamHead: DocumentIoType<SoundStreamHead> = new DocumentType<SoundStreamHead>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.SoundStreamHead as TagType.SoundStreamHead})},
+    playbackSoundRate: {type: $SoundRate},
+    playbackSoundSize: {type: $SoundSize},
+    playbackSoundType: {type: $SoundType},
+    streamSoundCompression: {type: $AudioCodingFormat},
+    streamSoundRate: {type: $SoundRate},
+    streamSoundSize: {type: new LiteralType({type: $SoundSize, value: 16 as 16})},
+    streamSoundType: {type: $SoundType},
+    streamSoundSampleCount: {type: $Uint16},
+    latencySeek: {type: $Sint16, optional: true},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

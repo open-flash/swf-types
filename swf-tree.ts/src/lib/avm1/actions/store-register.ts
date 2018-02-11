@@ -1,6 +1,9 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint8 } from "kryo/builtins/uint8";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint8 } from "semantic-types";
-import { ActionType } from "../action-type";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface StoreRegister extends ActionBase {
@@ -8,17 +11,10 @@ export interface StoreRegister extends ActionBase {
   registerNumber: Uint8;
 }
 
-export namespace StoreRegister {
-  export interface Json {
-    action: "store-register";
-    register_number: number;
-  }
-
-  export const type: DocumentType<StoreRegister> = new DocumentType<StoreRegister>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.StoreRegister})},
-      registerNumber: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $StoreRegister: DocumentIoType<StoreRegister> = new DocumentType<StoreRegister>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.StoreRegister as ActionType.StoreRegister})},
+    registerNumber: {type: $Uint8},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

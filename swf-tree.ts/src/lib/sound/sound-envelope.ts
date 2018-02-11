@@ -1,4 +1,7 @@
-import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { $Uint32 } from "kryo/builtins/uint32";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint16, Uint32 } from "semantic-types";
 
 export interface SoundEnvelope {
@@ -7,19 +10,11 @@ export interface SoundEnvelope {
   rightLevel: Uint16;
 }
 
-export namespace SoundEnvelope {
-  export interface Json {
-    pos44: number;
-    left_level: number;
-    right_level: number;
-  }
-
-  export const type: DocumentType<SoundEnvelope> = new DocumentType<SoundEnvelope>({
-    properties: {
-      pos44: {type: new IntegerType()},
-      leftLevel: {type: new IntegerType()},
-      rightLevel: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $SoundEnvelope: DocumentIoType<SoundEnvelope> = new DocumentType<SoundEnvelope>({
+  properties: {
+    pos44: {type: $Uint32},
+    leftLevel: {type: $Uint16},
+    rightLevel: {type: $Uint16},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

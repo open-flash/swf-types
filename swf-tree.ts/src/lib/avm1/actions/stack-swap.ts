@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface StackSwap extends ActionBase {
   action: ActionType.StackSwap;
 }
 
-export namespace StackSwap {
-  export interface Json {
-    action: "stack-swap";
-  }
-
-  export const type: DocumentType<StackSwap> = new DocumentType<StackSwap>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.StackSwap})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $StackSwap: DocumentIoType<StackSwap> = new DocumentType<StackSwap>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.StackSwap as ActionType.StackSwap})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

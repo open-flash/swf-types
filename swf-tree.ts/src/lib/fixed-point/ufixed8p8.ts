@@ -1,25 +1,11 @@
-import { Uint16 } from "semantic-types";
-import { FixedPoint } from "./fixed-point";
-import { FixedPointType } from "./type";
+import { Tagged } from "ts-tagged";
+import { createFixedPoint, FixedPoint, FixedPointConstructor } from "./fixed-point";
 
-/**
- * Unsigned Fixed-Point number with an 8-bit integer part and an 8-bit fractional part
- */
-export class Ufixed8P8 extends FixedPoint {
-  static signed: boolean = false;
-  static intBits: number = 8;
-  static fracBits: number = 8;
-  static type: FixedPointType<Ufixed8P8> = new FixedPointType<Ufixed8P8>({type: Ufixed8P8});
+export type Ufixed8P8 = Tagged<FixedPoint, "Ufixed8P8">;
 
-  protected constructor(epsilons: number) {
-    super(epsilons, Ufixed8P8.signed, Ufixed8P8.intBits, Ufixed8P8.fracBits);
-  }
-
-  static fromEpsilons(epsilons: Uint16): Ufixed8P8 {
-    return new Ufixed8P8(epsilons);
-  }
-
-  static fromValue(value: number): Ufixed8P8 {
-    return new Ufixed8P8(value * Math.pow(2, Ufixed8P8.fracBits));
-  }
-}
+// tslint:disable-next-line:variable-name
+export const Ufixed8P8: FixedPointConstructor = createFixedPoint({
+  signed: false,
+  intBits: 8,
+  fracBits: 8,
+});

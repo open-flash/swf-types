@@ -1,22 +1,18 @@
-import { CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
-import { ValueType } from "../value-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { Ucs2StringType } from "kryo/types/ucs2-string";
+import { $ValueType, ValueType } from "../value-type";
 
 export interface CString {
   type: ValueType.CString;
   value: string;
 }
 
-export namespace CString {
-  export interface Json {
-    type: "c-string";
-    value: string;
-  }
-
-  export const type: DocumentType<CString> = new DocumentType<CString>({
-    properties: {
-      type: {type: new LiteralType({type: ValueType.type, value: ValueType.CString})},
-      value: {type: new Ucs2StringType({maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $CString: DocumentIoType<CString> = new DocumentType<CString>({
+  properties: {
+    type: {type: new LiteralType({type: $ValueType, value: ValueType.CString as ValueType.CString})},
+    value: {type: new Ucs2StringType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

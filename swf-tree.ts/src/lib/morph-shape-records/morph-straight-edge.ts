@@ -1,6 +1,8 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { Vector2D } from "../vector-2d";
-import { MorphShapeRecordType } from "./_type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $Vector2D, Vector2D } from "../vector-2d";
+import { $MorphShapeRecordType, MorphShapeRecordType } from "./_type";
 
 export interface MorphStraightEdge {
   type: MorphShapeRecordType.MorphStraightEdge;
@@ -8,24 +10,16 @@ export interface MorphStraightEdge {
   endDelta: Vector2D;
 }
 
-export namespace MorphStraightEdge {
-  export interface Json {
-    type: "morph-straight-edge";
-    start_delta: Vector2D.Json;
-    end_delta: Vector2D.Json;
-  }
-
-  export const type: DocumentType<MorphStraightEdge> = new DocumentType<MorphStraightEdge>({
-    properties: {
-      type: {
-        type: new LiteralType({
-          type: MorphShapeRecordType.type,
-          value: MorphShapeRecordType.MorphStraightEdge,
-        }),
-      },
-      startDelta: {type: Vector2D.type},
-      endDelta: {type: Vector2D.type},
+export const $MorphStraightEdge: DocumentIoType<MorphStraightEdge> = new DocumentType<MorphStraightEdge>({
+  properties: {
+    type: {
+      type: new LiteralType({
+        type: $MorphShapeRecordType,
+        value: MorphShapeRecordType.MorphStraightEdge as MorphShapeRecordType.MorphStraightEdge,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+    startDelta: {type: $Vector2D},
+    endDelta: {type: $Vector2D},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

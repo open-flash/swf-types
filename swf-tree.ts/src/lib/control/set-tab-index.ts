@@ -1,7 +1,10 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { _Tag } from "../tags/_tag";
-import { TagType } from "../tags/_type";
+import { $TagType, TagType } from "../tags/_type";
 
 export interface SetTabIndex extends _Tag {
   type: TagType.SetTabIndex;
@@ -9,19 +12,11 @@ export interface SetTabIndex extends _Tag {
   tabIndex: Uint16;
 }
 
-export namespace SetTabIndex {
-  export interface Json {
-    type: "set-tab-index";
-    depth: number;
-    tab_index: number;
-  }
-
-  export const type: DocumentType<SetTabIndex> = new DocumentType<SetTabIndex>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.SetTabIndex})},
-      depth: {type: new IntegerType()},
-      tabIndex: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $SetTabIndex: DocumentIoType<SetTabIndex> = new DocumentType<SetTabIndex>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.SetTabIndex as TagType.SetTabIndex})},
+    depth: {type: $Uint16},
+    tabIndex: {type: $Uint16},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

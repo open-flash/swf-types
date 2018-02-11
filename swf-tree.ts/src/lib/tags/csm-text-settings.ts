@@ -1,9 +1,13 @@
-import { CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { Float64Type } from "kryo/types/float64";
+import { LiteralType } from "kryo/types/literal";
 import { Float32, Uint16 } from "semantic-types";
-import { GridFitting } from "../text/grid-fitting";
-import { TextRenderer } from "../text/text-renderer";
+import { $GridFitting, GridFitting } from "../text/grid-fitting";
+import { $TextRenderer, TextRenderer } from "../text/text-renderer";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface CsmTextSettings extends _Tag {
   type: TagType.CsmTextSettings;
@@ -14,25 +18,14 @@ export interface CsmTextSettings extends _Tag {
   sharpness: Float32;
 }
 
-export namespace CsmTextSettings {
-  export interface Json {
-    type: "csm-text-settings";
-    text_id: number;
-    renderer: TextRenderer.Json;
-    fitting: GridFitting.Json;
-    thickness: number;
-    sharpness: number;
-  }
-
-  export const type: DocumentType<CsmTextSettings> = new DocumentType<CsmTextSettings>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.CsmTextSettings})},
-      textId: {type: new IntegerType()},
-      renderer: {type: TextRenderer.type},
-      fitting: {type: GridFitting.type},
-      thickness: {type: new Float64Type()},
-      sharpness: {type: new Float64Type()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $CsmTextSettings: DocumentIoType<CsmTextSettings> = new DocumentType<CsmTextSettings>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.CsmTextSettings as TagType.CsmTextSettings})},
+    textId: {type: $Uint16},
+    renderer: {type: $TextRenderer},
+    fitting: {type: $GridFitting},
+    thickness: {type: new Float64Type()},
+    sharpness: {type: new Float64Type()},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

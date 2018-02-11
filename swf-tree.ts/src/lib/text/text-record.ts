@@ -1,7 +1,11 @@
-import { ArrayType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Sint16 } from "kryo/builtins/sint16";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Sint16, Uint16 } from "semantic-types";
-import { StraightSRgba8 } from "../straight-s-rgba8";
-import { GlyphEntry } from "./glyph-entry";
+import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8";
+import { $GlyphEntry, GlyphEntry } from "./glyph-entry";
 
 export interface TextRecord {
   fontId?: Uint16;
@@ -12,25 +16,14 @@ export interface TextRecord {
   entries: GlyphEntry[];
 }
 
-export namespace TextRecord {
-  export interface Json {
-    font_id?: number;
-    color?: StraightSRgba8.Json;
-    offset_x: number;
-    offset_y: number;
-    font_size?: number;
-    entries: GlyphEntry.Json[];
-  }
-
-  export const type: DocumentType<TextRecord> = new DocumentType<TextRecord>({
-    properties: {
-      fontId: {type: new IntegerType(), optional: true},
-      color: {type: StraightSRgba8.type, optional: true},
-      offsetX: {type: new IntegerType(), optional: true},
-      offsetY: {type: new IntegerType(), optional: true},
-      fontSize: {type: new IntegerType(), optional: true},
-      entries: {type: new ArrayType({itemType: GlyphEntry.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $TextRecord: DocumentIoType<TextRecord> = new DocumentType<TextRecord>({
+  properties: {
+    fontId: {type: $Uint16, optional: true},
+    color: {type: $StraightSRgba8, optional: true},
+    offsetX: {type: $Sint16},
+    offsetY: {type: $Sint16},
+    fontSize: {type: $Uint16, optional: true},
+    entries: {type: new ArrayType({itemType: $GlyphEntry, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

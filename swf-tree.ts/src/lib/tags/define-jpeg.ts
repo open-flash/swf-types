@@ -1,7 +1,11 @@
-import { BufferType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { BufferType } from "kryo/types/buffer";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface DefineJpeg extends _Tag {
   type: TagType.DefineJpeg;
@@ -11,23 +15,13 @@ export interface DefineJpeg extends _Tag {
   deblocking?: Uint16;
 }
 
-export namespace DefineJpeg {
-  export interface Json {
-    type: "define-jpeg";
-    id: number;
-    image: string;
-    alpha?: string;
-    deblocking?: number;
-  }
-
-  export const type: DocumentType<DefineJpeg> = new DocumentType<DefineJpeg>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineJpeg})},
-      id: {type: new IntegerType()},
-      image: {type: new BufferType({maxLength: Infinity})},
-      alpha: {type: new BufferType({maxLength: Infinity}), optional: true},
-      deblocking: {type: new IntegerType(), optional: true},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DefineJpeg: DocumentIoType<DefineJpeg> = new DocumentType<DefineJpeg>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefineJpeg as TagType.DefineJpeg})},
+    id: {type: $Uint16},
+    image: {type: new BufferType({maxLength: Infinity})},
+    alpha: {type: new BufferType({maxLength: Infinity}), optional: true},
+    deblocking: {type: $Uint16, optional: true},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

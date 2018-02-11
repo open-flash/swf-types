@@ -1,23 +1,18 @@
-import { ArrayType, CaseStyle, DocumentType } from "kryo";
-import { Header } from "./header";
-import { Tag } from "./tag";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Header, Header } from "./header";
+import { $Tag, Tag } from "./tag";
 
 export interface Movie {
   header: Header;
   tags: Tag[];
 }
 
-export namespace Movie {
-  export interface Json {
-    header: Header.Json;
-    tags: Tag.Json[];
-  }
-
-  export const type: DocumentType<Movie> = new DocumentType<Movie>({
-    properties: {
-      header: {type: Header.type},
-      tags: {type: new ArrayType({itemType: Tag.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Movie: DocumentIoType<Movie> = new DocumentType<Movie>({
+  properties: {
+    header: {type: $Header},
+    tags: {type: new ArrayType({itemType: $Tag, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

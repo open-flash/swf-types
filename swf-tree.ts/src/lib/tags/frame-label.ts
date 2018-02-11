@@ -1,6 +1,10 @@
-import { BooleanType, CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface FrameLabel extends _Tag {
   type: TagType.FrameLabel;
@@ -8,19 +12,11 @@ export interface FrameLabel extends _Tag {
   anchorFlag?: boolean;
 }
 
-export namespace FrameLabel {
-  export interface Json {
-    type: "frame-label";
-    name: string;
-    anchor_flag?: boolean;
-  }
-
-  export const type: DocumentType<FrameLabel> = new DocumentType<FrameLabel>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.FrameLabel})},
-      name: {type: new Ucs2StringType({maxLength: Infinity})},
-      anchorFlag: {type: new BooleanType(), optional: true},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $FrameLabel: DocumentIoType<FrameLabel> = new DocumentType<FrameLabel>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.FrameLabel as TagType.FrameLabel})},
+    name: {type: new Ucs2StringType({maxLength: Infinity})},
+    anchorFlag: {type: $Boolean, optional: true},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

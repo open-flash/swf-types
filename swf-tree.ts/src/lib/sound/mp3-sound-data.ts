@@ -1,23 +1,21 @@
-import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Sint16 } from "kryo/builtins/sint16";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Sint16 } from "semantic-types";
-import { Mp3Frame } from "./mp3-frame";
+import { $Mp3Frame, Mp3Frame } from "./mp3-frame";
 
 export interface Mp3SoundData {
   seekSamples: Sint16;
   mp3Frames: Mp3Frame[];
 }
 
-export namespace Mp3SoundData {
-  export interface Json {
-    seek_samples: number;
-    mp3_frames: Mp3Frame.Json[];
-  }
-
-  export const type: DocumentType<Mp3SoundData> = new DocumentType<Mp3SoundData>({
-    properties: {
-      seekSamples: {type: new IntegerType()},
-      mp3Frames: {type: Mp3Frame.type},
+export const $Mp3SoundData: DocumentIoType<Mp3SoundData> = new DocumentType<Mp3SoundData>({
+  properties: {
+    seekSamples: {type: $Sint16},
+    mp3Frames: {
+      type: new ArrayType({itemType: $Mp3Frame, maxLength: Infinity}),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

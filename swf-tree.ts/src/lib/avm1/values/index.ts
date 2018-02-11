@@ -1,9 +1,9 @@
-export {Boolean} from "./boolean";
-export {CString} from "./c-string";
-export {Constant} from "./constant";
-export {Float32} from "./float32";
-export {Float64} from "./float64";
-export {Int32} from "./int32";
-export {Null} from "./null";
-export {Register} from "./register";
-export {Undefined} from "./undefined";
+export { $Boolean, Boolean } from "./boolean";
+export { $CString, CString } from "./c-string";
+export { $Constant, Constant } from "./constant";
+export { $Float32, Float32 } from "./float32";
+export { $Float64, Float64 } from "./float64";
+export { $Int32, Int32 } from "./int32";
+export { $Null, Null } from "./null";
+export { $Register, Register } from "./register";
+export { $Undefined, Undefined } from "./undefined";

@@ -1,19 +1,15 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ValueType } from "../value-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ValueType, ValueType } from "../value-type";
 
 export interface Null {
   type: ValueType.Null;
 }
 
-export namespace Null {
-  export interface Json {
-    type: "null";
-  }
-
-  export const type: DocumentType<Null> = new DocumentType<Null>({
-    properties: {
-      type: {type: new LiteralType({type: ValueType.type, value: ValueType.Null})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Null: DocumentIoType<Null> = new DocumentType<Null>({
+  properties: {
+    type: {type: new LiteralType({type: $ValueType, value: ValueType.Null as ValueType.Null})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

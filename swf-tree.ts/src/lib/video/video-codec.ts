@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum VideoCodec {
   SorensonH263,
@@ -8,16 +9,7 @@ export enum VideoCodec {
   Screen2,
 }
 
-export namespace VideoCodec {
-  export type Json =
-    "sorenson-h263"
-    | "screen"
-    | "vp6"
-    | "vp6-alpha"
-    | "screen2";
-
-  export const type: SimpleEnumType<VideoCodec> = new SimpleEnumType<VideoCodec>({
-    enum: VideoCodec,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $VideoCodec: TsEnumType<VideoCodec> = new TsEnumType<VideoCodec>({
+  enum: VideoCodec,
+  changeCase: CaseStyle.KebabCase,
+});

@@ -1,5 +1,8 @@
-import { ArrayType, BooleanType, CaseStyle, DocumentType } from "kryo";
-import { FontAlignmentZoneData } from "./font-alignment-zone-data";
+import { $Boolean } from "kryo/builtins/boolean";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $FontAlignmentZoneData, FontAlignmentZoneData } from "./font-alignment-zone-data";
 
 export interface FontAlignmentZone {
   data: FontAlignmentZoneData[];
@@ -7,19 +10,11 @@ export interface FontAlignmentZone {
   hasY: boolean;
 }
 
-export namespace FontAlignmentZone {
-  export interface Json {
-    data: FontAlignmentZoneData.Json[];
-    has_x: boolean;
-    has_y: boolean;
-  }
-
-  export const type: DocumentType<FontAlignmentZone> = new DocumentType<FontAlignmentZone>({
-    properties: {
-      data: {type: new ArrayType({itemType: FontAlignmentZoneData.type, maxLength: Infinity})},
-      hasX: {type: new BooleanType()},
-      hasY: {type: new BooleanType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $FontAlignmentZone: DocumentIoType<FontAlignmentZone> = new DocumentType<FontAlignmentZone>({
+  properties: {
+    data: {type: new ArrayType({itemType: $FontAlignmentZoneData, maxLength: Infinity})},
+    hasX: {type: $Boolean},
+    hasY: {type: $Boolean},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

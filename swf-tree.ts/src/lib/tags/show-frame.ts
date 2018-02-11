@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface ShowFrame extends _Tag {
   type: TagType.ShowFrame;
 }
 
-export namespace ShowFrame {
-  export interface Json {
-    type: "show-frame";
-  }
-
-  export const type: DocumentType<ShowFrame> = new DocumentType<ShowFrame>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.ShowFrame})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $ShowFrame: DocumentIoType<ShowFrame> = new DocumentType<ShowFrame>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.ShowFrame as TagType.ShowFrame})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

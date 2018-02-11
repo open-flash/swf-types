@@ -1,19 +1,15 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { JoinStyleType } from "./_type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $JoinStyleType, JoinStyleType } from "./_type";
 
 export interface Round {
   type: JoinStyleType.Round;
 }
 
-export namespace Round {
-  export interface Json {
-    type: "round";
-  }
-
-  export const type: DocumentType<Round> = new DocumentType<Round>({
-    properties: {
-      type: {type: new LiteralType({type: JoinStyleType.type, value: JoinStyleType.Round})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Round: DocumentIoType<Round> = new DocumentType<Round>({
+  properties: {
+    type: {type: new LiteralType({type: $JoinStyleType, value: JoinStyleType.Round as JoinStyleType.Round})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

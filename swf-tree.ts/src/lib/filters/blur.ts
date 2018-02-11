@@ -1,7 +1,10 @@
-import { CaseStyle, DocumentType, Float64Type, IntegerType, LiteralType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { LiteralType } from "kryo/types/literal";
 import { Uint5 } from "semantic-types";
 import { Fixed16P16 } from "../fixed-point/fixed16p16";
-import { FilterType } from "./_type";
+import { $FilterType, FilterType } from "./_type";
 
 export interface Blur {
   filter: FilterType.Blur;
@@ -10,21 +13,12 @@ export interface Blur {
   passes: Uint5;
 }
 
-export namespace Blur {
-  export interface Json {
-    filter: "blur";
-    blur_x: number;
-    blur_y: number;
-    passes: number;
-  }
-
-  export const type: DocumentType<Blur> = new DocumentType<Blur>({
-    properties: {
-      filter: {type: new LiteralType({type: FilterType.type, value: FilterType.Blur})},
-      blurX: {type: new Float64Type()},
-      blurY: {type: new Float64Type()},
-      passes: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Blur: DocumentIoType<Blur> = new DocumentType<Blur>({
+  properties: {
+    filter: {type: new LiteralType({type: $FilterType, value: FilterType.Blur as FilterType.Blur})},
+    blurX: {type: Fixed16P16},
+    blurY: {type: Fixed16P16},
+    passes: {type: new IntegerType({min: 0, max: 31})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

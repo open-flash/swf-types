@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum GradientSpread {
   Pad,
@@ -6,14 +7,7 @@ export enum GradientSpread {
   Repeat,
 }
 
-export namespace GradientSpread {
-  export type Json =
-    "pad"
-    | "reflect"
-    | "repeat";
-
-  export const type: SimpleEnumType<GradientSpread> = new SimpleEnumType<GradientSpread>({
-    enum: GradientSpread,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $GradientSpread: TsEnumType<GradientSpread> = new TsEnumType<GradientSpread>({
+  enum: GradientSpread,
+  changeCase: CaseStyle.KebabCase,
+});

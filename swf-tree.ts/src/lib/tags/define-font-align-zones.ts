@@ -1,9 +1,13 @@
-import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { CsmTableHint } from "../text/csm-table-hint";
-import { FontAlignmentZone } from "../text/font-alignment-zone";
+import { $CsmTableHint, CsmTableHint } from "../text/csm-table-hint";
+import { $FontAlignmentZone, FontAlignmentZone } from "../text/font-alignment-zone";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface DefineFontAlignZones extends _Tag {
   type: TagType.DefineFontAlignZones;
@@ -12,21 +16,17 @@ export interface DefineFontAlignZones extends _Tag {
   zones: FontAlignmentZone[];
 }
 
-export namespace DefineFontAlignZones {
-  export interface Json {
-    type: "define-font-align-zones";
-    font_id: number;
-    csm_table_hint: CsmTableHint.Json;
-    zones: FontAlignmentZone.Json[];
-  }
-
-  export const type: DocumentType<DefineFontAlignZones> = new DocumentType<DefineFontAlignZones>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineFontAlignZones})},
-      fontId: {type: new IntegerType()},
-      csmTableHint: {type: CsmTableHint.type},
-      zones: {type: new ArrayType({itemType: FontAlignmentZone.type, maxLength: Infinity})},
+export const $DefineFontAlignZones: DocumentIoType<DefineFontAlignZones> = new DocumentType<DefineFontAlignZones>({
+  properties: {
+    type: {
+      type: new LiteralType({
+        type: $TagType,
+        value: TagType.DefineFontAlignZones as TagType.DefineFontAlignZones,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+    fontId: {type: $Uint16},
+    csmTableHint: {type: $CsmTableHint},
+    zones: {type: new ArrayType({itemType: $FontAlignmentZone, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

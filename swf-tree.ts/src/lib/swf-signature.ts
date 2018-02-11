@@ -1,6 +1,9 @@
-import { CaseStyle, DocumentType, Float64Type, IntegerType } from "kryo";
+import { $Uint32 } from "kryo/builtins/uint32";
+import { $Uint8 } from "kryo/builtins/uint8";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint32, Uint8 } from "semantic-types";
-import { CompressionMethod } from "./compression-method";
+import { $CompressionMethod, CompressionMethod } from "./compression-method";
 
 export interface SwfSignature {
   compressionMethod: CompressionMethod;
@@ -8,19 +11,11 @@ export interface SwfSignature {
   uncompressedFileLength: Uint32;
 }
 
-export namespace SwfSignature {
-  export interface Json {
-    compression_method: CompressionMethod.Json;
-    swf_version: number;
-    uncompressed_file_length: number;
-  }
-
-  export const type: DocumentType<SwfSignature> = new DocumentType<SwfSignature>({
-    properties: {
-      compressionMethod: {type: CompressionMethod.type},
-      swfVersion: {type: new IntegerType()},
-      uncompressedFileLength: {type: new Float64Type()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $SwfSignature: DocumentIoType<SwfSignature> = new DocumentType<SwfSignature>({
+  properties: {
+    compressionMethod: {type: $CompressionMethod},
+    swfVersion: {type: $Uint8},
+    uncompressedFileLength: {type: $Uint32},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

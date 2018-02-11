@@ -1,9 +1,14 @@
-import { ArrayType, BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { _Tag } from "../tags/_tag";
-import { TagType } from "../tags/_type";
-import { ButtonCondAction } from "./button-cond-action";
-import { ButtonRecord } from "./button-record";
+import { $TagType, TagType } from "../tags/_type";
+import { $ButtonCondAction, ButtonCondAction } from "./button-cond-action";
+import { $ButtonRecord, ButtonRecord } from "./button-record";
 
 export interface DefineButton2 extends _Tag {
   type: TagType.DefineButton2;
@@ -13,23 +18,13 @@ export interface DefineButton2 extends _Tag {
   actions: ButtonCondAction[];
 }
 
-export namespace DefineButton {
-  export interface Json {
-    type: "define-button2";
-    button_id: number;
-    track_as_menu: boolean;
-    characters: ButtonRecord.Json[];
-    actions: ButtonCondAction.Json[];
-  }
-
-  export const type: DocumentType<DefineButton2> = new DocumentType<DefineButton2>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineButton2})},
-      buttonId: {type: new IntegerType()},
-      trackAsMenu: {type: new BooleanType()},
-      characters: {type: new ArrayType({itemType: ButtonRecord.type, maxLength: Infinity})},
-      actions: {type: new ArrayType({itemType: ButtonCondAction.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DefineButton2: DocumentIoType<DefineButton2> = new DocumentType<DefineButton2>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefineButton2 as TagType.DefineButton2})},
+    buttonId: {type: $Uint16},
+    trackAsMenu: {type: $Boolean},
+    characters: {type: new ArrayType({itemType: $ButtonRecord, maxLength: Infinity})},
+    actions: {type: new ArrayType({itemType: $ButtonCondAction, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

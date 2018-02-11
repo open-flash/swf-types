@@ -1,6 +1,12 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Any } from "kryo/builtins/any";
+import { $Boolean } from "kryo/builtins/boolean";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { $Uint32 } from "kryo/builtins/uint32";
+import { $Uint8 } from "kryo/builtins/uint8";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint16, Uint32, Uint8 } from "semantic-types";
-import { TagType } from "../tags/_type";
 
 export interface H263VideoPacket {
   version: Uint32;
@@ -15,19 +21,18 @@ export interface H263VideoPacket {
   pictureStuffing: any;
 }
 
-export namespace H263VideoPacket {
-  export interface Json {
-    type: "define-sprite";
-    sprite_id: number;
-    frame_count: number;
-  }
-
-  export const type: DocumentType<H263VideoPacket> = new DocumentType<H263VideoPacket>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineSprite})},
-      spriteId: {type: new IntegerType()},
-      frameCount: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $H263VideoPacket: DocumentIoType<H263VideoPacket> = new DocumentType<H263VideoPacket>({
+  properties: {
+    version: {type: $Uint32},
+    temporalReference: {type: $Uint32},
+    width: {type: $Uint16},
+    height: {type: $Uint16},
+    pictureType: {type: $Any},
+    useDeblockingFilter: {type: $Boolean},
+    quantizer: {type: $Uint32},
+    extraInformations: {type: new ArrayType({itemType: $Uint8, maxLength: Infinity})},
+    macroBlock: {type: $Any},
+    pictureStuffing: {type: $Any},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum CompressionMethod {
   None,
@@ -6,11 +7,7 @@ export enum CompressionMethod {
   Lzma,
 }
 
-export namespace CompressionMethod {
-  export type Json = "none" | "deflate" | "lzma";
-
-  export const type: SimpleEnumType<CompressionMethod> = new SimpleEnumType<CompressionMethod>({
-    enum: CompressionMethod,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $CompressionMethod: TsEnumType<CompressionMethod> = new TsEnumType<CompressionMethod>({
+  enum: CompressionMethod,
+  changeCase: CaseStyle.KebabCase,
+});

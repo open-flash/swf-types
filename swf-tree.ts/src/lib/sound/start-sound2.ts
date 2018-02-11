@@ -1,7 +1,10 @@
-import { CaseStyle, DocumentType, LiteralType, Ucs2StringType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { _Tag } from "../tags/_tag";
-import { TagType } from "../tags/_type";
-import { SoundInfo } from "./sound-info";
+import { $TagType, TagType } from "../tags/_type";
+import { $SoundInfo, SoundInfo } from "./sound-info";
 
 export interface StartSound2 extends _Tag {
   type: TagType.StartSound2;
@@ -9,19 +12,11 @@ export interface StartSound2 extends _Tag {
   soundInfo: SoundInfo;
 }
 
-export namespace StartSound2 {
-  export interface Json {
-    type: "start-sound";
-    sound_class_name: string;
-    sound_info: SoundInfo.Json;
-  }
-
-  export const type: DocumentType<StartSound2> = new DocumentType<StartSound2>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.StartSound})},
-      soundClassName: {type: new Ucs2StringType({maxLength: Infinity})},
-      soundInfo: {type: SoundInfo.type},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $StartSound2: DocumentIoType<StartSound2> = new DocumentType<StartSound2>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.StartSound2 as TagType.StartSound2})},
+    soundClassName: {type: new Ucs2StringType({maxLength: Infinity})},
+    soundInfo: {type: $SoundInfo},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

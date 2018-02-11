@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum Mp3Layer {
   Layer1,
@@ -6,14 +7,7 @@ export enum Mp3Layer {
   Layer3,
 }
 
-export namespace Mp3Layer {
-  export type Json =
-    "layer1"
-    | "layer2"
-    | "layer3";
-
-  export const type: SimpleEnumType<Mp3Layer> = new SimpleEnumType<Mp3Layer>({
-    enum: Mp3Layer,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $Mp3Layer: TsEnumType<Mp3Layer> = new TsEnumType<Mp3Layer>({
+  enum: Mp3Layer,
+  changeCase: CaseStyle.KebabCase,
+});

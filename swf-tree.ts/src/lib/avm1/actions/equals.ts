@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface Equals extends ActionBase {
   action: ActionType.Equals;
 }
 
-export namespace Equals {
-  export interface Json {
-    action: "equals";
-  }
-
-  export const type: DocumentType<Equals> = new DocumentType<Equals>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.Equals})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Equals: DocumentIoType<Equals> = new DocumentType<Equals>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.Equals as ActionType.Equals})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

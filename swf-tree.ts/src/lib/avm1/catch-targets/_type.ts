@@ -1,15 +1,12 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum CatchTargetType {
   Register,
   Variable,
 }
 
-export namespace CatchTargetType {
-  export type Json = "register" | "variable";
-
-  export const type: SimpleEnumType<CatchTargetType> = new SimpleEnumType<CatchTargetType>({
-    enum: CatchTargetType,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $CatchTargetType: TsEnumType<CatchTargetType> = new TsEnumType<CatchTargetType>({
+  enum: CatchTargetType,
+  changeCase: CaseStyle.KebabCase,
+});

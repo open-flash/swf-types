@@ -1,6 +1,9 @@
-import { ArrayType, CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
-import { Value } from "../value";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
+import { $Value, Value } from "../value";
 import { ActionBase } from "./_base";
 
 export interface Push extends ActionBase {
@@ -8,17 +11,10 @@ export interface Push extends ActionBase {
   values: Value[];
 }
 
-export namespace Push {
-  export interface Json {
-    action: "push";
-    values: Value.Json[];
-  }
-
-  export const type: DocumentType<Push> = new DocumentType<Push>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.Push})},
-      values: {type: new ArrayType({itemType: Value.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Push: DocumentIoType<Push> = new DocumentType<Push>(() => ({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.Push as ActionType.Push})},
+    values: {type: new ArrayType({itemType: $Value, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+}));

@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum MorphFillStyleType {
   Bitmap,
@@ -8,16 +9,7 @@ export enum MorphFillStyleType {
   Solid,
 }
 
-export namespace MorphFillStyleType {
-  export type Json =
-    "bitmap"
-    | "focal-gradient"
-    | "linear-gradient"
-    | "radial-gradient"
-    | "solid";
-
-  export const type: SimpleEnumType<MorphFillStyleType> = new SimpleEnumType<MorphFillStyleType>({
-    enum: MorphFillStyleType,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $MorphFillStyleType: TsEnumType<MorphFillStyleType> = new TsEnumType<MorphFillStyleType>({
+  enum: MorphFillStyleType,
+  changeCase: CaseStyle.KebabCase,
+});

@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum GridFitting {
   None,
@@ -6,14 +7,7 @@ export enum GridFitting {
   SubPixel,
 }
 
-export namespace GridFitting {
-  export type Json =
-    "none"
-    | "pixel"
-    | "sub-pixel";
-
-  export const type: SimpleEnumType<GridFitting> = new SimpleEnumType<GridFitting>({
-    enum: GridFitting,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $GridFitting: TsEnumType<GridFitting> = new TsEnumType<GridFitting>({
+  enum: GridFitting,
+  changeCase: CaseStyle.KebabCase,
+});

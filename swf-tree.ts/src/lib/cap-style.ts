@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum CapStyle {
   Round,
@@ -6,14 +7,7 @@ export enum CapStyle {
   Square,
 }
 
-export namespace CapStyle {
-  export type Json =
-    "round"
-    | "none"
-    | "square";
-
-  export const type: SimpleEnumType<CapStyle> = new SimpleEnumType<CapStyle>({
-    enum: CapStyle,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $CapStyle: TsEnumType<CapStyle> = new TsEnumType<CapStyle>({
+  enum: CapStyle,
+  changeCase: CaseStyle.KebabCase,
+});

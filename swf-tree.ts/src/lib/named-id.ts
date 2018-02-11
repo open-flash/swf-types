@@ -1,4 +1,7 @@
-import { CaseStyle, DocumentType, IntegerType, Ucs2StringType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { Uint16 } from "semantic-types";
 
 export interface NamedId {
@@ -6,17 +9,10 @@ export interface NamedId {
   name: string;
 }
 
-export namespace NamedId {
-  export interface Json {
-    id: number;
-    name: string;
-  }
-
-  export const type: DocumentType<NamedId> = new DocumentType<NamedId>({
-    properties: {
-      id: {type: new IntegerType()},
-      name: {type: new Ucs2StringType({maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $NamedId: DocumentIoType<NamedId> = new DocumentType<NamedId>({
+  properties: {
+    id: {type: $Uint16},
+    name: {type: new Ucs2StringType({maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

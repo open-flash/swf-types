@@ -1,17 +1,12 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum SoundType {
   Mono,
   Stereo,
 }
 
-export namespace SoundType {
-  export type Json =
-    "mono"
-    | "stereo";
-
-  export const type: SimpleEnumType<SoundType> = new SimpleEnumType<SoundType>({
-    enum: SoundType,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $SoundType: TsEnumType<SoundType> = new TsEnumType<SoundType>({
+  enum: SoundType,
+  changeCase: CaseStyle.KebabCase,
+});

@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum CsmTableHint {
   Thin,
@@ -6,14 +7,7 @@ export enum CsmTableHint {
   Thick,
 }
 
-export namespace CsmTableHint {
-  export type Json =
-    "thin"
-    | "medium"
-    | "thick";
-
-  export const type: SimpleEnumType<CsmTableHint> = new SimpleEnumType<CsmTableHint>({
-    enum: CsmTableHint,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $CsmTableHint: TsEnumType<CsmTableHint> = new TsEnumType<CsmTableHint>({
+  enum: CsmTableHint,
+  changeCase: CaseStyle.KebabCase,
+});

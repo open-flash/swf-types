@@ -1,4 +1,6 @@
-import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Sint32 } from "kryo/builtins/sint32";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Sint32 } from "semantic-types";
 
 export interface Vector2D {
@@ -6,17 +8,10 @@ export interface Vector2D {
   y: Sint32;
 }
 
-export namespace Vector2D {
-  export interface Json {
-    x: number;
-    y: number;
-  }
-
-  export const type: DocumentType<Vector2D> = new DocumentType<Vector2D>({
-    properties: {
-      x: {type: new IntegerType()},
-      y: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Vector2D: DocumentIoType<Vector2D> = new DocumentType<Vector2D>({
+  properties: {
+    x: {type: $Sint32},
+    y: {type: $Sint32},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

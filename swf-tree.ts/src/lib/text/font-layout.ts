@@ -1,7 +1,11 @@
-import { ArrayType, CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Sint16 } from "kryo/builtins/sint16";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Sint16, Uint16 } from "semantic-types";
-import { Rect } from "../rect";
-import { KerningRecord } from "./kerning-record";
+import { $Rect, Rect } from "../rect";
+import { $KerningRecord, KerningRecord } from "./kerning-record";
 
 export interface FontLayout {
   ascent: Uint16;
@@ -12,25 +16,14 @@ export interface FontLayout {
   kerning: KerningRecord[];
 }
 
-export namespace FontLayout {
-  export interface Json {
-    ascent: number;
-    descent: number;
-    leading: number;
-    advances: number[];
-    bounds: Rect.Json[];
-    kerning_table: KerningRecord.Json[];
-  }
-
-  export const type: DocumentType<FontLayout> = new DocumentType<FontLayout>({
-    properties: {
-      ascent: {type: new IntegerType()},
-      descent: {type: new IntegerType()},
-      leading: {type: new IntegerType()},
-      advances: {type: new ArrayType({itemType: new IntegerType(), maxLength: Infinity})},
-      bounds: {type: new ArrayType({itemType: Rect.type, maxLength: Infinity})},
-      kerning: {type: new ArrayType({itemType: KerningRecord.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $FontLayout: DocumentIoType<FontLayout> = new DocumentType<FontLayout>({
+  properties: {
+    ascent: {type: $Uint16},
+    descent: {type: $Uint16},
+    leading: {type: $Sint16},
+    advances: {type: new ArrayType({itemType: $Sint16, maxLength: Infinity})},
+    bounds: {type: new ArrayType({itemType: $Rect, maxLength: Infinity})},
+    kerning: {type: new ArrayType({itemType: $KerningRecord, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

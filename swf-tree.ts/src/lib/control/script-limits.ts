@@ -1,7 +1,10 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { _Tag } from "../tags/_tag";
-import { TagType } from "../tags/_type";
+import { $TagType, TagType } from "../tags/_type";
 
 export interface ScriptLimits extends _Tag {
   type: TagType.ScriptLimits;
@@ -9,19 +12,11 @@ export interface ScriptLimits extends _Tag {
   scriptTimeoutSeconds: Uint16;
 }
 
-export namespace ScriptLimits {
-  export interface Json {
-    type: "script-limits";
-    max_recursion_depth: number;
-    script_timeout_seconds: number;
-  }
-
-  export const type: DocumentType<ScriptLimits> = new DocumentType<ScriptLimits>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.ScriptLimits})},
-      maxRecursionDepth: {type: new IntegerType()},
-      scriptTimeoutSeconds: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $ScriptLimits: DocumentIoType<ScriptLimits> = new DocumentType<ScriptLimits>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.ScriptLimits as TagType.ScriptLimits})},
+    maxRecursionDepth: {type: $Uint16},
+    scriptTimeoutSeconds: {type: $Uint16},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

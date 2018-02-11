@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum LanguageCode {
   Auto,
@@ -9,17 +10,7 @@ export enum LanguageCode {
   TraditionalChinese,
 }
 
-export namespace LanguageCode {
-  export type Json =
-    "auto"
-    | "latin"
-    | "japanese"
-    | "korean"
-    | "simplified-chinese"
-    | "traditional-chinese";
-
-  export const type: SimpleEnumType<LanguageCode> = new SimpleEnumType<LanguageCode>({
-    enum: LanguageCode,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $LanguageCode: TsEnumType<LanguageCode> = new TsEnumType<LanguageCode>({
+  enum: LanguageCode,
+  changeCase: CaseStyle.KebabCase,
+});

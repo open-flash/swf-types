@@ -1,4 +1,6 @@
-import { CaseStyle, DocumentType, IntegerType } from "kryo";
+import { $Sint32 } from "kryo/builtins/sint32";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Sint32 } from "semantic-types";
 import { Fixed16P16 } from "./fixed-point/fixed16p16";
 
@@ -11,25 +13,14 @@ export interface Matrix {
   translateY: Sint32;
 }
 
-export namespace Matrix {
-  export interface Json {
-    scale_x: number;
-    scale_y: number;
-    rotate_skew0: number;
-    rotate_skew1: number;
-    translate_x: number;
-    translate_y: number;
-  }
-
-  export const type: DocumentType<Matrix> = new DocumentType<Matrix>({
-    properties: {
-      scaleX: {type: Fixed16P16.type},
-      scaleY: {type: Fixed16P16.type},
-      rotateSkew0: {type: Fixed16P16.type},
-      rotateSkew1: {type: Fixed16P16.type},
-      translateX: {type: new IntegerType()},
-      translateY: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Matrix: DocumentIoType<Matrix> = new DocumentType<Matrix>({
+  properties: {
+    scaleX: {type: Fixed16P16},
+    scaleY: {type: Fixed16P16},
+    rotateSkew0: {type: Fixed16P16},
+    rotateSkew1: {type: Fixed16P16},
+    translateX: {type: $Sint32},
+    translateY: {type: $Sint32},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

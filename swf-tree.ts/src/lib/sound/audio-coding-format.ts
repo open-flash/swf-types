@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum AudioCodingFormat {
   UncompressedNativeEndian,
@@ -11,19 +12,7 @@ export enum AudioCodingFormat {
   Speex,
 }
 
-export namespace AudioCodingFormat {
-  export type Json =
-    "uncompressed-native-endian"
-    | "adcpm"
-    | "mp3"
-    | "uncompressed-little-endian"
-    | "nellymoser16"
-    | "nellymoser8"
-    | "nellymoser"
-    | "speex";
-
-  export const type: SimpleEnumType<AudioCodingFormat> = new SimpleEnumType<AudioCodingFormat>({
-    enum: AudioCodingFormat,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $AudioCodingFormat: TsEnumType<AudioCodingFormat> = new TsEnumType<AudioCodingFormat>({
+  enum: AudioCodingFormat,
+  changeCase: CaseStyle.KebabCase,
+});

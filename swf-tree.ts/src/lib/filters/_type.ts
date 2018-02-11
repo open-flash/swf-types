@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum FilterType {
   DropShadow,
@@ -11,19 +12,7 @@ export enum FilterType {
   GradientBevel,
 }
 
-export namespace FilterType {
-  export type Json =
-    "drop-shadow"
-    | "blur"
-    | "glow"
-    | "bevel-filter"
-    | "gradient-glow"
-    | "convolution"
-    | "color-matrix"
-    | "gradient-bevel";
-
-  export const type: SimpleEnumType<FilterType> = new SimpleEnumType<FilterType>({
-    enum: FilterType,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $FilterType: TsEnumType<FilterType> = new TsEnumType<FilterType>({
+  enum: FilterType,
+  changeCase: CaseStyle.KebabCase,
+});

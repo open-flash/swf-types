@@ -1,6 +1,10 @@
-import { BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { LiteralType } from "kryo/types/literal";
 import { UintSize } from "semantic-types";
-import { ActionType } from "../action-type";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface GotoFrame2 extends ActionBase {
@@ -9,19 +13,11 @@ export interface GotoFrame2 extends ActionBase {
   sceneBias: UintSize;
 }
 
-export namespace GotoFrame2 {
-  export interface Json {
-    action: "goto-frame2";
-    play: boolean;
-    scene_bias: number;
-  }
-
-  export const type: DocumentType<GotoFrame2> = new DocumentType<GotoFrame2>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.GotoFrame2})},
-      play: {type: new BooleanType()},
-      sceneBias: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $GotoFrame2: DocumentIoType<GotoFrame2> = new DocumentType<GotoFrame2>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.GotoFrame2 as ActionType.GotoFrame2})},
+    play: {type: $Boolean},
+    sceneBias: {type: new IntegerType()},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum VideoDeblocking {
   UseVideoPacketValue,
@@ -9,17 +10,7 @@ export enum VideoDeblocking {
   Level4,
 }
 
-export namespace VideoDeblocking {
-  export type Json =
-    "use-video-packet-value"
-    | "off"
-    | "level1"
-    | "level2"
-    | "level3"
-    | "level4";
-
-  export const type: SimpleEnumType<VideoDeblocking> = new SimpleEnumType<VideoDeblocking>({
-    enum: VideoDeblocking,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $VideoDeblocking: TsEnumType<VideoDeblocking> = new TsEnumType<VideoDeblocking>({
+  enum: VideoDeblocking,
+  changeCase: CaseStyle.KebabCase,
+});

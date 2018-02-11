@@ -1,6 +1,9 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { LiteralType } from "kryo/types/literal";
 import { SintSize } from "semantic-types";
-import { ActionType } from "../action-type";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface If extends ActionBase {
@@ -8,17 +11,10 @@ export interface If extends ActionBase {
   offset: SintSize;
 }
 
-export namespace If {
-  export interface Json {
-    action: "if";
-    offset: number;
-  }
-
-  export const type: DocumentType<If> = new DocumentType<If>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.If})},
-      offset: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $If: DocumentIoType<If> = new DocumentType<If>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.If as ActionType.If})},
+    offset: {type: new IntegerType()},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

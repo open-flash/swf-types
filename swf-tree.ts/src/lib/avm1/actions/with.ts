@@ -1,6 +1,9 @@
-import { ArrayType, CaseStyle, DocumentType, LiteralType } from "kryo";
-import { Action } from "../action";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $Action, Action } from "../action";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface With extends ActionBase {
@@ -8,17 +11,10 @@ export interface With extends ActionBase {
   with: Action[];
 }
 
-export namespace With {
-  export interface Json {
-    action: "with";
-    with: Action.Json[];
-  }
-
-  export const type: DocumentType<With> = new DocumentType<With>(() => ({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.With})},
-      with: {type: new ArrayType({itemType: Action.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  }));
-}
+export const $With: DocumentIoType<With> = new DocumentType<With>(() => ({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.With as ActionType.With})},
+    with: {type: new ArrayType({itemType: $Action, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+}));

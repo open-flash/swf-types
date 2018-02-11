@@ -1,23 +1,18 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { StraightSRgba8 } from "../straight-s-rgba8";
-import { FillStyleType } from "./_type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8";
+import { $FillStyleType, FillStyleType } from "./_type";
 
 export interface Solid {
   type: FillStyleType.Solid;
   color: StraightSRgba8;
 }
 
-export namespace Solid {
-  export interface Json {
-    type: "solid";
-    color: StraightSRgba8.Json;
-  }
-
-  export const type: DocumentType<Solid> = new DocumentType<Solid>({
-    properties: {
-      type: {type: new LiteralType({type: FillStyleType.type, value: FillStyleType.Solid})},
-      color: {type: StraightSRgba8.type},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Solid: DocumentIoType<Solid> = new DocumentType<Solid>({
+  properties: {
+    type: {type: new LiteralType({type: $FillStyleType, value: FillStyleType.Solid as FillStyleType.Solid})},
+    color: {type: $StraightSRgba8},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

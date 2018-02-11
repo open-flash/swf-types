@@ -1,8 +1,11 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { Rect } from "../rect";
+import { $Rect, Rect } from "../rect";
 import { _Tag } from "../tags/_tag";
-import { TagType } from "../tags/_type";
+import { $TagType, TagType } from "../tags/_type";
 
 export interface DefineScalingGrid extends _Tag {
   type: TagType.DefineScalingGrid;
@@ -10,19 +13,11 @@ export interface DefineScalingGrid extends _Tag {
   splitter: Rect;
 }
 
-export namespace DefineScalingGrid {
-  export interface Json {
-    type: "define-scaling-grid";
-    character_id: number;
-    splitter: Rect.Json;
-  }
-
-  export const type: DocumentType<DefineScalingGrid> = new DocumentType<DefineScalingGrid>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.DefineScalingGrid})},
-      characterId: {type: new IntegerType()},
-      splitter: {type: Rect.type},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $DefineScalingGrid: DocumentIoType<DefineScalingGrid> = new DocumentType<DefineScalingGrid>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefineScalingGrid as TagType.DefineScalingGrid})},
+    characterId: {type: new IntegerType()},
+    splitter: {type: $Rect},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

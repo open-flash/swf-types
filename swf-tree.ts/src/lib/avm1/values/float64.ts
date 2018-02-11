@@ -1,23 +1,19 @@
-import { CaseStyle, DocumentType, Float64Type, LiteralType } from "kryo";
-import {Float64 as Float64Primitive } from "semantic-types";
-import { ValueType } from "../value-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { Float64Type } from "kryo/types/float64";
+import { LiteralType } from "kryo/types/literal";
+import { Float64 as _Float64 } from "semantic-types";
+import { $ValueType, ValueType } from "../value-type";
 
 export interface Float64 {
   type: ValueType.Float64;
-  value: Float64Primitive;
+  value: _Float64;
 }
 
-export namespace Float64 {
-  export interface Json {
-    type: "float64";
-    value: number;
-  }
-
-  export const type: DocumentType<Float64> = new DocumentType<Float64>({
-    properties: {
-      type: {type: new LiteralType({type: ValueType.type, value: ValueType.Float64})},
-      value: {type: new Float64Type()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Float64: DocumentIoType<Float64> = new DocumentType<Float64>({
+  properties: {
+    type: {type: new LiteralType({type: $ValueType, value: ValueType.Float64 as ValueType.Float64})},
+    value: {type: new Float64Type()},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

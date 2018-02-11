@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum ShapeRecordType {
   CurvedEdge,
@@ -6,14 +7,7 @@ export enum ShapeRecordType {
   StyleChange,
 }
 
-export namespace ShapeRecordType {
-  export type Json =
-    "curved-edge"
-    | "straight-edge"
-    | "style-change";
-
-  export const type: SimpleEnumType<ShapeRecordType> = new SimpleEnumType<ShapeRecordType>({
-    enum: ShapeRecordType,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $ShapeRecordType: TsEnumType<ShapeRecordType> = new TsEnumType<ShapeRecordType>({
+  enum: ShapeRecordType,
+  changeCase: CaseStyle.KebabCase,
+});

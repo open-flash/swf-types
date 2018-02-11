@@ -1,4 +1,5 @@
-import { CaseStyle, SimpleEnumType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum ValueType {
   CString,
@@ -12,20 +13,7 @@ export enum ValueType {
   Constant,
 }
 
-export namespace ValueType {
-  export type Json =
-    "c-string"
-    | "float32"
-    | "null"
-    | "undefined"
-    | "register"
-    | "boolean"
-    | "float64"
-    | "int32"
-    | "constant";
-
-  export const type: SimpleEnumType<ValueType> = new SimpleEnumType<ValueType>({
-    enum: ValueType,
-    rename: CaseStyle.KebabCase,
-  });
-}
+export const $ValueType: TsEnumType<ValueType> = new TsEnumType<ValueType>({
+  enum: ValueType,
+  changeCase: CaseStyle.KebabCase,
+});

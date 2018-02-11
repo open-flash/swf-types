@@ -1,2 +1,2 @@
-export {Register} from "./register";
-export {Variable} from "./variable";
+export { $Register, Register } from "./register";
+export { $Variable, Variable } from "./variable";

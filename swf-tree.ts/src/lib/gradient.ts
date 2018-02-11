@@ -1,7 +1,9 @@
-import { ArrayType, CaseStyle, DocumentType } from "kryo";
-import { ColorSpace } from "./color-space";
-import { ColorStop } from "./color-stop";
-import { GradientSpread } from "./gradient-spread";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $ColorSpace, ColorSpace } from "./color-space";
+import { $ColorStop, ColorStop } from "./color-stop";
+import { $GradientSpread, GradientSpread } from "./gradient-spread";
 
 export interface Gradient {
   spread: GradientSpread;
@@ -9,19 +11,11 @@ export interface Gradient {
   colors: ColorStop[];
 }
 
-export namespace Gradient {
-  export interface Json {
-    spread: GradientSpread.Json;
-    color_space: ColorSpace;
-    colors: ColorStop.Json[];
-  }
-
-  export const type: DocumentType<Gradient> = new DocumentType<Gradient>({
-    properties: {
-      spread: {type: GradientSpread.type},
-      colorSpace: {type: ColorSpace.type},
-      colors: {type: new ArrayType({itemType: ColorStop.type, maxLength: Infinity})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Gradient: DocumentIoType<Gradient> = new DocumentType<Gradient>({
+  properties: {
+    spread: {type: $GradientSpread},
+    colorSpace: {type: $ColorSpace},
+    colors: {type: new ArrayType({itemType: $ColorStop, maxLength: Infinity})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

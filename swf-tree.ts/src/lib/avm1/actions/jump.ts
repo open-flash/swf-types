@@ -1,6 +1,9 @@
-import { CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { IntegerType } from "kryo/types/integer";
+import { LiteralType } from "kryo/types/literal";
 import { SintSize } from "semantic-types";
-import { ActionType } from "../action-type";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface Jump extends ActionBase {
@@ -8,17 +11,10 @@ export interface Jump extends ActionBase {
   offset: SintSize;
 }
 
-export namespace Jump {
-  export interface Json {
-    action: "jump";
-    offset: number;
-  }
-
-  export const type: DocumentType<Jump> = new DocumentType<Jump>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.Jump})},
-      offset: {type: new IntegerType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Jump: DocumentIoType<Jump> = new DocumentType<Jump>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.Jump as ActionType.Jump})},
+    offset: {type: new IntegerType()},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

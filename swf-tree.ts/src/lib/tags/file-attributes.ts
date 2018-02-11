@@ -1,6 +1,9 @@
-import { BooleanType, CaseStyle, DocumentType, LiteralType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { _Tag } from "./_tag";
-import { TagType } from "./_type";
+import { $TagType, TagType } from "./_type";
 
 export interface FileAttributes extends _Tag {
   type: TagType.FileAttributes;
@@ -13,29 +16,16 @@ export interface FileAttributes extends _Tag {
   useNetwork: boolean;
 }
 
-export namespace FileAttributes {
-  export interface Json {
-    type: "file-attributes";
-    use_direct_blit: boolean;
-    use_gpu: boolean;
-    has_metadata: boolean;
-    use_as3: boolean;
-    no_cross_domain_caching: boolean;
-    use_relative_urls: boolean;
-    use_network: boolean;
-  }
-
-  export const type: DocumentType<FileAttributes> = new DocumentType<FileAttributes>({
-    properties: {
-      type: {type: new LiteralType({type: TagType.type, value: TagType.FileAttributes})},
-      useDirectBlit: {type: new BooleanType()},
-      useGpu: {type: new BooleanType()},
-      hasMetadata: {type: new BooleanType()},
-      useAs3: {type: new BooleanType()},
-      noCrossDomainCaching: {type: new BooleanType()},
-      useRelativeUrls: {type: new BooleanType()},
-      useNetwork: {type: new BooleanType()},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $FileAttributes: DocumentIoType<FileAttributes> = new DocumentType<FileAttributes>({
+  properties: {
+    type: {type: new LiteralType({type: $TagType, value: TagType.FileAttributes as TagType.FileAttributes})},
+    useDirectBlit: {type: $Boolean},
+    useGpu: {type: $Boolean},
+    hasMetadata: {type: $Boolean},
+    useAs3: {type: $Boolean},
+    noCrossDomainCaching: {type: $Boolean},
+    useRelativeUrls: {type: $Boolean},
+    useNetwork: {type: $Boolean},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

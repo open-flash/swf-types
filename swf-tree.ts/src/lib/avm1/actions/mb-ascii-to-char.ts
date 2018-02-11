@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface MbAsciiToChar extends ActionBase {
   action: ActionType.MbAsciiToChar;
 }
 
-export namespace MbAsciiToChar {
-  export interface Json {
-    action: "mb-ascii-to-char";
-  }
-
-  export const type: DocumentType<MbAsciiToChar> = new DocumentType<MbAsciiToChar>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.MbAsciiToChar})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $MbAsciiToChar: DocumentIoType<MbAsciiToChar> = new DocumentType<MbAsciiToChar>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.MbAsciiToChar as ActionType.MbAsciiToChar})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

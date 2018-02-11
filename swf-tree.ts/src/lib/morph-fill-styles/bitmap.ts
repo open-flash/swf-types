@@ -1,8 +1,11 @@
-import { BooleanType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Boolean } from "kryo/builtins/boolean";
+import { $Uint16 } from "kryo/builtins/uint16";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { Matrix } from "../matrix";
-import { StraightSRgba8 } from "../straight-s-rgba8";
-import { MorphFillStyleType } from "./_type";
+import { $Matrix, Matrix } from "../matrix";
+import { $MorphFillStyleType, MorphFillStyleType } from "./_type";
 
 export interface Bitmap {
   type: MorphFillStyleType.Bitmap;
@@ -13,25 +16,19 @@ export interface Bitmap {
   smoothed: boolean;
 }
 
-export namespace Bitmap {
-  export interface Json {
-    type: "bitmap";
-    bitmap_id: number;
-    start_matrix: Matrix.Json;
-    end_matrix: Matrix.Json;
-    repeating: boolean;
-    smoothed: boolean;
-  }
-
-  export const type: DocumentType<Bitmap> = new DocumentType<Bitmap>({
-    properties: {
-      type: {type: new LiteralType({type: MorphFillStyleType.type, value: MorphFillStyleType.Bitmap})},
-      bitmapId: {type: new IntegerType()},
-      startMatrix: {type: StraightSRgba8.type},
-      endMatrix: {type: StraightSRgba8.type},
-      repeating: {type: new BooleanType()},
-      smoothed: {type: new BooleanType()},
+export const $Bitmap: DocumentIoType<Bitmap> = new DocumentType<Bitmap>({
+  properties: {
+    type: {
+      type: new LiteralType({
+        type: $MorphFillStyleType,
+        value: MorphFillStyleType.Bitmap as MorphFillStyleType.Bitmap,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+    bitmapId: {type: $Uint16},
+    startMatrix: {type: $Matrix},
+    endMatrix: {type: $Matrix},
+    repeating: {type: $Boolean},
+    smoothed: {type: $Boolean},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

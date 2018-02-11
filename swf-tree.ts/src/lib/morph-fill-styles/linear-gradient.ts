@@ -1,8 +1,9 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { Matrix } from "../matrix";
-import { MorphGradient } from "../morph-gradient";
-import { StraightSRgba8 } from "../straight-s-rgba8";
-import { MorphFillStyleType } from "./_type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $Matrix, Matrix } from "../matrix";
+import { $MorphGradient, MorphGradient } from "../morph-gradient";
+import { $MorphFillStyleType, MorphFillStyleType } from "./_type";
 
 export interface LinearGradient {
   type: MorphFillStyleType.LinearGradient;
@@ -11,21 +12,17 @@ export interface LinearGradient {
   gradient: MorphGradient;
 }
 
-export namespace LinearGradient {
-  export interface Json {
-    type: "linear-gradient";
-    start_matrix: Matrix.Json;
-    end_matrix: Matrix.Json;
-    gradient: MorphGradient.Json;
-  }
-
-  export const type: DocumentType<LinearGradient> = new DocumentType<LinearGradient>({
-    properties: {
-      type: {type: new LiteralType({type: MorphFillStyleType.type, value: MorphFillStyleType.LinearGradient})},
-      startMatrix: {type: StraightSRgba8.type},
-      endMatrix: {type: StraightSRgba8.type},
-      gradient: {type: MorphGradient.type},
+export const $LinearGradient: DocumentIoType<LinearGradient> = new DocumentType<LinearGradient>({
+  properties: {
+    type: {
+      type: new LiteralType({
+        type: $MorphFillStyleType,
+        value: MorphFillStyleType.LinearGradient as MorphFillStyleType.LinearGradient,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+    startMatrix: {type: $Matrix},
+    endMatrix: {type: $Matrix},
+    gradient: {type: $MorphGradient},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

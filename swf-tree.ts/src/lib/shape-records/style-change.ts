@@ -1,9 +1,13 @@
-import { ArrayType, CaseStyle, DocumentType, IntegerType, LiteralType } from "kryo";
+import { $Uint32 } from "kryo/builtins/uint32";
+import { CaseStyle } from "kryo/case-style";
+import { ArrayType } from "kryo/types/array";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
 import { Uint32 } from "semantic-types";
-import { FillStyle } from "../fill-style";
-import { LineStyle } from "../line-style";
-import { Vector2D } from "../vector-2d";
-import { ShapeRecordType } from "./_type";
+import { $FillStyle, FillStyle } from "../fill-style";
+import { $LineStyle, LineStyle } from "../line-style";
+import { $Vector2D, Vector2D } from "../vector-2d";
+import { $ShapeRecordType, ShapeRecordType } from "./_type";
 
 export interface StyleChange {
   type: ShapeRecordType.StyleChange;
@@ -15,38 +19,26 @@ export interface StyleChange {
   lineStyles?: LineStyle[];
 }
 
-export namespace StyleChange {
-  export interface Json {
-    type: "style-change";
-    move_to?: number;
-    left_fill?: number;
-    right_fill?: number;
-    line_style?: number;
-    fill_styles?: FillStyle.Json[];
-    line_styles?: LineStyle.Json[];
-  }
-
-  export const type: DocumentType<StyleChange> = new DocumentType<StyleChange>({
-    properties: {
-      type: {
-        type: new LiteralType({
-          type: ShapeRecordType.type,
-          value: ShapeRecordType.StyleChange,
-        }),
-      },
-      moveTo: {type: Vector2D.type, optional: true},
-      leftFill: {type: new IntegerType(), optional: true},
-      rightFill: {type: new IntegerType(), optional: true},
-      lineStyle: {type: new IntegerType(), optional: true},
-      fillStyles: {
-        type: new ArrayType({itemType: FillStyle.type, maxLength: Infinity}),
-        optional: true,
-      },
-      lineStyles: {
-        type: new ArrayType({itemType: LineStyle.type, maxLength: Infinity}),
-        optional: true,
-      },
+export const $StyleChange: DocumentIoType<StyleChange> = new DocumentType<StyleChange>({
+  properties: {
+    type: {
+      type: new LiteralType({
+        type: $ShapeRecordType,
+        value: ShapeRecordType.StyleChange as ShapeRecordType.StyleChange,
+      }),
     },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+    moveTo: {type: $Vector2D, optional: true},
+    leftFill: {type: $Uint32, optional: true},
+    rightFill: {type: $Uint32, optional: true},
+    lineStyle: {type: $Uint32, optional: true},
+    fillStyles: {
+      type: new ArrayType({itemType: $FillStyle, maxLength: Infinity}),
+      optional: true,
+    },
+    lineStyles: {
+      type: new ArrayType({itemType: $LineStyle, maxLength: Infinity}),
+      optional: true,
+    },
+  },
+  changeCase: CaseStyle.SnakeCase,
+});

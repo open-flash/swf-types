@@ -1,20 +1,16 @@
-import { CaseStyle, DocumentType, LiteralType } from "kryo";
-import { ActionType } from "../action-type";
+import { CaseStyle } from "kryo/case-style";
+import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { LiteralType } from "kryo/types/literal";
+import { $ActionType, ActionType } from "../action-type";
 import { ActionBase } from "./_base";
 
 export interface Less extends ActionBase {
   action: ActionType.Less;
 }
 
-export namespace Less {
-  export interface Json {
-    action: "less";
-  }
-
-  export const type: DocumentType<Less> = new DocumentType<Less>({
-    properties: {
-      action: {type: new LiteralType({type: ActionType.type, value: ActionType.Less})},
-    },
-    rename: CaseStyle.SnakeCase,
-  });
-}
+export const $Less: DocumentIoType<Less> = new DocumentType<Less>({
+  properties: {
+    action: {type: new LiteralType({type: $ActionType, value: ActionType.Less as ActionType.Less})},
+  },
+  changeCase: CaseStyle.SnakeCase,
+});
