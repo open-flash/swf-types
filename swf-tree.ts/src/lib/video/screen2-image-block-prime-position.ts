@@ -8,6 +8,7 @@ export interface Screen2ImageBlockPrimePosition {
   row: Uint8;
 }
 
+// tslint:disable-next-line:max-line-length
 export const $Screen2ImageBlockPrimePosition: DocumentIoType<Screen2ImageBlockPrimePosition> = new DocumentType<Screen2ImageBlockPrimePosition>({
   properties: {
     column: {type: $Uint8},

@@ -5,6 +5,7 @@ export type Tag =
   tags.CsmTextSettings
   | tags.DefineBinaryData
   | tags.DefineBitmap
+  | tags.DefineButton
   | tags.DefineCffFont
   | tags.DefineDynamicText
   | tags.DefineFont
@@ -42,6 +43,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$CsmTextSettings,
     tags.$DefineBinaryData,
     tags.$DefineBitmap,
+    tags.$DefineButton,
     tags.$DefineCffFont,
     tags.$DefineDynamicText,
     tags.$DefineFont,

@@ -63,7 +63,7 @@ export function createFixedPoint(options: FixedPointOptions): FixedPointConstruc
         return new Incident("RangeError", {min, max, value});
       }
 
-      return;
+      return undefined;
     }
 
     static test(value: _FixedPoint): boolean {

@@ -7,6 +7,7 @@ import { Uint16 } from "semantic-types";
 import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
+// TODO: Remove in favor of `DefineBitmap`
 export interface DefineJpeg extends _Tag {
   type: TagType.DefineJpeg;
   id: Uint16;

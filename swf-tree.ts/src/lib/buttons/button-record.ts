@@ -15,11 +15,11 @@ export interface ButtonRecord {
   stateOver: boolean;
   stateUp: boolean;
   characterId: Uint16;
-  placeDepth: Uint16;
-  placeMatrix: Matrix;
+  depth: Uint16;
+  matrix: Matrix;
   colorTransform?: ColorTransformWithAlpha;
-  filterList?: Filter[];
-  blendMode?: BlendMode;
+  filters?: Filter[];
+  blendMode: BlendMode;
 }
 
 export const $ButtonRecord: DocumentIoType<ButtonRecord> = new DocumentType<ButtonRecord>({
@@ -29,11 +29,11 @@ export const $ButtonRecord: DocumentIoType<ButtonRecord> = new DocumentType<Butt
     stateOver: {type: $Boolean},
     stateUp: {type: $Boolean},
     characterId: {type: $Uint16},
-    placeDepth: {type: $Uint16},
-    placeMatrix: {type: $Matrix},
+    depth: {type: $Uint16},
+    matrix: {type: $Matrix},
     colorTransform: {type: $ColorTransformWithAlpha, optional: true},
-    fontAdanceTable: {type: new ArrayType({itemType: $Filter, maxLength: Infinity}), optional: true},
-    blendMode: {type: $BlendMode, optional: true},
+    filters: {type: new ArrayType({itemType: $Filter, maxLength: Infinity}), optional: true},
+    blendMode: {type: $BlendMode},
   },
   changeCase: CaseStyle.SnakeCase,
 });

@@ -8,6 +8,7 @@ export interface Screen2ImageBlockDiffPosition {
   height: Uint8;
 }
 
+// tslint:disable-next-line:max-line-length
 export const $Screen2ImageBlockDiffPosition: DocumentIoType<Screen2ImageBlockDiffPosition> = new DocumentType<Screen2ImageBlockDiffPosition>({
   properties: {
     rowStart: {type: $Uint8},

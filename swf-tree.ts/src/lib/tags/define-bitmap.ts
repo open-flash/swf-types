@@ -4,6 +4,7 @@ import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
+import { $ImageType, ImageType } from "../image-type";
 import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
@@ -12,6 +13,7 @@ export interface DefineBitmap extends _Tag {
   id: Uint16;
   width: Uint16;
   height: Uint16;
+  mediaType: ImageType;
   data: Uint8Array;
 }
 
@@ -21,6 +23,7 @@ export const $DefineBitmap: DocumentIoType<DefineBitmap> = new DocumentType<Defi
     id: {type: $Uint16},
     width: {type: $Uint16},
     height: {type: $Uint16},
+    mediaType: {type: $ImageType},
     data: {type: new BufferType({maxLength: Infinity})},
   },
   changeCase: CaseStyle.SnakeCase,

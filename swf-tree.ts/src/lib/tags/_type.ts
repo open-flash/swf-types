@@ -9,7 +9,6 @@ export enum TagType {
   DefineBinaryData,
   DefineBitmap,
   DefineButton,
-  DefineButton2,
   DefineButtonColorTransform,
   DefineButtonSound,
   DefineCffFont,

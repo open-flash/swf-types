@@ -11,6 +11,7 @@ export interface Vp6FlvAlphaVideoPacket {
   alphaData: Uint8Array;
 }
 
+// tslint:disable-next-line:max-line-length
 export const $Vp6FlvAlphaVideoPacket: DocumentIoType<Vp6FlvAlphaVideoPacket> = new DocumentType<Vp6FlvAlphaVideoPacket>({
   properties: {
     horizontalAdjustment: {type: $Uint8},

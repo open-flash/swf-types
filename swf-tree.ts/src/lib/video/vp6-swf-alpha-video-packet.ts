@@ -7,6 +7,7 @@ export interface Vp6SwfAlphaVideoPacket {
   alphaData: Uint8Array;
 }
 
+// tslint:disable-next-line:max-line-length
 export const $Vp6SwfAlphaVideoPacket: DocumentIoType<Vp6SwfAlphaVideoPacket> = new DocumentType<Vp6SwfAlphaVideoPacket>({
   properties: {
     data: {type: new BufferType({maxLength: Infinity})},

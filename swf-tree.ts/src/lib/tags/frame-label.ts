@@ -9,6 +9,7 @@ import { $TagType, TagType } from "./_type";
 export interface FrameLabel extends _Tag {
   type: TagType.FrameLabel;
   name: string;
+  // TODO: Rename to `isAnchor` and make required
   anchorFlag?: boolean;
 }
 

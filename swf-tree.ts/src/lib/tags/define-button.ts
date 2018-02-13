@@ -5,22 +5,22 @@ import { ArrayType } from "kryo/types/array";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { _Tag } from "../tags/_tag";
-import { $TagType, TagType } from "../tags/_type";
-import { $ButtonCondAction, ButtonCondAction } from "./button-cond-action";
-import { $ButtonRecord, ButtonRecord } from "./button-record";
+import { $ButtonCondAction, ButtonCondAction } from "../buttons/button-cond-action";
+import { $ButtonRecord, ButtonRecord } from "../buttons/button-record";
+import { _Tag } from "./_tag";
+import { $TagType, TagType } from "./_type";
 
-export interface DefineButton2 extends _Tag {
-  type: TagType.DefineButton2;
+export interface DefineButton extends _Tag {
+  type: TagType.DefineButton;
   buttonId: Uint16;
   trackAsMenu: boolean;
   characters: ButtonRecord[];
   actions: ButtonCondAction[];
 }
 
-export const $DefineButton2: DocumentIoType<DefineButton2> = new DocumentType<DefineButton2>({
+export const $DefineButton: DocumentIoType<DefineButton> = new DocumentType<DefineButton>({
   properties: {
-    type: {type: new LiteralType({type: $TagType, value: TagType.DefineButton2 as TagType.DefineButton2})},
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefineButton as TagType.DefineButton})},
     buttonId: {type: $Uint16},
     trackAsMenu: {type: $Boolean},
     characters: {type: new ArrayType({itemType: $ButtonRecord, maxLength: Infinity})},
