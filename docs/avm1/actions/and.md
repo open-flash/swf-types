@@ -10,7 +10,7 @@
 
 ## Notes
 
-- There is a typo in the official documentation. "ActionAdd" should be "ActionAnd".
+- There is a typo in the official documentation. "ActionAdd" (after the table) should be "ActionAnd".
 
 ## Original documentation
 

@@ -11,7 +11,7 @@ export interface Try extends ActionBase {
   action: ActionType.Try;
   try: Action[];
   catch?: Action[];
-  catchTarget?: CatchTarget;
+  catchTarget: CatchTarget;
   finally?: Action[];
 }
 
@@ -20,7 +20,7 @@ export const $Try: DocumentIoType<Try> = new DocumentType<Try>(() => ({
     action: {type: new LiteralType({type: $ActionType, value: ActionType.Try as ActionType.Try})},
     try: {type: new ArrayType({itemType: $Action, maxLength: Infinity})},
     catch: {type: new ArrayType({itemType: $Action, maxLength: Infinity}), optional: true},
-    catchTarget: {type: $CatchTarget, optional: true},
+    catchTarget: {type: $CatchTarget},
     finally: {type: new ArrayType({itemType: $Action, maxLength: Infinity}), optional: true},
   },
   changeCase: CaseStyle.SnakeCase,
