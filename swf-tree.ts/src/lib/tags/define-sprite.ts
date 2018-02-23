@@ -4,8 +4,7 @@ import { ArrayType } from "kryo/types/array";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { SpriteTag } from "..";
-import { $SpriteTag } from "../sprite-tag";
+import { $SpriteTag, SpriteTag } from "../sprite-tag";
 import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 

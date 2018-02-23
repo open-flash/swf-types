@@ -1,7 +1,7 @@
 import { CaseStyle } from "kryo/case-style";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
-import { Fixed8P8 } from "..";
+import { Fixed8P8 } from "../fixed-point/fixed8p8";
 import { $JoinStyleType, JoinStyleType } from "./_type";
 
 export interface Miter {
