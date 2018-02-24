@@ -3,25 +3,25 @@ import { CaseStyle } from "kryo/case-style";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 
 export interface ClipEventFlags {
-  keyUp: boolean;
-  keyDown: boolean;
-  mouseUp: boolean;
-  mouseDown: boolean;
-  mouseMove: boolean;
-  unload: boolean;
-  enterFrame: boolean;
   load: boolean;
-  dragOver: boolean;
-  rollOut: boolean;
-  rollOver: boolean;
-  releaseOutside: boolean;
-  release: boolean;
-  press: boolean;
-  initialize: boolean;
+  enterFrame: boolean;
+  unload: boolean;
+  mouseMove: boolean;
+  mouseDown: boolean;
+  mouseUp: boolean;
+  keyDown: boolean;
+  keyUp: boolean;
   data: boolean;
-  construct: boolean;
-  keyPress: boolean;
+  initialize: boolean;
+  press: boolean;
+  release: boolean;
+  releaseOutside: boolean;
+  rollOver: boolean;
+  rollOut: boolean;
+  dragOver: boolean;
   dragOut: boolean;
+  keyPress: boolean;
+  construct: boolean;
 }
 
 export const $ClipEventFlags: DocumentIoType<ClipEventFlags> = new DocumentType<ClipEventFlags>({
