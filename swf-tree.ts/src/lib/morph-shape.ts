@@ -4,8 +4,9 @@ import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { $MorphFillStyle, MorphFillStyle } from "./morph-fill-style";
 import { $MorphLineStyle, MorphLineStyle } from "./morph-line-style";
 import { $MorphShapeRecord, MorphShapeRecord } from "./morph-shape-record";
+import { Shape } from "./shape";
 
-export interface MorphShape {
+export interface MorphShape extends Shape {
   fillStyles: MorphFillStyle[];
   lineStyles: MorphLineStyle[];
   records: MorphShapeRecord[];

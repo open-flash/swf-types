@@ -1,7 +1,7 @@
-# Solid
+# MorphSolid
 
 ```
-interface Solid variantof FillStyle(type) {
+interface MorphSolid variantof FillStyle(type) {
   color: StraightSRgba;
 }
 ```

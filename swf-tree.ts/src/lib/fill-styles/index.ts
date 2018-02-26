@@ -1,5 +1,10 @@
 export { $Bitmap, Bitmap } from "./bitmap";
 export { $FocalGradient, FocalGradient } from "./focal-gradient";
 export { $LinearGradient, LinearGradient } from "./linear-gradient";
+export { $MorphBitmap, MorphBitmap } from "./morph-bitmap";
+export { $MorphFocalGradient, MorphFocalGradient } from "./morph-focal-gradient";
+export { $MorphLinearGradient, MorphLinearGradient } from "./morph-linear-gradient";
+export { $MorphRadialGradient, MorphRadialGradient } from "./morph-radial-gradient";
+export { $MorphSolid, MorphSolid } from "./morph-solid";
 export { $RadialGradient, RadialGradient } from "./radial-gradient";
 export { $Solid, Solid } from "./solid";

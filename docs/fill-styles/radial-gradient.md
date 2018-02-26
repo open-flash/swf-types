@@ -1,7 +1,7 @@
-# RadialGradient
+# MorphRadialGradient
 
 ```
-interface RadialGradient FillStyle(type) {
+interface MorphRadialGradient FillStyle(type) {
   matrix: Matrix;
   gradient: Gradient;
 }

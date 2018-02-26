@@ -1,7 +1,7 @@
-# FocalGradient
+# MorphFocalGradient
 
 ```
-interface FocalGradient FillStyle(type) {
+interface MorphFocalGradient FillStyle(type) {
   matrix: Matrix;
   gradient: Gradient;
   focalPoint: Fixed8P8;

@@ -1,4 +1,4 @@
-# FocalGradient
+# MorphFocalGradient
 
 ```
 interface ClippedBitmap MorphFillStyle(type) {

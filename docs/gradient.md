@@ -2,10 +2,10 @@
 
 Represents the color repartition in a gradient.
 
-This also encompasses part of the `FocalGradient` from the spec.
+This also encompasses part of the `MorphFocalGradient` from the spec.
 
 ```
-interface LinearGradient {
+interface MorphLinearGradient {
   spread: GradientSpread;
   colorSpace: ColorSpace;
   colors: ColorStop[];

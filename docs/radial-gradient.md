@@ -1,9 +1,9 @@
-# RadialGradient
+# MorphRadialGradient
 
 
 
 ```
-interface RadialGradient {
+interface MorphRadialGradient {
   spread: GradientSpread;
   colorSpace: ColorSpace;
   colors: ColorStop[];

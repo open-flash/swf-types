@@ -1,7 +1,7 @@
-# LinearGradient
+# MorphLinearGradient
 
 ```
-interface LinearGradient MorphFillStyle(type) {
+interface MorphLinearGradient MorphFillStyle(type) {
   matrix: Matrix;
   gradient: Gradient;
 }
