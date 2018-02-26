@@ -1,11 +1,9 @@
 import { $Uint32 } from "kryo/builtins/uint32";
 import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint32 } from "semantic-types";
-import { $FillStyle, FillStyle } from "../fill-style";
-import { $LineStyle, LineStyle } from "../line-style";
+import { $ShapeStyles, ShapeStyles } from "../shape-style";
 import { $Vector2D, Vector2D } from "../vector-2d";
 import { $ShapeRecordType, ShapeRecordType } from "./_type";
 
@@ -15,8 +13,7 @@ export interface StyleChange {
   leftFill?: Uint32;
   rightFill?: Uint32;
   lineStyle?: Uint32;
-  fillStyles?: FillStyle[];
-  lineStyles?: LineStyle[];
+  newStyles?: ShapeStyles;
 }
 
 export const $StyleChange: DocumentIoType<StyleChange> = new DocumentType<StyleChange>({
@@ -31,14 +28,7 @@ export const $StyleChange: DocumentIoType<StyleChange> = new DocumentType<StyleC
     leftFill: {type: $Uint32, optional: true},
     rightFill: {type: $Uint32, optional: true},
     lineStyle: {type: $Uint32, optional: true},
-    fillStyles: {
-      type: new ArrayType({itemType: $FillStyle, maxLength: Infinity}),
-      optional: true,
-    },
-    lineStyles: {
-      type: new ArrayType({itemType: $LineStyle, maxLength: Infinity}),
-      optional: true,
-    },
+    newStyles: {type: $ShapeStyles, optional: true},
   },
   changeCase: CaseStyle.SnakeCase,
 });
