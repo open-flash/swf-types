@@ -44,8 +44,8 @@ export function createFixedPoint(options: FixedPointOptions): FixedPointConstruc
       return value;
     }
 
-    static equals(val1: _FixedPoint, val2: _FixedPoint): boolean {
-      return val1 === val2;
+    static equals(left: _FixedPoint, right: _FixedPoint): boolean {
+      return left.epsilons === right.epsilons;
     }
 
     static testError(value: _FixedPoint): Error | undefined {
