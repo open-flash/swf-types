@@ -74,3 +74,17 @@ pub enum Tag {
   ShowFrame,
   Unknown(tags::Unknown),
 }
+
+#[cfg(test)]
+mod test_swf_samples {
+  use serde_json;
+  use super::Movie;
+
+  #[test]
+  fn simple_blank_blank() {
+    let input_json = include_str!("../../test/swf-samples/simple/blank/blank.ast.json");
+    let movie: Movie = serde_json::from_str(input_json).unwrap();
+    let output_json = serde_json::to_string_pretty(&movie).unwrap();
+    assert_eq!(output_json, input_json)
+  }
+}
