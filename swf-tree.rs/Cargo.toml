@@ -20,11 +20,9 @@ path = "src/main.rs"
 
 [dependencies]
 hex = "^0.2.0"
-lazy_static = "^1.0.0"
 libflate = "^0.1.14"
-nom = "^3.2.1"
+nom = "4.0.0-beta1"
 num-traits = "^0.1.41"
-regex = "^0.2.5"
 rust-lzma = "^0.2.1"
 serde = "^1.0.27"
 serde_derive = "^1.0.27"

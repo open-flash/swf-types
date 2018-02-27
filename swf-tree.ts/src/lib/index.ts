@@ -54,8 +54,8 @@ export { TagType } from "./tags/_type";
 export { Label } from "./control/label";
 export { Scene } from "./control/scene";
 
-export { Fixed8P8 } from "./fixed-point/fixed8p8";
-export { Fixed16P16 } from "./fixed-point/fixed16p16";
+export { Sfixed8P8 } from "./fixed-point/sfixed8p8";
+export { Sfixed16P16 } from "./fixed-point/sfixed16p16";
 export { FixedPoint, FixedPointConstructor, FixedPointOptions } from "./fixed-point/fixed-point";
 export { Ufixed8P8 } from "./fixed-point/ufixed8p8";
 export { Ufixed16P16 } from "./fixed-point/ufixed16p16";

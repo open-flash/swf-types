@@ -1,4 +1,4 @@
-use fixed_point::Fixed8P8;
+use fixed_point::Sfixed8P8;
 use gradient::Gradient;
 use basic_types::{Matrix, StraightSRgba8};
 
@@ -16,7 +16,7 @@ pub struct Bitmap {
 pub struct FocalGradient {
   pub matrix: Matrix,
   pub gradient: Gradient,
-  pub focal_point: Fixed8P8,
+  pub focal_point: Sfixed8P8,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

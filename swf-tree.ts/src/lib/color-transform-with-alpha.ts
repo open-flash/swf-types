@@ -3,10 +3,10 @@ import { CaseStyle } from "kryo/case-style";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Sint16 } from "semantic-types";
 import { $ColorTransform, ColorTransform } from "./color-transform";
-import { Fixed8P8 } from "./fixed-point/fixed8p8";
+import { Sfixed8P8 } from "./fixed-point/sfixed8p8";
 
 export interface ColorTransformWithAlpha extends ColorTransform {
-  alphaMult: Fixed8P8;
+  alphaMult: Sfixed8P8;
   alphaAdd: Sint16;
 }
 
@@ -14,7 +14,7 @@ export interface ColorTransformWithAlpha extends ColorTransform {
 export const $ColorTransformWithAlpha: DocumentIoType<ColorTransformWithAlpha> = new DocumentType<ColorTransformWithAlpha>({
   properties: {
     ...$ColorTransform.properties,
-    alphaMult: {type: Fixed8P8},
+    alphaMult: {type: Sfixed8P8},
     alphaAdd: {type: $Sint16},
   },
   changeCase: CaseStyle.SnakeCase,

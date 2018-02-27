@@ -7,18 +7,18 @@ import { IntegerType } from "kryo/types/integer";
 import { LiteralType } from "kryo/types/literal";
 import { Uint4 } from "semantic-types";
 import { $ColorStop, ColorStop } from "../color-stop";
-import { Fixed16P16 } from "../fixed-point/fixed16p16";
-import { Fixed8P8 } from "../fixed-point/fixed8p8";
+import { Sfixed16P16 } from "../fixed-point/sfixed16p16";
+import { Sfixed8P8 } from "../fixed-point/sfixed8p8";
 import { $FilterType, FilterType } from "./_type";
 
 export interface GradientBevel {
   filter: FilterType.GradientBevel;
   gradient: ColorStop[];
-  blurX: Fixed16P16;
-  blurY: Fixed16P16;
-  angle: Fixed16P16;
-  distance: Fixed16P16;
-  strength: Fixed8P8;
+  blurX: Sfixed16P16;
+  blurY: Sfixed16P16;
+  angle: Sfixed16P16;
+  distance: Sfixed16P16;
+  strength: Sfixed8P8;
   inner: boolean;
   knockout: boolean;
   compositeSource: boolean;
@@ -30,11 +30,11 @@ export const $GradientBevel: DocumentIoType<GradientBevel> = new DocumentType<Gr
   properties: {
     filter: {type: new LiteralType({type: $FilterType, value: FilterType.GradientBevel as FilterType.GradientBevel})},
     gradient: {type: new ArrayType({itemType: $ColorStop, maxLength: Infinity})},
-    blurX: {type: Fixed16P16},
-    blurY: {type: Fixed16P16},
-    angle: {type: Fixed16P16},
-    distance: {type: Fixed16P16},
-    strength: {type: Fixed8P8},
+    blurX: {type: Sfixed16P16},
+    blurY: {type: Sfixed16P16},
+    angle: {type: Sfixed16P16},
+    distance: {type: Sfixed16P16},
+    strength: {type: Sfixed8P8},
     inner: {type: $Boolean},
     knockout: {type: $Boolean},
     compositeSource: {type: $Boolean},
