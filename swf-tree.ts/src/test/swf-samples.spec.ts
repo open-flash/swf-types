@@ -9,6 +9,7 @@ describe("Compatibility with SWF samples", function () {
   const writer: JsonValueWriter = new JsonValueWriter();
   const astFiles: string[] = [
     "swf-samples/simple/blank/blank.ast.json",
+    "swf-samples/simple/avm1/hello-world/hello-world.ast.json",
   ];
 
   for (const astFile of astFiles) {

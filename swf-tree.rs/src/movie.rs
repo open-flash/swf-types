@@ -87,4 +87,12 @@ mod test_swf_samples {
     let output_json = serde_json::to_string_pretty(&movie).unwrap();
     assert_eq!(output_json, input_json)
   }
+
+  #[test]
+  fn simple_avm1_hello_world() {
+    let input_json = include_str!("../../test/swf-samples/simple/avm1/hello-world/hello-world.ast.json");
+    let movie: Movie = serde_json::from_str(input_json).unwrap();
+    let output_json = serde_json::to_string_pretty(&movie).unwrap();
+    assert_eq!(output_json, input_json)
+  }
 }
