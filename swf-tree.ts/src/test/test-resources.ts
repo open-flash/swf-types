@@ -8,7 +8,7 @@ function resolvePath(relativePath: string): string {
   return path.join(TEST_ROOT, relativePath);
 }
 
-export async function readTestJson(relativePath: string): Promise<any> {
+export async function readTestString(relativePath: string): Promise<string> {
   return new Promise<any>((resolve, reject) => {
     fs.readFile(
       resolvePath(relativePath),
@@ -17,11 +17,7 @@ export async function readTestJson(relativePath: string): Promise<any> {
         if (err !== null) {
           reject(err);
         } else {
-          try {
-            resolve(JSON.parse(data));
-          } catch (err) {
-            reject(err);
-          }
+          resolve(data);
         }
       },
     );
