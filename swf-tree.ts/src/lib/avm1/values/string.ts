@@ -4,14 +4,14 @@ import { LiteralType } from "kryo/types/literal";
 import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { $ValueType, ValueType } from "../value-type";
 
-export interface CString {
-  type: ValueType.CString;
+export interface String {
+  type: ValueType.String;
   value: string;
 }
 
-export const $CString: DocumentIoType<CString> = new DocumentType<CString>({
+export const $String: DocumentIoType<String> = new DocumentType<String>({
   properties: {
-    type: {type: new LiteralType({type: $ValueType, value: ValueType.CString as ValueType.CString})},
+    type: {type: new LiteralType({type: $ValueType, value: ValueType.String as ValueType.String})},
     value: {type: new Ucs2StringType({maxLength: Infinity})},
   },
   changeCase: CaseStyle.SnakeCase,

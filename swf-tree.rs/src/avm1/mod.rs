@@ -1,4 +1,6 @@
 pub mod actions;
+mod value;
+pub use self::value::Value;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(tag = "action", rename_all = "kebab-case")]

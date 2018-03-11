@@ -1,5 +1,5 @@
-use float_bytewise_eq::BytewiseEq;
 use helpers::{buffer_to_hex, hex_to_buffer};
+use super::value::Value;
 
 // Action code 0x81
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -113,36 +113,6 @@ pub struct Try {
 pub struct With {
   pub with: Vec<super::Action>,
 }
-
-#[derive(Serialize, Deserialize, Debug)]
-#[serde(tag = "type", content = "value", rename_all = "kebab-case")]
-pub enum Value {
-  CString(String),
-  F32(f32),
-  Null,
-  Undefined,
-  Register(u8),
-  Boolean(bool),
-  F64(f64),
-  I32(i32),
-  Constant(u16),
-}
-
-impl ::std::cmp::PartialEq for Value {
-  fn eq(&self, other: &Self) -> bool {
-    match (self, other) {
-      (&Value::F32(left), &Value::F32(right)) => left.bytewise_eq(&right),
-      (&Value::F64(left), &Value::F64(right)) => left.bytewise_eq(&right),
-      (left, right) => left == right,
-    }
-  }
-
-  fn ne(&self, other: &Self) -> bool {
-    !self.eq(other)
-  }
-}
-
-impl ::std::cmp::Eq for Value {}
 
 // Action code 0x96
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

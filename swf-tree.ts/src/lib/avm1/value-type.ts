@@ -2,14 +2,14 @@ import { CaseStyle } from "kryo/case-style";
 import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum ValueType {
-  CString,
+  String,
   Float32,
   Null,
   Undefined,
   Register,
   Boolean,
   Float64,
-  Int32,
+  Sint32,
   Constant,
 }
 

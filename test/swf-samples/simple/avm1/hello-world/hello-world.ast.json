@@ -40,7 +40,7 @@
           "action": "push",
           "values": [
             {
-              "type": "c-string",
+              "type": "string",
               "value": "Hello, World!"
             }
           ]
