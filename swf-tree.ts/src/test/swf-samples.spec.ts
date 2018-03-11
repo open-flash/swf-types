@@ -18,7 +18,7 @@ describe("Compatibility with SWF samples", function () {
       const movie: Movie = $Movie.read(reader, inputJson);
       chai.assert.isTrue($Movie.test(movie)); // Should always be true because `.read` returned
       const outputJson: string = JSON.stringify($Movie.write(writer, movie), null, 2);
-      chai.assert.deepEqual(outputJson, inputJson);
+      chai.assert.strictEqual(outputJson, inputJson);
     });
   }
 });

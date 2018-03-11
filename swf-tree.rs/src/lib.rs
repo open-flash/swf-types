@@ -1,10 +1,11 @@
 extern crate hex;
 extern crate num_traits;
-extern crate ordered_float;
 extern crate serde;
 #[macro_use]
 extern crate serde_derive;
 extern crate serde_json;
+
+mod float_bytewise_eq;
 
 mod helpers;
 
