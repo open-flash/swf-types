@@ -136,7 +136,7 @@ dependencies = [
 
 [[package]]
 name = "swf-tree"
-version = "0.0.10"
+version = "0.0.14"
 dependencies = [
  "hex 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "libflate 0.1.14 (registry+https://github.com/rust-lang/crates.io-index)",
