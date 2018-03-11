@@ -1,5 +1,5 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 
 export interface Vp6SwfVideoPacket {
@@ -8,7 +8,7 @@ export interface Vp6SwfVideoPacket {
 
 export const $Vp6SwfVideoPacket: DocumentIoType<Vp6SwfVideoPacket> = new DocumentType<Vp6SwfVideoPacket>({
   properties: {
-    data: {type: new BufferType({maxLength: Infinity})},
+    data: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

@@ -1,6 +1,6 @@
 import { $Boolean } from "kryo/builtins/boolean";
 import { CaseStyle } from "kryo/case-style";
-import { IoType } from "kryo/types";
+import { IoType } from "kryo/core";
 import { ArrayType } from "kryo/types/array";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { IntegerType } from "kryo/types/integer";

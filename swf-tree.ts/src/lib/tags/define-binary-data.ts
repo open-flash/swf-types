@@ -1,5 +1,5 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { IntegerType } from "kryo/types/integer";
 import { LiteralType } from "kryo/types/literal";
@@ -17,7 +17,7 @@ export const $DefineBinaryData: DocumentIoType<DefineBinaryData> = new DocumentT
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineBinaryData as TagType.DefineBinaryData})},
     id: {type: new IntegerType()},
-    data: {type: new BufferType({maxLength: Infinity})},
+    data: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

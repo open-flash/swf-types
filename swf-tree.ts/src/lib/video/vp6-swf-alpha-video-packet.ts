@@ -1,5 +1,5 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 
 export interface Vp6SwfAlphaVideoPacket {
@@ -10,8 +10,8 @@ export interface Vp6SwfAlphaVideoPacket {
 // tslint:disable-next-line:max-line-length
 export const $Vp6SwfAlphaVideoPacket: DocumentIoType<Vp6SwfAlphaVideoPacket> = new DocumentType<Vp6SwfAlphaVideoPacket>({
   properties: {
-    data: {type: new BufferType({maxLength: Infinity})},
-    alphaData: {type: new BufferType({maxLength: Infinity})},
+    data: {type: $Bytes},
+    alphaData: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

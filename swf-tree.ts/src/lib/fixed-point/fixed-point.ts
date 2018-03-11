@@ -1,6 +1,6 @@
 import { Incident } from "incident";
+import { IoType, Reader, Writer } from "kryo/core";
 import { readVisitor } from "kryo/readers/read-visitor";
-import { IoType, Reader, Writer } from "kryo/types";
 
 export interface FixedPointOptions {
   readonly signed: boolean;

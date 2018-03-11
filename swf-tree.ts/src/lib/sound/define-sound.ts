@@ -1,7 +1,7 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { $Uint16 } from "kryo/builtins/uint16";
 import { $Uint32 } from "kryo/builtins/uint32";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16, Uint32 } from "semantic-types";
@@ -32,7 +32,7 @@ export const $DefineSound: DocumentIoType<DefineSound> = new DocumentType<Define
     soundSize: {type: $SoundSize},
     soundType: {type: $SoundType},
     soundSampleCount: {type: $Uint32},
-    soundData: {type: new BufferType({maxLength: Infinity})},
+    soundData: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

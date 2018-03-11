@@ -1,7 +1,7 @@
 import { $Any } from "kryo/builtins/any";
 import { $Boolean } from "kryo/builtins/boolean";
+import { $Bytes } from "kryo/builtins/bytes";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { $Mp3ChannelMode, Mp3ChannelMode } from "./mp3-channel-mode";
 import { $Mp3Layer, Mp3Layer } from "./mp3-layer";
@@ -31,7 +31,7 @@ export const $Mp3Frame: DocumentIoType<Mp3Frame> = new DocumentType<Mp3Frame>({
     isCopyrighted: {type: $Boolean},
     isOriginal: {type: $Boolean},
     emphasis: {type: $Any},
-    sampleData: {type: new BufferType({maxLength: Infinity})},
+    sampleData: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

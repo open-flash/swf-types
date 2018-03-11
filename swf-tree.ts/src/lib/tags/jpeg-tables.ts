@@ -1,5 +1,5 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { _Tag } from "./_tag";
@@ -13,7 +13,7 @@ export interface JpegTables extends _Tag {
 export const $JpegTables: DocumentIoType<JpegTables> = new DocumentType<JpegTables>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.JpegTables as TagType.JpegTables})},
-    data: {type: new BufferType({maxLength: Infinity})},
+    data: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

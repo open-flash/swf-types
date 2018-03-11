@@ -1,5 +1,5 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Ucs2StringType } from "kryo/types/ucs2-string";
@@ -14,7 +14,7 @@ export interface SoundStreamBlock extends _Tag {
 export const $SoundStreamBlock: DocumentIoType<SoundStreamBlock> = new DocumentType<SoundStreamBlock>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.SoundStreamBlock as TagType.SoundStreamBlock})},
-    data: {type: new BufferType({maxLength: Infinity})},
+    data: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

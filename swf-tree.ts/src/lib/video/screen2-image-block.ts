@@ -1,6 +1,6 @@
 import { $Any } from "kryo/builtins/any";
+import { $Bytes } from "kryo/builtins/bytes";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Screen2ImageBlockDiffPosition } from "./screen2-image-block-diff-position";
 import { Screen2ImageBlockPrimePosition } from "./screen2-image-block-prime-position";
@@ -16,7 +16,7 @@ export const $Screen2ImageBlock: DocumentIoType<Screen2ImageBlock> = new Documen
   properties: {
     format: {type: $Screen2ImageFormat},
     header: {type: $Any, optional: true},
-    data: {type: new BufferType({maxLength: Infinity}), optional: true},
+    data: {type: $Bytes, optional: true},
   },
   changeCase: CaseStyle.SnakeCase,
 });

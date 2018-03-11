@@ -1,7 +1,7 @@
 import { $Boolean } from "kryo/builtins/boolean";
+import { $Bytes } from "kryo/builtins/bytes";
 import { $Uint16 } from "kryo/builtins/uint16";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Ucs2StringType } from "kryo/types/ucs2-string";
@@ -25,7 +25,7 @@ export const $DefineCffFont: DocumentIoType<DefineCffFont> = new DocumentType<De
     fontName: {type: new Ucs2StringType({maxLength: Infinity})},
     isItalic: {type: $Boolean},
     isBold: {type: $Boolean},
-    data: {type: new BufferType({maxLength: Infinity}), optional: true},
+    data: {type: $Bytes, optional: true},
   },
   changeCase: CaseStyle.SnakeCase,
 });

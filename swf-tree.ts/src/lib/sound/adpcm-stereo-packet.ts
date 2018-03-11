@@ -1,7 +1,7 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { $Sint16 } from "kryo/builtins/sint16";
 import { $Uint32 } from "kryo/builtins/uint32";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Sint16, Uint32 } from "semantic-types";
 
@@ -19,7 +19,7 @@ export const $AdpcmStereoPacket: DocumentIoType<AdpcmStereoPacket> = new Documen
     initialIndexLeft: {type: $Uint32},
     initialSampleRight: {type: $Sint16},
     initialIndexRight: {type: $Uint32},
-    adpcmCodeData: {type: new BufferType({maxLength: Infinity})},
+    adpcmCodeData: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

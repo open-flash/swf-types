@@ -13,7 +13,7 @@ export interface ColorTransform {
   blueAdd: Sint16;
 }
 
-export const $ColorTransform: DocumentIoType<ColorTransform> = new DocumentType<ColorTransform>({
+export const $ColorTransform: DocumentIoType<ColorTransform> = new DocumentType<ColorTransform>(() => ({
   properties: {
     redMult: {type: Sfixed8P8},
     greenMult: {type: Sfixed8P8},
@@ -23,4 +23,4 @@ export const $ColorTransform: DocumentIoType<ColorTransform> = new DocumentType<
     blueAdd: {type: $Sint16},
   },
   changeCase: CaseStyle.SnakeCase,
-});
+}));

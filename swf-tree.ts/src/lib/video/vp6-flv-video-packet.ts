@@ -1,6 +1,6 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { $Uint8 } from "kryo/builtins/uint8";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint8 } from "semantic-types";
 
@@ -14,7 +14,7 @@ export const $Vp6FlvVideoPacket: DocumentIoType<Vp6FlvVideoPacket> = new Documen
   properties: {
     horizontalAdjustment: {type: $Uint8},
     verticalAdjustment: {type: $Uint8},
-    data: {type: new BufferType({maxLength: Infinity})},
+    data: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

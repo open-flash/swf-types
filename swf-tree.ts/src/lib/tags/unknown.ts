@@ -1,6 +1,6 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { $Uint16 } from "kryo/builtins/uint16";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
@@ -17,7 +17,7 @@ export const $Unknown: DocumentIoType<Unknown> = new DocumentType<Unknown>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.Unknown as TagType.Unknown})},
     code: {type: $Uint16},
-    data: {type: new BufferType({maxLength: Infinity})},
+    data: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,
 });

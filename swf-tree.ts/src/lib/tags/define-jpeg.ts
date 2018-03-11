@@ -1,6 +1,6 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { $Uint16 } from "kryo/builtins/uint16";
 import { CaseStyle } from "kryo/case-style";
-import { BufferType } from "kryo/types/buffer";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
@@ -20,8 +20,8 @@ export const $DefineJpeg: DocumentIoType<DefineJpeg> = new DocumentType<DefineJp
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineJpeg as TagType.DefineJpeg})},
     id: {type: $Uint16},
-    image: {type: new BufferType({maxLength: Infinity})},
-    alpha: {type: new BufferType({maxLength: Infinity}), optional: true},
+    image: {type: $Bytes},
+    alpha: {type: $Bytes, optional: true},
     deblocking: {type: $Uint16, optional: true},
   },
   changeCase: CaseStyle.SnakeCase,
