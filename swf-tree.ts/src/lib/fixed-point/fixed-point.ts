@@ -57,7 +57,7 @@ export function createFixedPoint(options: FixedPointOptions): FixedPointConstruc
         return new Incident("InvalidType", "Expected `Sint32`");
       }
       const max: number = Math.pow(2, this.intBits + this.fracBits - (this.signed ? 1 : 0));
-      const min: number = this.signed ? 0 : -max - 1;
+      const min: number = this.signed ? -max - 1 : 0;
 
       if (epsilons < min || epsilons > max) {
         return new Incident("RangeError", {min, max, value});
