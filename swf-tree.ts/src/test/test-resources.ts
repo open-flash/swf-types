@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import meta from "./meta";
+import meta from "./meta.js";
 
 const TEST_ROOT: string = path.join(meta.dirname, "../../../../test");
 
