@@ -1,6 +1,6 @@
 use avm1;
 use basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
-use float_bytewise_eq::BytewiseEq;
+use float_is::Is;
 use helpers::{buffer_to_hex, hex_to_buffer};
 use shapes::{ClipAction, Glyph, Shape};
 use movie::Tag;
@@ -24,8 +24,8 @@ impl ::std::cmp::PartialEq for CsmTextSettings {
     self.text_id == other.text_id
       && self.renderer == other.renderer
       && self.fitting == other.fitting
-      && self.thickness.bytewise_eq(&other.thickness)
-      && self.sharpness.bytewise_eq(&other.sharpness)
+      && self.thickness.is(&other.thickness)
+      && self.sharpness.is(&other.sharpness)
   }
 
   fn ne(&self, other: &Self) -> bool {

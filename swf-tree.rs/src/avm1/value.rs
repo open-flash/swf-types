@@ -1,4 +1,4 @@
-use float_bytewise_eq::BytewiseEq;
+use float_is::Is;
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(tag = "type", content = "value", rename_all = "kebab-case")]
@@ -17,8 +17,8 @@ pub enum Value {
 impl ::std::cmp::PartialEq for Value {
   fn eq(&self, other: &Self) -> bool {
     match (self, other) {
-      (&Value::Float32(left), &Value::Float32(right)) => left.bytewise_eq(&right),
-      (&Value::Float64(left), &Value::Float64(right)) => left.bytewise_eq(&right),
+      (&Value::Float32(left), &Value::Float32(right)) => left.is(&right),
+      (&Value::Float64(left), &Value::Float64(right)) => left.is(&right),
       (left, right) => left == right,
     }
   }

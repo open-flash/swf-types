@@ -5,7 +5,7 @@ extern crate serde;
 extern crate serde_derive;
 extern crate serde_json;
 
-mod float_bytewise_eq;
+mod float_is;
 
 mod helpers;
 

@@ -1,5 +1,5 @@
 use basic_types::{Rect, StraightSRgba8};
-use float_bytewise_eq::BytewiseEq;
+use float_is::Is;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
@@ -26,8 +26,8 @@ pub struct FontAlignmentZoneData {
 
 impl ::std::cmp::PartialEq for FontAlignmentZoneData {
   fn eq(&self, other: &Self) -> bool {
-    self.origin.bytewise_eq(&other.origin)
-      && self.size.bytewise_eq(&other.size)
+    self.origin.is(&other.origin)
+      && self.size.is(&other.size)
   }
 
   fn ne(&self, other: &Self) -> bool {

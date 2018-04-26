@@ -1,0 +1,38 @@
+struct Movie {
+  header: Header;
+  tags: Vector<Tag>;
+}
+
+struct Header {
+  swf_version: Uint8;
+  frame_size: Rect;
+}
+
+struct Rect {
+  x_min: Sint16;
+  x_max: Sint16;
+  y_min: Sint16;
+  y_max: Sint16;
+}
+
+sum Tag {
+  ShowFrame: tags.ShowFrame;
+  Telemetry: tags.ShowFrame;
+}
+
+mod tags {
+  struct ShowFrame {}
+
+  struct Telemetry {
+    password: Bytes;
+  }
+
+  struct Color {
+    space: ColorSpace;
+  }
+}
+
+enum ColorSpace {
+  SRgb;
+  LinearRgb;
+}

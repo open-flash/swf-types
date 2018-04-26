@@ -1,6 +1,6 @@
 use basic_types::StraightSRgba8;
 use fixed_point::{Sfixed16P16, Sfixed8P8};
-use float_bytewise_eq::BytewiseEq;
+use float_is::Is;
 use gradient::ColorStop;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -36,7 +36,7 @@ pub struct ColorMatrix {
 
 impl ::std::cmp::PartialEq for ColorMatrix {
   fn eq(&self, other: &Self) -> bool {
-    self.matrix.bytewise_eq(&other.matrix)
+    self.matrix.is(&other.matrix)
   }
 
   fn ne(&self, other: &Self) -> bool {
@@ -64,9 +64,9 @@ impl ::std::cmp::PartialEq for Convolution {
   fn eq(&self, other: &Self) -> bool {
     self.matrix_width == other.matrix_width
       && self.matrix_height == other.matrix_height
-      && self.divisor.bytewise_eq(&other.divisor)
-      && self.bias.bytewise_eq(&other.bias)
-      && self.matrix.bytewise_eq(&other.matrix)
+      && self.divisor.is(&other.divisor)
+      && self.bias.is(&other.bias)
+      && self.matrix.is(&other.matrix)
       && self.default_color == other.default_color
       && self.clamp == other.clamp
       && self.preserve_alpha == other.preserve_alpha
