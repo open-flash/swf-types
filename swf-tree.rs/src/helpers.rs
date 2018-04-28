@@ -1,4 +1,5 @@
-use hex::{FromHex, ToHex};
+use hex::{FromHex};
+use hex;
 use serde::{Serializer, Deserialize, Deserializer};
 
 /// Serializes `buffer` to a lowercase hex string.
@@ -6,7 +7,7 @@ pub fn buffer_to_hex<T, S>(buffer: &T, serializer: S) -> Result<S::Ok, S::Error>
   where T: AsRef<[u8]>,
         S: Serializer
 {
-  serializer.serialize_str(&buffer.as_ref().to_hex())
+  serializer.serialize_str(hex::encode(buffer).as_ref())
 }
 
 /// Deserializes a lowercase hex string to a `Vec<u8>`.
