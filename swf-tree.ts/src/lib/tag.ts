@@ -12,10 +12,9 @@ export type Tag =
   | tags.DefineFontAlignZones
   | tags.DefineFontInfo
   | tags.DefineFontName
-  | tags.DefineJpeg
+  | tags.DefineJpegTables
   | tags.DefineMorphShape
   | tags.DefinePartialFont
-  | tags.DefinePartialJpeg
   | tags.DefineSceneAndFrameLabelData
   | tags.DefineShape
   | tags.DefineSprite
@@ -27,7 +26,6 @@ export type Tag =
   | tags.FileAttributes
   | tags.FrameLabel
   | tags.ImportAssets
-  | tags.JpegTables
   | tags.Metadata
   | tags.PlaceObject
   | tags.RemoveObject
@@ -50,10 +48,9 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$DefineFontAlignZones,
     tags.$DefineFontInfo,
     tags.$DefineFontName,
-    tags.$DefineJpeg,
+    tags.$DefineJpegTables,
     tags.$DefineMorphShape,
     tags.$DefinePartialFont,
-    tags.$DefinePartialJpeg,
     tags.$DefineSceneAndFrameLabelData,
     tags.$DefineShape,
     tags.$DefineSprite,
@@ -65,7 +62,6 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$FileAttributes,
     tags.$FrameLabel,
     tags.$ImportAssets,
-    tags.$JpegTables,
     tags.$Metadata,
     tags.$PlaceObject,
     tags.$RemoveObject,

@@ -5,12 +5,12 @@ import { LiteralType } from "kryo/types/literal";
 import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
-export interface JpegTables extends _Tag {
+export interface DefineJpegTables extends _Tag {
   type: TagType.JpegTables;
   data: Uint8Array;
 }
 
-export const $JpegTables: DocumentIoType<JpegTables> = new DocumentType<JpegTables>({
+export const $DefineJpegTables: DocumentIoType<DefineJpegTables> = new DocumentType<DefineJpegTables>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.JpegTables as TagType.JpegTables})},
     data: {type: $Bytes},

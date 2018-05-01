@@ -98,7 +98,7 @@ union(type) Tag {
 //  GenTagObjects;
 //  ImportAssets;
 //  ImportAssets2;
-//  JpegTables;
+//  DefineJpegTables;
 //  Metadata;
 //  NameCharacter;
 //  PathsArePostscript;
