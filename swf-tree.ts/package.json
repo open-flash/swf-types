@@ -40,7 +40,7 @@
     "minimist": "^1.2.0",
     "ts-node": "^6.0.1",
     "tslint": "^5.9.1",
-    "turbo-gulp": "^0.17.0",
+    "turbo-gulp": "^0.17.1",
     "typescript": "^2.8.3"
   },
   "nyc": {

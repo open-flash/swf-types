@@ -6,13 +6,13 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineJpegTables extends _Tag {
-  type: TagType.JpegTables;
+  type: TagType.DefineJpegTables;
   data: Uint8Array;
 }
 
 export const $DefineJpegTables: DocumentIoType<DefineJpegTables> = new DocumentType<DefineJpegTables>({
   properties: {
-    type: {type: new LiteralType({type: $TagType, value: TagType.JpegTables as TagType.JpegTables})},
+    type: {type: new LiteralType({type: $TagType, value: TagType.DefineJpegTables as TagType.DefineJpegTables})},
     data: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,

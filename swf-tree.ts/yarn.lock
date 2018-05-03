@@ -19,10 +19,6 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@std/esm@^0.26.0":
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/@std/esm/-/esm-0.26.0.tgz#c3ec3abdee95738e15ea7c695b7fee14ae529b81"
-
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-7.0.1.tgz#1405e5396968c4302994b0161ce405b72b874257"
@@ -1941,6 +1937,14 @@ from@~0:
 fs-extra@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-5.0.0.tgz#414d0110cdd06705734d055652c5411260c31abd"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
+fs-extra@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-6.0.0.tgz#0f0afb290bb3deb87978da816fcd3c7797f3a817"
   dependencies:
     graceful-fs "^4.1.2"
     jsonfile "^4.0.0"
@@ -5099,11 +5103,10 @@ tunnel-agent@~0.4.1:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/tunnel-agent/-/tunnel-agent-0.4.3.tgz#6373db76909fe570e08d73583365ed828a74eeeb"
 
-turbo-gulp@^0.17.0:
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/turbo-gulp/-/turbo-gulp-0.17.0.tgz#6f3d0ed7e03688fe746544942270ff128b7aa85e"
+turbo-gulp@^0.17.1:
+  version "0.17.1"
+  resolved "https://registry.yarnpkg.com/turbo-gulp/-/turbo-gulp-0.17.1.tgz#56bc0aabaf67c95b58fbb01303d47fec3fc3b4af"
   dependencies:
-    "@std/esm" "^0.26.0"
     "@types/del" "^3.0.1"
     "@types/fancy-log" "^1.3.0"
     "@types/fs-extra" "^5.0.2"
@@ -5120,7 +5123,7 @@ turbo-gulp@^0.17.0:
     del "^3.0.0"
     esm "^3.0.22"
     fancy-log "^1.3.2"
-    fs-extra "^5.0.0"
+    fs-extra "^6.0.0"
     gulp-mocha "^5.0.0"
     gulp-pug "^4.0.1"
     gulp-rename "^1.2.2"
