@@ -12,11 +12,11 @@ import { $TagType, TagType } from "./_type";
 export interface DefineMorphShape extends _Tag {
   type: TagType.DefineMorphShape;
   id: Uint16;
-  startBounds: Rect;
-  endBounds: Rect;
-  // TODO: Combine edgeBounds with something like MorphRect
-  startEdgeBounds?: Rect;
-  endEdgeBounds?: Rect;
+  bounds: Rect;
+  morphBounds: Rect;
+  // TODO: Combine edgeBounds and morphEdgeBounds in something like MorphRect
+  edgeBounds?: Rect;
+  morphEdgeBounds?: Rect;
   hasNonScalingStrokes: boolean;
   hasScalingStrokes: boolean;
   shape: MorphShape;
@@ -26,10 +26,10 @@ export const $DefineMorphShape: DocumentIoType<DefineMorphShape> = new DocumentT
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineMorphShape as TagType.DefineMorphShape})},
     id: {type: $Uint16},
-    startBounds: {type: $Rect},
-    endBounds: {type: $Rect},
-    startEdgeBounds: {type: $Rect, optional: true},
-    endEdgeBounds: {type: $Rect, optional: true},
+    bounds: {type: $Rect},
+    morphBounds: {type: $Rect},
+    edgeBounds: {type: $Rect, optional: true},
+    morphEdgeBounds: {type: $Rect, optional: true},
     hasNonScalingStrokes: {type: $Boolean},
     hasScalingStrokes: {type: $Boolean},
     shape: {type: $MorphShape},

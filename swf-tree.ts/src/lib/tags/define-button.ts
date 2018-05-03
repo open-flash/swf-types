@@ -12,7 +12,7 @@ import { $TagType, TagType } from "./_type";
 
 export interface DefineButton extends _Tag {
   type: TagType.DefineButton;
-  buttonId: Uint16;
+  id: Uint16;
   trackAsMenu: boolean;
   characters: ButtonRecord[];
   actions: ButtonCondAction[];
@@ -21,7 +21,7 @@ export interface DefineButton extends _Tag {
 export const $DefineButton: DocumentIoType<DefineButton> = new DocumentType<DefineButton>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineButton as TagType.DefineButton})},
-    buttonId: {type: $Uint16},
+    id: {type: $Uint16},
     trackAsMenu: {type: $Boolean},
     characters: {type: new ArrayType({itemType: $ButtonRecord, maxLength: Infinity})},
     actions: {type: new ArrayType({itemType: $ButtonCondAction, maxLength: Infinity})},

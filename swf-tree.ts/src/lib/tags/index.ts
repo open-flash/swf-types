@@ -13,6 +13,7 @@ export { $DefineMorphShape, DefineMorphShape } from "./define-morph-shape";
 export { $DefinePartialFont, DefinePartialFont } from "./define-partial-font";
 export { $DefineSceneAndFrameLabelData, DefineSceneAndFrameLabelData } from "./define-scene-and-frame-label-data";
 export { $DefineShape, DefineShape } from "./define-shape";
+export { $DefineSound, DefineSound } from "./define-sound";
 export { $DefineSprite, DefineSprite } from "./define-sprite";
 export { $DefineText, DefineText } from "./define-text";
 export { $DoAction, DoAction } from "./do-action";
