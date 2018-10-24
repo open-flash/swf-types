@@ -1,13 +1,12 @@
-use avm1;
-use basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
-use float_is::Is;
-use helpers::{buffer_to_hex, hex_to_buffer};
-use shapes::{ClipAction, Glyph, Shape};
-use movie::Tag;
-use text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
-use sound;
-use BlendMode;
-use Filter;
+use super::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
+use super::float_is::Is;
+use super::helpers::{buffer_to_hex, hex_to_buffer};
+use super::shapes::{ClipAction, Glyph, Shape};
+use super::movie::Tag;
+use super::text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
+use super::sound;
+use super::BlendMode;
+use super::Filter;
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "snake_case")]
@@ -236,14 +235,14 @@ pub struct DefineText {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct DoAction {
-  pub actions: Vec<avm1::Action>,
+  pub actions: Vec<u8>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct DoInitAction {
   pub sprite_id: u16,
-  pub actions: Vec<avm1::Action>,
+  pub actions: Vec<u8>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

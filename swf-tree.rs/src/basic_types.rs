@@ -1,4 +1,4 @@
-use fixed_point::{Sfixed16P16, Sfixed8P8};
+use swf_fixed::{Sfixed16P16, Sfixed8P8};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]

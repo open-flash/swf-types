@@ -1,6 +1,6 @@
-use basic_types::Vector2D;
-use shapes::FillStyle;
-use shapes::LineStyle;
+use super::basic_types::Vector2D;
+use super::shapes::FillStyle;
+use super::shapes::LineStyle;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 pub struct CurvedEdge {

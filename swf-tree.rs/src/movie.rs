@@ -1,6 +1,6 @@
-use basic_types::Rect;
-use fixed_point::Ufixed8P8;
-use tags;
+use super::basic_types::Rect;
+use super::swf_fixed::Ufixed8P8;
+use super::tags;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]

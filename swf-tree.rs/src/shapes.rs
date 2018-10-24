@@ -1,7 +1,6 @@
-use avm1::Action;
-use fill_styles;
-use join_styles;
-use shape_records;
+use super::fill_styles;
+use super::join_styles;
+use super::shape_records;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
@@ -17,7 +16,7 @@ pub struct ClipAction {
   pub events: ClipEventFlags,
   #[serde(skip_serializing_if="Option::is_none")]
   pub key_code: Option<u8>,
-  pub actions: Vec<Action>,
+  pub actions: Vec<u8>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

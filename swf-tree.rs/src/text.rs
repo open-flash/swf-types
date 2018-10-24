@@ -1,5 +1,5 @@
-use basic_types::{Rect, StraightSRgba8};
-use float_is::Is;
+use super::basic_types::{Rect, StraightSRgba8};
+use super::float_is::Is;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
