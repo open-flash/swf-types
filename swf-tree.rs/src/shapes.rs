@@ -1,3 +1,4 @@
+use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use super::fill_styles;
 use super::join_styles;
 use super::shape_records;
@@ -14,8 +15,9 @@ pub enum CapStyle {
 #[serde(rename_all = "snake_case")]
 pub struct ClipAction {
   pub events: ClipEventFlags,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub key_code: Option<u8>,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub actions: Vec<u8>,
 }
 

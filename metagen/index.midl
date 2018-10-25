@@ -17,7 +17,7 @@ struct Rect {
 
 sum Tag {
   ShowFrame: tags.ShowFrame;
-  Telemetry: tags.ShowFrame;
+  Telemetry: tags.Telemetry;
 }
 
 mod tags {

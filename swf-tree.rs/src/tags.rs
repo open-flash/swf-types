@@ -235,6 +235,7 @@ pub struct DefineText {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct DoAction {
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub actions: Vec<u8>,
 }
 
@@ -242,6 +243,7 @@ pub struct DoAction {
 #[serde(rename_all = "snake_case")]
 pub struct DoInitAction {
   pub sprite_id: u16,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub actions: Vec<u8>,
 }
 
