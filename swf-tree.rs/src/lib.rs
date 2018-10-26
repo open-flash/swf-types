@@ -14,56 +14,61 @@ mod helpers;
 pub mod fill_styles;
 pub mod filters;
 pub mod join_styles;
-pub mod shape_records;
 pub mod tags;
 pub mod text;
 
 mod basic_types;
 
-pub use self::basic_types::ColorTransform;
-pub use self::basic_types::ColorTransformWithAlpha;
-pub use self::basic_types::LanguageCode;
-pub use self::basic_types::Matrix;
-pub use self::basic_types::NamedId;
-pub use self::basic_types::Rect;
-pub use self::basic_types::SRgb8;
-pub use self::basic_types::StraightSRgba8;
-pub use self::basic_types::Vector2D;
+pub use crate::basic_types::ColorTransform;
+pub use crate::basic_types::ColorTransformWithAlpha;
+pub use crate::basic_types::LanguageCode;
+pub use crate::basic_types::Matrix;
+pub use crate::basic_types::NamedId;
+pub use crate::basic_types::Rect;
+pub use crate::basic_types::SRgb8;
+pub use crate::basic_types::StraightSRgba8;
+pub use crate::basic_types::Vector2D;
+
+mod button;
 
 mod gradient;
 
-pub use self::gradient::ColorStop;
-pub use self::gradient::ColorSpace;
-pub use self::gradient::GradientSpread;
-pub use self::gradient::Gradient;
+pub use crate::gradient::ColorStop;
+pub use crate::gradient::ColorSpace;
+pub use crate::gradient::GradientSpread;
+pub use crate::gradient::Gradient;
+
+mod image;
+
+pub use crate::image::ImageType;
 
 mod movie;
 
-pub use self::movie::CompressionMethod;
-pub use self::movie::Header;
-pub use self::movie::Movie;
-pub use self::movie::SwfSignature;
-pub use self::movie::Tag;
+pub use crate::movie::CompressionMethod;
+pub use crate::movie::Header;
+pub use crate::movie::Movie;
+pub use crate::movie::SwfSignature;
 
 mod shape;
 
-pub use self::shape::ClipAction;
-pub use self::shape::ClipEventFlags;
-pub use self::shape::CapStyle;
-pub use self::shape::FillStyle;
-pub use self::shape::Glyph;
-pub use self::shape::JoinStyle;
-pub use self::shape::LineStyle;
-pub use self::shape::Shape;
-pub use self::shape::ShapeRecord;
-pub use self::shape::ShapeStyles;
+pub use crate::shape::ClipAction;
+pub use crate::shape::ClipEventFlags;
+pub use crate::shape::CapStyle;
+pub use crate::shape::FillStyle;
+pub use crate::shape::Glyph;
+pub use crate::shape::JoinStyle;
+pub use crate::shape::LineStyle;
+pub use crate::shape::Shape;
+pub use crate::shape::ShapeRecord;
+pub use crate::shape::ShapeStyles;
+pub use crate::shape::shape_records;
 
 mod sound;
 
-pub use self::sound::AudioCodingFormat;
-pub use self::sound::SoundRate;
-pub use self::sound::SoundSize;
-pub use self::sound::SoundType;
+pub use crate::sound::AudioCodingFormat;
+pub use crate::sound::SoundRate;
+pub use crate::sound::SoundSize;
+pub use crate::sound::SoundType;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
@@ -95,4 +100,42 @@ pub enum Filter {
   Glow(filters::Glow),
   GradientBevel(filters::GradientBevel),
   GradientGlow(filters::GradientGlow),
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(tag = "type", rename_all = "kebab-case")]
+pub enum Tag {
+  CsmTextSettings(tags::CsmTextSettings),
+  DefineBinaryData(tags::DefineBinaryData),
+  DefineBitmap(tags::DefineBitmap),
+  DefineButton(tags::DefineButton),
+  DefineCffFont(tags::DefineCffFont),
+  DefineDynamicText(tags::DefineDynamicText),
+  DefineFont(tags::DefineFont),
+  DefineFontAlignZones(tags::DefineFontAlignZones),
+  DefineFontInfo(tags::DefineFontInfo),
+  DefineFontName(tags::DefineFontName),
+  DefineJpegTables(tags::DefineJpegTables),
+  DefineMorphShape(tags::DefineMorphShape),
+  DefinePartialFont(tags::DefinePartialFont),
+  DefineSceneAndFrameLabelData(tags::DefineSceneAndFrameLabelData),
+  DefineShape(tags::DefineShape),
+  DefineSprite(tags::DefineSprite),
+  DefineText(tags::DefineText),
+  DoAction(tags::DoAction),
+  DoInitAction(tags::DoInitAction),
+  EnableDebugger(tags::EnableDebugger),
+  ExportAssets(tags::ExportAssets),
+  FileAttributes(tags::FileAttributes),
+  FrameLabel(tags::FrameLabel),
+  ImportAssets(tags::ImportAssets),
+  Metadata(tags::Metadata),
+  PlaceObject(tags::PlaceObject),
+  RemoveObject(tags::RemoveObject),
+  SetBackgroundColor(tags::SetBackgroundColor),
+  ShowFrame,
+  SoundStreamBlock(tags::SoundStreamBlock),
+  SoundStreamHead(tags::SoundStreamHead),
+  Telemetry(tags::Telemetry),
+  Unknown(tags::Unknown),
 }

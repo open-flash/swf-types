@@ -5,8 +5,8 @@ import { ArrayType } from "kryo/types/array";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { $ButtonCondAction, ButtonCondAction } from "../buttons/button-cond-action";
-import { $ButtonRecord, ButtonRecord } from "../buttons/button-record";
+import { $ButtonCondAction, ButtonCondAction } from "../button/button-cond-action";
+import { $ButtonRecord, ButtonRecord } from "../button/button-record";
 import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 

@@ -1,6 +1,6 @@
-use super::basic_types::Rect;
-use super::swf_fixed::Ufixed8P8;
-use super::tags;
+use crate::basic_types::Rect;
+use crate::swf_fixed::Ufixed8P8;
+use crate::Tag;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
@@ -38,41 +38,6 @@ pub struct SwfSignature {
   pub swf_version: u8,
   // Uncompressed SWF File length (including the header)
   pub uncompressed_file_length: usize,
-}
-
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(tag = "type", rename_all = "kebab-case")]
-pub enum Tag {
-  CsmTextSettings(tags::CsmTextSettings),
-  DefineBinaryData(tags::DefineBinaryData),
-  DefineBitmap(tags::DefineBitmap),
-  DefineCffFont(tags::DefineCffFont),
-  DefineDynamicText(tags::DefineDynamicText),
-  DefineFont(tags::DefineFont),
-  DefineFontAlignZones(tags::DefineFontAlignZones),
-  DefineFontInfo(tags::DefineFontInfo),
-  DefineFontName(tags::DefineFontName),
-  DefineJpeg(tags::DefineJpeg),
-  DefinePartialFont(tags::DefinePartialFont),
-  DefinePartialJpeg(tags::DefinePartialJpeg),
-  DefineSceneAndFrameLabelData(tags::DefineSceneAndFrameLabelData),
-  DefineShape(tags::DefineShape),
-  DefineSprite(tags::DefineSprite),
-  DefineText(tags::DefineText),
-  DoAction(tags::DoAction),
-  DoInitAction(tags::DoInitAction),
-  EnableDebugger(tags::EnableDebugger),
-  ExportAssets(tags::ExportAssets),
-  FileAttributes(tags::FileAttributes),
-  FrameLabel(tags::FrameLabel),
-  ImportAssets(tags::ImportAssets),
-  JpegTables(tags::JpegTables),
-  Metadata(tags::Metadata),
-  PlaceObject(tags::PlaceObject),
-  RemoveObject(tags::RemoveObject),
-  SetBackgroundColor(tags::SetBackgroundColor),
-  ShowFrame,
-  Unknown(tags::Unknown),
 }
 
 #[cfg(test)]

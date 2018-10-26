@@ -1,12 +1,16 @@
-use super::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
-use super::float_is::Is;
-use super::helpers::{buffer_to_hex, hex_to_buffer};
-use super::shape::{ClipAction, Glyph, Shape};
-use super::movie::Tag;
-use super::text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
-use super::sound;
-use super::BlendMode;
-use super::Filter;
+use crate::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
+use crate::float_is::Is;
+use crate::helpers::{buffer_to_hex, hex_to_buffer};
+use crate::shape::{ClipAction, Glyph, Shape};
+use crate::text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
+use crate::sound;
+use crate::BlendMode;
+use crate::Filter;
+use crate::Tag;
+use crate::button::ButtonRecord;
+use crate::button::ButtonCondAction;
+use crate::shape::MorphShape;
+use crate::ImageType;
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "snake_case")]
@@ -48,8 +52,18 @@ pub struct DefineBitmap {
   pub id: u16,
   pub width: u16,
   pub height: u16,
+  pub media_type: ImageType,
   #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineButton {
+  pub id: u16,
+  pub track_as_menu: bool,
+  pub characters: Vec<ButtonRecord>,
+  pub actions: Vec<ButtonCondAction>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -152,16 +166,25 @@ pub struct DefineFontName {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
-pub struct DefineJpeg {
-  pub id: u16,
+pub struct DefineJpegTables {
   #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
-  pub image: Vec<u8>,
-  // TODO(demurgos): Serialize optional buffers to hex
-  // #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
+  pub data: Vec<u8>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineMorphShape {
+  pub id: u16,
+  pub bounds: Rect,
+  pub morph_bounds: Rect,
+  // TODO: Combine edgeBounds and morphEdgeBounds in something like MorphRect
   #[serde(skip_serializing_if = "Option::is_none")]
-  pub alpha: Option<Vec<u8>>,
+  pub edge_bounds: Option<Rect>,
   #[serde(skip_serializing_if = "Option::is_none")]
-  pub deblocking: Option<u16>,
+  pub morph_edge_bounds: Option<Rect>,
+  pub has_non_scaling_strokes: bool,
+  pub has_scaling_strokes: bool,
+  pub shape: MorphShape,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -169,14 +192,6 @@ pub struct DefineJpeg {
 pub struct DefinePartialFont {
   pub id: u16,
   pub glyphs: Vec<Glyph>,
-}
-
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "snake_case")]
-pub struct DefinePartialJpeg {
-  pub id: u16,
-  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
-  pub data: Vec<u8>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -284,13 +299,6 @@ pub struct FrameLabel {
 pub struct ImportAssets {
   pub url: String,
   pub assets: Vec<NamedId>,
-}
-
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(rename_all = "snake_case")]
-pub struct JpegTables {
-  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
-  pub data: Vec<u8>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

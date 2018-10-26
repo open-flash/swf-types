@@ -18,7 +18,7 @@ export interface ButtonRecord {
   depth: Uint16;
   matrix: Matrix;
   colorTransform?: ColorTransformWithAlpha;
-  filters?: Filter[];
+  filters: Filter[];
   blendMode: BlendMode;
 }
 
@@ -32,7 +32,7 @@ export const $ButtonRecord: DocumentIoType<ButtonRecord> = new DocumentType<Butt
     depth: {type: $Uint16},
     matrix: {type: $Matrix},
     colorTransform: {type: $ColorTransformWithAlpha, optional: true},
-    filters: {type: new ArrayType({itemType: $Filter, maxLength: Infinity}), optional: true},
+    filters: {type: new ArrayType({itemType: $Filter, maxLength: Infinity})},
     blendMode: {type: $BlendMode},
   },
   changeCase: CaseStyle.SnakeCase,
