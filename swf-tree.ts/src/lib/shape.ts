@@ -2,7 +2,7 @@ import { CaseStyle } from "kryo/case-style";
 import { ArrayType } from "kryo/types/array";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { $ShapeRecord, ShapeRecord } from "./shape-record";
-import { $ShapeStyles, ShapeStyles } from "./shape-style";
+import { $ShapeStyles, ShapeStyles } from "./shape-styles";
 
 export interface Shape {
   initialStyles: ShapeStyles;

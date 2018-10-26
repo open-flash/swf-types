@@ -86,8 +86,7 @@ pub struct Glyph {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct Shape {
-  pub fill_styles: Vec<FillStyle>,
-  pub line_styles: Vec<LineStyle>,
+  pub initial_styles: ShapeStyles,
   pub records: Vec<ShapeRecord>,
 }
 
@@ -97,4 +96,11 @@ pub enum ShapeRecord {
   CurvedEdge(shape_records::CurvedEdge),
   StraightEdge(shape_records::StraightEdge),
   StyleChange(shape_records::StyleChange),
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct ShapeStyles {
+  pub fill: Vec<FillStyle>,
+  pub line: Vec<LineStyle>,
 }

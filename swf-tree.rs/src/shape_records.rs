@@ -1,6 +1,5 @@
-use super::basic_types::Vector2D;
-use super::shapes::FillStyle;
-use super::shapes::LineStyle;
+use crate::basic_types::Vector2D;
+use crate::ShapeStyles;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 pub struct CurvedEdge {
@@ -14,21 +13,15 @@ pub struct StraightEdge {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-pub struct ShapeStyles {
-  fill: Vec<FillStyle>,
-  line: Vec<LineStyle>,
-}
-
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 pub struct StyleChange {
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub move_to: Option<Vector2D>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub left_fill: Option<usize>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub right_fill: Option<usize>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub line_style: Option<usize>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub new_styles: Option<ShapeStyles>,
 }

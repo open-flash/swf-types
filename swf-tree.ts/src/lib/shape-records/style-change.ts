@@ -3,7 +3,7 @@ import { CaseStyle } from "kryo/case-style";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint32 } from "semantic-types";
-import { $ShapeStyles, ShapeStyles } from "../shape-style";
+import { $ShapeStyles, ShapeStyles } from "../shape-styles";
 import { $Vector2D, Vector2D } from "../vector-2d";
 import { $ShapeRecordType, ShapeRecordType } from "./_type";
 

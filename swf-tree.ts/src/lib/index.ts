@@ -1,4 +1,3 @@
-import * as avm1 from "./avm1/index";
 import * as fillStyles from "./fill-styles/index";
 import * as filters from "./filters/index";
 import * as joinStyles from "./join-styles/index";
@@ -6,7 +5,7 @@ import * as shapeRecords from "./shape-records/index";
 import * as tags from "./tags/index";
 import * as text from "./text/index";
 
-export { avm1, fillStyles, filters, joinStyles, shapeRecords, tags, text };
+export { fillStyles, filters, joinStyles, shapeRecords, tags, text };
 
 export { BlendMode } from "./blend-mode";
 export { CapStyle } from "./cap-style";

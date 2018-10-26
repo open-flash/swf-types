@@ -45,17 +45,18 @@ pub use self::movie::Movie;
 pub use self::movie::SwfSignature;
 pub use self::movie::Tag;
 
-mod shapes;
+mod shape;
 
-pub use self::shapes::ClipAction;
-pub use self::shapes::ClipEventFlags;
-pub use self::shapes::CapStyle;
-pub use self::shapes::FillStyle;
-pub use self::shapes::Glyph;
-pub use self::shapes::JoinStyle;
-pub use self::shapes::LineStyle;
-pub use self::shapes::Shape;
-pub use self::shapes::ShapeRecord;
+pub use self::shape::ClipAction;
+pub use self::shape::ClipEventFlags;
+pub use self::shape::CapStyle;
+pub use self::shape::FillStyle;
+pub use self::shape::Glyph;
+pub use self::shape::JoinStyle;
+pub use self::shape::LineStyle;
+pub use self::shape::Shape;
+pub use self::shape::ShapeRecord;
+pub use self::shape::ShapeStyles;
 
 mod sound;
 

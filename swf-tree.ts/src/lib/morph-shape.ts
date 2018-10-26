@@ -2,7 +2,7 @@ import { CaseStyle } from "kryo/case-style";
 import { ArrayType } from "kryo/types/array";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { $MorphShapeRecord, MorphShapeRecord } from "./morph-shape-record";
-import { $MorphShapeStyles, MorphShapeStyles } from "./morph-shape-style";
+import { $MorphShapeStyles, MorphShapeStyles } from "./morph-shape-styles";
 import { Shape } from "./shape";
 
 export interface MorphShape extends Shape {

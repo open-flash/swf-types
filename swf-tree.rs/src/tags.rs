@@ -1,7 +1,7 @@
 use super::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
 use super::float_is::Is;
 use super::helpers::{buffer_to_hex, hex_to_buffer};
-use super::shapes::{ClipAction, Glyph, Shape};
+use super::shape::{ClipAction, Glyph, Shape};
 use super::movie::Tag;
 use super::text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
 use super::sound;
