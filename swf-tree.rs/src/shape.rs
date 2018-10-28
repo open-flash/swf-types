@@ -199,6 +199,8 @@ pub mod shape_records {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub move_to: Option<Vector2D>,
     #[serde(skip_serializing_if = "Option::is_none")]
+    pub morph_move_to: Option<Vector2D>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub left_fill: Option<usize>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub right_fill: Option<usize>,

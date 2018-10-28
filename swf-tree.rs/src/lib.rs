@@ -37,6 +37,8 @@ pub use crate::gradient::ColorStop;
 pub use crate::gradient::ColorSpace;
 pub use crate::gradient::GradientSpread;
 pub use crate::gradient::Gradient;
+pub use crate::gradient::MorphColorStop;
+pub use crate::gradient::MorphGradient;
 
 mod image;
 
@@ -55,12 +57,17 @@ pub use crate::shape::ClipAction;
 pub use crate::shape::ClipEventFlags;
 pub use crate::shape::CapStyle;
 pub use crate::shape::FillStyle;
+pub use crate::shape::MorphFillStyle;
 pub use crate::shape::Glyph;
 pub use crate::shape::JoinStyle;
 pub use crate::shape::LineStyle;
+pub use crate::shape::MorphLineStyle;
 pub use crate::shape::Shape;
 pub use crate::shape::ShapeRecord;
 pub use crate::shape::ShapeStyles;
+pub use crate::shape::MorphShape;
+pub use crate::shape::MorphShapeRecord;
+pub use crate::shape::MorphShapeStyles;
 pub use crate::shape::shape_records;
 
 mod sound;

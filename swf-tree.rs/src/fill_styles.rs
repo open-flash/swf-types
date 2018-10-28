@@ -55,16 +55,19 @@ pub struct MorphFocalGradient {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 pub struct MorphLinearGradient {
   pub matrix: Matrix,
-  pub gradient: Gradient,
+  pub morph_matrix: Matrix,
+  pub gradient: MorphGradient,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 pub struct MorphRadialGradient {
   pub matrix: Matrix,
-  pub gradient: Gradient,
+  pub morph_matrix: Matrix,
+  pub gradient: MorphGradient,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 pub struct MorphSolid {
   pub color: StraightSRgba8,
+  pub morph_color: StraightSRgba8,
 }
