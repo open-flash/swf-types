@@ -9,7 +9,8 @@ export interface MorphSolid extends Solid {
 
 export const $MorphSolid: DocumentIoType<MorphSolid> = new DocumentType<MorphSolid>({
   properties: {
-    ...$Solid.properties,
+    type: $Solid.properties.type,
+    color: $Solid.properties.color,
     morphColor: {type: $StraightSRgba8},
   },
   changeCase: CaseStyle.SnakeCase,

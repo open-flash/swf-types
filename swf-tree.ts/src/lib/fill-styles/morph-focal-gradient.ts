@@ -13,9 +13,11 @@ export interface MorphFocalGradient extends FocalGradient {
 
 export const $MorphFocalGradient: DocumentIoType<MorphFocalGradient> = new DocumentType<MorphFocalGradient>({
   properties: {
-    ...$FocalGradient.properties,
+    type: $FocalGradient.properties.type,
+    matrix: $FocalGradient.properties.matrix,
     morphMatrix: {type: $Matrix},
     gradient: {type: $MorphGradient},
+    focalPoint: $FocalGradient.properties.focalPoint,
     morphFocalPoint: {type: Sfixed8P8},
   },
   changeCase: CaseStyle.SnakeCase,

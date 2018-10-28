@@ -13,8 +13,13 @@ export interface ColorTransformWithAlpha extends ColorTransform {
 // tslint:disable-next-line:max-line-length
 export const $ColorTransformWithAlpha: DocumentIoType<ColorTransformWithAlpha> = new DocumentType<ColorTransformWithAlpha>({
   properties: {
-    ...$ColorTransform.properties,
+    redMult: $ColorTransform.properties.redMult,
+    greenMult: $ColorTransform.properties.greenMult,
+    blueMult: $ColorTransform.properties.blueMult,
     alphaMult: {type: Sfixed8P8},
+    redAdd: $ColorTransform.properties.redAdd,
+    greenAdd: $ColorTransform.properties.greenAdd,
+    blueAdd: $ColorTransform.properties.blueAdd,
     alphaAdd: {type: $Sint16},
   },
   changeCase: CaseStyle.SnakeCase,

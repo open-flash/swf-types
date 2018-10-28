@@ -10,8 +10,10 @@ export interface MorphCurvedEdge extends CurvedEdge {
 
 export const $MorphCurvedEdge: DocumentIoType<MorphCurvedEdge> = new DocumentType<MorphCurvedEdge>({
   properties: {
-    ...$CurvedEdge.properties,
+    type: $CurvedEdge.properties.type,
+    controlDelta: $CurvedEdge.properties.controlDelta,
     morphControlDelta: {type: $Vector2D},
+    anchorDelta: $CurvedEdge.properties.anchorDelta,
     morphAnchorDelta: {type: $Vector2D},
   },
   changeCase: CaseStyle.SnakeCase,

@@ -11,7 +11,8 @@ export interface MorphLinearGradient extends LinearGradient {
 
 export const $MorphLinearGradient: DocumentIoType<MorphLinearGradient> = new DocumentType<MorphLinearGradient>({
   properties: {
-    ...$LinearGradient.properties,
+    type: $LinearGradient.properties.type,
+    matrix: $LinearGradient.properties.matrix,
     morphMatrix: {type: $Matrix},
     gradient: {type: $MorphGradient},
   },

@@ -9,7 +9,8 @@ export interface MorphStraightEdge extends StraightEdge {
 
 export const $MorphStraightEdge: DocumentIoType<MorphStraightEdge> = new DocumentType<MorphStraightEdge>({
   properties: {
-    ...$StraightEdge.properties,
+    type: $StraightEdge.properties.type,
+    delta: $StraightEdge.properties.delta,
     morphDelta: {type: $Vector2D},
   },
   changeCase: CaseStyle.SnakeCase,

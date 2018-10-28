@@ -10,7 +10,8 @@ export interface MorphGradient extends Gradient {
 
 export const $MorphGradient: DocumentIoType<MorphGradient> = new DocumentType<MorphGradient>({
   properties: {
-    ...$Gradient.properties,
+    spread: $Gradient.properties.spread,
+    colorSpace: $Gradient.properties.colorSpace,
     colors: {type: new ArrayType({itemType: $MorphColorStop, maxLength: Infinity})},
   },
   changeCase: CaseStyle.SnakeCase,

@@ -12,8 +12,9 @@ export interface MorphColorStop extends ColorStop {
 
 export const $MorphColorStop: DocumentIoType<MorphColorStop> = new DocumentType<MorphColorStop>({
   properties: {
-    ...$ColorStop.properties,
+    ratio: $ColorStop.properties.ratio,
     morphRatio: {type: $Uint8},
+    color: $ColorStop.properties.color,
     morphColor: {type: $StraightSRgba8},
   },
   changeCase: CaseStyle.SnakeCase,

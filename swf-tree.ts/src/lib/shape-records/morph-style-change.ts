@@ -11,8 +11,12 @@ export interface MorphStyleChange extends StyleChange {
 
 export const $MorphStyleChange: DocumentIoType<MorphStyleChange> = new DocumentType<MorphStyleChange>({
   properties: {
-    ...$StyleChange.properties,
+    type: $StyleChange.properties.type,
+    moveTo: $StyleChange.properties.moveTo,
     morphMoveTo: {type: $Vector2D, optional: true},
+    leftFill: $StyleChange.properties.leftFill,
+    rightFill: $StyleChange.properties.rightFill,
+    lineStyle: $StyleChange.properties.lineStyle,
     newStyles: {type: $MorphShapeStyles, optional: true},
   },
   changeCase: CaseStyle.SnakeCase,

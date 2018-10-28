@@ -12,8 +12,15 @@ export interface MorphLineStyle extends LineStyle {
 
 export const $MorphLineStyle: DocumentIoType<MorphLineStyle> = new DocumentType<MorphLineStyle>({
   properties: {
-    ...$LineStyle.properties,
+    width: $LineStyle.properties.width,
     morphWidth: {type: $Uint16},
+    startCap: $LineStyle.properties.startCap,
+    endCap: $LineStyle.properties.endCap,
+    join: $LineStyle.properties.join,
+    noHScale: $LineStyle.properties.noHScale,
+    noVScale: $LineStyle.properties.noVScale,
+    noClose: $LineStyle.properties.noClose,
+    pixelHinting: $LineStyle.properties.pixelHinting,
     fill: {type: $MorphFillStyle},
   },
   changeCase: CaseStyle.SnakeCase,

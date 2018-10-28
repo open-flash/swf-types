@@ -9,8 +9,12 @@ export interface MorphBitmap extends Bitmap {
 
 export const $MorphBitmap: DocumentIoType<MorphBitmap> = new DocumentType<MorphBitmap>({
   properties: {
-    ...$Bitmap.properties,
+    type: $Bitmap.properties.type,
+    bitmapId: $Bitmap.properties.bitmapId,
+    matrix: $Bitmap.properties.matrix,
     morphMatrix: {type: $Matrix},
+    repeating: $Bitmap.properties.repeating,
+    smoothed: $Bitmap.properties.smoothed,
   },
   changeCase: CaseStyle.SnakeCase,
 });

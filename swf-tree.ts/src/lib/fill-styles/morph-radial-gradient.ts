@@ -11,7 +11,8 @@ export interface MorphRadialGradient extends RadialGradient {
 
 export const $MorphRadialGradient: DocumentIoType<MorphRadialGradient> = new DocumentType<MorphRadialGradient>({
   properties: {
-    ...$RadialGradient.properties,
+    type: $RadialGradient.properties.type,
+    matrix: $RadialGradient.properties.matrix,
     morphMatrix: {type: $Matrix},
     gradient: {type: $MorphGradient},
   },
