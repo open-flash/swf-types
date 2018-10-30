@@ -16,11 +16,11 @@ export interface DefineFont extends _Tag {
   type: TagType.DefineFont;
   id: Uint16;
   fontName: string;
+  isBold: boolean;
+  isItalic: boolean;
+  isAnsi: boolean;
   isSmall: boolean;
   isShiftJis: boolean;
-  isAnsi: boolean;
-  isItalic: boolean;
-  isBold: boolean;
   language: LanguageCode;
   glyphs?: Glyph[];
   codeUnits?: Uint16[];
@@ -32,11 +32,11 @@ export const $DefineFont: DocumentIoType<DefineFont> = new DocumentType<DefineFo
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineFont as TagType.DefineFont})},
     id: {type: $Uint16},
     fontName: {type: new Ucs2StringType({maxLength: Infinity})},
+    isBold: {type: $Boolean},
+    isItalic: {type: $Boolean},
+    isAnsi: {type: $Boolean},
     isSmall: {type: $Boolean},
     isShiftJis: {type: $Boolean},
-    isAnsi: {type: $Boolean},
-    isItalic: {type: $Boolean},
-    isBold: {type: $Boolean},
     language: {type: $LanguageCode},
     glyphs: {type: new ArrayType({itemType: $Glyph, maxLength: Infinity}), optional: true},
     codeUnits: {type: new ArrayType({itemType: $Uint16, maxLength: Infinity}), optional: true},

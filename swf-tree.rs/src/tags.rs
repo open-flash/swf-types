@@ -11,6 +11,10 @@ use crate::button::ButtonRecord;
 use crate::button::ButtonCondAction;
 use crate::shape::MorphShape;
 use crate::ImageType;
+use crate::AudioCodingFormat;
+use crate::SoundRate;
+use crate::SoundSize;
+use crate::SoundType;
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "snake_case")]
@@ -119,11 +123,11 @@ pub struct DefineDynamicText {
 pub struct DefineFont {
   pub id: u16,
   pub font_name: String,
+  pub is_bold: bool,
+  pub is_italic: bool,
+  pub is_ansi: bool,
   pub is_small: bool,
   pub is_shift_jis: bool,
-  pub is_ansi: bool,
-  pub is_italic: bool,
-  pub is_bold: bool,
   pub language: LanguageCode,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub glyphs: Option<Vec<Glyph>>,
@@ -232,6 +236,19 @@ pub struct DefineShape {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
+pub struct DefineSound {
+  pub id: u16,
+  pub format: AudioCodingFormat,
+  pub sound_rate: SoundRate,
+  pub sound_size: SoundSize,
+  pub sound_type: SoundType,
+  pub sample_count: u32,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
+  pub data: Vec<u8>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
 pub struct DefineSprite {
   pub id: u16,
   pub frame_count: usize,
@@ -290,8 +307,7 @@ pub struct FileAttributes {
 #[serde(rename_all = "snake_case")]
 pub struct FrameLabel {
   pub name: String,
-  #[serde(skip_serializing_if = "Option::is_none")]
-  pub anchor_flag: Option<bool>,
+  pub is_anchor: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -326,18 +342,14 @@ pub struct PlaceObject {
   pub name: Option<String>,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub clip_depth: Option<u16>,
-  #[serde(skip_serializing_if = "Option::is_none")]
-  pub filters: Option<Vec<Filter>>,
-  #[serde(skip_serializing_if = "Option::is_none")]
-  pub blend_mode: Option<BlendMode>,
+  pub filters: Vec<Filter>,
+  pub blend_mode: BlendMode,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub bitmap_cache: Option<bool>,
-  #[serde(skip_serializing_if = "Option::is_none")]
-  pub visible: Option<bool>,
+  pub visible: bool,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub background_color: Option<StraightSRgba8>,
-  #[serde(skip_serializing_if = "Option::is_none")]
-  pub clip_actions: Option<Vec<ClipAction>>,
+  pub clip_actions: Vec<ClipAction>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

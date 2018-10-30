@@ -31,6 +31,10 @@ pub use crate::basic_types::Vector2D;
 
 mod button;
 
+pub use crate::button::ButtonCond;
+pub use crate::button::ButtonCondAction;
+pub use crate::button::ButtonRecord;
+
 mod gradient;
 
 pub use crate::gradient::ColorStop;
@@ -97,7 +101,7 @@ pub enum BlendMode {
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[serde(tag = "filter", rename_all = "kebab-case")]
 pub enum Filter {
   Blur(filters::Blur),
   Bevel(filters::Bevel),
@@ -127,6 +131,7 @@ pub enum Tag {
   DefinePartialFont(tags::DefinePartialFont),
   DefineSceneAndFrameLabelData(tags::DefineSceneAndFrameLabelData),
   DefineShape(tags::DefineShape),
+  DefineSound(tags::DefineSound),
   DefineSprite(tags::DefineSprite),
   DefineText(tags::DefineText),
   DoAction(tags::DoAction),

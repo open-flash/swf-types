@@ -9,15 +9,14 @@ import { $TagType, TagType } from "./_type";
 export interface FrameLabel extends _Tag {
   type: TagType.FrameLabel;
   name: string;
-  // TODO: Rename to `isAnchor` and make required
-  anchorFlag?: boolean;
+  isAnchor: boolean;
 }
 
 export const $FrameLabel: DocumentIoType<FrameLabel> = new DocumentType<FrameLabel>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.FrameLabel as TagType.FrameLabel})},
     name: {type: new Ucs2StringType({maxLength: Infinity})},
-    anchorFlag: {type: $Boolean, optional: true},
+    isAnchor: {type: $Boolean},
   },
   changeCase: CaseStyle.SnakeCase,
 });

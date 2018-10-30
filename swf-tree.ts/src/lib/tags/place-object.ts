@@ -6,7 +6,7 @@ import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { Uint16 } from "semantic-types";
-import { BlendMode } from "../blend-mode";
+import { $BlendMode, BlendMode } from "../blend-mode";
 import { $ClipActions, ClipActions } from "../clip-actions";
 import { $ColorTransformWithAlpha, ColorTransformWithAlpha } from "../color-transform-with-alpha";
 import { $Filter, Filter } from "../filter";
@@ -28,12 +28,12 @@ export interface PlaceObject extends _Tag {
   ratio?: Uint16;
   name?: string;
   clipDepth?: Uint16;
-  filters?: Filter[];
-  blendMode?: BlendMode;
+  filters: Filter[];
+  blendMode: BlendMode;
   bitmapCache?: boolean;
-  visible?: boolean;
+  visible: boolean;
   backgroundColor?: StraightSRgba8;
-  clipActions?: ClipActions[];
+  clipActions: ClipActions[];
 }
 
 export const $PlaceObject: DocumentIoType<PlaceObject> = new DocumentType<PlaceObject>(() => ({
@@ -47,11 +47,12 @@ export const $PlaceObject: DocumentIoType<PlaceObject> = new DocumentType<PlaceO
     ratio: {type: $Uint16, optional: true},
     name: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},
     clipDepth: {type: $Uint16, optional: true},
-    filters: {type: new ArrayType({itemType: $Filter, maxLength: Infinity}), optional: true},
+    filters: {type: new ArrayType({itemType: $Filter, maxLength: Infinity})},
+    blendMode: {type: $BlendMode},
     bitmapCache: {type: $Boolean, optional: true},
-    visible: {type: $Boolean, optional: true},
+    visible: {type: $Boolean},
     backgroundColor: {type: $StraightSRgba8, optional: true},
-    clipActions: {type: new ArrayType({itemType: $ClipActions, maxLength: Infinity}), optional: true},
+    clipActions: {type: new ArrayType({itemType: $ClipActions, maxLength: Infinity})},
   },
   changeCase: CaseStyle.SnakeCase,
 }));
