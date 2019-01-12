@@ -1,3 +1,4 @@
+import { $Bytes } from "kryo/builtins/bytes";
 import { $Uint16 } from "kryo/builtins/uint16";
 import { CaseStyle } from "kryo/case-style";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
@@ -5,7 +6,6 @@ import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
-import { $Bytes } from "kryo/builtins/bytes";
 
 export interface DoInitAction extends _Tag {
   type: TagType.DoInitAction;

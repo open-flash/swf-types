@@ -1,12 +1,16 @@
-import gulp from "gulp";
-import minimist, { ParsedArgs } from "minimist";
 import * as buildTools from "turbo-gulp";
+import { LibTarget, registerLibTasks } from "turbo-gulp/targets/lib";
+import { MochaTarget, registerMochaTasks } from "turbo-gulp/targets/mocha";
+import { NodeTarget, registerNodeTasks } from "turbo-gulp/targets/node";
+
+import gulp from "gulp";
+import minimist from "minimist";
 
 interface Options {
   devDist?: string;
 }
 
-const options: Options & ParsedArgs = minimist(process.argv.slice(2), {
+const options: Options & minimist.ParsedArgs = minimist(process.argv.slice(2), {
   string: ["devDist"],
   default: {devDist: undefined},
   alias: {devDist: "dev-dist"},
@@ -21,13 +25,14 @@ const project: buildTools.Project = {
   tslint: {
     configuration: {
       rules: {
+        "max-file-line-count": false,
         "no-submodule-imports": false,
       },
     },
   },
 };
 
-const lib: buildTools.LibTarget = {
+const lib: LibTarget = {
   project,
   name: "lib",
   srcDir: "src/lib",
@@ -44,6 +49,7 @@ const lib: buildTools.LibTarget = {
   },
   customTypingsDir: "src/custom-typings",
   tscOptions: {
+    declaration: true,
     skipLibCheck: true,
   },
   typedoc: {
@@ -64,11 +70,10 @@ const lib: buildTools.LibTarget = {
   },
 };
 
-const test: buildTools.MochaTarget = {
+const test: MochaTarget = {
   project,
   name: "test",
   srcDir: "src",
-  outModules: buildTools.OutModules.Both,
   scripts: ["test/**/*.ts", "lib/**/*.ts"],
   customTypingsDir: "src/custom-typings",
   tscOptions: {
@@ -79,26 +84,27 @@ const test: buildTools.MochaTarget = {
   },
 };
 
-const example: buildTools.NodeTarget = {
+const main: NodeTarget = {
   project,
-  name: "example",
+  name: "main",
   srcDir: "src",
-  scripts: ["example/**/*.ts", "lib/**/*.ts"],
-  tsconfigJson: "src/example/tsconfig.json",
-  mainModule: "example/main",
+  scripts: ["main/**/*.ts", "lib/**/*.ts"],
+  tsconfigJson: "src/main/tsconfig.json",
+  mainModule: "main/main",
   customTypingsDir: "src/custom-typings",
   tscOptions: {
     skipLibCheck: true,
   },
   clean: {
-    dirs: ["build/example", "dist/example"],
+    dirs: ["build/main", "dist/main"],
   },
 };
 
-const libTasks: any = buildTools.registerLibTasks(gulp, lib);
-buildTools.registerMochaTasks(gulp, test);
-buildTools.registerNodeTasks(gulp, example);
+const libTasks: any = registerLibTasks(gulp, lib);
+registerMochaTasks(gulp, test);
+registerNodeTasks(gulp, main);
 buildTools.projectTasks.registerAll(gulp, project);
 
-gulp.task("all:tsconfig.json", gulp.parallel("lib:tsconfig.json", "test:tsconfig.json", "example:tsconfig.json"));
+gulp.task("all:tsconfig.json", gulp.parallel("lib:tsconfig.json", "main:tsconfig.json", "test:tsconfig.json"));
 gulp.task("dist", libTasks.dist);
+gulp.task("default", libTasks.dist);
