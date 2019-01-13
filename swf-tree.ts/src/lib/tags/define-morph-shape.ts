@@ -10,16 +10,16 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineMorphShape extends _Tag {
-  type: TagType.DefineMorphShape;
-  id: Uint16;
-  bounds: Rect;
-  morphBounds: Rect;
+  readonly type: TagType.DefineMorphShape;
+  readonly id: Uint16;
+  readonly bounds: Rect;
+  readonly morphBounds: Rect;
   // TODO: Combine edgeBounds and morphEdgeBounds in something like MorphRect
-  edgeBounds?: Rect;
-  morphEdgeBounds?: Rect;
-  hasNonScalingStrokes: boolean;
-  hasScalingStrokes: boolean;
-  shape: MorphShape;
+  readonly edgeBounds?: Rect;
+  readonly morphEdgeBounds?: Rect;
+  readonly hasNonScalingStrokes: boolean;
+  readonly hasScalingStrokes: boolean;
+  readonly shape: MorphShape;
 }
 
 export const $DefineMorphShape: DocumentIoType<DefineMorphShape> = new DocumentType<DefineMorphShape>({

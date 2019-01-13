@@ -12,16 +12,16 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface SoundStreamHead extends _Tag {
-  type: TagType.SoundStreamHead;
-  playbackSoundRate: SoundRate;
-  playbackSoundSize: SoundSize;
-  playbackSoundType: SoundType;
-  streamSoundCompression: AudioCodingFormat;
-  streamSoundRate: SoundRate;
-  streamSoundSize: SoundSize;
-  streamSoundType: SoundType;
-  streamSoundSampleCount: Uint16;
-  latencySeek?: Sint16;
+  readonly type: TagType.SoundStreamHead;
+  readonly playbackSoundRate: SoundRate;
+  readonly playbackSoundSize: SoundSize;
+  readonly playbackSoundType: SoundType;
+  readonly streamSoundCompression: AudioCodingFormat;
+  readonly streamSoundRate: SoundRate;
+  readonly streamSoundSize: SoundSize;
+  readonly streamSoundType: SoundType;
+  readonly streamSoundSampleCount: Uint16;
+  readonly latencySeek?: Sint16;
 }
 
 export const $SoundStreamHead: DocumentIoType<SoundStreamHead> = new DocumentType<SoundStreamHead>({

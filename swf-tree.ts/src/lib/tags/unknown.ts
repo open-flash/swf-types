@@ -8,9 +8,9 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface Unknown extends _Tag {
-  type: TagType.Unknown;
-  code: Uint16;
-  data: Uint8Array;
+  readonly type: TagType.Unknown;
+  readonly code: Uint16;
+  readonly data: Uint8Array;
 }
 
 export const $Unknown: DocumentIoType<Unknown> = new DocumentType<Unknown>({

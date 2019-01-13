@@ -8,9 +8,9 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineSceneAndFrameLabelData extends _Tag {
-  type: TagType.DefineSceneAndFrameLabelData;
-  scenes: Scene[];
-  labels: Label[];
+  readonly type: TagType.DefineSceneAndFrameLabelData;
+  readonly scenes: ReadonlyArray<Scene>;
+  readonly labels: ReadonlyArray<Label>;
 }
 
 // tslint:disable-next-line:max-line-length

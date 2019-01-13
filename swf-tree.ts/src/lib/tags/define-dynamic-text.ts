@@ -14,37 +14,37 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineDynamicText extends _Tag {
-  type: TagType.DefineDynamicText;
-  id: Uint16;
-  bounds: Rect;
-  wordWrap: boolean;
-  multiline: boolean;
-  password: boolean;
-  readonly: boolean;
-  autoSize: boolean;
-  noSelect: boolean;
-  border: boolean;
-  wasStatic: boolean;
-  html: boolean;
-  useGlyphFont: boolean;
-  fontId?: Uint16;
-  fontClass?: string;
-  fontSize?: Uint16;
-  color?: StraightSRgba8;
-  maxLength?: UintSize;
-  align?: TextAlignment;
-  marginLeft: Uint16;
-  marginRight: Uint16;
-  indent: Uint16;
-  leading: Sint16;
-  variableName?: string;
-  text?: string;
+  readonly type: TagType.DefineDynamicText;
+  readonly id: Uint16;
+  readonly bounds: Rect;
+  readonly wordWrap: boolean;
+  readonly multiline: boolean;
+  readonly password: boolean;
+  readonly readonly: boolean;
+  readonly autoSize: boolean;
+  readonly noSelect: boolean;
+  readonly border: boolean;
+  readonly wasStatic: boolean;
+  readonly html: boolean;
+  readonly useGlyphFont: boolean;
+  readonly fontId?: Uint16;
+  readonly fontClass?: string;
+  readonly fontSize?: Uint16;
+  readonly color?: StraightSRgba8;
+  readonly maxLength?: UintSize;
+  readonly align?: TextAlignment;
+  readonly marginLeft: Uint16;
+  readonly marginRight: Uint16;
+  readonly indent: Uint16;
+  readonly leading: Sint16;
+  readonly variableName?: string;
+  readonly text?: string;
 }
 
 export const $DefineDynamicText: DocumentIoType<DefineDynamicText> = new DocumentType<DefineDynamicText>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineDynamicText as TagType.DefineDynamicText})},
-    id: {type: new IntegerType()},
+    id: {type: $Uint16},
     bounds: {type: $Rect},
     wordWrap: {type: $Boolean},
     multiline: {type: $Boolean},

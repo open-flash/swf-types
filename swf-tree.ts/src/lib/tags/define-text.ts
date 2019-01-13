@@ -11,11 +11,11 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineText extends _Tag {
-  type: TagType.DefineText;
-  id: Uint16;
-  bounds: Rect;
-  matrix: Matrix;
-  records: TextRecord[];
+  readonly type: TagType.DefineText;
+  readonly id: Uint16;
+  readonly bounds: Rect;
+  readonly matrix: Matrix;
+  readonly records: ReadonlyArray<TextRecord>;
 }
 
 export const $DefineText: DocumentIoType<DefineText> = new DocumentType<DefineText>({

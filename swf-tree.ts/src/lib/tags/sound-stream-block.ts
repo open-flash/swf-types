@@ -6,8 +6,8 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface SoundStreamBlock extends _Tag {
-  type: TagType.SoundStreamBlock;
-  data: Uint8Array;
+  readonly type: TagType.SoundStreamBlock;
+  readonly data: Uint8Array;
 }
 
 export const $SoundStreamBlock: DocumentIoType<SoundStreamBlock> = new DocumentType<SoundStreamBlock>({

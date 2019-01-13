@@ -10,14 +10,14 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineShape extends _Tag {
-  type: TagType.DefineShape;
-  id: Uint16;
-  bounds: Rect;
-  edgeBounds?: Rect;
-  hasFillWinding: boolean;
-  hasNonScalingStrokes: boolean;
-  hasScalingStrokes: boolean;
-  shape: Shape;
+  readonly type: TagType.DefineShape;
+  readonly id: Uint16;
+  readonly bounds: Rect;
+  readonly edgeBounds?: Rect;
+  readonly hasFillWinding: boolean;
+  readonly hasNonScalingStrokes: boolean;
+  readonly hasScalingStrokes: boolean;
+  readonly shape: Shape;
 }
 
 export const $DefineShape: DocumentIoType<DefineShape> = new DocumentType<DefineShape>({

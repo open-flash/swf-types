@@ -4,8 +4,8 @@ import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { $ButtonCond, ButtonCond } from "./button-cond";
 
 export interface ButtonCondAction {
-  conditions?: ButtonCond;
-  actions: Uint8Array;
+  readonly conditions?: ButtonCond;
+  readonly actions: Uint8Array;
 }
 
 export const $ButtonCondAction: DocumentIoType<ButtonCondAction> = new DocumentType<ButtonCondAction>({

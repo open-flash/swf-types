@@ -10,12 +10,12 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface CsmTextSettings extends _Tag {
-  type: TagType.CsmTextSettings;
-  textId: Uint16;
-  renderer: TextRenderer;
-  fitting: GridFitting;
-  thickness: Float32;
-  sharpness: Float32;
+  readonly type: TagType.CsmTextSettings;
+  readonly textId: Uint16;
+  readonly renderer: TextRenderer;
+  readonly fitting: GridFitting;
+  readonly thickness: Float32;
+  readonly sharpness: Float32;
 }
 
 export const $CsmTextSettings: DocumentIoType<CsmTextSettings> = new DocumentType<CsmTextSettings>({

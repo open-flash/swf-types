@@ -6,8 +6,8 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface EnableDebugger extends _Tag {
-  type: TagType.EnableDebugger;
-  password: string;
+  readonly type: TagType.EnableDebugger;
+  readonly password: string;
 }
 
 export const $EnableDebugger: DocumentIoType<EnableDebugger> = new DocumentType<EnableDebugger>({

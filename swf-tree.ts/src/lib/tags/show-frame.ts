@@ -5,7 +5,7 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface ShowFrame extends _Tag {
-  type: TagType.ShowFrame;
+  readonly type: TagType.ShowFrame;
 }
 
 export const $ShowFrame: DocumentIoType<ShowFrame> = new DocumentType<ShowFrame>({

@@ -9,9 +9,9 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefinePartialFont extends _Tag {
-  type: TagType.DefinePartialFont;
-  id: Uint16;
-  glyphs: Glyph[];
+  readonly type: TagType.DefinePartialFont;
+  readonly id: Uint16;
+  readonly glyphs: ReadonlyArray<Glyph>;
 }
 
 export const $DefinePartialFont: DocumentIoType<DefinePartialFont> = new DocumentType<DefinePartialFont>({

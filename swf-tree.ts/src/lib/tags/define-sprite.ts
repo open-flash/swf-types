@@ -9,10 +9,10 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineSprite extends _Tag {
-  type: TagType.DefineSprite;
-  id: Uint16;
-  frameCount: Uint16;
-  tags: SpriteTag[];
+  readonly type: TagType.DefineSprite;
+  readonly id: Uint16;
+  readonly frameCount: Uint16;
+  readonly tags: ReadonlyArray<SpriteTag>;
 }
 
 export const $DefineSprite: DocumentIoType<DefineSprite> = new DocumentType<DefineSprite>({

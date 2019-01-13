@@ -13,14 +13,14 @@ import { _Tag } from "../tags/_tag";
 import { $TagType, TagType } from "../tags/_type";
 
 export interface DefineSound extends _Tag {
-  type: TagType.DefineSound;
-  id: Uint16;
-  format: AudioCodingFormat;
-  soundRate: SoundRate;
-  soundSize: SoundSize;
-  soundType: SoundType;
-  sampleCount: Uint32;
-  data: Uint8Array;
+  readonly type: TagType.DefineSound;
+  readonly id: Uint16;
+  readonly format: AudioCodingFormat;
+  readonly soundRate: SoundRate;
+  readonly soundSize: SoundSize;
+  readonly soundType: SoundType;
+  readonly sampleCount: Uint32;
+  readonly data: Uint8Array;
 }
 
 export const $DefineSound: DocumentIoType<DefineSound> = new DocumentType<DefineSound>({

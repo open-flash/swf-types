@@ -6,8 +6,8 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface SetBackgroundColor extends _Tag {
-  type: TagType.SetBackgroundColor;
-  color: SRgb8;
+  readonly type: TagType.SetBackgroundColor;
+  readonly color: SRgb8;
 }
 
 export const $SetBackgroundColor: DocumentIoType<SetBackgroundColor> = new DocumentType<SetBackgroundColor>({

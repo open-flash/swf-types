@@ -6,8 +6,8 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineJpegTables extends _Tag {
-  type: TagType.DefineJpegTables;
-  data: Uint8Array;
+  readonly type: TagType.DefineJpegTables;
+  readonly data: Uint8Array;
 }
 
 export const $DefineJpegTables: DocumentIoType<DefineJpegTables> = new DocumentType<DefineJpegTables>({

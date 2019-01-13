@@ -7,9 +7,9 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface FrameLabel extends _Tag {
-  type: TagType.FrameLabel;
-  name: string;
-  isAnchor: boolean;
+  readonly type: TagType.FrameLabel;
+  readonly name: string;
+  readonly isAnchor: boolean;
 }
 
 export const $FrameLabel: DocumentIoType<FrameLabel> = new DocumentType<FrameLabel>({

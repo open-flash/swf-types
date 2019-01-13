@@ -9,12 +9,12 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineBitmap extends _Tag {
-  type: TagType.DefineBitmap;
-  id: Uint16;
-  width: Uint16;
-  height: Uint16;
-  mediaType: ImageType;
-  data: Uint8Array;
+  readonly type: TagType.DefineBitmap;
+  readonly id: Uint16;
+  readonly width: Uint16;
+  readonly height: Uint16;
+  readonly mediaType: ImageType;
+  readonly data: Uint8Array;
 }
 
 export const $DefineBitmap: DocumentIoType<DefineBitmap> = new DocumentType<DefineBitmap>({

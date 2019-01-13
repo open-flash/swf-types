@@ -6,8 +6,8 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface Telemetry extends _Tag {
-  type: TagType.Telemetry;
-  password?: Uint8Array;
+  readonly type: TagType.Telemetry;
+  readonly password?: Uint8Array;
 }
 
 export const $Telemetry: DocumentIoType<Telemetry> = new DocumentType<Telemetry>({

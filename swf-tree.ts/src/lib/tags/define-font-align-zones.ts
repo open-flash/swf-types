@@ -10,10 +10,10 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineFontAlignZones extends _Tag {
-  type: TagType.DefineFontAlignZones;
-  fontId: Uint16;
-  csmTableHint: CsmTableHint;
-  zones: FontAlignmentZone[];
+  readonly type: TagType.DefineFontAlignZones;
+  readonly fontId: Uint16;
+  readonly csmTableHint: CsmTableHint;
+  readonly zones: ReadonlyArray<FontAlignmentZone>;
 }
 
 export const $DefineFontAlignZones: DocumentIoType<DefineFontAlignZones> = new DocumentType<DefineFontAlignZones>({

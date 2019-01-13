@@ -10,12 +10,12 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineCffFont extends _Tag {
-  type: TagType.DefineCffFont;
-  id: Uint16;
-  fontName: string;
-  isItalic: boolean;
-  isBold: boolean;
-  data?: Uint8Array;
+  readonly type: TagType.DefineCffFont;
+  readonly id: Uint16;
+  readonly fontName: string;
+  readonly isItalic: boolean;
+  readonly isBold: boolean;
+  readonly data?: Uint8Array;
 }
 
 export const $DefineCffFont: DocumentIoType<DefineCffFont> = new DocumentType<DefineCffFont>({

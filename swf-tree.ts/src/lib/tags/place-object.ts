@@ -16,24 +16,24 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface PlaceObject extends _Tag {
-  type: TagType.PlaceObject;
+  readonly type: TagType.PlaceObject;
   // TODO: Rename to `isUpdate`
-  isMove: boolean;
-  depth: Uint16;
-  characterId?: Uint16;
-  className?: string;
-  matrix?: Matrix;
-  colorTransform?: ColorTransformWithAlpha;
+  readonly isMove: boolean;
+  readonly depth: Uint16;
+  readonly characterId?: Uint16;
+  readonly className?: string;
+  readonly matrix?: Matrix;
+  readonly colorTransform?: ColorTransformWithAlpha;
   // TODO: Better type? The ratio is `ratio / (1 << 16)`
-  ratio?: Uint16;
-  name?: string;
-  clipDepth?: Uint16;
-  filters: Filter[];
-  blendMode: BlendMode;
-  bitmapCache?: boolean;
-  visible: boolean;
-  backgroundColor?: StraightSRgba8;
-  clipActions: ClipActions[];
+  readonly ratio?: Uint16;
+  readonly name?: string;
+  readonly clipDepth?: Uint16;
+  readonly filters: ReadonlyArray<Filter>;
+  readonly blendMode: BlendMode;
+  readonly bitmapCache?: boolean;
+  readonly visible: boolean;
+  readonly backgroundColor?: StraightSRgba8;
+  readonly clipActions: ReadonlyArray<ClipActions>;
 }
 
 export const $PlaceObject: DocumentIoType<PlaceObject> = new DocumentType<PlaceObject>(() => ({

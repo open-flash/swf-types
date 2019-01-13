@@ -7,8 +7,8 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface ExportAssets extends _Tag {
-  type: TagType.ExportAssets;
-  assets: NamedId[];
+  readonly type: TagType.ExportAssets;
+  readonly assets: ReadonlyArray<NamedId>;
 }
 
 export const $ExportAssets: DocumentIoType<ExportAssets> = new DocumentType<ExportAssets>({

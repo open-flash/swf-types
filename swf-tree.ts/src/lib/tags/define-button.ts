@@ -11,11 +11,11 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineButton extends _Tag {
-  type: TagType.DefineButton;
-  id: Uint16;
-  trackAsMenu: boolean;
-  characters: ButtonRecord[];
-  actions: ButtonCondAction[];
+  readonly type: TagType.DefineButton;
+  readonly id: Uint16;
+  readonly trackAsMenu: boolean;
+  readonly characters: ReadonlyArray<ButtonRecord>;
+  readonly actions: ReadonlyArray<ButtonCondAction>;
 }
 
 export const $DefineButton: DocumentIoType<DefineButton> = new DocumentType<DefineButton>({

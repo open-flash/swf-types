@@ -6,8 +6,8 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface Metadata extends _Tag {
-  type: TagType.Metadata;
-  metadata: string;
+  readonly type: TagType.Metadata;
+  readonly metadata: string;
 }
 
 export const $Metadata: DocumentIoType<Metadata> = new DocumentType<Metadata>({

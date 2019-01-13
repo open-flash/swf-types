@@ -8,10 +8,10 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineFontName extends _Tag {
-  type: TagType.DefineFontName;
-  fontId: Uint16;
-  name: string;
-  copyright: string;
+  readonly type: TagType.DefineFontName;
+  readonly fontId: Uint16;
+  readonly name: string;
+  readonly copyright: string;
 }
 
 export const $DefineFontName: DocumentIoType<DefineFontName> = new DocumentType<DefineFontName>({

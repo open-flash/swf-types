@@ -6,14 +6,14 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface FileAttributes extends _Tag {
-  type: TagType.FileAttributes;
-  useDirectBlit: boolean;
-  useGpu: boolean;
-  hasMetadata: boolean;
-  useAs3: boolean;
-  noCrossDomainCaching: boolean;
-  useRelativeUrls: boolean;
-  useNetwork: boolean;
+  readonly type: TagType.FileAttributes;
+  readonly useDirectBlit: boolean;
+  readonly useGpu: boolean;
+  readonly hasMetadata: boolean;
+  readonly useAs3: boolean;
+  readonly noCrossDomainCaching: boolean;
+  readonly useRelativeUrls: boolean;
+  readonly useNetwork: boolean;
 }
 
 export const $FileAttributes: DocumentIoType<FileAttributes> = new DocumentType<FileAttributes>({

@@ -8,9 +8,9 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DoInitAction extends _Tag {
-  type: TagType.DoInitAction;
-  spriteId: Uint16;
-  actions: Uint8Array;
+  readonly type: TagType.DoInitAction;
+  readonly spriteId: Uint16;
+  readonly actions: Uint8Array;
 }
 
 export const $DoInitAction: DocumentIoType<DoInitAction> = new DocumentType<DoInitAction>(() => ({

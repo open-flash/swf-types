@@ -7,9 +7,9 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface RemoveObject extends _Tag {
-  type: TagType.RemoveObject;
-  characterId?: Uint16;
-  depth: Uint16;
+  readonly type: TagType.RemoveObject;
+  readonly characterId?: Uint16;
+  readonly depth: Uint16;
 }
 
 export const $RemoveObject: DocumentIoType<RemoveObject> = new DocumentType<RemoveObject>({

@@ -13,18 +13,18 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface DefineFont extends _Tag {
-  type: TagType.DefineFont;
-  id: Uint16;
-  fontName: string;
-  isBold: boolean;
-  isItalic: boolean;
-  isAnsi: boolean;
-  isSmall: boolean;
-  isShiftJis: boolean;
-  language: LanguageCode;
-  glyphs?: Glyph[];
-  codeUnits?: Uint16[];
-  layout?: FontLayout;
+  readonly type: TagType.DefineFont;
+  readonly id: Uint16;
+  readonly fontName: string;
+  readonly isBold: boolean;
+  readonly isItalic: boolean;
+  readonly isAnsi: boolean;
+  readonly isSmall: boolean;
+  readonly isShiftJis: boolean;
+  readonly language: LanguageCode;
+  readonly glyphs?: ReadonlyArray<Glyph>;
+  readonly codeUnits?: ReadonlyArray<Uint16>;
+  readonly layout?: FontLayout;
 }
 
 export const $DefineFont: DocumentIoType<DefineFont> = new DocumentType<DefineFont>({

@@ -8,9 +8,9 @@ import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
 export interface ImportAssets extends _Tag {
-  type: TagType.ImportAssets;
-  url: string;
-  assets: NamedId[];
+  readonly type: TagType.ImportAssets;
+  readonly url: string;
+  readonly assets: ReadonlyArray<NamedId>;
 }
 
 export const $ImportAssets: DocumentIoType<ImportAssets> = new DocumentType<ImportAssets>({
