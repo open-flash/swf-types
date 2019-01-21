@@ -22,7 +22,7 @@ export interface PlaceObject extends _Tag {
   readonly depth: Uint16;
   readonly characterId?: Uint16;
   readonly className?: string;
-  readonly matrix?: Matrix;
+  readonly matrix: Matrix;
   readonly colorTransform?: ColorTransformWithAlpha;
   // TODO: Better type? The ratio is `ratio / (1 << 16)`
   readonly ratio?: Uint16;
@@ -42,7 +42,7 @@ export const $PlaceObject: DocumentIoType<PlaceObject> = new DocumentType<PlaceO
     isMove: {type: $Boolean},
     depth: {type: $Uint16},
     characterId: {type: $Uint16, optional: true},
-    matrix: {type: $Matrix, optional: true},
+    matrix: {type: $Matrix},
     colorTransform: {type: $ColorTransformWithAlpha, optional: true},
     ratio: {type: $Uint16, optional: true},
     name: {type: new Ucs2StringType({maxLength: Infinity}), optional: true},

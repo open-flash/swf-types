@@ -14,6 +14,7 @@ export interface DefineButton extends _Tag {
   readonly type: TagType.DefineButton;
   readonly id: Uint16;
   readonly trackAsMenu: boolean;
+  // TODO: Rename to records (to match DefineShape)
   readonly characters: ReadonlyArray<ButtonRecord>;
   readonly actions: ReadonlyArray<ButtonCondAction>;
 }
