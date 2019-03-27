@@ -82,7 +82,7 @@ dependencies = [
 
 [[package]]
 name = "swf-tree"
-version = "0.0.18"
+version = "0.0.19"
 dependencies = [
  "avm1-tree 0.0.15 (registry+https://github.com/rust-lang/crates.io-index)",
  "hex 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
