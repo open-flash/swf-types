@@ -27,7 +27,7 @@ Beyond processing, the AST is also serializable in unambiguous way to JSON. This
 various component manipulating the AST to have a common language.
 
 References:
-- [Official SWF 10 spec](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/swf/pdf/swf-file-format-spec.pdf)
+- [Official SWF 19 spec (mirror)](https://github.com/open-flash/open-flash/blob/master/specs/swf-spec-19.pdf)
 - [Shumway SWF file](https://github.com/mozilla/shumway/blob/16451d8836fa85f4b16eeda8b4bda2fa9e2b22b0/src/swf/SWFFile.ts)
 - [Flex Movie](https://github.com/apache/flex-sdk/blob/bb7447f5ebe32ce58f85a9e9b2d2ffc48994cf42/modules/swfutils/src/java/flash/swf/Movie.java)
 - [SwfMill reference](http://www.swfmill.org/doc/reference.html)
