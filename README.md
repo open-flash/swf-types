@@ -6,6 +6,7 @@
 # SWF Tree
 
 [![npm](https://img.shields.io/npm/v/swf-tree.svg?maxAge=2592000)](https://www.npmjs.com/package/swf-tree)
+[![npm](https://img.shields.io/crates/v/swf-tree.svg?maxAge=2592000)](https://crates.io/crates/swf-tree)
 [![GitHub repository](https://img.shields.io/badge/Github-open--flash%2Fswf--tree-blue.svg)](https://github.com/open-flash/swf-tree)
 [![Build status](https://img.shields.io/travis/open-flash/swf-tree/master.svg?maxAge=2592000)](https://travis-ci.org/open-flash/swf-tree)
 
