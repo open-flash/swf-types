@@ -11,6 +11,9 @@ keywords = ["ast", "swf"]
 license = "AGPL-3.0-or-later"
 edition = "2018"
 
+[badges]
+travis-ci = { repository = "open-flash/swf-tree", branch = "master" }
+
 [lib]
 name = "swf_tree"
 path = "src/lib.rs"

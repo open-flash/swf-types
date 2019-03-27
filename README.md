@@ -1,4 +1,13 @@
+<a href="https://github.com/open-flash/open-flash">
+    <img src="https://raw.githubusercontent.com/open-flash/open-flash/master/logo.png"
+    alt="Open Flash logo" title="Open Flash" align="right" width="64" height="64" />
+</a>
+
 # SWF Tree
+
+[![npm](https://img.shields.io/npm/v/swf-tree.svg?maxAge=2592000)](https://www.npmjs.com/package/swf-tree)
+[![GitHub repository](https://img.shields.io/badge/Github-open--flash%2Fswf--tree-blue.svg)](https://github.com/open-flash/swf-tree)
+[![Build status](https://img.shields.io/travis/open-flash/swf-tree/master.svg?maxAge=2592000)](https://travis-ci.org/open-flash/swf-tree)
 
 This project specifies an Abstract Syntax Tree (AST) representation of SWF files (SWF movies). It
 also includes Rust and Typescript implementations providing type declarations and serialization to
