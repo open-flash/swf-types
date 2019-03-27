@@ -7,6 +7,50 @@ pub extern crate swf_fixed;
 
 pub use swf_fixed as fixed;
 
+pub use crate::basic_types::ColorTransform;
+pub use crate::basic_types::ColorTransformWithAlpha;
+pub use crate::basic_types::LanguageCode;
+pub use crate::basic_types::Matrix;
+pub use crate::basic_types::NamedId;
+pub use crate::basic_types::Rect;
+pub use crate::basic_types::SRgb8;
+pub use crate::basic_types::StraightSRgba8;
+pub use crate::basic_types::Vector2D;
+pub use crate::button::ButtonCond;
+pub use crate::button::ButtonCondAction;
+pub use crate::button::ButtonRecord;
+pub use crate::gradient::ColorSpace;
+pub use crate::gradient::ColorStop;
+pub use crate::gradient::Gradient;
+pub use crate::gradient::GradientSpread;
+pub use crate::gradient::MorphColorStop;
+pub use crate::gradient::MorphGradient;
+pub use crate::image::ImageType;
+pub use crate::movie::CompressionMethod;
+pub use crate::movie::Header;
+pub use crate::movie::Movie;
+pub use crate::movie::SwfSignature;
+pub use crate::shape::CapStyle;
+pub use crate::shape::ClipAction;
+pub use crate::shape::ClipEventFlags;
+pub use crate::shape::FillStyle;
+pub use crate::shape::Glyph;
+pub use crate::shape::JoinStyle;
+pub use crate::shape::LineStyle;
+pub use crate::shape::MorphFillStyle;
+pub use crate::shape::MorphLineStyle;
+pub use crate::shape::MorphShape;
+pub use crate::shape::MorphShapeRecord;
+pub use crate::shape::MorphShapeStyles;
+pub use crate::shape::Shape;
+pub use crate::shape::shape_records;
+pub use crate::shape::ShapeRecord;
+pub use crate::shape::ShapeStyles;
+pub use crate::sound::AudioCodingFormat;
+pub use crate::sound::SoundRate;
+pub use crate::sound::SoundSize;
+pub use crate::sound::SoundType;
+
 mod float_is;
 
 mod helpers;
@@ -19,67 +63,17 @@ pub mod text;
 
 mod basic_types;
 
-pub use crate::basic_types::ColorTransform;
-pub use crate::basic_types::ColorTransformWithAlpha;
-pub use crate::basic_types::LanguageCode;
-pub use crate::basic_types::Matrix;
-pub use crate::basic_types::NamedId;
-pub use crate::basic_types::Rect;
-pub use crate::basic_types::SRgb8;
-pub use crate::basic_types::StraightSRgba8;
-pub use crate::basic_types::Vector2D;
-
 mod button;
-
-pub use crate::button::ButtonCond;
-pub use crate::button::ButtonCondAction;
-pub use crate::button::ButtonRecord;
 
 mod gradient;
 
-pub use crate::gradient::ColorStop;
-pub use crate::gradient::ColorSpace;
-pub use crate::gradient::GradientSpread;
-pub use crate::gradient::Gradient;
-pub use crate::gradient::MorphColorStop;
-pub use crate::gradient::MorphGradient;
-
 mod image;
-
-pub use crate::image::ImageType;
 
 mod movie;
 
-pub use crate::movie::CompressionMethod;
-pub use crate::movie::Header;
-pub use crate::movie::Movie;
-pub use crate::movie::SwfSignature;
-
 mod shape;
 
-pub use crate::shape::ClipAction;
-pub use crate::shape::ClipEventFlags;
-pub use crate::shape::CapStyle;
-pub use crate::shape::FillStyle;
-pub use crate::shape::MorphFillStyle;
-pub use crate::shape::Glyph;
-pub use crate::shape::JoinStyle;
-pub use crate::shape::LineStyle;
-pub use crate::shape::MorphLineStyle;
-pub use crate::shape::Shape;
-pub use crate::shape::ShapeRecord;
-pub use crate::shape::ShapeStyles;
-pub use crate::shape::MorphShape;
-pub use crate::shape::MorphShapeRecord;
-pub use crate::shape::MorphShapeStyles;
-pub use crate::shape::shape_records;
-
 mod sound;
-
-pub use crate::sound::AudioCodingFormat;
-pub use crate::sound::SoundRate;
-pub use crate::sound::SoundSize;
-pub use crate::sound::SoundType;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
@@ -150,4 +144,32 @@ pub enum Tag {
   SoundStreamHead(tags::SoundStreamHead),
   Telemetry(tags::Telemetry),
   Unknown(tags::Unknown),
+}
+
+#[cfg(test)]
+mod parser_tests {
+  use std::path::Path;
+
+  use ::test_generator::test_expand_paths;
+
+  use crate::Movie;
+
+  test_expand_paths! { test_movie_json; "../tests/open-flash-db/standalone-movies/*/" }
+  fn test_movie_json(path: &str) {
+    let path: &Path = Path::new(path);
+    let name = path.components().last().unwrap().as_os_str().to_str().unwrap();
+    match name {
+      "blank" | "homestuck-beta-1" | "homestuck-beta-2" => return,
+      _ => (),
+    }
+    let ast_path = path.join("ast.json");
+    let json_file = ::std::fs::File::open(ast_path).unwrap();
+    let reader = ::std::io::BufReader::new(json_file);
+    serde_json::from_reader::<_, Movie>(reader).unwrap();
+
+//    let input_json = include_str!("../../test/swf-samples/simple/blank/blank.ast.json");
+//    let movie: Movie = serde_json::from_str(input_json).unwrap();
+//    let output_json = serde_json::to_string_pretty(&movie).unwrap();
+//    assert_eq!(output_json, input_json)
+  }
 }

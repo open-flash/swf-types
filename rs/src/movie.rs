@@ -39,25 +39,3 @@ pub struct SwfSignature {
   // Uncompressed SWF File length (including the header)
   pub uncompressed_file_length: usize,
 }
-
-#[cfg(test)]
-mod test_swf_samples {
-  use serde_json;
-  use super::Movie;
-
-  #[test]
-  fn simple_blank_blank() {
-    let input_json = include_str!("../../test/swf-samples/simple/blank/blank.ast.json");
-    let movie: Movie = serde_json::from_str(input_json).unwrap();
-    let output_json = serde_json::to_string_pretty(&movie).unwrap();
-    assert_eq!(output_json, input_json)
-  }
-
-  #[test]
-  fn simple_avm1_hello_world() {
-    let input_json = include_str!("../../test/swf-samples/simple/avm1/hello-world/hello-world.ast.json");
-    let movie: Movie = serde_json::from_str(input_json).unwrap();
-    let output_json = serde_json::to_string_pretty(&movie).unwrap();
-    assert_eq!(output_json, input_json)
-  }
-}

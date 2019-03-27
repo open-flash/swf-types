@@ -326,7 +326,8 @@ pub struct Metadata {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct PlaceObject {
-  pub is_move: bool,
+  /// Corresponds to `is_move` in the SWF spec.
+  pub is_update: bool,
   pub depth: u16,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub character_id: Option<u16>,
@@ -342,14 +343,18 @@ pub struct PlaceObject {
   pub name: Option<String>,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub clip_depth: Option<u16>,
-  pub filters: Vec<Filter>,
-  pub blend_mode: BlendMode,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub filters: Option<Vec<Filter>>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub blend_mode: Option<BlendMode>,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub bitmap_cache: Option<bool>,
-  pub visible: bool,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub visible: Option<bool>,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub background_color: Option<StraightSRgba8>,
-  pub clip_actions: Vec<ClipAction>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub clip_actions: Option<Vec<ClipAction>>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
