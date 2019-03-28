@@ -1,6 +1,6 @@
 [package]
 name = "swf-tree"
-version = "0.0.19"
+version = "0.0.20"
 authors = ["Charles Samborski <demurgos@demurgos.net>"]
 description = "Abstract Syntax Tree (AST) for SWF files"
 documentation = "https://github.com/open-flash/swf-tree"
