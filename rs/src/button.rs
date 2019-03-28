@@ -3,6 +3,7 @@ use ::serde::{Deserialize, Serialize};
 use crate::BlendMode;
 use crate::ColorTransformWithAlpha;
 use crate::Filter;
+use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::Matrix;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
@@ -26,6 +27,7 @@ pub struct ButtonRecord {
 pub struct ButtonCondAction {
   #[serde(skip_serializing_if = "Option::is_none")]
   pub conditions: Option<ButtonCond>,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub actions: Vec<u8>,
 }
 
