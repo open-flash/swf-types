@@ -1,7 +1,9 @@
-use super::basic_types::StraightSRgba8;
-use super::swf_fixed::{Sfixed16P16, Sfixed8P8};
-use super::float_is::Is;
-use super::gradient::ColorStop;
+use ::serde::{Deserialize, Serialize};
+
+use crate::basic_types::StraightSRgba8;
+use crate::float_is::Is;
+use crate::gradient::ColorStop;
+use crate::fixed::{Sfixed16P16, Sfixed8P8};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]

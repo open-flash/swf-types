@@ -1,7 +1,3 @@
-extern crate swf_tree;
-
-extern crate serde_json;
-
 use swf_tree::{SRgb8, Tag, tags};
 
 fn main() {

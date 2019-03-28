@@ -1,4 +1,6 @@
-use super::basic_types::StraightSRgba8;
+use ::serde::{Deserialize, Serialize};
+
+use crate::basic_types::StraightSRgba8;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]

@@ -1,3 +1,5 @@
+use ::serde::{Deserialize, Serialize};
+
 use crate::fill_styles;
 use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::join_styles;
@@ -152,7 +154,10 @@ pub struct MorphShapeStyles {
 }
 
 pub mod shape_records {
+  use ::serde::{Deserialize, Serialize};
+
   use crate::Vector2D;
+
   use super::{MorphShapeStyles, ShapeStyles};
 
   #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

@@ -1,5 +1,7 @@
+use ::serde::{Deserialize, Serialize};
+
 use crate::basic_types::Rect;
-use crate::swf_fixed::Ufixed8P8;
+use crate::fixed::Ufixed8P8;
 use crate::Tag;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

@@ -1,3 +1,5 @@
+use ::serde::{Deserialize, Serialize};
+
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "kebab-case")]
 pub enum AudioCodingFormat {

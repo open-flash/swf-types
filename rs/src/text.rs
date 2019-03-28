@@ -1,3 +1,5 @@
+use ::serde::{Deserialize, Serialize};
+
 use super::basic_types::{Rect, StraightSRgba8};
 use super::float_is::Is;
 

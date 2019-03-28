@@ -1,3 +1,5 @@
+use ::serde::{Deserialize, Serialize};
+
 use crate::BlendMode;
 use crate::ColorTransformWithAlpha;
 use crate::Filter;

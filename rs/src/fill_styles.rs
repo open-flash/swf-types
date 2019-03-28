@@ -1,6 +1,8 @@
-use super::swf_fixed::Sfixed8P8;
-use super::gradient::{Gradient, MorphGradient};
-use super::basic_types::{Matrix, StraightSRgba8};
+use ::serde::{Deserialize, Serialize};
+
+use crate::basic_types::{Matrix, StraightSRgba8};
+use crate::fixed::Sfixed8P8;
+use crate::gradient::{Gradient, MorphGradient};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 pub struct Bitmap {

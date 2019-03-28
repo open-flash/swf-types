@@ -1,11 +1,6 @@
-extern crate hex;
-extern crate serde;
-#[macro_use]
-extern crate serde_derive;
-extern crate serde_json;
-pub extern crate swf_fixed;
+use ::serde::{Deserialize, Serialize};
 
-pub use swf_fixed as fixed;
+pub use ::swf_fixed as fixed;
 
 pub use crate::basic_types::ColorTransform;
 pub use crate::basic_types::ColorTransformWithAlpha;

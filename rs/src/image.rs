@@ -1,3 +1,5 @@
+use ::serde::{Deserialize, Serialize};
+
 /// Supported image types
 ///
 /// - `x-partial-jpeg`: JPEG file without  Tables/Misc chunk. It has to be defined in a

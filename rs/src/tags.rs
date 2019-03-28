@@ -1,3 +1,5 @@
+use ::serde::{Deserialize, Serialize};
+
 use crate::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
 use crate::float_is::Is;
 use crate::helpers::{buffer_to_hex, hex_to_buffer};

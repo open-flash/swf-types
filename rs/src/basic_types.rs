@@ -1,4 +1,5 @@
-use swf_fixed::{Sfixed16P16, Sfixed8P8};
+use ::serde::{Deserialize, Serialize};
+use ::swf_fixed::{Sfixed16P16, Sfixed8P8};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
