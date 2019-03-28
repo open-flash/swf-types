@@ -13,28 +13,28 @@ import { $TagType, TagType } from "./_type";
 
 export interface SoundStreamHead extends _Tag {
   readonly type: TagType.SoundStreamHead;
-  readonly playbackSoundRate: SoundRate;
-  readonly playbackSoundSize: SoundSize;
   readonly playbackSoundType: SoundType;
-  readonly streamSoundCompression: AudioCodingFormat;
-  readonly streamSoundRate: SoundRate;
-  readonly streamSoundSize: SoundSize;
+  readonly playbackSoundSize: SoundSize;
+  readonly playbackSoundRate: SoundRate;
   readonly streamSoundType: SoundType;
-  readonly streamSoundSampleCount: Uint16;
+  readonly streamSoundSize: SoundSize;
+  readonly streamSoundRate: SoundRate;
+  readonly streamFormat: AudioCodingFormat;
+  readonly streamSampleCount: Uint16;
   readonly latencySeek?: Sint16;
 }
 
 export const $SoundStreamHead: DocumentIoType<SoundStreamHead> = new DocumentType<SoundStreamHead>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.SoundStreamHead as TagType.SoundStreamHead})},
-    playbackSoundRate: {type: $SoundRate},
-    playbackSoundSize: {type: $SoundSize},
     playbackSoundType: {type: $SoundType},
-    streamSoundCompression: {type: $AudioCodingFormat},
-    streamSoundRate: {type: $SoundRate},
-    streamSoundSize: {type: new LiteralType({type: $SoundSize, value: 16 as 16})},
+    playbackSoundSize: {type: $SoundSize},
+    playbackSoundRate: {type: $SoundRate},
     streamSoundType: {type: $SoundType},
-    streamSoundSampleCount: {type: $Uint16},
+    streamSoundSize: {type: $SoundSize},
+    streamSoundRate: {type: $SoundRate},
+    streamFormat: {type: $AudioCodingFormat},
+    streamSampleCount: {type: $Uint16},
     latencySeek: {type: $Sint16, optional: true},
   },
   changeCase: CaseStyle.SnakeCase,

@@ -15,10 +15,10 @@ import { $TagType, TagType } from "../tags/_type";
 export interface DefineSound extends _Tag {
   readonly type: TagType.DefineSound;
   readonly id: Uint16;
-  readonly format: AudioCodingFormat;
-  readonly soundRate: SoundRate;
-  readonly soundSize: SoundSize;
   readonly soundType: SoundType;
+  readonly soundSize: SoundSize;
+  readonly soundRate: SoundRate;
+  readonly format: AudioCodingFormat;
   readonly sampleCount: Uint32;
   readonly data: Uint8Array;
 }
@@ -27,10 +27,10 @@ export const $DefineSound: DocumentIoType<DefineSound> = new DocumentType<Define
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineSound as TagType.DefineSound})},
     id: {type: $Uint16},
-    format: {type: $AudioCodingFormat},
-    soundRate: {type: $SoundRate},
-    soundSize: {type: $SoundSize},
     soundType: {type: $SoundType},
+    soundSize: {type: $SoundSize},
+    soundRate: {type: $SoundRate},
+    format: {type: $AudioCodingFormat},
     sampleCount: {type: $Uint32},
     data: {type: $Bytes},
   },

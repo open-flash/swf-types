@@ -240,10 +240,10 @@ pub struct DefineShape {
 #[serde(rename_all = "snake_case")]
 pub struct DefineSound {
   pub id: u16,
-  pub format: AudioCodingFormat,
-  pub sound_rate: SoundRate,
-  pub sound_size: SoundSize,
   pub sound_type: SoundType,
+  pub sound_size: SoundSize,
+  pub sound_rate: SoundRate,
+  pub format: AudioCodingFormat,
   pub sample_count: u32,
   #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
@@ -386,14 +386,14 @@ pub struct SoundStreamBlock {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct SoundStreamHead {
-  pub playback_sound_rate: sound::SoundRate,
-  pub playback_sound_size: sound::SoundSize,
   pub playback_sound_type: sound::SoundType,
-  pub stream_sound_compression: sound::AudioCodingFormat,
-  pub stream_sound_rate: sound::SoundRate,
-  pub stream_sound_size: sound::SoundSize,
+  pub playback_sound_size: sound::SoundSize,
+  pub playback_sound_rate: sound::SoundRate,
   pub stream_sound_type: sound::SoundType,
-  pub stream_sound_sample_count: u16,
+  pub stream_sound_size: sound::SoundSize,
+  pub stream_sound_rate: sound::SoundRate,
+  pub stream_format: sound::AudioCodingFormat,
+  pub stream_sample_count: u16,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub latency_seek: Option<i16>,
 }
