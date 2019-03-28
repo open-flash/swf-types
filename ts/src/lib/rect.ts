@@ -1,21 +1,21 @@
-import { $Sint16 } from "kryo/builtins/sint16";
+import { $Sint32 } from "kryo/builtins/sint32";
 import { CaseStyle } from "kryo/case-style";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { Sint16 } from "semantic-types";
+import { Sint32 } from "semantic-types";
 
 export interface Rect {
-  xMin: Sint16;
-  xMax: Sint16;
-  yMin: Sint16;
-  yMax: Sint16;
+  xMin: Sint32;
+  xMax: Sint32;
+  yMin: Sint32;
+  yMax: Sint32;
 }
 
 export const $Rect: DocumentIoType<Rect> = new DocumentType<Rect>({
   properties: {
-    xMin: {type: $Sint16},
-    xMax: {type: $Sint16},
-    yMin: {type: $Sint16},
-    yMax: {type: $Sint16},
+    xMin: {type: $Sint32},
+    xMax: {type: $Sint32},
+    yMin: {type: $Sint32},
+    yMax: {type: $Sint32},
   },
   changeCase: CaseStyle.SnakeCase,
 });

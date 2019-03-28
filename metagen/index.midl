@@ -9,10 +9,10 @@ struct Header {
 }
 
 struct Rect {
-  x_min: Sint16;
-  x_max: Sint16;
-  y_min: Sint16;
-  y_max: Sint16;
+  x_min: Sint32;
+  x_max: Sint32;
+  y_min: Sint32;
+  y_max: Sint32;
 }
 
 sum Tag {

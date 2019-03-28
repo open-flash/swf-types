@@ -57,10 +57,10 @@ pub struct NamedId {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct Rect {
-  pub x_min: i16,
-  pub x_max: i16,
-  pub y_min: i16,
-  pub y_max: i16,
+  pub x_min: i32,
+  pub x_max: i32,
+  pub y_min: i32,
+  pub y_max: i32,
 }
 
 // Color point in the sRGB color space with 8-bit color depth
