@@ -23,7 +23,6 @@ name = "swf-tree"
 path = "src/main.rs"
 
 [dependencies]
-avm1-tree = "^0.0.15"
 hex = "^0.3.2"
 serde = { version = "^1.0.80", features = ["derive"] }
 serde_json = "^1.0.32"
