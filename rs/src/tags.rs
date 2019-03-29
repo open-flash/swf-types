@@ -369,6 +369,13 @@ pub struct RemoveObject {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
+pub struct ScriptLimits {
+  pub max_recursion_depth: u16,
+  pub script_timeout: u16,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
 pub struct SetBackgroundColor {
   /// Color of the display background
   pub color: SRgb8,

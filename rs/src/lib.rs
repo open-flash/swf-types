@@ -1,5 +1,4 @@
 use ::serde::{Deserialize, Serialize};
-
 pub use ::swf_fixed as fixed;
 
 pub use crate::basic_types::ColorTransform;
@@ -133,6 +132,7 @@ pub enum Tag {
   Metadata(tags::Metadata),
   PlaceObject(tags::PlaceObject),
   RemoveObject(tags::RemoveObject),
+  ScriptLimits(tags::ScriptLimits),
   SetBackgroundColor(tags::SetBackgroundColor),
   ShowFrame,
   SoundStreamBlock(tags::SoundStreamBlock),
