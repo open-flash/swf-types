@@ -1,6 +1,6 @@
 use ::serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum AudioCodingFormat {
   UncompressedNativeEndian,
@@ -13,7 +13,7 @@ pub enum AudioCodingFormat {
   Speex,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum SoundRate {
   SoundRate5500,
   SoundRate11000,
@@ -69,7 +69,7 @@ impl<'de> ::serde::Deserialize<'de> for SoundRate {
   }
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Copy, Clone)]
 pub enum SoundSize {
   SoundSize8,
   SoundSize16,
@@ -120,7 +120,7 @@ impl<'de> ::serde::Deserialize<'de> for SoundSize {
   }
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum SoundType {
   Mono,

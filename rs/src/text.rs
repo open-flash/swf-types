@@ -3,7 +3,7 @@ use ::serde::{Deserialize, Serialize};
 use super::basic_types::{Rect, StraightSRgba8};
 use super::float_is::Is;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum CsmTableHint {
   Thin,
@@ -57,7 +57,7 @@ pub struct GlyphEntry {
   pub advance: i32,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum GridFitting {
   None,
@@ -73,7 +73,7 @@ pub struct KerningRecord {
   pub adjustment: i16,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum TextAlignment {
   Left,
@@ -96,7 +96,7 @@ pub struct TextRecord {
   pub entries: Vec<GlyphEntry>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum TextRenderer {
   Normal,

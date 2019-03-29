@@ -70,7 +70,7 @@ mod shape;
 
 mod sound;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum BlendMode {
   Normal,

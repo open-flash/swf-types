@@ -6,7 +6,7 @@ use ::serde::{Deserialize, Serialize};
 ///   `DefineJpegTables` tag and injected in the first Start Of Frame (SOF) JPEG chunk.
 /// - `x-ajpeg`: JPEG with alpha mask (see DefineJPEG3):
 ///   `x-ajpeg` :: `jpeg_size(uint16be)` `jpeg` `alpha`
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 pub enum ImageType {
   #[serde(rename = "image/jpeg")]
   Jpeg,

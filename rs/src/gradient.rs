@@ -2,7 +2,7 @@ use ::serde::{Deserialize, Serialize};
 
 use crate::basic_types::StraightSRgba8;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum GradientSpread {
   Pad,
@@ -10,7 +10,7 @@ pub enum GradientSpread {
   Repeat,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum ColorSpace {
   SRgb,

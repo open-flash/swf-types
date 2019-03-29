@@ -4,7 +4,7 @@ use crate::fill_styles;
 use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::join_styles;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
 #[serde(rename_all = "kebab-case")]
 pub enum CapStyle {
   None,
