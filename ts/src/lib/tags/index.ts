@@ -32,5 +32,6 @@ export { $SetBackgroundColor, SetBackgroundColor } from "./set-background-color"
 export { $ShowFrame, ShowFrame } from "./show-frame";
 export { $SoundStreamBlock, SoundStreamBlock } from "./sound-stream-block";
 export { $SoundStreamHead, SoundStreamHead } from "./sound-stream-head";
+export { $SymbolClass, SymbolClass } from "./symbol-class";
 export { $Telemetry, Telemetry } from "./telemetry";
 export { $Unknown, Unknown } from "./unknown";

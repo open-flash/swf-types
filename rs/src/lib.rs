@@ -138,6 +138,7 @@ pub enum Tag {
   ShowFrame,
   SoundStreamBlock(tags::SoundStreamBlock),
   SoundStreamHead(tags::SoundStreamHead),
+  SymbolClass(tags::SymbolClass),
   Telemetry(tags::Telemetry),
   Unknown(tags::Unknown),
 }

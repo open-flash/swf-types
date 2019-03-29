@@ -36,6 +36,7 @@ export type Tag =
   | tags.ShowFrame
   | tags.SoundStreamBlock
   | tags.SoundStreamHead
+  | tags.SymbolClass
   | tags.Telemetry
   | tags.Unknown;
 
@@ -75,6 +76,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$ShowFrame,
     tags.$SoundStreamBlock,
     tags.$SoundStreamHead,
+    tags.$SymbolClass,
     tags.$Telemetry,
     tags.$Unknown,
   ],

@@ -416,6 +416,12 @@ pub struct SoundStreamHead {
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
+pub struct SymbolClass {
+  pub symbols: Vec<NamedId>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
 pub struct Telemetry {
   // TODO(demurgos): Serialize optional buffers to hex
   // #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
