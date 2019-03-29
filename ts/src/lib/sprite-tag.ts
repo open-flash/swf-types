@@ -11,6 +11,8 @@ export type SpriteTag =
   | tags.ShowFrame
   | tags.SoundStreamHead
   | tags.SoundStreamBlock
+  | tags.StartSound
+  | tags.StartSound2
   | tags.Unknown;
 
 export const $SpriteTag: TaggedUnionType<SpriteTag> = new TaggedUnionType<SpriteTag>(() => ({
@@ -24,6 +26,8 @@ export const $SpriteTag: TaggedUnionType<SpriteTag> = new TaggedUnionType<Sprite
     tags.$ShowFrame,
     tags.$SoundStreamBlock,
     tags.$SoundStreamHead,
+    tags.$StartSound,
+    tags.$StartSound2,
     tags.$Unknown,
   ],
   tag: "type",

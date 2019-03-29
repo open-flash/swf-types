@@ -126,3 +126,27 @@ pub enum SoundType {
   Mono,
   Stereo,
 }
+
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct SoundInfo {
+  pub sync_stop: bool,
+  pub sync_no_multiple: bool,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub in_point: Option<u32>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub out_point: Option<u32>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub loop_count: Option<u16>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub envelope_records: Option<Vec<SoundEnvelope>>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct SoundEnvelope {
+  pub pos44: u32,
+  pub left_level: u16,
+  pub right_level: u16,
+}

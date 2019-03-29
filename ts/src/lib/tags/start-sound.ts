@@ -3,9 +3,9 @@ import { CaseStyle } from "kryo/case-style";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { _Tag } from "../tags/_tag";
-import { $TagType, TagType } from "../tags/_type";
-import { $SoundInfo, SoundInfo } from "./sound-info";
+import { $SoundInfo, SoundInfo } from "../sound/sound-info";
+import { _Tag } from "./_tag";
+import { $TagType, TagType } from "./_type";
 
 export interface StartSound extends _Tag {
   type: TagType.StartSound;

@@ -1,6 +1,5 @@
 use ::serde::{Deserialize, Serialize};
 
-use crate::AudioCodingFormat;
 use crate::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
 use crate::BlendMode;
 use crate::button::ButtonCondAction;
@@ -11,10 +10,7 @@ use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::ImageType;
 use crate::shape::{ClipAction, Glyph, Shape};
 use crate::shape::MorphShape;
-use crate::sound;
-use crate::SoundRate;
-use crate::SoundSize;
-use crate::SoundType;
+use crate::sound::{AudioCodingFormat, SoundInfo, SoundRate, SoundSize, SoundType};
 use crate::Tag;
 use crate::text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
 
@@ -402,16 +398,30 @@ pub struct SoundStreamBlock {
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
 #[serde(rename_all = "snake_case")]
 pub struct SoundStreamHead {
-  pub playback_sound_type: sound::SoundType,
-  pub playback_sound_size: sound::SoundSize,
-  pub playback_sound_rate: sound::SoundRate,
-  pub stream_sound_type: sound::SoundType,
-  pub stream_sound_size: sound::SoundSize,
-  pub stream_sound_rate: sound::SoundRate,
-  pub stream_format: sound::AudioCodingFormat,
+  pub playback_sound_type: SoundType,
+  pub playback_sound_size: SoundSize,
+  pub playback_sound_rate: SoundRate,
+  pub stream_sound_type: SoundType,
+  pub stream_sound_size: SoundSize,
+  pub stream_sound_rate: SoundRate,
+  pub stream_format: AudioCodingFormat,
   pub stream_sample_count: u16,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub latency_seek: Option<i16>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct StartSound {
+  pub sound_id: u16,
+  pub sound_info: SoundInfo,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct StartSound2 {
+  pub sound_class_name: String,
+  pub sound_info: SoundInfo,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
