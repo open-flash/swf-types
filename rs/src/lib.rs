@@ -122,6 +122,7 @@ pub enum Tag {
   DefineSound(tags::DefineSound),
   DefineSprite(tags::DefineSprite),
   DefineText(tags::DefineText),
+  DoAbc(tags::DoAbc),
   DoAction(tags::DoAction),
   DoInitAction(tags::DoInitAction),
   EnableDebugger(tags::EnableDebugger),

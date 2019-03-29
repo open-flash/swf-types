@@ -1,22 +1,22 @@
 use ::serde::{Deserialize, Serialize};
 
+use crate::AudioCodingFormat;
 use crate::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
+use crate::BlendMode;
+use crate::button::ButtonCondAction;
+use crate::button::ButtonRecord;
+use crate::Filter;
 use crate::float_is::Is;
 use crate::helpers::{buffer_to_hex, hex_to_buffer};
-use crate::shape::{ClipAction, Glyph, Shape};
-use crate::text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
-use crate::sound;
-use crate::BlendMode;
-use crate::Filter;
-use crate::Tag;
-use crate::button::ButtonRecord;
-use crate::button::ButtonCondAction;
-use crate::shape::MorphShape;
 use crate::ImageType;
-use crate::AudioCodingFormat;
+use crate::shape::{ClipAction, Glyph, Shape};
+use crate::shape::MorphShape;
+use crate::sound;
 use crate::SoundRate;
 use crate::SoundSize;
 use crate::SoundType;
+use crate::Tag;
+use crate::text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "snake_case")]
@@ -264,6 +264,15 @@ pub struct DefineText {
   pub bounds: Rect,
   pub matrix: Matrix,
   pub records: Vec<TextRecord>,
+}
+
+#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[serde(rename_all = "snake_case")]
+pub struct DoAbc {
+  pub flags: u32,
+  pub name: String,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
+  pub data: Vec<u8>,
 }
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]

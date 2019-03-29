@@ -20,6 +20,7 @@ export type Tag =
   | tags.DefineSound
   | tags.DefineSprite
   | tags.DefineText
+  | tags.DoAbc
   | tags.DoAction
   | tags.DoInitAction
   | tags.EnableDebugger
@@ -30,6 +31,7 @@ export type Tag =
   | tags.Metadata
   | tags.PlaceObject
   | tags.RemoveObject
+  | tags.ScriptLimits
   | tags.SetBackgroundColor
   | tags.ShowFrame
   | tags.SoundStreamBlock
@@ -57,6 +59,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$DefineSound,
     tags.$DefineSprite,
     tags.$DefineText,
+    tags.$DoAbc,
     tags.$DoAction,
     tags.$DoInitAction,
     tags.$EnableDebugger,
@@ -67,6 +70,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$Metadata,
     tags.$PlaceObject,
     tags.$RemoveObject,
+    tags.$ScriptLimits,
     tags.$SetBackgroundColor,
     tags.$ShowFrame,
     tags.$SoundStreamBlock,
