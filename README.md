@@ -5,10 +5,10 @@
 
 # SWF Tree
 
-[![npm](https://img.shields.io/npm/v/swf-tree.svg?maxAge=2592000)](https://www.npmjs.com/package/swf-tree)
-[![crates.io](https://img.shields.io/crates/v/swf-tree.svg?maxAge=2592000)](https://crates.io/crates/swf-tree)
-[![GitHub repository](https://img.shields.io/badge/Github-open--flash%2Fswf--tree-blue.svg)](https://github.com/open-flash/swf-tree)
-[![Build status](https://img.shields.io/travis/open-flash/swf-tree/master.svg?maxAge=2592000)](https://travis-ci.org/open-flash/swf-tree)
+[![npm](https://img.shields.io/npm/v/swf-tree.svg?maxAge=86400)](https://www.npmjs.com/package/swf-tree)
+[![crates.io](https://img.shields.io/crates/v/swf-tree.svg?maxAge=86400)](https://crates.io/crates/swf-tree)
+[![GitHub repository](https://img.shields.io/badge/Github-open--flash%2Fswf--tree-blue.svg?maxAge=86400)](https://github.com/open-flash/swf-tree)
+[![Build status](https://img.shields.io/travis/open-flash/swf-tree/master.svg?maxAge=86400)](https://travis-ci.org/open-flash/swf-tree)
 
 This project specifies an Abstract Syntax Tree (AST) representation of SWF files (SWF movies). It
 also includes Rust and Typescript implementations providing type declarations and serialization to
