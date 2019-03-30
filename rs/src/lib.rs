@@ -41,6 +41,8 @@ pub use crate::shape::shape_records;
 pub use crate::shape::ShapeRecord;
 pub use crate::shape::ShapeStyles;
 pub use crate::sound::AudioCodingFormat;
+pub use crate::sound::SoundEnvelope;
+pub use crate::sound::SoundInfo;
 pub use crate::sound::SoundRate;
 pub use crate::sound::SoundSize;
 pub use crate::sound::SoundType;
