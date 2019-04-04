@@ -45,9 +45,6 @@ interface Sample {
 function* getSamples(): IterableIterator<Sample> {
   yield {name: "blank"};
   yield {name: "hello-world"};
-  // yield {name: "homestuck-beta-1"};
-  // yield {name: "homestuck-beta-2"};
   yield {name: "morph-rotating-square"};
   yield {name: "squares"};
-  yield {name: "zombo-inrozxa"};
 }
