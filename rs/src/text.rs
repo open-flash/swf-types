@@ -3,7 +3,7 @@ use ::serde::{Deserialize, Serialize};
 use super::basic_types::{Rect, StraightSRgba8};
 use super::float_is::Is;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum CsmTableHint {
   Thin,
@@ -11,7 +11,7 @@ pub enum CsmTableHint {
   Thick,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct FontAlignmentZone {
   pub data: Vec<FontAlignmentZoneData>,
@@ -19,7 +19,7 @@ pub struct FontAlignmentZone {
   pub has_y: bool,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Copy, Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct FontAlignmentZoneData {
   pub origin: f32,
@@ -39,7 +39,7 @@ impl ::std::cmp::PartialEq for FontAlignmentZoneData {
 
 impl ::std::cmp::Eq for FontAlignmentZoneData {}
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct FontLayout {
   pub ascent: u16,
@@ -50,14 +50,14 @@ pub struct FontLayout {
   pub kerning: Vec<KerningRecord>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct GlyphEntry {
   pub index: usize,
   pub advance: i32,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum GridFitting {
   None,
@@ -65,7 +65,7 @@ pub enum GridFitting {
   SubPixel,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct KerningRecord {
   pub left: u16,
@@ -73,7 +73,7 @@ pub struct KerningRecord {
   pub adjustment: i16,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum TextAlignment {
   Left,
@@ -82,7 +82,7 @@ pub enum TextAlignment {
   Justify,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct TextRecord {
   #[serde(skip_serializing_if="Option::is_none")]
@@ -96,7 +96,7 @@ pub struct TextRecord {
   pub entries: Vec<GlyphEntry>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum TextRenderer {
   Normal,

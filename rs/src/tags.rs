@@ -14,7 +14,7 @@ use crate::sound::{AudioCodingFormat, SoundInfo, SoundRate, SoundSize, SoundType
 use crate::Tag;
 use crate::text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Copy, Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct CsmTextSettings {
   pub text_id: u16,
@@ -40,7 +40,7 @@ impl ::std::cmp::PartialEq for CsmTextSettings {
 
 impl ::std::cmp::Eq for CsmTextSettings {}
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineBinaryData {
   pub id: u16,
@@ -48,7 +48,7 @@ pub struct DefineBinaryData {
   pub data: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineBitmap {
   pub id: u16,
@@ -59,7 +59,7 @@ pub struct DefineBitmap {
   pub data: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineButton {
   pub id: u16,
@@ -68,7 +68,7 @@ pub struct DefineButton {
   pub actions: Vec<ButtonCondAction>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineCffFont {
   pub id: u16,
@@ -79,7 +79,7 @@ pub struct DefineCffFont {
   pub data: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineDynamicText {
   pub id: u16,
@@ -116,7 +116,7 @@ pub struct DefineDynamicText {
   pub text: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineFont {
   pub id: u16,
@@ -135,7 +135,7 @@ pub struct DefineFont {
   pub layout: Option<FontLayout>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineFontAlignZones {
   pub font_id: u16,
@@ -143,7 +143,7 @@ pub struct DefineFontAlignZones {
   pub zones: Vec<FontAlignmentZone>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineFontInfo {
   pub font_id: u16,
@@ -158,7 +158,7 @@ pub struct DefineFontInfo {
   pub code_units: Vec<u16>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineFontName {
   pub font_id: u16,
@@ -166,14 +166,14 @@ pub struct DefineFontName {
   pub copyright: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineJpegTables {
   #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineMorphShape {
   pub id: u16,
@@ -189,14 +189,14 @@ pub struct DefineMorphShape {
   pub shape: MorphShape,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefinePartialFont {
   pub id: u16,
   pub glyphs: Vec<Glyph>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineSceneAndFrameLabelData {
   pub scenes: Vec<Scene>,
@@ -204,7 +204,7 @@ pub struct DefineSceneAndFrameLabelData {
 }
 
 // TODO(demurgos): Move to a different file since it is not a tag
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Scene {
   pub offset: u32,
@@ -212,14 +212,14 @@ pub struct Scene {
 }
 
 // TODO(demurgos): Move to a different file since it is not a tag
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Label {
   pub frame: u32,
   pub name: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineShape {
   pub id: u16,
@@ -232,7 +232,7 @@ pub struct DefineShape {
   pub shape: Shape,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineSound {
   pub id: u16,
@@ -245,7 +245,7 @@ pub struct DefineSound {
   pub data: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineSprite {
   pub id: u16,
@@ -253,7 +253,7 @@ pub struct DefineSprite {
   pub tags: Vec<Tag>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineText {
   pub id: u16,
@@ -262,7 +262,7 @@ pub struct DefineText {
   pub records: Vec<TextRecord>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DoAbc {
   pub flags: u32,
@@ -271,14 +271,14 @@ pub struct DoAbc {
   pub data: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DoAction {
   #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub actions: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DoInitAction {
   pub sprite_id: u16,
@@ -286,19 +286,19 @@ pub struct DoInitAction {
   pub actions: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct EnableDebugger {
   pub password: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ExportAssets {
   pub assets: Vec<NamedId>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct FileAttributes {
   pub use_direct_blit: bool,
@@ -310,27 +310,27 @@ pub struct FileAttributes {
   pub use_network: bool,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct FrameLabel {
   pub name: String,
   pub is_anchor: bool,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ImportAssets {
   pub url: String,
   pub assets: Vec<NamedId>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Metadata {
   pub metadata: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct PlaceObject {
   /// Corresponds to `is_move` in the SWF spec.
@@ -364,7 +364,7 @@ pub struct PlaceObject {
   pub clip_actions: Option<Vec<ClipAction>>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct RemoveObject {
   #[serde(skip_serializing_if = "Option::is_none")]
@@ -372,14 +372,14 @@ pub struct RemoveObject {
   pub depth: u16,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ScriptLimits {
   pub max_recursion_depth: u16,
   pub script_timeout: u16,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct SetBackgroundColor {
   /// Color of the display background
@@ -388,14 +388,14 @@ pub struct SetBackgroundColor {
 
 // pub type ShowFrame = ();
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct SoundStreamBlock {
   #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct SoundStreamHead {
   pub playback_sound_type: SoundType,
@@ -410,27 +410,27 @@ pub struct SoundStreamHead {
   pub latency_seek: Option<i16>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct StartSound {
   pub sound_id: u16,
   pub sound_info: SoundInfo,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct StartSound2 {
   pub sound_class_name: String,
   pub sound_info: SoundInfo,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct SymbolClass {
   pub symbols: Vec<NamedId>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Telemetry {
   // TODO(demurgos): Serialize optional buffers to hex
@@ -439,7 +439,7 @@ pub struct Telemetry {
   pub password: Option<Vec<u8>>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Unknown {
   pub code: u16,

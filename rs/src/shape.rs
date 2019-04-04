@@ -4,7 +4,7 @@ use crate::fill_styles;
 use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::join_styles;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum CapStyle {
   None,
@@ -12,7 +12,7 @@ pub enum CapStyle {
   Square,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ClipAction {
   pub events: ClipEventFlags,
@@ -22,7 +22,7 @@ pub struct ClipAction {
   pub actions: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ClipEventFlags {
   pub key_up: bool,
@@ -46,7 +46,7 @@ pub struct ClipEventFlags {
   pub drag_out: bool,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "kebab-case")]
 pub enum FillStyle {
   Bitmap(fill_styles::Bitmap),
@@ -56,7 +56,7 @@ pub enum FillStyle {
   Solid(fill_styles::Solid),
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "kebab-case")]
 pub enum MorphFillStyle {
   Bitmap(fill_styles::MorphBitmap),
@@ -66,7 +66,7 @@ pub enum MorphFillStyle {
   Solid(fill_styles::MorphSolid),
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "kebab-case")]
 pub enum JoinStyle {
   Bevel,
@@ -74,7 +74,7 @@ pub enum JoinStyle {
   Round,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct LineStyle {
   pub width: u16,
@@ -88,7 +88,7 @@ pub struct LineStyle {
   pub fill: FillStyle,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct MorphLineStyle {
   pub width: u16,
@@ -103,27 +103,27 @@ pub struct MorphLineStyle {
   pub fill: MorphFillStyle,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Glyph {
   pub records: Vec<ShapeRecord>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Shape {
   pub initial_styles: ShapeStyles,
   pub records: Vec<ShapeRecord>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct MorphShape {
   pub initial_styles: MorphShapeStyles,
   pub records: Vec<MorphShapeRecord>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "kebab-case")]
 pub enum ShapeRecord {
   CurvedEdge(shape_records::CurvedEdge),
@@ -131,7 +131,7 @@ pub enum ShapeRecord {
   StyleChange(shape_records::StyleChange),
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "kebab-case")]
 pub enum MorphShapeRecord {
   CurvedEdge(shape_records::MorphCurvedEdge),
@@ -139,14 +139,14 @@ pub enum MorphShapeRecord {
   StyleChange(shape_records::MorphStyleChange),
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ShapeStyles {
   pub fill: Vec<FillStyle>,
   pub line: Vec<LineStyle>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct MorphShapeStyles {
   pub fill: Vec<MorphFillStyle>,
@@ -160,13 +160,13 @@ pub mod shape_records {
 
   use super::{MorphShapeStyles, ShapeStyles};
 
-  #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
   pub struct CurvedEdge {
     pub control_delta: Vector2D,
     pub anchor_delta: Vector2D,
   }
 
-  #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
   pub struct MorphCurvedEdge {
     pub control_delta: Vector2D,
     pub morph_control_delta: Vector2D,
@@ -174,18 +174,18 @@ pub mod shape_records {
     pub morph_anchor_delta: Vector2D,
   }
 
-  #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
   pub struct StraightEdge {
     pub delta: Vector2D,
   }
 
-  #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
   pub struct MorphStraightEdge {
     pub delta: Vector2D,
     pub morph_delta: Vector2D,
   }
 
-  #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+  #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
   pub struct StyleChange {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub move_to: Option<Vector2D>,
@@ -199,7 +199,7 @@ pub mod shape_records {
     pub new_styles: Option<ShapeStyles>,
   }
 
-  #[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+  #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
   pub struct MorphStyleChange {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub move_to: Option<Vector2D>,

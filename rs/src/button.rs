@@ -6,7 +6,7 @@ use crate::Filter;
 use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::Matrix;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ButtonRecord {
   pub state_hit_test: bool,
@@ -22,7 +22,7 @@ pub struct ButtonRecord {
   pub blend_mode: BlendMode,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ButtonCondAction {
   #[serde(skip_serializing_if = "Option::is_none")]
@@ -31,7 +31,7 @@ pub struct ButtonCondAction {
   pub actions: Vec<u8>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ButtonCond {
   pub idle_to_over_down: bool,

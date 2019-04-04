@@ -4,7 +4,7 @@ use crate::basic_types::Rect;
 use crate::fixed::Ufixed8P8;
 use crate::Tag;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum CompressionMethod {
   None,
@@ -12,7 +12,7 @@ pub enum CompressionMethod {
   Lzma,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Header {
   /// SWF version
@@ -23,7 +23,7 @@ pub struct Header {
   pub frame_count: u16,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Movie {
   pub header: Header,
@@ -31,7 +31,7 @@ pub struct Movie {
 }
 
 /// The signature is the part of the header that is not compressed
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct SwfSignature {
   /// The compression method used for the body of this SWF file

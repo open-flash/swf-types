@@ -2,7 +2,7 @@ use ::serde::{Deserialize, Serialize};
 
 use crate::basic_types::StraightSRgba8;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum GradientSpread {
   Pad,
@@ -10,20 +10,20 @@ pub enum GradientSpread {
   Repeat,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum ColorSpace {
   SRgb,
   LinearRgb,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct ColorStop {
   pub ratio: u8,
   pub color: StraightSRgba8,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct MorphColorStop {
   pub ratio: u8,
   pub morph_ratio: u8,
@@ -31,14 +31,14 @@ pub struct MorphColorStop {
   pub morph_color: StraightSRgba8,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct Gradient {
   pub spread: GradientSpread,
   pub color_space: ColorSpace,
   pub colors: Vec<ColorStop>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct MorphGradient {
   pub spread: GradientSpread,
   pub color_space: ColorSpace,

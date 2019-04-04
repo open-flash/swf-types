@@ -71,7 +71,7 @@ mod shape;
 
 mod sound;
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum BlendMode {
   Normal,
@@ -90,7 +90,7 @@ pub enum BlendMode {
   Hardlight,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "filter", rename_all = "kebab-case")]
 pub enum Filter {
   Blur(filters::Blur),
@@ -103,7 +103,7 @@ pub enum Filter {
   GradientGlow(filters::GradientGlow),
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "kebab-case")]
 pub enum Tag {
   CsmTextSettings(tags::CsmTextSettings),

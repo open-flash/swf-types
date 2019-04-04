@@ -1,7 +1,7 @@
 use ::serde::{Deserialize, Serialize};
 use ::swf_fixed::{Sfixed16P16, Sfixed8P8};
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ColorTransform {
   pub red_mult: Sfixed8P8,
@@ -12,7 +12,7 @@ pub struct ColorTransform {
   pub blue_add: i16,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ColorTransformWithAlpha {
   pub red_mult: Sfixed8P8,
@@ -25,7 +25,7 @@ pub struct ColorTransformWithAlpha {
   pub alpha_add: i16,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum LanguageCode {
   Auto,
@@ -36,7 +36,7 @@ pub enum LanguageCode {
   TraditionalChinese,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Matrix {
   pub scale_x: Sfixed16P16,
@@ -47,14 +47,14 @@ pub struct Matrix {
   pub translate_y: i32,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct NamedId {
   pub id: u16,
   pub name: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Rect {
   pub x_min: i32,
@@ -64,7 +64,7 @@ pub struct Rect {
 }
 
 // Color point in the sRGB color space with 8-bit color depth
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct SRgb8 {
   pub r: u8,
@@ -73,7 +73,7 @@ pub struct SRgb8 {
 }
 
 // Color point with straight alpha in the sRGB color space with 8-bit color depth
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct StraightSRgba8 {
   pub r: u8,
@@ -82,7 +82,7 @@ pub struct StraightSRgba8 {
   pub a: u8,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Vector2D {
   pub x: i32,

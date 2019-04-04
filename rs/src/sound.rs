@@ -1,6 +1,6 @@
 use ::serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum AudioCodingFormat {
   UncompressedNativeEndian,
@@ -13,7 +13,7 @@ pub enum AudioCodingFormat {
   Speex,
 }
 
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum SoundRate {
   SoundRate5500,
   SoundRate11000,
@@ -69,12 +69,11 @@ impl<'de> ::serde::Deserialize<'de> for SoundRate {
   }
 }
 
-#[derive(Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum SoundSize {
   SoundSize8,
   SoundSize16,
 }
-
 
 impl ::serde::Serialize for SoundSize {
   fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
@@ -120,7 +119,7 @@ impl<'de> ::serde::Deserialize<'de> for SoundSize {
   }
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum SoundType {
   Mono,
@@ -128,7 +127,7 @@ pub enum SoundType {
 }
 
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct SoundInfo {
   pub sync_stop: bool,
@@ -143,7 +142,7 @@ pub struct SoundInfo {
   pub envelope_records: Option<Vec<SoundEnvelope>>,
 }
 
-#[derive(Serialize, Deserialize, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct SoundEnvelope {
   pub pos44: u32,
