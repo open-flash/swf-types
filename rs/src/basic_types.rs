@@ -12,6 +12,19 @@ pub struct ColorTransform {
   pub blue_add: i16,
 }
 
+impl ::std::default::Default for ColorTransform {
+  fn default() -> Self {
+    Self {
+      red_mult: Sfixed8P8::from_value(1.0),
+      green_mult: Sfixed8P8::from_value(1.0),
+      blue_mult: Sfixed8P8::from_value(1.0),
+      red_add: 0,
+      green_add: 0,
+      blue_add: 0,
+    }
+  }
+}
+
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ColorTransformWithAlpha {
@@ -23,6 +36,21 @@ pub struct ColorTransformWithAlpha {
   pub green_add: i16,
   pub blue_add: i16,
   pub alpha_add: i16,
+}
+
+impl ::std::default::Default for ColorTransformWithAlpha {
+  fn default() -> Self {
+    Self {
+      red_mult: Sfixed8P8::from_value(1.0),
+      green_mult: Sfixed8P8::from_value(1.0),
+      blue_mult: Sfixed8P8::from_value(1.0),
+      alpha_mult: Sfixed8P8::from_value(1.0),
+      red_add: 0,
+      green_add: 0,
+      blue_add: 0,
+      alpha_add: 0,
+    }
+  }
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
@@ -45,6 +73,19 @@ pub struct Matrix {
   pub rotate_skew1: Sfixed16P16,
   pub translate_x: i32,
   pub translate_y: i32,
+}
+
+impl ::std::default::Default for Matrix {
+  fn default() -> Self {
+    Self {
+      scale_x: Sfixed16P16::from_value(1.0),
+      scale_y: Sfixed16P16::from_value(1.0),
+      rotate_skew0: Sfixed16P16::from_value(0.0),
+      rotate_skew1: Sfixed16P16::from_value(0.0),
+      translate_x: 0,
+      translate_y: 0,
+    }
+  }
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
