@@ -126,16 +126,14 @@ pub struct MorphShape {
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "kebab-case")]
 pub enum ShapeRecord {
-  CurvedEdge(shape_records::CurvedEdge),
-  StraightEdge(shape_records::StraightEdge),
+  Edge(shape_records::Edge),
   StyleChange(shape_records::StyleChange),
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "kebab-case")]
 pub enum MorphShapeRecord {
-  CurvedEdge(shape_records::MorphCurvedEdge),
-  StraightEdge(shape_records::MorphStraightEdge),
+  Edge(shape_records::MorphEdge),
   StyleChange(shape_records::MorphStyleChange),
 }
 
@@ -161,28 +159,32 @@ pub mod shape_records {
   use super::{MorphShapeStyles, ShapeStyles};
 
   #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-  pub struct CurvedEdge {
-    pub control_delta: Vector2D,
-    pub anchor_delta: Vector2D,
-  }
-
-  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-  pub struct MorphCurvedEdge {
-    pub control_delta: Vector2D,
-    pub morph_control_delta: Vector2D,
-    pub anchor_delta: Vector2D,
-    pub morph_anchor_delta: Vector2D,
-  }
-
-  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-  pub struct StraightEdge {
+  pub struct Edge {
+    /// Difference between the edge start and edge end.
     pub delta: Vector2D,
+
+    /// Difference between the edge start and quadratic bezier control point (if
+    /// any).
+    pub control_delta: Option<Vector2D>,
   }
 
   #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-  pub struct MorphStraightEdge {
+  pub struct MorphEdge {
+    /// Difference between the edge start and edge end in the start-state of the
+    /// morph shape.
     pub delta: Vector2D,
+
+    /// Difference between the edge start and edge end in the end-state of the
+    /// morph shape.
     pub morph_delta: Vector2D,
+
+    /// Difference between the edge start and quadratic bezier control point (if
+    /// any) in the start-state of the morph shape.
+    pub control_delta: Option<Vector2D>,
+
+    /// Difference between the edge start and quadratic bezier control point (if
+    /// any) in the end-state of the morph shape.
+    pub morph_control_delta: Option<Vector2D>,
   }
 
   #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
