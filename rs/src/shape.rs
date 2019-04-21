@@ -165,6 +165,7 @@ pub mod shape_records {
 
     /// Difference between the edge start and quadratic bezier control point (if
     /// any).
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub control_delta: Option<Vector2D>,
   }
 
@@ -180,10 +181,12 @@ pub mod shape_records {
 
     /// Difference between the edge start and quadratic bezier control point (if
     /// any) in the start-state of the morph shape.
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub control_delta: Option<Vector2D>,
 
     /// Difference between the edge start and quadratic bezier control point (if
     /// any) in the end-state of the morph shape.
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub morph_control_delta: Option<Vector2D>,
   }
 
