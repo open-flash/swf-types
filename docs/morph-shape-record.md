@@ -2,8 +2,7 @@
 
 ```
 union(type) MorphShapeRecord {
-  MorphCurvedEdge;
-  MorphStraightEdge;
+  MorphEdge;
   StyleChange;
 }
 ```

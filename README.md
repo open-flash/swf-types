@@ -107,11 +107,27 @@ The type of optional properties is wrapped in `Option()`, for example `Optional(
 
 ## Enum
 
-**TODO**
+The enums are represented as a tagged union of interfaces.
+
+They are introduced by the keyword `union` followed by the name of the field used as the tag.
+This field is added to each variant, its value is the name of the variant in `snake-case`.
+
+Example:
+
+```
+union(type) ShapeRecord {
+  Edge;
+  StyleChange;
+}
+```
+
+`ShapeRecord` is an enum with two variants: `Edge` and `StyleChange`. They both have an extra
+field `type`, with the value `edge` or `style-change` depending on the variant.
 
 ## Containers
 
-**TODO**
+The main container type is `Vec<T>`: an order list of values of type `T` (can contain any number of
+values).
 
 ## License
 

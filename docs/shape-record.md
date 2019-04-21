@@ -2,8 +2,7 @@
 
 ```
 union(type) ShapeRecord {
-  CurvedEdge;
-  StraightEdge;
+  Edge;
   StyleChange;
 }
 ```

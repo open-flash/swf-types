@@ -1,7 +1,7 @@
 # MorphStyleChange
 
 ```
-interface StyleChange variantof ShapeRecord(type) {
+interface MorphStyleChange variantof MorphShapeRecord(type) {
   moveTo: Option(Vector2D);
   leftFill: Option(Usize);
   rightFill: Option(Usize);
