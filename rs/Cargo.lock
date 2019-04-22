@@ -65,6 +65,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_json_v8"
+version = "0.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "itoa 0.4.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ryu 0.2.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde 1.0.89 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde_json 1.0.39 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "swf-fixed"
 version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -78,7 +89,7 @@ version = "0.5.0"
 dependencies = [
  "hex 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 1.0.89 (registry+https://github.com/rust-lang/crates.io-index)",
- "serde_json 1.0.39 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde_json_v8 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "swf-fixed 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "test-generator 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -127,6 +138,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum serde 1.0.89 (registry+https://github.com/rust-lang/crates.io-index)" = "92514fb95f900c9b5126e32d020f5c6d40564c27a5ea6d1d7d9f157a96623560"
 "checksum serde_derive 1.0.80 (registry+https://github.com/rust-lang/crates.io-index)" = "225de307c6302bec3898c51ca302fc94a7a1697ef0845fcee6448f33c032249c"
 "checksum serde_json 1.0.39 (registry+https://github.com/rust-lang/crates.io-index)" = "5a23aa71d4a4d43fdbfaac00eff68ba8a06a51759a89ac3304323e800c4dd40d"
+"checksum serde_json_v8 0.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "22de6b4971227e34df07cfa957decd3d40b0fcc4dde8c367779f98e4c08e3be0"
 "checksum swf-fixed 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)" = "bf3c575807f18641c5e079568b53630a46baf441da57caccd9ced9a9ee70f941"
 "checksum syn 0.15.29 (registry+https://github.com/rust-lang/crates.io-index)" = "1825685f977249735d510a242a6727b46efe914bb67e38d30c071b1b72b1d5c2"
 "checksum test-generator 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "9b26bb9ef026bbc1e5abab33e3299be7b31b73790c0980e225241d694ccd6f71"

@@ -148,29 +148,57 @@ pub enum Tag {
 }
 
 #[cfg(test)]
-mod parser_tests {
+mod tests {
   use std::path::Path;
 
   use ::test_generator::test_expand_paths;
 
   use crate::Movie;
 
-  test_expand_paths! { test_movie_json; "../tests/open-flash-db/standalone-movies/*/" }
-  fn test_movie_json(path: &str) {
+  test_expand_paths! { test_movie; "../tests/movies/*/" }
+  fn test_movie(path: &str) {
     let path: &Path = Path::new(path);
-    let name = path.components().last().unwrap().as_os_str().to_str().unwrap();
-    match name {
-      "blank" | "homestuck-beta-1" | "homestuck-beta-2" => return,
-      _ => (),
-    }
+    let _name = path.components().last().unwrap().as_os_str().to_str().expect("Failed to retrieve sample name");
     let ast_path = path.join("ast.json");
-    let json_file = ::std::fs::File::open(ast_path).unwrap();
-    let reader = ::std::io::BufReader::new(json_file);
-    serde_json::from_reader::<_, Movie>(reader).unwrap();
 
-//    let input_json = include_str!("../../test/swf-samples/simple/blank/blank.ast.json");
-//    let movie: Movie = serde_json::from_str(input_json).unwrap();
-//    let output_json = serde_json::to_string_pretty(&movie).unwrap();
-//    assert_eq!(output_json, input_json)
+    let value_json = ::std::fs::read_to_string(ast_path).expect("Failed to read AST file");
+
+    let value: Movie = serde_json_v8::from_str(&value_json).expect("Failed to read AST");
+
+    let output_json = serde_json_v8::to_string_pretty(&value).expect("Failed to write AST");
+    let output_json = format!("{}\n", output_json);
+
+    assert_eq!(output_json, value_json)
   }
+
+  macro_rules! test_various_impl {
+    ($name:ident, $glob:expr, $type:ty) => {
+      test_expand_paths! { $name; $glob }
+      fn $name(path: &str) {
+        let path: &Path = Path::new(path);
+        let _name = path.components().last().unwrap().as_os_str().to_str().expect("Failed to retrieve sample name");
+        let value_path = path.join("value.json");
+
+        let value_json = ::std::fs::read_to_string(value_path).expect("Failed to read value file");
+
+        let value: $type = serde_json_v8::from_str(&value_json).expect("Failed to read value");
+
+        let output_json = serde_json_v8::to_string_pretty(&value).expect("Failed to write value");
+        let output_json = format!("{}\n", output_json);
+
+        assert_eq!(output_json, value_json)
+      }
+    }
+  }
+
+  use crate::Tag;
+  test_various_impl!(test_tag, "../tests/tags/*/*/", Tag);
+
+  use crate::Matrix;
+  test_various_impl!(test_matrix, "../tests/various/matrix/*/", Matrix);
+
+  use crate::Rect;
+  test_various_impl!(test_rect, "../tests/various/rect/*/", Rect);
+
+  test_various_impl!(test_leb128_u32, "../tests/various/uint32-leb128/*/", u32);
 }

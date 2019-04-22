@@ -7,12 +7,12 @@ import { $Movie, Movie } from "../lib/movie";
 import meta from "./meta.js";
 
 const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..", "..", "..");
-const TEST_SAMPLES_ROOT: string = sysPath.join(PROJECT_ROOT, "..", "tests", "open-flash-db", "standalone-movies");
+const TEST_SAMPLES_ROOT: string = sysPath.join(PROJECT_ROOT, "..", "tests", "movies");
 
 const JSON_READER: JsonReader = new JsonReader();
 const JSON_VALUE_WRITER: JsonValueWriter = new JsonValueWriter();
 
-describe("Movie AST", function () {
+describe("Movie", function () {
   for (const sample of getSamples()) {
     it(sample.name, async function () {
       const inputJson: string = await readTextFile(sysPath.join(TEST_SAMPLES_ROOT, sample.name, "ast.json"));
