@@ -7,7 +7,7 @@ import { LiteralType } from "kryo/types/literal";
 import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { Uint16 } from "semantic-types";
 import { $BlendMode, BlendMode } from "../blend-mode";
-import { $ClipActions, ClipActions } from "../clip-actions";
+import { $ClipAction, ClipAction } from "../clip-action";
 import { $ColorTransformWithAlpha, ColorTransformWithAlpha } from "../color-transform-with-alpha";
 import { $Filter, Filter } from "../filter";
 import { $Matrix, Matrix } from "../matrix";
@@ -32,7 +32,7 @@ export interface PlaceObject extends _Tag {
   readonly bitmapCache?: boolean;
   readonly visible?: boolean;
   readonly backgroundColor?: StraightSRgba8;
-  readonly clipActions?: ReadonlyArray<ClipActions>;
+  readonly clipActions?: ReadonlyArray<ClipAction>;
 }
 
 export const $PlaceObject: DocumentIoType<PlaceObject> = new DocumentType<PlaceObject>(() => ({
@@ -51,7 +51,7 @@ export const $PlaceObject: DocumentIoType<PlaceObject> = new DocumentType<PlaceO
     bitmapCache: {type: $Boolean, optional: true},
     visible: {type: $Boolean, optional: true},
     backgroundColor: {type: $StraightSRgba8, optional: true},
-    clipActions: {type: new ArrayType({itemType: $ClipActions, maxLength: Infinity}), optional: true},
+    clipActions: {type: new ArrayType({itemType: $ClipAction, maxLength: Infinity}), optional: true},
   },
   changeCase: CaseStyle.SnakeCase,
 }));

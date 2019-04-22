@@ -5,13 +5,13 @@ import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint8 } from "semantic-types";
 import { $ClipEventFlags, ClipEventFlags } from "./clip-event-flags";
 
-export interface ClipActions {
+export interface ClipAction {
   events: ClipEventFlags;
   keyCode?: Uint8;
   actions: Uint8Array;
 }
 
-export const $ClipActions: DocumentIoType<ClipActions> = new DocumentType<ClipActions>({
+export const $ClipAction: DocumentIoType<ClipAction> = new DocumentType<ClipAction>({
   properties: {
     events: {type: $ClipEventFlags},
     keyCode: {type: $Uint8, optional: true},

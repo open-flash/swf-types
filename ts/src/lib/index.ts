@@ -9,7 +9,7 @@ export { fillStyles, filters, joinStyles, shapeRecords, tags, text };
 
 export { BlendMode } from "./blend-mode";
 export { CapStyle } from "./cap-style";
-export { ClipActions } from "./clip-actions";
+export { ClipAction } from "./clip-action";
 export { ClipEventFlags } from "./clip-event-flags";
 export { ColorSpace } from "./color-space";
 export { ColorStop } from "./color-stop";
