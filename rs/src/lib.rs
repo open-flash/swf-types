@@ -103,6 +103,13 @@ pub enum Filter {
   GradientGlow(filters::GradientGlow),
 }
 
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub struct TagHeader {
+  pub code: u16,
+  pub length: u32,
+}
+
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "type", rename_all = "kebab-case")]
 pub enum Tag {
