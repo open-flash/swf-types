@@ -1,5 +1,6 @@
 # Next
 
+- **[Breaking change]** Update to MIT/Apache2 license.
 - **[Feature]** Define `TagHeader`.
 - **[Internal]** Refactor test samples organization.
 - **[Internal]** Add `CHANGELOG.md`.

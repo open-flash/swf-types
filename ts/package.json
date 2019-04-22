@@ -16,8 +16,12 @@
   ],
   "licenses": [
     {
-      "type": "AGPL-3.0-or-later",
-      "url": "https://spdx.org/licenses/AGPL-3.0-or-later.html"
+      "type": "MIT",
+      "url": "https://spdx.org/licenses/MIT"
+    },
+    {
+      "type": "Apache-2.0",
+      "url": "https://spdx.org/licenses/Apache-2.0"
     }
   ],
   "scripts": {
