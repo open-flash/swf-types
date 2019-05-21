@@ -201,11 +201,23 @@ mod tests {
   use crate::Tag;
   test_various_impl!(test_tag, "../tests/tags/*/*/", Tag);
 
+  use crate::ColorTransformWithAlpha;
+  test_various_impl!(test_color_transform_with_alpha, "../tests/various/color-transform-with-alpha/*/", ColorTransformWithAlpha);
+
+  // TODO: f16
+  test_various_impl!(test_float16_le, "../tests/various/float16-le/*/", f32);
+
+  use crate::Header;
+  test_various_impl!(test_header, "../tests/various/header/*/", Header);
+
   use crate::Matrix;
   test_various_impl!(test_matrix, "../tests/various/matrix/*/", Matrix);
 
   use crate::Rect;
   test_various_impl!(test_rect, "../tests/various/rect/*/", Rect);
+
+  use crate::SwfSignature;
+  test_various_impl!(test_swf_signature, "../tests/various/swf-signature/*/", SwfSignature);
 
   test_various_impl!(test_leb128_u32, "../tests/various/uint32-leb128/*/", u32);
 }

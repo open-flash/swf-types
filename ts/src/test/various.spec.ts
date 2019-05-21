@@ -11,6 +11,8 @@ import { $Rect } from "../lib/rect";
 import { $SwfSignature } from "../lib/swf-signature";
 import meta from "./meta.js";
 import { readTextFile } from "./utils";
+import { $ColorTransformWithAlpha } from "../lib/color-transform-with-alpha";
+import { Float64Type } from "kryo/types/float64";
 
 const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..", "..", "..");
 const SAMPLES_ROOT: string = sysPath.join(PROJECT_ROOT, "..", "tests", "various");
@@ -46,6 +48,15 @@ function* getSampleGroups(): IterableIterator<SampleGroup<any>> {
     }
     const name: string = dirEnt.name;
     switch (name) {
+      case "color-transform-with-alpha": {
+        yield {name, type: $ColorTransformWithAlpha};
+        break;
+      }
+      case "float16-le": {
+        // TODO: new Float16Type()
+        yield {name, type: new Float64Type()};
+        break;
+      }
       case "header": {
         yield {name, type: $Header};
         break;

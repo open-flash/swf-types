@@ -10,10 +10,10 @@ import { $Filter, Filter } from "../filter";
 import { $Matrix, Matrix } from "../matrix";
 
 export interface ButtonRecord {
-  stateHitTest: boolean;
-  stateDown: boolean;
-  stateOver: boolean;
   stateUp: boolean;
+  stateOver: boolean;
+  stateDown: boolean;
+  stateHitTest: boolean;
   characterId: Uint16;
   depth: Uint16;
   matrix: Matrix;
@@ -24,10 +24,10 @@ export interface ButtonRecord {
 
 export const $ButtonRecord: DocumentIoType<ButtonRecord> = new DocumentType<ButtonRecord>({
   properties: {
-    stateHitTest: {type: $Boolean},
-    stateDown: {type: $Boolean},
-    stateOver: {type: $Boolean},
     stateUp: {type: $Boolean},
+    stateOver: {type: $Boolean},
+    stateDown: {type: $Boolean},
+    stateHitTest: {type: $Boolean},
     characterId: {type: $Uint16},
     depth: {type: $Uint16},
     matrix: {type: $Matrix},

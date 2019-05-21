@@ -1,5 +1,8 @@
 # Next
 
+- **[Fix]** Update `ButtonCond` field order.
+- **[Internal]** Update test samples.
+
 ### Typescript
 
 - **[Internal]** Update build tools.

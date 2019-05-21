@@ -9,10 +9,10 @@ use crate::Matrix;
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ButtonRecord {
-  pub state_hit_test: bool,
-  pub state_down: bool,
-  pub state_over: bool,
   pub state_up: bool,
+  pub state_over: bool,
+  pub state_down: bool,
+  pub state_hit_test: bool,
   pub character_id: u16,
   pub depth: u16,
   pub matrix: Matrix,
