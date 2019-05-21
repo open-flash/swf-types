@@ -82,16 +82,22 @@ pub enum TextAlignment {
   Justify,
 }
 
+impl ::std::default::Default for TextAlignment {
+  fn default() -> Self {
+    TextAlignment::Left
+  }
+}
+
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct TextRecord {
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub font_id: Option<u16>,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub color: Option<StraightSRgba8>,
   pub offset_x: i16,
   pub offset_y: i16,
-  #[serde(skip_serializing_if="Option::is_none")]
+  #[serde(skip_serializing_if = "Option::is_none")]
   pub font_size: Option<u16>,
   pub entries: Vec<GlyphEntry>,
 }

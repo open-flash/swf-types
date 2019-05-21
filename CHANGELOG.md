@@ -1,6 +1,7 @@
 # Next
 
 - **[Breaking change]** Add `em_square_size` field to `DefineFont` ([#42](https://github.com/open-flash/swf-tree/issues/42)).
+- **[Breaking change]** Require `align` to be defined in `DefineDynamicText` ([#41](https://github.com/open-flash/swf-tree/issues/41)).
 - **[Fix]** Update `ButtonCond` field order.
 - **[Fix]** Update `ButtonRecord` field order.
 - **[Internal]** Update test samples.

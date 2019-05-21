@@ -32,7 +32,7 @@ export interface DefineDynamicText extends _Tag {
   readonly fontSize?: Uint16;
   readonly color?: StraightSRgba8;
   readonly maxLength?: UintSize;
-  readonly align?: TextAlignment;
+  readonly align: TextAlignment;
   readonly marginLeft: Uint16;
   readonly marginRight: Uint16;
   readonly indent: Uint16;
@@ -61,7 +61,7 @@ export const $DefineDynamicText: DocumentIoType<DefineDynamicText> = new Documen
     fontSize: {type: new IntegerType(), optional: true},
     color: {type: $StraightSRgba8, optional: true},
     maxLength: {type: new IntegerType(), optional: true},
-    align: {type: $TextAlignment, optional: true},
+    align: {type: $TextAlignment},
     marginLeft: {type: $Uint16},
     marginRight: {type: $Uint16},
     indent: {type: $Uint16},
