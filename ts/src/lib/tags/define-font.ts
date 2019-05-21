@@ -8,6 +8,7 @@ import { Ucs2StringType } from "kryo/types/ucs2-string";
 import { Uint16 } from "semantic-types";
 import { $Glyph, Glyph } from "../glyph";
 import { $LanguageCode, LanguageCode } from "../language-code";
+import { $EmSquareSize, EmSquareSize } from "../text/em-square-size";
 import { $FontLayout, FontLayout } from "../text/font-layout";
 import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
@@ -21,6 +22,7 @@ export interface DefineFont extends _Tag {
   readonly isAnsi: boolean;
   readonly isSmall: boolean;
   readonly isShiftJis: boolean;
+  readonly emSquareSize: EmSquareSize;
   readonly language: LanguageCode;
   readonly glyphs?: ReadonlyArray<Glyph>;
   readonly codeUnits?: ReadonlyArray<Uint16>;
@@ -37,6 +39,7 @@ export const $DefineFont: DocumentIoType<DefineFont> = new DocumentType<DefineFo
     isAnsi: {type: $Boolean},
     isSmall: {type: $Boolean},
     isShiftJis: {type: $Boolean},
+    emSquareSize: {type: $EmSquareSize},
     language: {type: $LanguageCode},
     glyphs: {type: new ArrayType({itemType: $Glyph, maxLength: Infinity}), optional: true},
     codeUnits: {type: new ArrayType({itemType: $Uint16, maxLength: Infinity}), optional: true},

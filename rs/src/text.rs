@@ -102,3 +102,52 @@ pub enum TextRenderer {
   Normal,
   Advanced,
 }
+
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub enum EmSquareSize {
+  EmSquareSize1024,
+  EmSquareSize20480,
+}
+
+impl ::serde::Serialize for EmSquareSize {
+  fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+      S: ::serde::Serializer,
+  {
+    let sound_size: u64 = match self {
+      EmSquareSize::EmSquareSize1024 => 1024,
+      EmSquareSize::EmSquareSize20480 => 20480,
+    };
+    return serializer.serialize_u64(sound_size);
+  }
+}
+
+impl<'de> ::serde::Deserialize<'de> for EmSquareSize {
+  fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+      D: ::serde::Deserializer<'de>,
+  {
+    struct Visitor;
+
+    impl<'de> ::serde::de::Visitor<'de> for Visitor {
+      type Value = EmSquareSize;
+
+      fn expecting(&self, formatter: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
+        formatter.write_str("1024 or 20480")
+      }
+
+      fn visit_u64<E>(self, value: u64) -> Result<EmSquareSize, E>
+        where
+          E: ::serde::de::Error,
+      {
+        match value {
+          1024 => Ok(EmSquareSize::EmSquareSize1024),
+          20480 => Ok(EmSquareSize::EmSquareSize20480),
+          _ => Err(E::custom(format!("unknown EmSquareSize value: {}", value))),
+        }
+      }
+    }
+
+    deserializer.deserialize_u64(Visitor)
+  }
+}

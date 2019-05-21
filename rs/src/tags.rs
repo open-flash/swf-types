@@ -12,7 +12,7 @@ use crate::shape::{ClipAction, Glyph, Shape};
 use crate::shape::MorphShape;
 use crate::sound::{AudioCodingFormat, SoundInfo, SoundRate, SoundSize, SoundType};
 use crate::Tag;
-use crate::text::{CsmTableHint, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
+use crate::text::{CsmTableHint, EmSquareSize, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
 
 #[derive(Copy, Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -126,6 +126,7 @@ pub struct DefineFont {
   pub is_ansi: bool,
   pub is_small: bool,
   pub is_shift_jis: bool,
+  pub em_square_size: EmSquareSize,
   pub language: LanguageCode,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub glyphs: Option<Vec<Glyph>>,
