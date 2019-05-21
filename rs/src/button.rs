@@ -34,14 +34,14 @@ pub struct ButtonCondAction {
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ButtonCond {
-  pub idle_to_over_down: bool,
-  pub out_down_to_idle: bool,
-  pub out_down_to_over_down: bool,
-  pub over_down_to_out_down: bool,
-  pub over_down_to_over_up: bool,
-  pub over_up_to_over_down: bool,
-  pub over_up_to_idle: bool,
   pub idle_to_over_up: bool,
+  pub over_up_to_idle: bool,
+  pub over_up_to_over_down: bool,
+  pub over_down_to_over_up: bool,
+  pub over_down_to_out_down: bool,
+  pub out_down_to_over_down: bool,
+  pub out_down_to_idle: bool,
+  pub idle_to_over_down: bool,
   pub over_down_to_idle: bool,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub key_press: Option<u32>,

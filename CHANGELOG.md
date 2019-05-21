@@ -2,6 +2,7 @@
 
 - **[Breaking change]** Add `em_square_size` field to `DefineFont` ([#42](https://github.com/open-flash/swf-tree/issues/42)).
 - **[Fix]** Update `ButtonCond` field order.
+- **[Fix]** Update `ButtonRecord` field order.
 - **[Internal]** Update test samples.
 
 ### Typescript

@@ -5,28 +5,28 @@ import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { Uint32 } from "semantic-types";
 
 export interface ButtonCond {
-  idleToOverDown: boolean;
-  outDownToIdle: boolean;
-  outDownToOverDown: boolean;
-  overDownToOutDown: boolean;
-  overDownToOverUp: boolean;
-  overUpToOverDown: boolean;
-  overUpToIdle: boolean;
   idleToOverUp: boolean;
+  overUpToIdle: boolean;
+  overUpToOverDown: boolean;
+  overDownToOverUp: boolean;
+  overDownToOutDown: boolean;
+  outDownToOverDown: boolean;
+  outDownToIdle: boolean;
+  idleToOverDown: boolean;
   overDownToIdle: boolean;
   keyPress?: Uint32;
 }
 
 export const $ButtonCond: DocumentIoType<ButtonCond> = new DocumentType<ButtonCond>({
   properties: {
-    idleToOverDown: {type: $Boolean},
-    outDownToIdle: {type: $Boolean},
-    outDownToOverDown: {type: $Boolean},
-    overDownToOutDown: {type: $Boolean},
-    overDownToOverUp: {type: $Boolean},
-    overUpToOverDown: {type: $Boolean},
-    overUpToIdle: {type: $Boolean},
     idleToOverUp: {type: $Boolean},
+    overUpToIdle: {type: $Boolean},
+    overUpToOverDown: {type: $Boolean},
+    overDownToOverUp: {type: $Boolean},
+    overDownToOutDown: {type: $Boolean},
+    outDownToOverDown: {type: $Boolean},
+    outDownToIdle: {type: $Boolean},
+    idleToOverDown: {type: $Boolean},
     overDownToIdle: {type: $Boolean},
     keyPress: {type: $Uint32, optional: true},
   },
