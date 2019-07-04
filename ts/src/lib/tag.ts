@@ -30,6 +30,7 @@ export type Tag =
   | tags.ImportAssets
   | tags.Metadata
   | tags.PlaceObject
+  | tags.Protect
   | tags.RemoveObject
   | tags.ScriptLimits
   | tags.SetBackgroundColor
@@ -72,6 +73,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$ImportAssets,
     tags.$Metadata,
     tags.$PlaceObject,
+    tags.$Protect,
     tags.$RemoveObject,
     tags.$ScriptLimits,
     tags.$SetBackgroundColor,

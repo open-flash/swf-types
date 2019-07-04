@@ -1,5 +1,7 @@
 # Next
 
+- **[Feature]** Define `Protect` tag.
+
 ### Typescript
 
 - **[Fix]** Update dependencies.

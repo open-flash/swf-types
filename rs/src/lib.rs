@@ -141,6 +141,7 @@ pub enum Tag {
   ImportAssets(tags::ImportAssets),
   Metadata(tags::Metadata),
   PlaceObject(tags::PlaceObject),
+  Protect(tags::Protect),
   RemoveObject(tags::RemoveObject),
   ScriptLimits(tags::ScriptLimits),
   SetBackgroundColor(tags::SetBackgroundColor),

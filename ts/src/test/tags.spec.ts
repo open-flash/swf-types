@@ -28,7 +28,15 @@ describe("tags", function () {
       for (const sample of getSamplesFromGroup(group.name)) {
         it(sample.name, async function () {
           const valueJson: string = await readTextFile(sample.valuePath);
-          const value: Tag = $Tag.read(JSON_READER, valueJson);
+          let value: Tag;
+          try {
+            value = $Tag.read(JSON_READER, valueJson);
+          } catch (err) {
+            // Rethrow the error by keeping only the name (to avoid printing the whole body since it my hang Node for
+            // complex errors such as `VariantNotFound`).
+            // TODO: Remove this once printing `err` no longer hangs the process when it's a `VariantNotFound` error.
+            throw new Error(err.name);
+          }
 
           chai.assert.isUndefined($Tag.testError(value));
 
