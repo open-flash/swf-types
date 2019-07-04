@@ -1,3 +1,9 @@
+# Next
+
+### Typescript
+
+- **[Fix]** Update dependencies.
+
 # 0.7.0 (2019-05-21)
 
 - **[Breaking change]** Add `em_square_size` field to `DefineFont` ([#42](https://github.com/open-flash/swf-tree/issues/42)).

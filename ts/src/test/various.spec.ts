@@ -3,16 +3,16 @@ import fs from "fs";
 import { $Uint32 } from "kryo/builtins/uint32";
 import { IoType } from "kryo/core";
 import { JsonReader } from "kryo/readers/json";
+import { Float64Type } from "kryo/types/float64";
 import { JsonValueWriter } from "kryo/writers/json-value";
 import sysPath from "path";
+import { $ColorTransformWithAlpha } from "../lib/color-transform-with-alpha";
 import { $Header } from "../lib/header";
 import { $Matrix } from "../lib/matrix";
 import { $Rect } from "../lib/rect";
 import { $SwfSignature } from "../lib/swf-signature";
 import meta from "./meta.js";
 import { readTextFile } from "./utils";
-import { $ColorTransformWithAlpha } from "../lib/color-transform-with-alpha";
-import { Float64Type } from "kryo/types/float64";
 
 const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..", "..", "..");
 const SAMPLES_ROOT: string = sysPath.join(PROJECT_ROOT, "..", "tests", "various");
