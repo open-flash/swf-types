@@ -12,6 +12,7 @@ export type Tag =
   | tags.DefineFontAlignZones
   | tags.DefineFontInfo
   | tags.DefineFontName
+  | tags.DefineGlyphFont
   | tags.DefineJpegTables
   | tags.DefineMorphShape
   | tags.DefinePartialFont
@@ -55,6 +56,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$DefineFontAlignZones,
     tags.$DefineFontInfo,
     tags.$DefineFontName,
+    tags.$DefineGlyphFont,
     tags.$DefineJpegTables,
     tags.$DefineMorphShape,
     tags.$DefinePartialFont,

@@ -168,6 +168,13 @@ pub struct DefineFontName {
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
+pub struct DefineGlyphFont {
+  pub id: u16,
+  pub glyphs: Vec<Glyph>,
+}
+
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
 pub struct DefineJpegTables {
   #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,

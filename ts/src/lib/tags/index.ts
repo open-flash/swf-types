@@ -8,6 +8,7 @@ export { $DefineFont, DefineFont } from "./define-font";
 export { $DefineFontAlignZones, DefineFontAlignZones } from "./define-font-align-zones";
 export { $DefineFontInfo, DefineFontInfo } from "./define-font-info";
 export { $DefineFontName, DefineFontName } from "./define-font-name";
+export { $DefineGlyphFont, DefineGlyphFont } from "./define-glyph-font";
 export { $DefineJpegTables, DefineJpegTables } from "./define-jpeg-tables";
 export { $DefineMorphShape, DefineMorphShape } from "./define-morph-shape";
 export { $DefinePartialFont, DefinePartialFont } from "./define-partial-font";

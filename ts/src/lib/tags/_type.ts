@@ -19,6 +19,7 @@ export enum TagType {
   DefineFontAlignZones,
   DefineFontInfo,
   DefineFontName,
+  DefineGlyphFont,
   DefineJpegTables,
   DefineFunction,
   DefineMorphShape,

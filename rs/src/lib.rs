@@ -123,6 +123,7 @@ pub enum Tag {
   DefineFontAlignZones(tags::DefineFontAlignZones),
   DefineFontInfo(tags::DefineFontInfo),
   DefineFontName(tags::DefineFontName),
+  DefineGlyphFont(tags::DefineGlyphFont),
   DefineJpegTables(tags::DefineJpegTables),
   DefineMorphShape(tags::DefineMorphShape),
   DefinePartialFont(tags::DefinePartialFont),

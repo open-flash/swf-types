@@ -1,3 +1,7 @@
+# Next
+
+- **[Feature]** Define `DefineGlyphFont` tag.
+
 # 0.7.1 (2019-07-05)
 
 - **[Feature]** Define `Protect` tag.
