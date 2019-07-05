@@ -85,7 +85,7 @@ dependencies = [
 
 [[package]]
 name = "swf-tree"
-version = "0.7.1"
+version = "0.7.2"
 dependencies = [
  "hex 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 1.0.89 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -99,7 +99,7 @@ name = "swf-tree-bin"
 version = "0.5.0"
 dependencies = [
  "serde_json 1.0.39 (registry+https://github.com/rust-lang/crates.io-index)",
- "swf-tree 0.7.1",
+ "swf-tree 0.7.2",
 ]
 
 [[package]]

@@ -1,4 +1,4 @@
-# Next
+# 0.7.2 (2019-07-05)
 
 - **[Feature]** Define `DefineGlyphFont` tag.
 
