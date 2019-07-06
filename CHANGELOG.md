@@ -1,6 +1,7 @@
 # Next
 
 - **[Breaking change]** Require `language` to be defined in `DefineFontInfo`.
+- **[Breaking change]** Reorder `FileAttributes` fields.
 
 # 0.7.2 (2019-07-05)
 

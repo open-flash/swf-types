@@ -307,13 +307,13 @@ pub struct ExportAssets {
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct FileAttributes {
-  pub use_direct_blit: bool,
-  pub use_gpu: bool,
-  pub has_metadata: bool,
-  pub use_as3: bool,
-  pub no_cross_domain_caching: bool,
-  pub use_relative_urls: bool,
   pub use_network: bool,
+  pub use_relative_urls: bool,
+  pub no_cross_domain_caching: bool,
+  pub use_as3: bool,
+  pub has_metadata: bool,
+  pub use_gpu: bool,
+  pub use_direct_blit: bool,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]

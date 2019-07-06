@@ -2,14 +2,14 @@
 
 ```
 interface FileAttributes variantof Tag(type) {
-  useDirectBlit: Boolean;
-  useGpu: Boolean;
-  hasMetadata: Boolean;
-  useAs3: Boolean;
-  // Not in the spec, found in Shumway
-  noCrossDomainCaching: Boolean;
+  useNetwork: Boolean;
   // Not in the spec, found in Shumway
   useRelativeUrls: Boolean;
-  useNetwork: Boolean;
+  // Not in the spec, found in Shumway
+  noCrossDomainCaching: Boolean;
+  useAs3: Boolean;
+  hasMetadata: Boolean;
+  useGpu: Boolean;
+  useDirectBlit: Boolean;
 }
 ```
