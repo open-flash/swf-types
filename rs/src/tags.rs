@@ -148,13 +148,12 @@ pub struct DefineFontAlignZones {
 pub struct DefineFontInfo {
   pub font_id: u16,
   pub font_name: String,
-  pub is_small: bool,
-  pub is_shift_jis: bool,
-  pub is_ansi: bool,
-  pub is_italic: bool,
   pub is_bold: bool,
-  #[serde(skip_serializing_if = "Option::is_none")]
-  pub language: Option<LanguageCode>,
+  pub is_italic: bool,
+  pub is_ansi: bool,
+  pub is_shift_jis: bool,
+  pub is_small: bool,
+  pub language: LanguageCode,
   pub code_units: Vec<u16>,
 }
 

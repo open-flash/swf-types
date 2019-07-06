@@ -14,12 +14,12 @@ export interface DefineFontInfo extends _Tag {
   readonly type: TagType.DefineFontInfo;
   readonly fontId: Uint16;
   readonly fontName: string;
-  readonly isSmall: boolean;
-  readonly isShiftJis: boolean;
-  readonly isAnsi: boolean;
-  readonly isItalic: boolean;
   readonly isBold: boolean;
-  readonly language?: LanguageCode;
+  readonly isItalic: boolean;
+  readonly isAnsi: boolean;
+  readonly isShiftJis: boolean;
+  readonly isSmall: boolean;
+  readonly language: LanguageCode;
   readonly codeUnits: ReadonlyArray<Uint16>;
 }
 
@@ -28,12 +28,12 @@ export const $DefineFontInfo: DocumentIoType<DefineFontInfo> = new DocumentType<
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineFontInfo as TagType.DefineFontInfo})},
     fontId: {type: $Uint16},
     fontName: {type: new Ucs2StringType({maxLength: Infinity})},
-    isSmall: {type: $Boolean},
-    isShiftJis: {type: $Boolean},
-    isAnsi: {type: $Boolean},
-    isItalic: {type: $Boolean},
     isBold: {type: $Boolean},
-    language: {type: $LanguageCode, optional: true},
+    isItalic: {type: $Boolean},
+    isAnsi: {type: $Boolean},
+    isShiftJis: {type: $Boolean},
+    isSmall: {type: $Boolean},
+    language: {type: $LanguageCode},
     codeUnits: {type: new ArrayType({itemType: $Uint16, maxLength: Infinity})},
   },
   changeCase: CaseStyle.SnakeCase,
