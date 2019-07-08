@@ -5,6 +5,11 @@
 - **[Breaking change]** Remove `DefinePartialFont` tag (replaced by `DefineGlyphFont`).
 - **[Internal]** Update `README.md`.
 
+## Rust
+
+- **[Breaking change]** Use `[f32; 20]` in `ColorMatrix` filter ([#25](https://github.com/open-flash/swf-tree/issues/25)).
+- **[Fix]** Fix `Is` implementation for vectors (used to compare floats by bit pattern).
+
 # 0.7.2 (2019-07-05)
 
 - **[Feature]** Define `DefineGlyphFont` tag.

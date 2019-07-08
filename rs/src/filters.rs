@@ -33,7 +33,7 @@ pub struct Bevel {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct ColorMatrix {
-  pub matrix: Vec<f32>,
+  pub matrix: [f32; 20],
 }
 
 impl ::std::cmp::PartialEq for ColorMatrix {

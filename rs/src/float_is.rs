@@ -23,6 +23,22 @@ impl<T: Is> Is for Vec<T> {
     if self.len() != other.len() {
       return false;
     }
+    for (i, left) in self.iter().enumerate() {
+      if !left.is(&other[i]) {
+        return false;
+      }
+    }
+    true
+  }
+}
+
+impl Is for [f32;20] {
+  fn is(&self, other: &Self) -> bool {
+    for i in 0..20 {
+      if !self[i].is(&other[i]) {
+        return false
+      }
+    }
     true
   }
 }
