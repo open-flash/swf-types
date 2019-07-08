@@ -11,7 +11,6 @@ export { $DefineFontName, DefineFontName } from "./define-font-name";
 export { $DefineGlyphFont, DefineGlyphFont } from "./define-glyph-font";
 export { $DefineJpegTables, DefineJpegTables } from "./define-jpeg-tables";
 export { $DefineMorphShape, DefineMorphShape } from "./define-morph-shape";
-export { $DefinePartialFont, DefinePartialFont } from "./define-partial-font";
 export { $DefineSceneAndFrameLabelData, DefineSceneAndFrameLabelData } from "./define-scene-and-frame-label-data";
 export { $DefineShape, DefineShape } from "./define-shape";
 export { $DefineSound, DefineSound } from "./define-sound";

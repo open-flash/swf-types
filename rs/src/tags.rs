@@ -197,13 +197,6 @@ pub struct DefineMorphShape {
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-pub struct DefinePartialFont {
-  pub id: u16,
-  pub glyphs: Vec<Glyph>,
-}
-
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
 pub struct DefineSceneAndFrameLabelData {
   pub scenes: Vec<Scene>,
   pub labels: Vec<Label>,

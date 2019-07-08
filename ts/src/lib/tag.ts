@@ -15,7 +15,6 @@ export type Tag =
   | tags.DefineGlyphFont
   | tags.DefineJpegTables
   | tags.DefineMorphShape
-  | tags.DefinePartialFont
   | tags.DefineSceneAndFrameLabelData
   | tags.DefineShape
   | tags.DefineSound
@@ -59,7 +58,6 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$DefineGlyphFont,
     tags.$DefineJpegTables,
     tags.$DefineMorphShape,
-    tags.$DefinePartialFont,
     tags.$DefineSceneAndFrameLabelData,
     tags.$DefineShape,
     tags.$DefineSound,

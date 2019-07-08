@@ -14,7 +14,6 @@ export enum TagType {
   DefineCffFont,
   DefineCommandObject,
   DefineDynamicText,
-  DefinePartialFont,
   DefineFont,
   DefineFontAlignZones,
   DefineFontInfo,

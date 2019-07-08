@@ -126,7 +126,6 @@ pub enum Tag {
   DefineGlyphFont(tags::DefineGlyphFont),
   DefineJpegTables(tags::DefineJpegTables),
   DefineMorphShape(tags::DefineMorphShape),
-  DefinePartialFont(tags::DefinePartialFont),
   DefineSceneAndFrameLabelData(tags::DefineSceneAndFrameLabelData),
   DefineShape(tags::DefineShape),
   DefineSound(tags::DefineSound),

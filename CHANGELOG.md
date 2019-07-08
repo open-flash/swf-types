@@ -2,6 +2,7 @@
 
 - **[Breaking change]** Require `language` to be defined in `DefineFontInfo`.
 - **[Breaking change]** Reorder `FileAttributes` fields.
+- **[Breaking change]** Remove `DefinePartialFont` tag (replaced by `DefineGlyphFont`).
 - **[Internal]** Update `README.md`.
 
 # 0.7.2 (2019-07-05)
