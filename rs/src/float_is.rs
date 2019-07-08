@@ -32,11 +32,11 @@ impl<T: Is> Is for Vec<T> {
   }
 }
 
-impl Is for [f32;20] {
+impl Is for [f32; 20] {
   fn is(&self, other: &Self) -> bool {
     for i in 0..20 {
       if !self[i].is(&other[i]) {
-        return false
+        return false;
       }
     }
     true

@@ -23,8 +23,8 @@ pub enum SoundRate {
 
 impl ::serde::Serialize for SoundRate {
   fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-      S: ::serde::Serializer,
+  where
+    S: ::serde::Serializer,
   {
     let sound_rate: u64 = match self {
       SoundRate::SoundRate5500 => 5500,
@@ -38,8 +38,8 @@ impl ::serde::Serialize for SoundRate {
 
 impl<'de> ::serde::Deserialize<'de> for SoundRate {
   fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-      D: ::serde::Deserializer<'de>,
+  where
+    D: ::serde::Deserializer<'de>,
   {
     struct Visitor;
 
@@ -51,8 +51,8 @@ impl<'de> ::serde::Deserialize<'de> for SoundRate {
       }
 
       fn visit_u64<E>(self, value: u64) -> Result<SoundRate, E>
-        where
-          E: ::serde::de::Error,
+      where
+        E: ::serde::de::Error,
       {
         match value {
           5500 => Ok(SoundRate::SoundRate5500),
@@ -77,8 +77,8 @@ pub enum SoundSize {
 
 impl ::serde::Serialize for SoundSize {
   fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-      S: ::serde::Serializer,
+  where
+    S: ::serde::Serializer,
   {
     let sound_size: u64 = match self {
       SoundSize::SoundSize8 => 8,
@@ -90,8 +90,8 @@ impl ::serde::Serialize for SoundSize {
 
 impl<'de> ::serde::Deserialize<'de> for SoundSize {
   fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-      D: ::serde::Deserializer<'de>,
+  where
+    D: ::serde::Deserializer<'de>,
   {
     struct Visitor;
 
@@ -103,8 +103,8 @@ impl<'de> ::serde::Deserialize<'de> for SoundSize {
       }
 
       fn visit_u64<E>(self, value: u64) -> Result<SoundSize, E>
-        where
-          E: ::serde::de::Error,
+      where
+        E: ::serde::de::Error,
       {
         match value {
           8 => Ok(SoundSize::SoundSize8),
@@ -125,7 +125,6 @@ pub enum SoundType {
   Mono,
   Stereo,
 }
-
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]

@@ -1,9 +1,9 @@
 use ::serde::{Deserialize, Serialize};
 
+use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::BlendMode;
 use crate::ColorTransformWithAlpha;
 use crate::Filter;
-use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::Matrix;
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]

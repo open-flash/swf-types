@@ -1,18 +1,20 @@
 use ::serde::{Deserialize, Serialize};
 
 use crate::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
-use crate::BlendMode;
 use crate::button::ButtonCondAction;
 use crate::button::ButtonRecord;
-use crate::Filter;
 use crate::float_is::Is;
 use crate::helpers::{buffer_to_hex, hex_to_buffer};
-use crate::ImageType;
-use crate::shape::{ClipAction, Glyph, Shape};
 use crate::shape::MorphShape;
+use crate::shape::{ClipAction, Glyph, Shape};
 use crate::sound::{AudioCodingFormat, SoundInfo, SoundRate, SoundSize, SoundType};
+use crate::text::{
+  CsmTableHint, EmSquareSize, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer,
+};
+use crate::BlendMode;
+use crate::Filter;
+use crate::ImageType;
 use crate::Tag;
-use crate::text::{CsmTableHint, EmSquareSize, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer};
 
 #[derive(Copy, Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]

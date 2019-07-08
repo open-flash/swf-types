@@ -12,5 +12,8 @@ fn main() {
   let reader = ::std::io::BufReader::new(json_file);
   let movie: Movie = serde_json::from_reader(reader).expect("Failed to read value");
 
-  println!("{}", serde_json::to_string_pretty(&movie).expect("Failed to print value"));
+  println!(
+    "{}",
+    serde_json::to_string_pretty(&movie).expect("Failed to print value")
+  );
 }

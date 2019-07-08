@@ -1,9 +1,9 @@
 use ::serde::{Deserialize, Serialize};
 
 use crate::basic_types::StraightSRgba8;
+use crate::fixed::{Sfixed16P16, Sfixed8P8};
 use crate::float_is::Is;
 use crate::gradient::ColorStop;
-use crate::fixed::{Sfixed16P16, Sfixed8P8};
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -47,7 +47,6 @@ impl ::std::cmp::PartialEq for ColorMatrix {
 }
 
 impl ::std::cmp::Eq for ColorMatrix {}
-
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]

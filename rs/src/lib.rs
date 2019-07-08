@@ -24,6 +24,7 @@ pub use crate::movie::CompressionMethod;
 pub use crate::movie::Header;
 pub use crate::movie::Movie;
 pub use crate::movie::SwfSignature;
+pub use crate::shape::shape_records;
 pub use crate::shape::CapStyle;
 pub use crate::shape::ClipAction;
 pub use crate::shape::ClipEventFlags;
@@ -37,7 +38,6 @@ pub use crate::shape::MorphShape;
 pub use crate::shape::MorphShapeRecord;
 pub use crate::shape::MorphShapeStyles;
 pub use crate::shape::Shape;
-pub use crate::shape::shape_records;
 pub use crate::shape::ShapeRecord;
 pub use crate::shape::ShapeStyles;
 pub use crate::sound::AudioCodingFormat;
@@ -166,7 +166,13 @@ mod tests {
   test_expand_paths! { test_movie; "../tests/movies/*/" }
   fn test_movie(path: &str) {
     let path: &Path = Path::new(path);
-    let _name = path.components().last().unwrap().as_os_str().to_str().expect("Failed to retrieve sample name");
+    let _name = path
+      .components()
+      .last()
+      .unwrap()
+      .as_os_str()
+      .to_str()
+      .expect("Failed to retrieve sample name");
     let ast_path = path.join("ast.json");
 
     let value_json = ::std::fs::read_to_string(ast_path).expect("Failed to read AST file");
@@ -184,7 +190,13 @@ mod tests {
       test_expand_paths! { $name; $glob }
       fn $name(path: &str) {
         let path: &Path = Path::new(path);
-        let _name = path.components().last().unwrap().as_os_str().to_str().expect("Failed to retrieve sample name");
+        let _name = path
+          .components()
+          .last()
+          .unwrap()
+          .as_os_str()
+          .to_str()
+          .expect("Failed to retrieve sample name");
         let value_path = path.join("value.json");
 
         let value_json = ::std::fs::read_to_string(value_path).expect("Failed to read value file");
@@ -196,14 +208,18 @@ mod tests {
 
         assert_eq!(output_json, value_json)
       }
-    }
+    };
   }
 
   use crate::Tag;
   test_various_impl!(test_tag, "../tests/tags/*/*/", Tag);
 
   use crate::ColorTransformWithAlpha;
-  test_various_impl!(test_color_transform_with_alpha, "../tests/various/color-transform-with-alpha/*/", ColorTransformWithAlpha);
+  test_various_impl!(
+    test_color_transform_with_alpha,
+    "../tests/various/color-transform-with-alpha/*/",
+    ColorTransformWithAlpha
+  );
 
   // TODO: f16
   test_various_impl!(test_float16_le, "../tests/various/float16-le/*/", f32);

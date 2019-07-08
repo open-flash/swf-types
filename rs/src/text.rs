@@ -28,8 +28,7 @@ pub struct FontAlignmentZoneData {
 
 impl ::std::cmp::PartialEq for FontAlignmentZoneData {
   fn eq(&self, other: &Self) -> bool {
-    self.origin.is(&other.origin)
-      && self.size.is(&other.size)
+    self.origin.is(&other.origin) && self.size.is(&other.size)
   }
 
   fn ne(&self, other: &Self) -> bool {
@@ -117,8 +116,8 @@ pub enum EmSquareSize {
 
 impl ::serde::Serialize for EmSquareSize {
   fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-      S: ::serde::Serializer,
+  where
+    S: ::serde::Serializer,
   {
     let sound_size: u64 = match self {
       EmSquareSize::EmSquareSize1024 => 1024,
@@ -130,8 +129,8 @@ impl ::serde::Serialize for EmSquareSize {
 
 impl<'de> ::serde::Deserialize<'de> for EmSquareSize {
   fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-      D: ::serde::Deserializer<'de>,
+  where
+    D: ::serde::Deserializer<'de>,
   {
     struct Visitor;
 
@@ -143,8 +142,8 @@ impl<'de> ::serde::Deserialize<'de> for EmSquareSize {
       }
 
       fn visit_u64<E>(self, value: u64) -> Result<EmSquareSize, E>
-        where
-          E: ::serde::de::Error,
+      where
+        E: ::serde::de::Error,
       {
         match value {
           1024 => Ok(EmSquareSize::EmSquareSize1024),
