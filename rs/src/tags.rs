@@ -1,8 +1,8 @@
 use ::serde::{Deserialize, Serialize};
 
 use crate::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
-use crate::button::ButtonCondAction;
 use crate::button::ButtonRecord;
+use crate::button::{ButtonCondAction, ButtonSound};
 use crate::float_is::Is;
 use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::shape::MorphShape;
@@ -68,6 +68,20 @@ pub struct DefineButton {
   pub track_as_menu: bool,
   pub characters: Vec<ButtonRecord>,
   pub actions: Vec<ButtonCondAction>,
+}
+
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineButtonSound {
+  pub button_id: u16,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub over_up_to_idle: Option<ButtonSound>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub idle_to_over_up: Option<ButtonSound>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub over_up_to_over_down: Option<ButtonSound>,
+  #[serde(skip_serializing_if = "Option::is_none")]
+  pub over_down_to_over_up: Option<ButtonSound>,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]

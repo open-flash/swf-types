@@ -1,10 +1,10 @@
 use ::serde::{Deserialize, Serialize};
 
 use crate::helpers::{buffer_to_hex, hex_to_buffer};
-use crate::BlendMode;
 use crate::ColorTransformWithAlpha;
 use crate::Filter;
 use crate::Matrix;
+use crate::{BlendMode, SoundInfo};
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -45,4 +45,11 @@ pub struct ButtonCond {
   pub over_down_to_idle: bool,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub key_press: Option<u32>,
+}
+
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub struct ButtonSound {
+  pub sound_id: u16,
+  pub sound_info: SoundInfo,
 }

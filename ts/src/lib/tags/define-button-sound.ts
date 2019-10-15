@@ -3,9 +3,9 @@ import { CaseStyle } from "kryo/case-style";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
-import { _Tag } from "../tags/_tag";
-import { $TagType, TagType } from "../tags/_type";
-import { $ButtonSound, ButtonSound } from "./button-sound";
+import { $ButtonSound, ButtonSound } from "../button/button-sound";
+import { _Tag } from "./_tag";
+import { $TagType, TagType } from "./_type";
 
 export interface DefineButtonSound extends _Tag {
   type: TagType.DefineButtonSound;

@@ -13,6 +13,7 @@ pub use crate::basic_types::Vector2D;
 pub use crate::button::ButtonCond;
 pub use crate::button::ButtonCondAction;
 pub use crate::button::ButtonRecord;
+pub use crate::button::ButtonSound;
 pub use crate::gradient::ColorSpace;
 pub use crate::gradient::ColorStop;
 pub use crate::gradient::Gradient;
@@ -117,6 +118,7 @@ pub enum Tag {
   DefineBinaryData(tags::DefineBinaryData),
   DefineBitmap(tags::DefineBitmap),
   DefineButton(tags::DefineButton),
+  DefineButtonSound(tags::DefineButtonSound),
   DefineCffFont(tags::DefineCffFont),
   DefineDynamicText(tags::DefineDynamicText),
   DefineFont(tags::DefineFont),
