@@ -2,6 +2,7 @@
 
 - **[Feature]** Define `DefineButtonSound` tag.
 - **[Feature]** Define `DefineButtonColorTransform` tag.
+- **[Feature]** Define `DefineVideoStream` tag.
 
 # 0.8.0 (2019-07-08)
 

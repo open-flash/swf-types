@@ -22,6 +22,7 @@ export type Tag =
   | tags.DefineSound
   | tags.DefineSprite
   | tags.DefineText
+  | tags.DefineVideoStream
   | tags.DoAbc
   | tags.DoAction
   | tags.DoInitAction
@@ -67,6 +68,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$DefineSound,
     tags.$DefineSprite,
     tags.$DefineText,
+    tags.$DefineVideoStream,
     tags.$DoAbc,
     tags.$DoAction,
     tags.$DoInitAction,

@@ -47,6 +47,8 @@ pub use crate::sound::SoundInfo;
 pub use crate::sound::SoundRate;
 pub use crate::sound::SoundSize;
 pub use crate::sound::SoundType;
+pub use crate::video::VideoCodec;
+pub use crate::video::VideoDeblocking;
 
 mod float_is;
 
@@ -71,6 +73,8 @@ mod movie;
 mod shape;
 
 mod sound;
+
+mod video;
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "kebab-case")]
@@ -134,6 +138,7 @@ pub enum Tag {
   DefineSound(tags::DefineSound),
   DefineSprite(tags::DefineSprite),
   DefineText(tags::DefineText),
+  DefineVideoStream(tags::DefineVideoStream),
   DoAbc(tags::DoAbc),
   DoAction(tags::DoAction),
   DoInitAction(tags::DoInitAction),

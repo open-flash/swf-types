@@ -18,6 +18,7 @@ export { $DefineShape, DefineShape } from "./define-shape";
 export { $DefineSound, DefineSound } from "./define-sound";
 export { $DefineSprite, DefineSprite } from "./define-sprite";
 export { $DefineText, DefineText } from "./define-text";
+export { $DefineVideoStream, DefineVideoStream } from "./define-video-stream";
 export { $DoAbc, DoAbc } from "./do-abc";
 export { $DoAction, DoAction } from "./do-action";
 export { $DoInitAction, DoInitAction } from "./do-init-action";

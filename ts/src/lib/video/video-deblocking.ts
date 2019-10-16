@@ -2,7 +2,7 @@ import { CaseStyle } from "kryo/case-style";
 import { TsEnumType } from "kryo/types/ts-enum";
 
 export enum VideoDeblocking {
-  UseVideoPacketValue,
+  PacketValue,
   Off,
   Level1,
   Level2,

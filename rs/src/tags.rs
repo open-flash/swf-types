@@ -11,10 +11,10 @@ use crate::sound::{AudioCodingFormat, SoundInfo, SoundRate, SoundSize, SoundType
 use crate::text::{
   CsmTableHint, EmSquareSize, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer,
 };
-use crate::Filter;
 use crate::ImageType;
 use crate::Tag;
 use crate::{BlendMode, ColorTransform};
+use crate::{Filter, VideoCodec, VideoDeblocking};
 
 #[derive(Copy, Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -282,6 +282,18 @@ pub struct DefineText {
   pub bounds: Rect,
   pub matrix: Matrix,
   pub records: Vec<TextRecord>,
+}
+
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineVideoStream {
+  pub id: u16,
+  pub frame_count: usize,
+  pub width: u16,
+  pub height: u16,
+  pub use_smoothing: bool,
+  pub deblocking: VideoDeblocking,
+  pub codec: VideoCodec,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
