@@ -4,7 +4,7 @@ use crate::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId,
 use crate::button::ButtonRecord;
 use crate::button::{ButtonCondAction, ButtonSound};
 use crate::float_is::Is;
-use crate::helpers::{buffer_to_hex, hex_to_buffer};
+use crate::helpers::{buffer_to_hex, hex_to_buffer, hex_to_optional_buffer, optional_buffer_to_hex};
 use crate::shape::MorphShape;
 use crate::shape::{ClipAction, Glyph, Shape};
 use crate::sound::{AudioCodingFormat, SoundInfo, SoundRate, SoundSize, SoundType};
@@ -485,9 +485,11 @@ pub struct SymbolClass {
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct Telemetry {
-  // TODO(demurgos): Serialize optional buffers to hex
-  // #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
-  #[serde(skip_serializing_if = "Option::is_none")]
+  #[serde(
+    skip_serializing_if = "Option::is_none",
+    serialize_with = "optional_buffer_to_hex",
+    deserialize_with = "hex_to_optional_buffer"
+  )]
   pub password: Option<Vec<u8>>,
 }
 

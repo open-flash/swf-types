@@ -8,6 +8,10 @@
 - **[Feature]** Define `SetTabIndex` tag.
 - **[Feature]** Define `DefineScalingGrid` tag.
 
+## Rust
+
+- **[Fix]** Fix `Telemetry` serialization.
+
 # 0.8.0 (2019-07-08)
 
 - **[Breaking change]** Require `language` to be defined in `DefineFontInfo`.

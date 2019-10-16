@@ -20,3 +20,31 @@ where
   String::deserialize(deserializer)
     .and_then(|string| Vec::from_hex(&string).map_err(|err| Error::custom(err.to_string())))
 }
+
+pub fn optional_buffer_to_hex<S>(buffer: &Option<Vec<u8>>, serializer: S) -> Result<S::Ok, S::Error>
+where
+  S: Serializer,
+{
+  use serde::Serialize;
+
+  #[derive(Serialize)]
+  struct Wrapper<'a>(#[serde(serialize_with = "buffer_to_hex")] &'a Vec<u8>);
+
+  let v: Option<Wrapper> = match buffer {
+    Some(ref x) => Option::Some(Wrapper(x)),
+    None => Option::None,
+  };
+
+  v.serialize(serializer)
+}
+
+pub fn hex_to_optional_buffer<'de, D>(deserializer: D) -> Result<Option<Vec<u8>>, D::Error>
+where
+  D: Deserializer<'de>,
+{
+  #[derive(Deserialize)]
+  struct Wrapper(#[serde(deserialize_with = "hex_to_buffer")] Vec<u8>);
+
+  let v = Option::deserialize(deserializer)?;
+  Ok(v.map(|Wrapper(bytes)| bytes))
+}
