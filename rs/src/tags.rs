@@ -11,10 +11,10 @@ use crate::sound::{AudioCodingFormat, SoundInfo, SoundRate, SoundSize, SoundType
 use crate::text::{
   CsmTableHint, EmSquareSize, FontAlignmentZone, FontLayout, GridFitting, TextAlignment, TextRecord, TextRenderer,
 };
-use crate::BlendMode;
 use crate::Filter;
 use crate::ImageType;
 use crate::Tag;
+use crate::{BlendMode, ColorTransform};
 
 #[derive(Copy, Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -68,6 +68,13 @@ pub struct DefineButton {
   pub track_as_menu: bool,
   pub characters: Vec<ButtonRecord>,
   pub actions: Vec<ButtonCondAction>,
+}
+
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineButtonColorTransform {
+  pub button_id: u16,
+  pub transform: ColorTransform,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]

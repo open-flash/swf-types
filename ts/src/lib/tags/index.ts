@@ -2,6 +2,7 @@ export { $CsmTextSettings, CsmTextSettings } from "./csm-text-settings";
 export { $DefineBinaryData, DefineBinaryData } from "./define-binary-data";
 export { $DefineBitmap, DefineBitmap } from "./define-bitmap";
 export { $DefineButton, DefineButton } from "./define-button";
+export { $DefineButtonColorTransform, DefineButtonColorTransform } from "./define-button-color-transform";
 export { $DefineButtonSound, DefineButtonSound } from "./define-button-sound";
 export { $DefineCffFont, DefineCffFont } from "./define-cff-font";
 export { $DefineDynamicText, DefineDynamicText } from "./define-dynamic-text";

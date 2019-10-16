@@ -4,8 +4,8 @@ import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { $ColorTransform, ColorTransform } from "../color-transform";
-import { _Tag } from "../tags/_tag";
-import { $TagType, TagType } from "../tags/_type";
+import { _Tag } from "./_tag";
+import { $TagType, TagType } from "./_type";
 
 export interface DefineButtonColorTransform extends _Tag {
   type: TagType.DefineButtonColorTransform;

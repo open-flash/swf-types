@@ -1,6 +1,7 @@
 # Next
 
 - **[Feature]** Define `DefineButtonSound` tag.
+- **[Feature]** Define `DefineButtonColorTransform` tag.
 
 # 0.8.0 (2019-07-08)
 

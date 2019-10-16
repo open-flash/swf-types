@@ -118,6 +118,7 @@ pub enum Tag {
   DefineBinaryData(tags::DefineBinaryData),
   DefineBitmap(tags::DefineBitmap),
   DefineButton(tags::DefineButton),
+  DefineButtonColorTransform(tags::DefineButtonColorTransform),
   DefineButtonSound(tags::DefineButtonSound),
   DefineCffFont(tags::DefineCffFont),
   DefineDynamicText(tags::DefineDynamicText),
