@@ -486,3 +486,12 @@ pub struct Unknown {
   #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
   pub data: Vec<u8>,
 }
+
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub struct VideoFrame {
+  pub video_id: u16,
+  pub frame: u16,
+  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
+  pub packet: Vec<u8>,
+}

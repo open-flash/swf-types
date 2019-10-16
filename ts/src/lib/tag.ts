@@ -45,7 +45,8 @@ export type Tag =
   | tags.StartSound2
   | tags.SymbolClass
   | tags.Telemetry
-  | tags.Unknown;
+  | tags.Unknown
+  | tags.VideoFrame;
 
 export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
   variants: [
@@ -93,6 +94,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$SymbolClass,
     tags.$Telemetry,
     tags.$Unknown,
+    tags.$VideoFrame,
   ],
   tag: "type",
 }));

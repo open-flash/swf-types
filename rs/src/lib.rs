@@ -162,6 +162,7 @@ pub enum Tag {
   SymbolClass(tags::SymbolClass),
   Telemetry(tags::Telemetry),
   Unknown(tags::Unknown),
+  VideoFrame(tags::VideoFrame),
 }
 
 #[cfg(test)]

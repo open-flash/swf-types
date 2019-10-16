@@ -4,6 +4,7 @@
 - **[Feature]** Define `DefineButtonColorTransform` tag.
 - **[Feature]** Define `DefineVideoStream` tag.
 - **[Feature]** Define `EnablePostscript` tag.
+- **[Feature]** Define `VideoFrame` tag.
 
 # 0.8.0 (2019-07-08)
 

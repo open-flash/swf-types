@@ -41,4 +41,5 @@ export { $StartSound, StartSound } from "./start-sound";
 export { $StartSound2, StartSound2 } from "./start-sound2";
 export { $SymbolClass, SymbolClass } from "./symbol-class";
 export { $Telemetry, Telemetry } from "./telemetry";
+export { $VideoFrame, VideoFrame } from "./video-frame";
 export { $Unknown, Unknown } from "./unknown";
