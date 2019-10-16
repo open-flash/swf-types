@@ -17,8 +17,8 @@ export interface DefineMorphShape extends _Tag {
   // TODO: Combine edgeBounds and morphEdgeBounds in something like MorphRect
   readonly edgeBounds?: Rect;
   readonly morphEdgeBounds?: Rect;
-  readonly hasNonScalingStrokes: boolean;
   readonly hasScalingStrokes: boolean;
+  readonly hasNonScalingStrokes: boolean;
   readonly shape: MorphShape;
 }
 
@@ -30,8 +30,8 @@ export const $DefineMorphShape: DocumentIoType<DefineMorphShape> = new DocumentT
     morphBounds: {type: $Rect},
     edgeBounds: {type: $Rect, optional: true},
     morphEdgeBounds: {type: $Rect, optional: true},
-    hasNonScalingStrokes: {type: $Boolean},
     hasScalingStrokes: {type: $Boolean},
+    hasNonScalingStrokes: {type: $Boolean},
     shape: {type: $MorphShape},
   },
   changeCase: CaseStyle.SnakeCase,

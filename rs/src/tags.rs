@@ -217,8 +217,8 @@ pub struct DefineMorphShape {
   pub edge_bounds: Option<Rect>,
   #[serde(skip_serializing_if = "Option::is_none")]
   pub morph_edge_bounds: Option<Rect>,
-  pub has_non_scaling_strokes: bool,
   pub has_scaling_strokes: bool,
+  pub has_non_scaling_strokes: bool,
   pub shape: MorphShape,
 }
 

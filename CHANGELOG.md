@@ -1,5 +1,6 @@
 # Next
 
+- **[Breaking change]** Change field order in `DefineMorphShape`.
 - **[Feature]** Define `DefineButtonSound` tag.
 - **[Feature]** Define `DefineButtonColorTransform` tag.
 - **[Feature]** Define `DefineVideoStream` tag.
