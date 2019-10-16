@@ -7,6 +7,7 @@
 - **[Feature]** Define `VideoFrame` tag.
 - **[Feature]** Define `SetTabIndex` tag.
 - **[Feature]** Define `DefineScalingGrid` tag.
+- **[Fix]** Fix `DefineCffFont` definition: reorder fields and ensure data is optional.
 
 ## Rust
 

@@ -96,10 +96,14 @@ pub struct DefineButtonSound {
 pub struct DefineCffFont {
   pub id: u16,
   pub font_name: String,
-  pub is_italic: bool,
   pub is_bold: bool,
-  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
-  pub data: Vec<u8>,
+  pub is_italic: bool,
+  #[serde(
+    skip_serializing_if = "Option::is_none",
+    serialize_with = "optional_buffer_to_hex",
+    deserialize_with = "hex_to_optional_buffer"
+  )]
+  pub data: Option<Vec<u8>>,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]

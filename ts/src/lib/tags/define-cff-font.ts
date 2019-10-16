@@ -9,12 +9,13 @@ import { Uint16 } from "semantic-types";
 import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
+// TODO: Rename to `DefineOtfFont`
 export interface DefineCffFont extends _Tag {
   readonly type: TagType.DefineCffFont;
   readonly id: Uint16;
   readonly fontName: string;
-  readonly isItalic: boolean;
   readonly isBold: boolean;
+  readonly isItalic: boolean;
   readonly data?: Uint8Array;
 }
 
@@ -23,8 +24,8 @@ export const $DefineCffFont: DocumentIoType<DefineCffFont> = new DocumentType<De
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineCffFont as TagType.DefineCffFont})},
     id: {type: $Uint16},
     fontName: {type: new Ucs2StringType({maxLength: Infinity})},
-    isItalic: {type: $Boolean},
     isBold: {type: $Boolean},
+    isItalic: {type: $Boolean},
     data: {type: $Bytes, optional: true},
   },
   changeCase: CaseStyle.SnakeCase,
