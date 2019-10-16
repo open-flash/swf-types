@@ -4,8 +4,8 @@ import { IntegerType } from "kryo/types/integer";
 import { LiteralType } from "kryo/types/literal";
 import { Uint16 } from "semantic-types";
 import { $Rect, Rect } from "../rect";
-import { _Tag } from "../tags/_tag";
-import { $TagType, TagType } from "../tags/_type";
+import { _Tag } from "./_tag";
+import { $TagType, TagType } from "./_type";
 
 export interface DefineScalingGrid extends _Tag {
   type: TagType.DefineScalingGrid;

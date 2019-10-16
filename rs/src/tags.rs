@@ -218,6 +218,13 @@ pub struct DefineMorphShape {
   pub shape: MorphShape,
 }
 
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub struct DefineScalingGrid {
+  pub character_id: u16,
+  pub splitter: Rect,
+}
+
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub struct DefineSceneAndFrameLabelData {

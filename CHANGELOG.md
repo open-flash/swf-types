@@ -6,6 +6,7 @@
 - **[Feature]** Define `EnablePostscript` tag.
 - **[Feature]** Define `VideoFrame` tag.
 - **[Feature]** Define `SetTabIndex` tag.
+- **[Feature]** Define `DefineScalingGrid` tag.
 
 # 0.8.0 (2019-07-08)
 

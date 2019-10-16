@@ -13,6 +13,7 @@ export { $DefineFontName, DefineFontName } from "./define-font-name";
 export { $DefineGlyphFont, DefineGlyphFont } from "./define-glyph-font";
 export { $DefineJpegTables, DefineJpegTables } from "./define-jpeg-tables";
 export { $DefineMorphShape, DefineMorphShape } from "./define-morph-shape";
+export { $DefineScalingGrid, DefineScalingGrid } from "./define-scaling-grid";
 export { $DefineSceneAndFrameLabelData, DefineSceneAndFrameLabelData } from "./define-scene-and-frame-label-data";
 export { $DefineShape, DefineShape } from "./define-shape";
 export { $DefineSound, DefineSound } from "./define-sound";
