@@ -154,6 +154,7 @@ pub enum Tag {
   RemoveObject(tags::RemoveObject),
   ScriptLimits(tags::ScriptLimits),
   SetBackgroundColor(tags::SetBackgroundColor),
+  SetTabIndex(tags::SetTabIndex),
   ShowFrame,
   SoundStreamBlock(tags::SoundStreamBlock),
   SoundStreamHead(tags::SoundStreamHead),

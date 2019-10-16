@@ -5,6 +5,7 @@
 - **[Feature]** Define `DefineVideoStream` tag.
 - **[Feature]** Define `EnablePostscript` tag.
 - **[Feature]** Define `VideoFrame` tag.
+- **[Feature]** Define `SetTabIndex` tag.
 
 # 0.8.0 (2019-07-08)
 

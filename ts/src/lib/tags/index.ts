@@ -34,6 +34,7 @@ export { $Protect, Protect } from "./protect";
 export { $RemoveObject, RemoveObject } from "./remove-object";
 export { $ScriptLimits, ScriptLimits } from "./script-limits";
 export { $SetBackgroundColor, SetBackgroundColor } from "./set-background-color";
+export { $SetTabIndex, SetTabIndex } from "./set-tab-index";
 export { $ShowFrame, ShowFrame } from "./show-frame";
 export { $SoundStreamBlock, SoundStreamBlock } from "./sound-stream-block";
 export { $SoundStreamHead, SoundStreamHead } from "./sound-stream-head";

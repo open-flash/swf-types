@@ -38,6 +38,7 @@ export type Tag =
   | tags.RemoveObject
   | tags.ScriptLimits
   | tags.SetBackgroundColor
+  | tags.SetTabIndex
   | tags.ShowFrame
   | tags.SoundStreamBlock
   | tags.SoundStreamHead
@@ -86,6 +87,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$RemoveObject,
     tags.$ScriptLimits,
     tags.$SetBackgroundColor,
+    tags.$SetTabIndex,
     tags.$ShowFrame,
     tags.$SoundStreamBlock,
     tags.$SoundStreamHead,

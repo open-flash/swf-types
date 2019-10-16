@@ -426,7 +426,12 @@ pub struct SetBackgroundColor {
   pub color: SRgb8,
 }
 
-// pub type ShowFrame = ();
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub struct SetTabIndex {
+  pub depth: u16,
+  pub index: u16,
+}
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
