@@ -139,6 +139,7 @@ pub enum Tag {
   DefineSprite(tags::DefineSprite),
   DefineText(tags::DefineText),
   DefineVideoStream(tags::DefineVideoStream),
+  EnablePostscript,
   DoAbc(tags::DoAbc),
   DoAction(tags::DoAction),
   DoInitAction(tags::DoInitAction),

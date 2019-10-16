@@ -27,6 +27,7 @@ export type Tag =
   | tags.DoAction
   | tags.DoInitAction
   | tags.EnableDebugger
+  | tags.EnablePostscript
   | tags.ExportAssets
   | tags.FileAttributes
   | tags.FrameLabel
@@ -73,6 +74,7 @@ export const $Tag: TaggedUnionType<Tag> = new TaggedUnionType<Tag>(() => ({
     tags.$DoAction,
     tags.$DoInitAction,
     tags.$EnableDebugger,
+    tags.$EnablePostscript,
     tags.$ExportAssets,
     tags.$FileAttributes,
     tags.$FrameLabel,

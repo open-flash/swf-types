@@ -36,6 +36,7 @@ export enum TagType {
   DoAction,
   DoInitAction,
   EnableDebugger,
+  EnablePostscript,
   ExportAssets,
   ExternalFont,
   FileAttributes,

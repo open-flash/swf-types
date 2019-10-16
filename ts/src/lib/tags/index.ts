@@ -23,6 +23,7 @@ export { $DoAbc, DoAbc } from "./do-abc";
 export { $DoAction, DoAction } from "./do-action";
 export { $DoInitAction, DoInitAction } from "./do-init-action";
 export { $EnableDebugger, EnableDebugger } from "./enable-debugger";
+export { $EnablePostscript, EnablePostscript } from "./enable-postscript";
 export { $ExportAssets, ExportAssets } from "./export-assets";
 export { $FileAttributes, FileAttributes } from "./file-attributes";
 export { $FrameLabel, FrameLabel } from "./frame-label";
