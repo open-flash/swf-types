@@ -7,7 +7,8 @@
 - **[Feature]** Define `VideoFrame` tag.
 - **[Feature]** Define `SetTabIndex` tag.
 - **[Feature]** Define `DefineScalingGrid` tag.
-- **[Fix]** Fix `DefineCffFont` definition: reorder fields and ensure data is optional.
+- **[Feature]** Add `image/x-ajpegd` image type to support JPEG with deblocking.
+- **[Fix]** Fix `DefineCffFont` definition: reorder fields and ensure data is optional ([#40](https://github.com/open-flash/swf-tree/issues/40)).
 
 ## Rust
 
