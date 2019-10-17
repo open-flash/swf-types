@@ -1,4 +1,4 @@
-# Next
+# 0.9.0 (2019-10-17)
 
 - **[Breaking change]** Change field order in `DefineMorphShape`.
 - **[Feature]** Define `DefineButtonSound` tag.
