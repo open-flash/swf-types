@@ -25,6 +25,7 @@ matrix:
         - cargo fmt --all -- --check
         - cargo build
         - cargo test
+        - cargo test --no-default-features
 
 notifications:
   email: false

@@ -1,3 +1,4 @@
+#[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
 
 /// Supported image types
@@ -8,22 +9,23 @@ use ::serde::{Deserialize, Serialize};
 ///   `x-ajpeg` :: `jpeg_size` `jpeg` `alpha`
 /// - `x-ajpegd`: JPEG with alpha mask and deblocking (see DefineBitsJPEG4):
 ///   `x-ajpegd` :: `jpeg_size` `deblock` `jpeg` `alpha`
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum ImageType {
-  #[serde(rename = "image/jpeg")]
+  #[cfg_attr(feature = "serde", serde(rename = "image/jpeg"))]
   Jpeg,
-  #[serde(rename = "image/gif")]
+  #[cfg_attr(feature = "serde", serde(rename = "image/gif"))]
   Gif,
-  #[serde(rename = "image/png")]
+  #[cfg_attr(feature = "serde", serde(rename = "image/png"))]
   Png,
-  #[serde(rename = "image/x-partial-jpeg")]
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-partial-jpeg"))]
   PartialJpeg,
-  #[serde(rename = "image/x-ajpeg")]
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-ajpeg"))]
   Ajpeg,
-  #[serde(rename = "image/x-ajpegd")]
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-ajpegd"))]
   Ajpegd,
-  #[serde(rename = "image/x-swf-bmp")]
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-swf-bmp"))]
   SwfBmp,
-  #[serde(rename = "image/x-swf-abmp")]
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-swf-abmp"))]
   SwfAbmp,
 }

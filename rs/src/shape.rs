@@ -1,29 +1,34 @@
+#[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
 
 use crate::fill_styles;
-use crate::helpers::{buffer_to_hex, hex_to_buffer};
 use crate::join_styles;
+#[cfg(feature = "serde")]
+use crate::serde_buffer::{buffer_to_hex, hex_to_buffer};
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum CapStyle {
   None,
   Round,
   Square,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ClipAction {
   pub events: ClipEventFlags,
-  #[serde(skip_serializing_if = "Option::is_none")]
+  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub key_code: Option<u8>,
-  #[serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")]
+  #[cfg_attr(
+    feature = "serde",
+    serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")
+  )]
   pub actions: Vec<u8>,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ClipEventFlags {
   pub key_up: bool,
   pub key_down: bool,
@@ -46,8 +51,12 @@ pub struct ClipEventFlags {
   pub drag_out: bool,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[cfg_attr(
+  feature = "serde",
+  derive(Serialize, Deserialize),
+  serde(tag = "type", rename_all = "kebab-case")
+)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum FillStyle {
   Bitmap(fill_styles::Bitmap),
   FocalGradient(fill_styles::FocalGradient),
@@ -56,8 +65,12 @@ pub enum FillStyle {
   Solid(fill_styles::Solid),
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[cfg_attr(
+  feature = "serde",
+  derive(Serialize, Deserialize),
+  serde(tag = "type", rename_all = "kebab-case")
+)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum MorphFillStyle {
   Bitmap(fill_styles::MorphBitmap),
   FocalGradient(fill_styles::MorphFocalGradient),
@@ -66,16 +79,20 @@ pub enum MorphFillStyle {
   Solid(fill_styles::MorphSolid),
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[cfg_attr(
+  feature = "serde",
+  derive(Serialize, Deserialize),
+  serde(tag = "type", rename_all = "kebab-case")
+)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum JoinStyle {
   Bevel,
   Miter(join_styles::Miter),
   Round,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct LineStyle {
   pub width: u16,
   pub start_cap: CapStyle,
@@ -88,8 +105,8 @@ pub struct LineStyle {
   pub fill: FillStyle,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct MorphLineStyle {
   pub width: u16,
   pub morph_width: u16,
@@ -103,73 +120,84 @@ pub struct MorphLineStyle {
   pub fill: MorphFillStyle,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Glyph {
   pub records: Vec<ShapeRecord>,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Shape {
   pub initial_styles: ShapeStyles,
   pub records: Vec<ShapeRecord>,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct MorphShape {
   pub initial_styles: MorphShapeStyles,
   pub records: Vec<MorphShapeRecord>,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[cfg_attr(
+  feature = "serde",
+  derive(Serialize, Deserialize),
+  serde(tag = "type", rename_all = "kebab-case")
+)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum ShapeRecord {
   Edge(shape_records::Edge),
   StyleChange(shape_records::StyleChange),
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[cfg_attr(
+  feature = "serde",
+  derive(Serialize, Deserialize),
+  serde(tag = "type", rename_all = "kebab-case")
+)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum MorphShapeRecord {
   Edge(shape_records::MorphEdge),
   StyleChange(shape_records::MorphStyleChange),
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ShapeStyles {
   pub fill: Vec<FillStyle>,
   pub line: Vec<LineStyle>,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct MorphShapeStyles {
   pub fill: Vec<MorphFillStyle>,
   pub line: Vec<MorphLineStyle>,
 }
 
 pub mod shape_records {
+  #[cfg(feature = "serde")]
   use ::serde::{Deserialize, Serialize};
 
   use crate::Vector2D;
 
   use super::{MorphShapeStyles, ShapeStyles};
 
-  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+  #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
   pub struct Edge {
     /// Difference between the edge start and edge end.
     pub delta: Vector2D,
 
     /// Difference between the edge start and quadratic bezier control point (if
     /// any).
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub control_delta: Option<Vector2D>,
   }
 
-  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+  #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+  #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
   pub struct MorphEdge {
     /// Difference between the edge start and edge end in the start-state of the
     /// morph shape.
@@ -181,42 +209,44 @@ pub mod shape_records {
 
     /// Difference between the edge start and quadratic bezier control point (if
     /// any) in the start-state of the morph shape.
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub control_delta: Option<Vector2D>,
 
     /// Difference between the edge start and quadratic bezier control point (if
     /// any) in the end-state of the morph shape.
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub morph_control_delta: Option<Vector2D>,
   }
 
-  #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+  #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+  #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
   pub struct StyleChange {
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub move_to: Option<Vector2D>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub left_fill: Option<usize>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub right_fill: Option<usize>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub line_style: Option<usize>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub new_styles: Option<ShapeStyles>,
   }
 
-  #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+  #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+  #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
   pub struct MorphStyleChange {
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub move_to: Option<Vector2D>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub morph_move_to: Option<Vector2D>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub left_fill: Option<usize>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub right_fill: Option<usize>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub line_style: Option<usize>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
     pub new_styles: Option<MorphShapeStyles>,
   }
 }

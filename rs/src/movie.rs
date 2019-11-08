@@ -1,19 +1,20 @@
+#[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
 
 use crate::basic_types::Rect;
 use crate::fixed::Ufixed8P8;
 use crate::Tag;
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum CompressionMethod {
   None,
   Deflate,
   Lzma,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Header {
   /// SWF version
   pub swf_version: u8,
@@ -23,16 +24,16 @@ pub struct Header {
   pub frame_count: u16,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Movie {
   pub header: Header,
   pub tags: Vec<Tag>,
 }
 
 /// The signature is the part of the header that is not compressed
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SwfSignature {
   /// The compression method used for the body of this SWF file
   pub compression_method: CompressionMethod,

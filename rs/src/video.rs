@@ -1,7 +1,12 @@
+#[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[cfg_attr(
+  feature = "serde",
+  derive(Serialize, Deserialize),
+  serde(tag = "type", rename_all = "kebab-case")
+)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VideoCodec {
   None,
   Jpeg,
@@ -13,8 +18,12 @@ pub enum VideoCodec {
   Avc,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[cfg_attr(
+  feature = "serde",
+  derive(Serialize, Deserialize),
+  serde(tag = "type", rename_all = "kebab-case")
+)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VideoDeblocking {
   PacketValue,
   Off,

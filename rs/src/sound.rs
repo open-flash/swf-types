@@ -1,7 +1,8 @@
+#[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum AudioCodingFormat {
   UncompressedNativeEndian,
   Adpcm,
@@ -21,6 +22,7 @@ pub enum SoundRate {
   SoundRate44000,
 }
 
+#[cfg(feature = "serde")]
 impl ::serde::Serialize for SoundRate {
   fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
   where
@@ -36,6 +38,7 @@ impl ::serde::Serialize for SoundRate {
   }
 }
 
+#[cfg(feature = "serde")]
 impl<'de> ::serde::Deserialize<'de> for SoundRate {
   fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
   where
@@ -75,6 +78,7 @@ pub enum SoundSize {
   SoundSize16,
 }
 
+#[cfg(feature = "serde")]
 impl ::serde::Serialize for SoundSize {
   fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
   where
@@ -88,6 +92,7 @@ impl ::serde::Serialize for SoundSize {
   }
 }
 
+#[cfg(feature = "serde")]
 impl<'de> ::serde::Deserialize<'de> for SoundSize {
   fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
   where
@@ -119,30 +124,30 @@ impl<'de> ::serde::Deserialize<'de> for SoundSize {
   }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum SoundType {
   Mono,
   Stereo,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SoundInfo {
   pub sync_stop: bool,
   pub sync_no_multiple: bool,
-  #[serde(skip_serializing_if = "Option::is_none")]
+  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub in_point: Option<u32>,
-  #[serde(skip_serializing_if = "Option::is_none")]
+  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub out_point: Option<u32>,
-  #[serde(skip_serializing_if = "Option::is_none")]
+  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub loop_count: Option<u16>,
-  #[serde(skip_serializing_if = "Option::is_none")]
+  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub envelope_records: Option<Vec<SoundEnvelope>>,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SoundEnvelope {
   pub pos44: u32,
   pub left_level: u16,

@@ -1,26 +1,27 @@
+#[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
 
 use super::basic_types::{Rect, StraightSRgba8};
 use super::float_is::Is;
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum CsmTableHint {
   Thin,
   Medium,
   Thick,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct FontAlignmentZone {
   pub data: Vec<FontAlignmentZoneData>,
   pub has_x: bool,
   pub has_y: bool,
 }
 
-#[derive(Copy, Clone, Debug, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Copy, Clone, Debug)]
 pub struct FontAlignmentZoneData {
   pub origin: f32,
   pub size: f32,
@@ -38,8 +39,8 @@ impl ::std::cmp::PartialEq for FontAlignmentZoneData {
 
 impl ::std::cmp::Eq for FontAlignmentZoneData {}
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct FontLayout {
   pub ascent: u16,
   pub descent: u16,
@@ -49,31 +50,31 @@ pub struct FontLayout {
   pub kerning: Vec<KerningRecord>,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct GlyphEntry {
   pub index: usize,
   pub advance: i32,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum GridFitting {
   None,
   Pixel,
   SubPixel,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct KerningRecord {
   pub left: u16,
   pub right: u16,
   pub adjustment: i16,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum TextAlignment {
   Left,
   Right,
@@ -87,22 +88,22 @@ impl ::std::default::Default for TextAlignment {
   }
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct TextRecord {
-  #[serde(skip_serializing_if = "Option::is_none")]
+  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub font_id: Option<u16>,
-  #[serde(skip_serializing_if = "Option::is_none")]
+  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub color: Option<StraightSRgba8>,
   pub offset_x: i16,
   pub offset_y: i16,
-  #[serde(skip_serializing_if = "Option::is_none")]
+  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub font_size: Option<u16>,
   pub entries: Vec<GlyphEntry>,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum TextRenderer {
   Normal,
   Advanced,
@@ -114,6 +115,7 @@ pub enum EmSquareSize {
   EmSquareSize20480,
 }
 
+#[cfg(feature = "serde")]
 impl ::serde::Serialize for EmSquareSize {
   fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
   where
@@ -127,6 +129,7 @@ impl ::serde::Serialize for EmSquareSize {
   }
 }
 
+#[cfg(feature = "serde")]
 impl<'de> ::serde::Deserialize<'de> for EmSquareSize {
   fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
   where

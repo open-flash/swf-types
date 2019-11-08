@@ -1,3 +1,4 @@
+#[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
 pub use ::swf_fixed as fixed;
 
@@ -52,7 +53,8 @@ pub use crate::video::VideoDeblocking;
 
 pub mod float_is;
 
-mod helpers;
+#[cfg(feature = "serde")]
+mod serde_buffer;
 
 pub mod fill_styles;
 pub mod filters;
@@ -76,8 +78,8 @@ mod sound;
 
 mod video;
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum BlendMode {
   Normal,
   Layer,
@@ -95,8 +97,12 @@ pub enum BlendMode {
   Hardlight,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(tag = "filter", rename_all = "kebab-case")]
+#[cfg_attr(
+  feature = "serde",
+  derive(Serialize, Deserialize),
+  serde(tag = "filter", rename_all = "kebab-case")
+)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub enum Filter {
   Blur(filters::Blur),
   Bevel(filters::Bevel),
@@ -108,15 +114,19 @@ pub enum Filter {
   GradientGlow(filters::GradientGlow),
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct TagHeader {
   pub code: u16,
   pub length: u32,
 }
 
-#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(tag = "type", rename_all = "kebab-case")]
+#[cfg_attr(
+  feature = "serde",
+  derive(Serialize, Deserialize),
+  serde(tag = "type", rename_all = "kebab-case")
+)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub enum Tag {
   CsmTextSettings(tags::CsmTextSettings),
   DefineBinaryData(tags::DefineBinaryData),
@@ -167,7 +177,7 @@ pub enum Tag {
   VideoFrame(tags::VideoFrame),
 }
 
-#[cfg(test)]
+#[cfg(all(test, feature = "serde"))]
 mod tests {
   use std::path::Path;
 

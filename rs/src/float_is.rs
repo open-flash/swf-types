@@ -44,7 +44,7 @@ impl Is for [f32; 20] {
 }
 
 #[cfg(test)]
-mod test_swf_samples {
+mod test_float_is {
   use super::Is;
 
   #[test]
