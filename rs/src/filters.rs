@@ -6,7 +6,7 @@ use crate::fixed::{Sfixed16P16, Sfixed8P8};
 use crate::float_is::Is;
 use crate::gradient::ColorStop;
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Blur {
   pub blur_x: Sfixed16P16,
@@ -14,7 +14,7 @@ pub struct Blur {
   pub passes: u8,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Bevel {
   pub shadow_color: StraightSRgba8,
@@ -31,7 +31,7 @@ pub struct Bevel {
   pub passes: u8,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug)]
 pub struct ColorMatrix {
   pub matrix: [f32; 20],
@@ -49,7 +49,7 @@ impl ::std::cmp::PartialEq for ColorMatrix {
 
 impl ::std::cmp::Eq for ColorMatrix {}
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug)]
 pub struct Convolution {
   pub matrix_width: usize,
@@ -81,7 +81,7 @@ impl ::std::cmp::PartialEq for Convolution {
 
 impl ::std::cmp::Eq for Convolution {}
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct DropShadow {
   pub color: StraightSRgba8,
@@ -96,7 +96,7 @@ pub struct DropShadow {
   pub passes: u8,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Glow {
   pub color: StraightSRgba8,
@@ -109,7 +109,7 @@ pub struct Glow {
   pub passes: u8,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct GradientBevel {
   pub gradient: Vec<ColorStop>,
@@ -125,7 +125,7 @@ pub struct GradientBevel {
   pub passes: u8,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct GradientGlow {
   pub gradient: Vec<ColorStop>,

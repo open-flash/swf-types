@@ -8,7 +8,7 @@ use crate::Filter;
 use crate::Matrix;
 use crate::{BlendMode, SoundInfo};
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct ButtonRecord {
   pub state_up: bool,
@@ -24,7 +24,7 @@ pub struct ButtonRecord {
   pub blend_mode: BlendMode,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ButtonCondAction {
   #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
@@ -36,7 +36,7 @@ pub struct ButtonCondAction {
   pub actions: Vec<u8>,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ButtonCond {
   pub idle_to_over_up: bool,
@@ -52,7 +52,7 @@ pub struct ButtonCond {
   pub key_press: Option<u32>,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ButtonSound {
   pub sound_id: u16,

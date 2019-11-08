@@ -13,7 +13,7 @@ pub enum CompressionMethod {
   Lzma,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Header {
   /// SWF version
@@ -24,7 +24,7 @@ pub struct Header {
   pub frame_count: u16,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Movie {
   pub header: Header,
@@ -32,7 +32,7 @@ pub struct Movie {
 }
 
 /// The signature is the part of the header that is not compressed
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SwfSignature {
   /// The compression method used for the body of this SWF file

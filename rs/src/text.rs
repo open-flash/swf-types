@@ -12,7 +12,7 @@ pub enum CsmTableHint {
   Thick,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct FontAlignmentZone {
   pub data: Vec<FontAlignmentZoneData>,
@@ -20,7 +20,7 @@ pub struct FontAlignmentZone {
   pub has_y: bool,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug)]
 pub struct FontAlignmentZoneData {
   pub origin: f32,
@@ -39,7 +39,7 @@ impl ::std::cmp::PartialEq for FontAlignmentZoneData {
 
 impl ::std::cmp::Eq for FontAlignmentZoneData {}
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct FontLayout {
   pub ascent: u16,
@@ -50,7 +50,7 @@ pub struct FontLayout {
   pub kerning: Vec<KerningRecord>,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct GlyphEntry {
   pub index: usize,
@@ -65,7 +65,7 @@ pub enum GridFitting {
   SubPixel,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct KerningRecord {
   pub left: u16,
@@ -88,7 +88,7 @@ impl ::std::default::Default for TextAlignment {
   }
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct TextRecord {
   #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]

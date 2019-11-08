@@ -131,7 +131,7 @@ pub enum SoundType {
   Stereo,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SoundInfo {
   pub sync_stop: bool,
@@ -146,7 +146,7 @@ pub struct SoundInfo {
   pub envelope_records: Option<Vec<SoundEnvelope>>,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "snake_case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct SoundEnvelope {
   pub pos44: u32,
