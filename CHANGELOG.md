@@ -1,3 +1,9 @@
+# Next
+
+## Rust
+
+- **[Fix]** Expose `float_is` module, to allow bit-pattern float equality.
+
 # 0.9.0 (2019-10-17)
 
 - **[Breaking change]** Change field order in `DefineMorphShape`.

@@ -50,7 +50,7 @@ pub use crate::sound::SoundType;
 pub use crate::video::VideoCodec;
 pub use crate::video::VideoDeblocking;
 
-mod float_is;
+pub mod float_is;
 
 mod helpers;
 
