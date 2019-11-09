@@ -162,6 +162,7 @@ pub enum Tag {
   Metadata(tags::Metadata),
   PlaceObject(tags::PlaceObject),
   Protect(tags::Protect),
+  Raw(tags::Raw),
   RemoveObject(tags::RemoveObject),
   ScriptLimits(tags::ScriptLimits),
   SetBackgroundColor(tags::SetBackgroundColor),
@@ -173,7 +174,6 @@ pub enum Tag {
   StartSound2(tags::StartSound2),
   SymbolClass(tags::SymbolClass),
   Telemetry(tags::Telemetry),
-  Unknown(tags::Unknown),
   VideoFrame(tags::VideoFrame),
 }
 

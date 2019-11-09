@@ -1,22 +1,18 @@
 import { $Bytes } from "kryo/builtins/bytes";
-import { $Uint16 } from "kryo/builtins/uint16";
 import { CaseStyle } from "kryo/case-style";
 import { DocumentIoType, DocumentType } from "kryo/types/document";
 import { LiteralType } from "kryo/types/literal";
-import { Uint16 } from "semantic-types";
 import { _Tag } from "./_tag";
 import { $TagType, TagType } from "./_type";
 
-export interface Unknown extends _Tag {
-  readonly type: TagType.Unknown;
-  readonly code: Uint16;
+export interface Raw extends _Tag {
+  readonly type: TagType.Raw;
   readonly data: Uint8Array;
 }
 
-export const $Unknown: DocumentIoType<Unknown> = new DocumentType<Unknown>({
+export const $Raw: DocumentIoType<Raw> = new DocumentType<Raw>({
   properties: {
-    type: {type: new LiteralType({type: $TagType, value: TagType.Unknown as TagType.Unknown})},
-    code: {type: $Uint16},
+    type: {type: new LiteralType({type: $TagType, value: TagType.Raw as TagType.Raw})},
     data: {type: $Bytes},
   },
   changeCase: CaseStyle.SnakeCase,

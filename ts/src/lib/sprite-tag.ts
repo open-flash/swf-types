@@ -7,13 +7,13 @@ export type SpriteTag =
   | tags.DoInitAction
   | tags.FrameLabel
   | tags.PlaceObject
+  | tags.Raw
   | tags.RemoveObject
   | tags.ShowFrame
   | tags.SoundStreamHead
   | tags.SoundStreamBlock
   | tags.StartSound
-  | tags.StartSound2
-  | tags.Unknown;
+  | tags.StartSound2;
 
 export const $SpriteTag: TaggedUnionType<SpriteTag> = new TaggedUnionType<SpriteTag>(() => ({
   variants: [
@@ -22,13 +22,13 @@ export const $SpriteTag: TaggedUnionType<SpriteTag> = new TaggedUnionType<Sprite
     tags.$DoInitAction,
     tags.$FrameLabel,
     tags.$PlaceObject,
+    tags.$Raw,
     tags.$RemoveObject,
     tags.$ShowFrame,
     tags.$SoundStreamBlock,
     tags.$SoundStreamHead,
     tags.$StartSound,
     tags.$StartSound2,
-    tags.$Unknown,
   ],
   tag: "type",
 }));

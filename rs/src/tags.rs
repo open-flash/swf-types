@@ -442,6 +442,17 @@ pub struct Protect {
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct Raw {
+  #[cfg_attr(
+    feature = "serde",
+    serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")
+  )]
+  pub data: Vec<u8>,
+  // TODO: Add optional error field
+}
+
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct RemoveObject {
   #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
@@ -527,17 +538,6 @@ pub struct Telemetry {
     )
   )]
   pub password: Option<Vec<u8>>,
-}
-
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct Unknown {
-  pub code: u16,
-  #[cfg_attr(
-    feature = "serde",
-    serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")
-  )]
-  pub data: Vec<u8>,
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]

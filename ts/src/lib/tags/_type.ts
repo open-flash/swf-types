@@ -54,6 +54,7 @@ export enum TagType {
   PlaceObject,
   ProductInfo,
   Protect,
+  Raw,
   RemoveObject,
   ScriptLimits,
   SetBackgroundColor,
@@ -68,7 +69,6 @@ export enum TagType {
   SyncFrame,
   Telemetry,
   VideoFrame,
-  Unknown,
 }
 
 export const $TagType: TsEnumType<TagType> = new TsEnumType<TagType>({

@@ -1,5 +1,7 @@
 # Next
 
+- **[Breaking change]** Replace `Unknown` tag with `Raw`.
+
 ## Rust
 
 - **[Feature]** Make `serde` optional (enabled by default) ([#73](https://github.com/open-flash/swf-tree/issues/73)).
