@@ -10,10 +10,10 @@ fn main() {
   let file_path = &args[1];
   let json_file = ::std::fs::File::open(file_path).expect("Failed to open file");
   let reader = ::std::io::BufReader::new(json_file);
-  let movie: Movie = serde_json::from_reader(reader).expect("Failed to read value");
+  let movie: Movie = serde_json_v8::from_reader(reader).expect("Failed to read value");
 
   println!(
     "{}",
-    serde_json::to_string_pretty(&movie).expect("Failed to print value")
+    serde_json_v8::to_string_pretty(&movie).expect("Failed to print value")
   );
 }
