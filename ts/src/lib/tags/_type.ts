@@ -55,6 +55,7 @@ export enum TagType {
   ProductInfo,
   Protect,
   Raw,
+  RawBody,
   RemoveObject,
   ScriptLimits,
   SetBackgroundColor,

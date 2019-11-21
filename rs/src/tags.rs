@@ -441,6 +441,11 @@ pub struct Protect {
   pub password: String,
 }
 
+/// Represents raw bytes in the tag stream.
+///
+/// Parsers should uses `Raw` to represent failure to parse the tag header or consume all the tag
+/// body.
+/// Emitters should write `Raw` values as-is.
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Raw {
@@ -449,7 +454,22 @@ pub struct Raw {
     serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")
   )]
   pub data: Vec<u8>,
-  // TODO: Add optional error field
+}
+
+/// Represents an raw tag body
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct RawBody {
+  /// Raw tag code
+  pub code: u16,
+
+  /// Raw tag body
+  #[cfg_attr(
+    feature = "serde",
+    serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")
+  )]
+  pub data: Vec<u8>,
+  // TODO: Add optional error field for parse errors?
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]

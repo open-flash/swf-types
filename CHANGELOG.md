@@ -1,6 +1,7 @@
 # Next
 
-- **[Breaking change]** Replace `Unknown` tag with `Raw`.
+- **[Breaking change]** Replace `Unknown` tag with `RawBody`.
+- **[Feature]** Add `Raw` tag.
 
 ## Rust
 

@@ -163,6 +163,7 @@ pub enum Tag {
   PlaceObject(tags::PlaceObject),
   Protect(tags::Protect),
   Raw(tags::Raw),
+  RawBody(tags::RawBody),
   RemoveObject(tags::RemoveObject),
   ScriptLimits(tags::ScriptLimits),
   SetBackgroundColor(tags::SetBackgroundColor),

@@ -33,6 +33,7 @@ export { $Metadata, Metadata } from "./metadata";
 export { $PlaceObject, PlaceObject } from "./place-object";
 export { $Protect, Protect } from "./protect";
 export { $Raw, Raw } from "./raw";
+export { $RawBody, RawBody } from "./raw-body";
 export { $RemoveObject, RemoveObject } from "./remove-object";
 export { $ScriptLimits, ScriptLimits } from "./script-limits";
 export { $SetBackgroundColor, SetBackgroundColor } from "./set-background-color";
