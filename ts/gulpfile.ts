@@ -52,9 +52,9 @@ const lib: LibTarget = {
   },
   typedoc: {
     dir: "typedoc",
-    name: "SWF Tree",
+    name: "SWF Types",
     deploy: {
-      repository: "git@github.com:open-flash/swf-tree.git",
+      repository: "git@github.com:open-flash/swf-types.git",
       branch: "gh-pages",
     },
   },

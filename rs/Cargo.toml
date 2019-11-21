@@ -1,21 +1,21 @@
 [package]
-name = "swf-tree"
+name = "swf-types"
 version = "0.9.0"
 authors = ["Charles Samborski <demurgos@demurgos.net>"]
-description = "Abstract Syntax Tree (AST) for SWF files"
-documentation = "https://github.com/open-flash/swf-tree"
-homepage = "https://github.com/open-flash/swf-tree"
-repository = "https://github.com/open-flash/swf-tree"
+description = "Type definitions for the SWF file format"
+documentation = "https://github.com/open-flash/swf-types"
+homepage = "https://github.com/open-flash/swf-types"
+repository = "https://github.com/open-flash/swf-types"
 readme = "./README.md"
 keywords = ["ast", "swf"]
 license = "MIT/Apache-2.0"
 edition = "2018"
 
 [badges]
-travis-ci = { repository = "open-flash/swf-tree", branch = "master" }
+travis-ci = { repository = "open-flash/swf-types", branch = "master" }
 
 [lib]
-name = "swf_tree"
+name = "swf_types"
 path = "src/lib.rs"
 
 [dependencies]
@@ -25,7 +25,7 @@ swf-fixed = "^0.1.4"
 
 [features]
 # Serialization is enabled by default.
-# Use `swf-tree = { version = "...", default-features = false }` to disable it.
+# Use `swf-types = { version = "...", default-features = false }` to disable it.
 default = ["use-serde"]
 
 # Adds implementation for `serde`'s `Serialiaze` and `Deserialize` traits.

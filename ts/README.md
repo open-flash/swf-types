@@ -3,11 +3,11 @@
     alt="Open Flash logo" title="Open Flash" align="right" width="64" height="64" />
 </a>
 
-# SWF Tree (Typescript)
+# SWF Types (Typescript)
 
-[![npm](https://img.shields.io/npm/v/swf-tree.svg)](https://www.npmjs.com/package/swf-tree)
-[![GitHub repository](https://img.shields.io/badge/Github-open--flash%2Fswf--tree-blue.svg)](https://github.com/open-flash/swf-tree)
-[![Build status](https://img.shields.io/travis/com/open-flash/swf-tree/master.svg)](https://travis-ci.com/open-flash/swf-tree)
+[![npm](https://img.shields.io/npm/v/swf-types.svg)](https://www.npmjs.com/package/swf-types)
+[![GitHub repository](https://img.shields.io/badge/Github-open--flash%2Fswf--types-blue.svg)](https://github.com/open-flash/swf-types)
+[![Build status](https://img.shields.io/travis/com/open-flash/swf-types/master.svg)](https://travis-ci.com/open-flash/swf-types)
 
 Typescript implementation of the SWF Abstract Syntax Tree (AST).
 
@@ -15,12 +15,12 @@ Typescript implementation of the SWF Abstract Syntax Tree (AST).
 
 ```shell
 # Run as a simple user
-npm install -S swf-tree
+npm install -S swf-types
 ```
 
 ```typescript
 import {readFileString} from "fs";
-import {Movie} from "swf-tree";
+import {Movie} from "swf-types";
 
 // Deserialize
 const jsonString: string = readFileString("ast.json").toString("utf8");

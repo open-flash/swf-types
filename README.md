@@ -3,12 +3,12 @@
     alt="Open Flash logo" title="Open Flash" align="right" width="64" height="64" />
 </a>
 
-# SWF Tree
+# SWF Types
 
-[![npm](https://img.shields.io/npm/v/swf-tree.svg)](https://www.npmjs.com/package/swf-tree)
-[![crates.io](https://img.shields.io/crates/v/swf-tree.svg)](https://crates.io/crates/swf-tree)
-[![GitHub repository](https://img.shields.io/badge/Github-open--flash%2Fswf--tree-blue.svg)](https://github.com/open-flash/swf-tree)
-[![Build status](https://img.shields.io/travis/com/open-flash/swf-tree/master.svg)](https://travis-ci.com/open-flash/swf-tree)
+[![npm](https://img.shields.io/npm/v/swf-types.svg)](https://www.npmjs.com/package/swf-types)
+[![crates.io](https://img.shields.io/crates/v/swf-types.svg)](https://crates.io/crates/swf-types)
+[![GitHub repository](https://img.shields.io/badge/Github-open--flash%2Fswf--types-blue.svg)](https://github.com/open-flash/swf-types)
+[![Build status](https://img.shields.io/travis/com/open-flash/swf-types/master.svg)](https://travis-ci.com/open-flash/swf-types)
 
 This project specifies an Abstract Syntax Tree (AST) representation of SWF files (SWF movies). It
 also includes Rust and Typescript implementations providing type declarations and serialization to
@@ -49,16 +49,16 @@ docs/
 ```
 - Typescript:
   ```typescript
-  import * as swfTree from "swf-tree";
-  const movie: swfTree.Movie = ...;
-  const defineShapeTag: swfTree.tags.DefineShape = ...;
+  import * as swfTypes from "swf-types";
+  const movie: swfTypes.Movie = ...;
+  const defineShapeTag: swfTypes.tags.DefineShape = ...;
   ```
 - Rust:
   ```rust
-  use swf_tree;
+  use swf_types;
   fn main() {
-    let movie: swf_tree::Movie = ...;
-    let defineShapeTag: swf_tree::tags::DefineShape = ...;
+    let movie: swf_types::Movie = ...;
+    let defineShapeTag: swf_types::tags::DefineShape = ...;
   }
   ```
 

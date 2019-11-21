@@ -1,11 +1,12 @@
 # Next
 
+- **[Breaking change]** Rename from `swf-tree`  to `swf-types`.
 - **[Breaking change]** Replace `Unknown` tag with `RawBody`.
 - **[Feature]** Add `Raw` tag.
 
 ## Rust
 
-- **[Feature]** Make `serde` optional (enabled by default) ([#73](https://github.com/open-flash/swf-tree/issues/73)).
+- **[Feature]** Make `serde` optional (enabled by default) ([#73](https://github.com/open-flash/swf-types/issues/73)).
 - **[Fix]** Expose `float_is` module, to allow bit-pattern float equality.
 - **[Fix]** Update dependencies.
 
@@ -24,7 +25,7 @@
 - **[Feature]** Define `SetTabIndex` tag.
 - **[Feature]** Define `DefineScalingGrid` tag.
 - **[Feature]** Add `image/x-ajpegd` image type to support JPEG with deblocking.
-- **[Fix]** Fix `DefineCffFont` definition: reorder fields and ensure data is optional ([#40](https://github.com/open-flash/swf-tree/issues/40)).
+- **[Fix]** Fix `DefineCffFont` definition: reorder fields and ensure data is optional ([#40](https://github.com/open-flash/swf-types/issues/40)).
 
 ## Rust
 
@@ -39,7 +40,7 @@
 
 ## Rust
 
-- **[Breaking change]** Use `[f32; 20]` in `ColorMatrix` filter ([#25](https://github.com/open-flash/swf-tree/issues/25)).
+- **[Breaking change]** Use `[f32; 20]` in `ColorMatrix` filter ([#25](https://github.com/open-flash/swf-types/issues/25)).
 - **[Fix]** Fix `Is` implementation for vectors (used to compare floats by bit pattern).
 - **[Internal]** Add `rustfmt` support.
 
@@ -57,8 +58,8 @@
 
 # 0.7.0 (2019-05-21)
 
-- **[Breaking change]** Add `em_square_size` field to `DefineFont` ([#42](https://github.com/open-flash/swf-tree/issues/42)).
-- **[Breaking change]** Require `align` to be defined in `DefineDynamicText` ([#41](https://github.com/open-flash/swf-tree/issues/41)).
+- **[Breaking change]** Add `em_square_size` field to `DefineFont` ([#42](https://github.com/open-flash/swf-types/issues/42)).
+- **[Breaking change]** Require `align` to be defined in `DefineDynamicText` ([#41](https://github.com/open-flash/swf-types/issues/41)).
 - **[Fix]** Update `ButtonCond` field order.
 - **[Fix]** Update `ButtonRecord` field order.
 - **[Internal]** Update test samples.
@@ -82,11 +83,11 @@
 
 ### Typescript
 
-- **[Breaking change]** Rename `ClipActions` to `ClipAction` ([#26](https://github.com/open-flash/swf-tree/issues/26)).
+- **[Breaking change]** Rename `ClipActions` to `ClipAction` ([#26](https://github.com/open-flash/swf-types/issues/26)).
 
 # 0.5.0 (2019-04-13)
 
-- **[Breaking change]** Unify `StraightEdge` and `CurvedEdge` into `Edge` as well as their morph counterparts. ([#22](https://github.com/open-flash/swf-tree/issues/22)).
+- **[Breaking change]** Unify `StraightEdge` and `CurvedEdge` into `Edge` as well as their morph counterparts. ([#22](https://github.com/open-flash/swf-types/issues/22)).
 
 # 0.4.2 (2019-04-05)
 

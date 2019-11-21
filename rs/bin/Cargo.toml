@@ -1,23 +1,23 @@
 [package]
-name = "swf-tree-bin"
+name = "swf-types-bin"
 version = "0.5.0"
 authors = ["Charles Samborski <demurgos@demurgos.net>"]
-description = "Abstract Syntax Tree (AST) for SWF files"
-documentation = "https://github.com/open-flash/swf-tree"
-homepage = "https://github.com/open-flash/swf-tree"
-repository = "https://github.com/open-flash/swf-tree"
+description = "Type definitions for the SWF file format"
+documentation = "https://github.com/open-flash/swf-types"
+homepage = "https://github.com/open-flash/swf-types"
+repository = "https://github.com/open-flash/swf-types"
 readme = "./README.md"
 keywords = ["ast", "swf"]
 license = "AGPL-3.0-or-later"
 edition = "2018"
 
 [badges]
-travis-ci = { repository = "open-flash/swf-tree", branch = "master" }
+travis-ci = { repository = "open-flash/swf-types", branch = "master" }
 
 [[bin]]
-name = "swf-tree"
+name = "swf-types"
 path = "src/main.rs"
 
 [dependencies]
 serde_json = "^1.0.39"
-swf-tree = { path = "../" }
+swf-types = { path = "../" }

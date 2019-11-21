@@ -1,4 +1,4 @@
-use swf_tree::Movie;
+use swf_types::Movie;
 
 fn main() {
   let args: Vec<String> = std::env::args().collect();
