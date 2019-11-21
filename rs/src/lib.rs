@@ -180,12 +180,11 @@ pub enum Tag {
 #[cfg(all(test, feature = "serde"))]
 mod tests {
   use std::path::Path;
-
-  use ::test_generator::test_expand_paths;
+  use test_generator::test_resources;
 
   use crate::Movie;
 
-  test_expand_paths! { test_movie; "../tests/movies/*/" }
+  #[test_resources("../tests/movies/*/")]
   fn test_movie(path: &str) {
     let path: &Path = Path::new(path);
     let _name = path
@@ -209,7 +208,7 @@ mod tests {
 
   macro_rules! test_various_impl {
     ($name:ident, $glob:expr, $type:ty) => {
-      test_expand_paths! { $name; $glob }
+      #[test_resources($glob)]
       fn $name(path: &str) {
         let path: &Path = Path::new(path);
         let _name = path

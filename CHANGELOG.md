@@ -6,6 +6,7 @@
 
 - **[Feature]** Make `serde` optional (enabled by default) ([#73](https://github.com/open-flash/swf-tree/issues/73)).
 - **[Fix]** Expose `float_is` module, to allow bit-pattern float equality.
+- **[Fix]** Update dependencies.
 
 ## Typescript
 
