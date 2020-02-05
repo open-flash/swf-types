@@ -41,10 +41,6 @@ impl ::std::cmp::PartialEq for ColorMatrix {
   fn eq(&self, other: &Self) -> bool {
     self.matrix.is(&other.matrix)
   }
-
-  fn ne(&self, other: &Self) -> bool {
-    !self.eq(other)
-  }
 }
 
 impl ::std::cmp::Eq for ColorMatrix {}
@@ -72,10 +68,6 @@ impl ::std::cmp::PartialEq for Convolution {
       && self.default_color == other.default_color
       && self.clamp == other.clamp
       && self.preserve_alpha == other.preserve_alpha
-  }
-
-  fn ne(&self, other: &Self) -> bool {
-    !self.eq(other)
   }
 }
 

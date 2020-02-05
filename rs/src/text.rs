@@ -31,10 +31,6 @@ impl ::std::cmp::PartialEq for FontAlignmentZoneData {
   fn eq(&self, other: &Self) -> bool {
     self.origin.is(&other.origin) && self.size.is(&other.size)
   }
-
-  fn ne(&self, other: &Self) -> bool {
-    !self.eq(other)
-  }
 }
 
 impl ::std::cmp::Eq for FontAlignmentZoneData {}
@@ -125,7 +121,7 @@ impl ::serde::Serialize for EmSquareSize {
       EmSquareSize::EmSquareSize1024 => 1024,
       EmSquareSize::EmSquareSize20480 => 20480,
     };
-    return serializer.serialize_u64(sound_size);
+    serializer.serialize_u64(sound_size)
   }
 }
 

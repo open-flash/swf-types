@@ -131,6 +131,7 @@ pub struct TagHeader {
   serde(tag = "type", rename_all = "kebab-case")
 )]
 #[derive(Clone, Debug, PartialEq, Eq)]
+#[allow(clippy::large_enum_variant)]
 pub enum Tag {
   CsmTextSettings(tags::CsmTextSettings),
   DefineBinaryData(tags::DefineBinaryData),

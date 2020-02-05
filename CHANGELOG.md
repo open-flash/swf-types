@@ -3,6 +3,10 @@
 - **[Breaking change]** Update `DoAbc` to allow optional flags and name.
 - **[Breaking change]** Rename custom image media type to be closer to the corresponding tag names.
 
+## Rust
+
+- **[Internal]** Add clippy support ([#83](https://github.com/open-flash/swf-types/issues/83)).
+
 # 0.10.0 (2019-11-21)
 
 - **[Breaking change]** Rename from `swf-tree`  to `swf-types`.

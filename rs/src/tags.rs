@@ -37,10 +37,6 @@ impl ::std::cmp::PartialEq for CsmTextSettings {
       && self.thickness.is(&other.thickness)
       && self.sharpness.is(&other.sharpness)
   }
-
-  fn ne(&self, other: &Self) -> bool {
-    !self.eq(other)
-  }
 }
 
 impl ::std::cmp::Eq for CsmTextSettings {}

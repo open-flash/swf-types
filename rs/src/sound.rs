@@ -34,7 +34,7 @@ impl ::serde::Serialize for SoundRate {
       SoundRate::SoundRate22000 => 22000,
       SoundRate::SoundRate44000 => 44000,
     };
-    return serializer.serialize_u64(sound_rate);
+    serializer.serialize_u64(sound_rate)
   }
 }
 
@@ -88,7 +88,7 @@ impl ::serde::Serialize for SoundSize {
       SoundSize::SoundSize8 => 8,
       SoundSize::SoundSize16 => 16,
     };
-    return serializer.serialize_u64(sound_size);
+    serializer.serialize_u64(sound_size)
   }
 }
 
