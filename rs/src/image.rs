@@ -3,12 +3,10 @@ use ::serde::{Deserialize, Serialize};
 
 /// Supported image types
 ///
-/// - `x-partial-jpeg`: JPEG file without  Tables/Misc chunk. It has to be defined in a
+/// - `x-swf-partial-jpeg`: JPEG file without  Tables/Misc chunk. It has to be defined in a
 ///   `DefineJpegTables` tag and injected in the first Start Of Frame (SOF) JPEG chunk.
-/// - `x-ajpeg`: JPEG with alpha mask (see DefineBitsJPEG3):
-///   `x-ajpeg` :: `jpeg_size` `jpeg` `alpha`
-/// - `x-ajpegd`: JPEG with alpha mask and deblocking (see DefineBitsJPEG4):
-///   `x-ajpegd` :: `jpeg_size` `deblock` `jpeg` `alpha`
+/// - `x-swf-jpeg3`: JPEG with alpha mask (see DefineBitsJPEG3)
+/// - `x-swf-jpeg4`: JPEG with alpha mask and deblocking (see DefineBitsJPEG4)
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum ImageType {
@@ -18,14 +16,14 @@ pub enum ImageType {
   Gif,
   #[cfg_attr(feature = "serde", serde(rename = "image/png"))]
   Png,
-  #[cfg_attr(feature = "serde", serde(rename = "image/x-partial-jpeg"))]
-  PartialJpeg,
-  #[cfg_attr(feature = "serde", serde(rename = "image/x-ajpeg"))]
-  Ajpeg,
-  #[cfg_attr(feature = "serde", serde(rename = "image/x-ajpegd"))]
-  Ajpegd,
-  #[cfg_attr(feature = "serde", serde(rename = "image/x-swf-bmp"))]
-  SwfBmp,
-  #[cfg_attr(feature = "serde", serde(rename = "image/x-swf-abmp"))]
-  SwfAbmp,
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-swf-partial-jpeg"))]
+  SwfPartialJpeg,
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-swf-jpeg3"))]
+  SwfJpeg3,
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-swf-jpeg4"))]
+  SwfJpeg4,
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-swf-lossless1"))]
+  SwfLossless1,
+  #[cfg_attr(feature = "serde", serde(rename = "image/x-swf-lossless2"))]
+  SwfLossless2,
 }
