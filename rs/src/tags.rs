@@ -4,6 +4,7 @@ use ::serde::{Deserialize, Serialize};
 use crate::basic_types::{ColorTransformWithAlpha, LanguageCode, Matrix, NamedId, Rect, SRgb8, StraightSRgba8};
 use crate::button::ButtonRecord;
 use crate::button::{ButtonCondAction, ButtonSound};
+use crate::control::{AbcHeader, Label, Scene};
 use crate::float_is::Is;
 #[cfg(feature = "serde")]
 use crate::serde_buffer::{buffer_to_hex, hex_to_buffer, hex_to_optional_buffer, optional_buffer_to_hex};
@@ -250,22 +251,6 @@ pub struct DefineSceneAndFrameLabelData {
   pub labels: Vec<Label>,
 }
 
-// TODO(demurgos): Move to a different file since it is not a tag
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct Scene {
-  pub offset: u32,
-  pub name: String,
-}
-
-// TODO(demurgos): Move to a different file since it is not a tag
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct Label {
-  pub frame: u32,
-  pub name: String,
-}
-
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct DefineShape {
@@ -327,8 +312,8 @@ pub struct DefineVideoStream {
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct DoAbc {
-  pub flags: u32,
-  pub name: String,
+  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
+  pub header: Option<AbcHeader>,
   #[cfg_attr(
     feature = "serde",
     serde(serialize_with = "buffer_to_hex", deserialize_with = "hex_to_buffer")

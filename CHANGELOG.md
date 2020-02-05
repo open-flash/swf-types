@@ -1,3 +1,7 @@
+# Next
+
+- **[Breaking change]** Update `DoAbc` to allow optional flags and name.
+
 # 0.10.0 (2019-11-21)
 
 - **[Breaking change]** Rename from `swf-tree`  to `swf-types`.

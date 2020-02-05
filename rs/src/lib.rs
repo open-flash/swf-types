@@ -15,6 +15,9 @@ pub use crate::button::ButtonCond;
 pub use crate::button::ButtonCondAction;
 pub use crate::button::ButtonRecord;
 pub use crate::button::ButtonSound;
+pub use crate::control::AbcHeader;
+pub use crate::control::Label;
+pub use crate::control::Scene;
 pub use crate::gradient::ColorSpace;
 pub use crate::gradient::ColorStop;
 pub use crate::gradient::Gradient;
@@ -56,6 +59,7 @@ pub mod float_is;
 #[cfg(feature = "serde")]
 mod serde_buffer;
 
+pub mod control;
 pub mod fill_styles;
 pub mod filters;
 pub mod join_styles;
