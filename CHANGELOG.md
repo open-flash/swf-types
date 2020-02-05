@@ -1,4 +1,4 @@
-# Next
+# 0.11.0 (2020-02-05)
 
 - **[Breaking change]** Update `DoAbc` to allow optional flags and name.
 - **[Breaking change]** Rename custom image media type to be closer to the corresponding tag names.
