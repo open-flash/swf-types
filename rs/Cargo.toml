@@ -19,9 +19,9 @@ name = "swf_types"
 path = "src/lib.rs"
 
 [dependencies]
-hex = { version = "^0.4.0", optional = true}
-serde = { version = "^1.0.102", optional = true, features = ["derive"] }
-swf-fixed = "^0.1.4"
+hex = { version = "^0.4.2", optional = true}
+serde = { version = "^1.0.115", optional = true, features = ["derive"] }
+swf-fixed = "^0.1.5"
 
 [features]
 # Serialization is enabled by default.
