@@ -9,5 +9,5 @@ export enum Mp3Layer {
 
 export const $Mp3Layer: TsEnumType<Mp3Layer> = new TsEnumType<Mp3Layer>({
   enum: Mp3Layer,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

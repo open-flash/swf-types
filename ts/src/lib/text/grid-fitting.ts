@@ -9,5 +9,5 @@ export enum GridFitting {
 
 export const $GridFitting: TsEnumType<GridFitting> = new TsEnumType<GridFitting>({
   enum: GridFitting,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

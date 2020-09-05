@@ -10,5 +10,5 @@ export enum Mp3ChannelMode {
 
 export const $Mp3ChannelMode: TsEnumType<Mp3ChannelMode> = new TsEnumType<Mp3ChannelMode>({
   enum: Mp3ChannelMode,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

@@ -82,7 +82,7 @@ mod sound;
 
 mod video;
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "PascalCase"))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum BlendMode {
   Normal,
@@ -104,7 +104,7 @@ pub enum BlendMode {
 #[cfg_attr(
   feature = "serde",
   derive(Serialize, Deserialize),
-  serde(tag = "filter", rename_all = "kebab-case")
+  serde(tag = "filter", rename_all = "PascalCase")
 )]
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub enum Filter {
@@ -128,7 +128,7 @@ pub struct TagHeader {
 #[cfg_attr(
   feature = "serde",
   derive(Serialize, Deserialize),
-  serde(tag = "type", rename_all = "kebab-case")
+  serde(tag = "type", rename_all = "PascalCase")
 )]
 #[derive(Clone, Debug, PartialEq, Eq)]
 #[allow(clippy::large_enum_variant)]

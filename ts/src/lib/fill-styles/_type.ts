@@ -11,5 +11,5 @@ export enum FillStyleType {
 
 export const $FillStyleType: TsEnumType<FillStyleType> = new TsEnumType<FillStyleType>({
   enum: FillStyleType,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

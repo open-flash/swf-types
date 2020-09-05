@@ -9,5 +9,5 @@ export enum CapStyle {
 
 export const $CapStyle: TsEnumType<CapStyle> = new TsEnumType<CapStyle>({
   enum: CapStyle,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

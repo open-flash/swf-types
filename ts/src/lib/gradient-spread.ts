@@ -9,5 +9,5 @@ export enum GradientSpread {
 
 export const $GradientSpread: TsEnumType<GradientSpread> = new TsEnumType<GradientSpread>({
   enum: GradientSpread,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

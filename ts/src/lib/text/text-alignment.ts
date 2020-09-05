@@ -10,5 +10,5 @@ export enum TextAlignment {
 
 export const $TextAlignment: TsEnumType<TextAlignment> = new TsEnumType<TextAlignment>({
   enum: TextAlignment,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

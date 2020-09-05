@@ -8,5 +8,5 @@ export enum ShapeRecordType {
 
 export const $ShapeRecordType: TsEnumType<ShapeRecordType> = new TsEnumType<ShapeRecordType>({
   enum: ShapeRecordType,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

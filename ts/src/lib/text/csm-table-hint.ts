@@ -9,5 +9,5 @@ export enum CsmTableHint {
 
 export const $CsmTableHint: TsEnumType<CsmTableHint> = new TsEnumType<CsmTableHint>({
   enum: CsmTableHint,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

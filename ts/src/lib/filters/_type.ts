@@ -14,5 +14,5 @@ export enum FilterType {
 
 export const $FilterType: TsEnumType<FilterType> = new TsEnumType<FilterType>({
   enum: FilterType,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

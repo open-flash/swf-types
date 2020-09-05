@@ -74,5 +74,5 @@ export enum TagType {
 
 export const $TagType: TsEnumType<TagType> = new TsEnumType<TagType>({
   enum: TagType,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

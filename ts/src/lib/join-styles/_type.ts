@@ -9,5 +9,5 @@ export enum JoinStyleType {
 
 export const $JoinStyleType: TsEnumType<JoinStyleType> = new TsEnumType<JoinStyleType>({
   enum: JoinStyleType,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

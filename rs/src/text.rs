@@ -4,7 +4,7 @@ use ::serde::{Deserialize, Serialize};
 use super::basic_types::{Rect, StraightSRgba8};
 use super::float_is::Is;
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "PascalCase"))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum CsmTableHint {
   Thin,
@@ -53,7 +53,7 @@ pub struct GlyphEntry {
   pub advance: i32,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "PascalCase"))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum GridFitting {
   None,
@@ -69,7 +69,7 @@ pub struct KerningRecord {
   pub adjustment: i16,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "PascalCase"))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum TextAlignment {
   Left,
@@ -98,7 +98,7 @@ pub struct TextRecord {
   pub entries: Vec<GlyphEntry>,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "PascalCase"))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum TextRenderer {
   Normal,

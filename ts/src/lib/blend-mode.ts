@@ -20,5 +20,5 @@ export enum BlendMode {
 
 export const $BlendMode: TsEnumType<BlendMode> = new TsEnumType<BlendMode>({
   enum: BlendMode,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

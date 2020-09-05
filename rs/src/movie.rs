@@ -5,7 +5,7 @@ use crate::basic_types::Rect;
 use crate::fixed::Ufixed8P8;
 use crate::Tag;
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "PascalCase"))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum CompressionMethod {
   None,

@@ -9,5 +9,5 @@ export enum CompressionMethod {
 
 export const $CompressionMethod: TsEnumType<CompressionMethod> = new TsEnumType<CompressionMethod>({
   enum: CompressionMethod,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

@@ -14,5 +14,5 @@ export enum AudioCodingFormat {
 
 export const $AudioCodingFormat: TsEnumType<AudioCodingFormat> = new TsEnumType<AudioCodingFormat>({
   enum: AudioCodingFormat,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

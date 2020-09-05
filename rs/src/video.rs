@@ -4,7 +4,7 @@ use ::serde::{Deserialize, Serialize};
 #[cfg_attr(
   feature = "serde",
   derive(Serialize, Deserialize),
-  serde(tag = "type", rename_all = "kebab-case")
+  serde(tag = "type", rename_all = "PascalCase")
 )]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VideoCodec {
@@ -21,7 +21,7 @@ pub enum VideoCodec {
 #[cfg_attr(
   feature = "serde",
   derive(Serialize, Deserialize),
-  serde(tag = "type", rename_all = "kebab-case")
+  serde(tag = "type", rename_all = "PascalCase")
 )]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum VideoDeblocking {

@@ -8,5 +8,5 @@ export enum ColorSpace {
 
 export const $ColorSpace: TsEnumType<ColorSpace> = new TsEnumType<ColorSpace>({
   enum: ColorSpace,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

@@ -12,5 +12,5 @@ export enum VideoDeblocking {
 
 export const $VideoDeblocking: TsEnumType<VideoDeblocking> = new TsEnumType<VideoDeblocking>({
   enum: VideoDeblocking,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

@@ -6,7 +6,7 @@ use crate::join_styles;
 #[cfg(feature = "serde")]
 use crate::serde_buffer::{buffer_to_hex, hex_to_buffer};
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "kebab-case"))]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize), serde(rename_all = "PascalCase"))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum CapStyle {
   None,
@@ -54,7 +54,7 @@ pub struct ClipEventFlags {
 #[cfg_attr(
   feature = "serde",
   derive(Serialize, Deserialize),
-  serde(tag = "type", rename_all = "kebab-case")
+  serde(tag = "type", rename_all = "PascalCase")
 )]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum FillStyle {
@@ -68,7 +68,7 @@ pub enum FillStyle {
 #[cfg_attr(
   feature = "serde",
   derive(Serialize, Deserialize),
-  serde(tag = "type", rename_all = "kebab-case")
+  serde(tag = "type", rename_all = "PascalCase")
 )]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum MorphFillStyle {
@@ -82,7 +82,7 @@ pub enum MorphFillStyle {
 #[cfg_attr(
   feature = "serde",
   derive(Serialize, Deserialize),
-  serde(tag = "type", rename_all = "kebab-case")
+  serde(tag = "type", rename_all = "PascalCase")
 )]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum JoinStyle {
@@ -143,7 +143,7 @@ pub struct MorphShape {
 #[cfg_attr(
   feature = "serde",
   derive(Serialize, Deserialize),
-  serde(tag = "type", rename_all = "kebab-case")
+  serde(tag = "type", rename_all = "PascalCase")
 )]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum ShapeRecord {
@@ -154,7 +154,7 @@ pub enum ShapeRecord {
 #[cfg_attr(
   feature = "serde",
   derive(Serialize, Deserialize),
-  serde(tag = "type", rename_all = "kebab-case")
+  serde(tag = "type", rename_all = "PascalCase")
 )]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum MorphShapeRecord {

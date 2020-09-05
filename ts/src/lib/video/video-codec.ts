@@ -14,5 +14,5 @@ export enum VideoCodec {
 
 export const $VideoCodec: TsEnumType<VideoCodec> = new TsEnumType<VideoCodec>({
   enum: VideoCodec,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

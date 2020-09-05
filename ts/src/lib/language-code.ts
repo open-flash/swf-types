@@ -12,5 +12,5 @@ export enum LanguageCode {
 
 export const $LanguageCode: TsEnumType<LanguageCode> = new TsEnumType<LanguageCode>({
   enum: LanguageCode,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

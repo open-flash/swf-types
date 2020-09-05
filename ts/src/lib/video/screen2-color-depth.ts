@@ -8,5 +8,5 @@ export enum Screen2ColorDepth {
 
 export const $Screen2ColorDepth: TsEnumType<Screen2ColorDepth> = new TsEnumType<Screen2ColorDepth>({
   enum: Screen2ColorDepth,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

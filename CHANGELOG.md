@@ -1,5 +1,7 @@
 # Next
 
+- **[Breaking change]** Use `PascalCase` for enums and types.
+
 ## Rust
 
 - **[Fix]** Update dependencies.
@@ -7,7 +9,7 @@
 ## Typescript
 
 - **[Breaking change]** Update to native ESM.
-- **[Internal]** Switch from `tslin` to `eslint`.
+- **[Internal]** Switch from `tslint` to `eslint`.
 
 # 0.11.0 (2020-02-05)
 

@@ -8,5 +8,5 @@ export enum TextRenderer {
 
 export const $TextRenderer: TsEnumType<TextRenderer> = new TsEnumType<TextRenderer>({
   enum: TextRenderer,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

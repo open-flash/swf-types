@@ -8,5 +8,5 @@ export enum SoundType {
 
 export const $SoundType: TsEnumType<SoundType> = new TsEnumType<SoundType>({
   enum: SoundType,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });

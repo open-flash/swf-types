@@ -9,5 +9,5 @@ export enum MpegVersion {
 
 export const $MpegVersion: TsEnumType<MpegVersion> = new TsEnumType<MpegVersion>({
   enum: MpegVersion,
-  changeCase: CaseStyle.KebabCase,
+  changeCase: CaseStyle.PascalCase,
 });
