@@ -1,16 +1,16 @@
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { $SRgb8, SRgb8 } from "../s-rgb8";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { $SRgb8, SRgb8 } from "../s-rgb8.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface SetBackgroundColor extends _Tag {
   readonly type: TagType.SetBackgroundColor;
   readonly color: SRgb8;
 }
 
-export const $SetBackgroundColor: DocumentIoType<SetBackgroundColor> = new DocumentType<SetBackgroundColor>({
+export const $SetBackgroundColor: RecordIoType<SetBackgroundColor> = new RecordType<SetBackgroundColor>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.SetBackgroundColor as TagType.SetBackgroundColor})},
     color: {type: $SRgb8},

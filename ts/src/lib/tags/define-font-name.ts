@@ -1,11 +1,11 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { Ucs2StringType } from "kryo/types/ucs2-string";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
 import { Uint16 } from "semantic-types";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineFontName extends _Tag {
   readonly type: TagType.DefineFontName;
@@ -14,7 +14,7 @@ export interface DefineFontName extends _Tag {
   readonly copyright: string;
 }
 
-export const $DefineFontName: DocumentIoType<DefineFontName> = new DocumentType<DefineFontName>({
+export const $DefineFontName: RecordIoType<DefineFontName> = new RecordType<DefineFontName>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineFontName as TagType.DefineFontName})},
     fontId: {type: $Uint16},

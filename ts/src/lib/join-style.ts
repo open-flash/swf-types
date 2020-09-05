@@ -1,5 +1,5 @@
-import { TaggedUnionType } from "kryo/types/tagged-union";
-import * as joinStyles from "./join-styles/index";
+import { TaggedUnionType } from "kryo/lib/tagged-union.js";
+import * as joinStyles from "./join-styles/index.js";
 
 export type JoinStyle =
   joinStyles.Bevel

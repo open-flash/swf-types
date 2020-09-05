@@ -1,7 +1,7 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint32 } from "kryo/builtins/uint32";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint32 } from "semantic-types";
 
 export interface ButtonCond {
@@ -17,7 +17,7 @@ export interface ButtonCond {
   keyPress?: Uint32;
 }
 
-export const $ButtonCond: DocumentIoType<ButtonCond> = new DocumentType<ButtonCond>({
+export const $ButtonCond: RecordIoType<ButtonCond> = new RecordType<ButtonCond>({
   properties: {
     idleToOverUp: {type: $Boolean},
     overUpToIdle: {type: $Boolean},

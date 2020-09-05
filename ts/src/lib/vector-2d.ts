@@ -1,6 +1,6 @@
-import { $Sint32 } from "kryo/builtins/sint32";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Sint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint32 } from "semantic-types";
 
 export interface Vector2D {
@@ -8,7 +8,7 @@ export interface Vector2D {
   y: Sint32;
 }
 
-export const $Vector2D: DocumentIoType<Vector2D> = new DocumentType<Vector2D>({
+export const $Vector2D: RecordIoType<Vector2D> = new RecordType<Vector2D>({
   properties: {
     x: {type: $Sint32},
     y: {type: $Sint32},

@@ -1,9 +1,9 @@
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { $Gradient, Gradient } from "../gradient";
-import { $Matrix, Matrix } from "../matrix";
-import { $FillStyleType, FillStyleType } from "./_type";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { $Gradient, Gradient } from "../gradient.js";
+import { $Matrix, Matrix } from "../matrix.js";
+import { $FillStyleType, FillStyleType } from "./_type.js";
 
 export interface LinearGradient {
   type: FillStyleType.LinearGradient;
@@ -11,7 +11,7 @@ export interface LinearGradient {
   gradient: Gradient;
 }
 
-export const $LinearGradient: DocumentIoType<LinearGradient> = new DocumentType<LinearGradient>({
+export const $LinearGradient: RecordIoType<LinearGradient> = new RecordType<LinearGradient>({
   properties: {
     type: {
       type: new LiteralType({

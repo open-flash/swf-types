@@ -1,12 +1,12 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $SpriteTag, SpriteTag } from "../sprite-tag";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $SpriteTag, SpriteTag } from "../sprite-tag.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineSprite extends _Tag {
   readonly type: TagType.DefineSprite;
@@ -15,7 +15,7 @@ export interface DefineSprite extends _Tag {
   readonly tags: ReadonlyArray<SpriteTag>;
 }
 
-export const $DefineSprite: DocumentIoType<DefineSprite> = new DocumentType<DefineSprite>({
+export const $DefineSprite: RecordIoType<DefineSprite> = new RecordType<DefineSprite>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineSprite as TagType.DefineSprite})},
     id: {type: $Uint16},

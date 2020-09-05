@@ -1,9 +1,9 @@
-import { $Sint16 } from "kryo/builtins/sint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Sint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint16 } from "semantic-types";
-import { $ColorTransform, ColorTransform } from "./color-transform";
-import { Sfixed8P8 } from "./fixed-point/sfixed8p8";
+import { $ColorTransform, ColorTransform } from "./color-transform.js";
+import { Sfixed8P8 } from "./fixed-point/sfixed8p8.js";
 
 export interface ColorTransformWithAlpha extends ColorTransform {
   alphaMult: Sfixed8P8;
@@ -11,7 +11,7 @@ export interface ColorTransformWithAlpha extends ColorTransform {
 }
 
 // tslint:disable-next-line:max-line-length
-export const $ColorTransformWithAlpha: DocumentIoType<ColorTransformWithAlpha> = new DocumentType<ColorTransformWithAlpha>({
+export const $ColorTransformWithAlpha: RecordIoType<ColorTransformWithAlpha> = new RecordType<ColorTransformWithAlpha>({
   properties: {
     redMult: $ColorTransform.properties.redMult,
     greenMult: $ColorTransform.properties.greenMult,

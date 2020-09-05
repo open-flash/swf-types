@@ -1,15 +1,15 @@
-import { $Sint16 } from "kryo/builtins/sint16";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Sint16 } from "kryo/lib/integer.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Sint16, Uint16 } from "semantic-types";
-import { $AudioCodingFormat, AudioCodingFormat } from "../sound/audio-coding-format";
-import { $SoundRate, SoundRate } from "../sound/sound-rate";
-import { $SoundSize, SoundSize } from "../sound/sound-size";
-import { $SoundType, SoundType } from "../sound/sound-type";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $AudioCodingFormat, AudioCodingFormat } from "../sound/audio-coding-format.js";
+import { $SoundRate, SoundRate } from "../sound/sound-rate.js";
+import { $SoundSize, SoundSize } from "../sound/sound-size.js";
+import { $SoundType, SoundType } from "../sound/sound-type.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface SoundStreamHead extends _Tag {
   readonly type: TagType.SoundStreamHead;
@@ -24,7 +24,7 @@ export interface SoundStreamHead extends _Tag {
   readonly latencySeek?: Sint16;
 }
 
-export const $SoundStreamHead: DocumentIoType<SoundStreamHead> = new DocumentType<SoundStreamHead>({
+export const $SoundStreamHead: RecordIoType<SoundStreamHead> = new RecordType<SoundStreamHead>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.SoundStreamHead as TagType.SoundStreamHead})},
     playbackSoundType: {type: $SoundType},

@@ -1,8 +1,8 @@
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { $Vector2D, Vector2D } from "../vector-2d";
-import { $ShapeRecordType, ShapeRecordType } from "./_type";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { $Vector2D, Vector2D } from "../vector-2d.js";
+import { $ShapeRecordType, ShapeRecordType } from "./_type.js";
 
 export interface Edge {
   type: ShapeRecordType.Edge;
@@ -19,7 +19,7 @@ export interface Edge {
   controlDelta?: Vector2D;
 }
 
-export const $Edge: DocumentIoType<Edge> = new DocumentType<Edge>({
+export const $Edge: RecordIoType<Edge> = new RecordType<Edge>({
   properties: {
     type: {
       type: new LiteralType({

@@ -1,7 +1,7 @@
-import { $Sint16 } from "kryo/builtins/sint16";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Sint16 } from "kryo/lib/integer.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint16, Uint16 } from "semantic-types";
 
 export interface KerningRecord {
@@ -10,7 +10,7 @@ export interface KerningRecord {
   adjustment: Sint16;
 }
 
-export const $KerningRecord: DocumentIoType<KerningRecord> = new DocumentType<KerningRecord>({
+export const $KerningRecord: RecordIoType<KerningRecord> = new RecordType<KerningRecord>({
   properties: {
     left: {type: $Uint16},
     right: {type: $Uint16},

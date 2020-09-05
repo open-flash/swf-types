@@ -1,11 +1,11 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $ColorTransform, ColorTransform } from "../color-transform";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $ColorTransform, ColorTransform } from "../color-transform.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineButtonColorTransform extends _Tag {
   type: TagType.DefineButtonColorTransform;
@@ -14,7 +14,7 @@ export interface DefineButtonColorTransform extends _Tag {
 }
 
 // tslint:disable-next-line:max-line-length
-export const $DefineButtonColorTransform: DocumentIoType<DefineButtonColorTransform> = new DocumentType<DefineButtonColorTransform>({
+export const $DefineButtonColorTransform: RecordIoType<DefineButtonColorTransform> = new RecordType<DefineButtonColorTransform>({
   properties: {
     type: {
       type: new LiteralType({

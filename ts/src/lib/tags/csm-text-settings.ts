@@ -1,13 +1,13 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { Float64Type } from "kryo/types/float64";
-import { LiteralType } from "kryo/types/literal";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { Float64Type } from "kryo/lib/float64.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Float32, Uint16 } from "semantic-types";
-import { $GridFitting, GridFitting } from "../text/grid-fitting";
-import { $TextRenderer, TextRenderer } from "../text/text-renderer";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $GridFitting, GridFitting } from "../text/grid-fitting.js";
+import { $TextRenderer, TextRenderer } from "../text/text-renderer.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface CsmTextSettings extends _Tag {
   readonly type: TagType.CsmTextSettings;
@@ -18,7 +18,7 @@ export interface CsmTextSettings extends _Tag {
   readonly sharpness: Float32;
 }
 
-export const $CsmTextSettings: DocumentIoType<CsmTextSettings> = new DocumentType<CsmTextSettings>({
+export const $CsmTextSettings: RecordIoType<CsmTextSettings> = new RecordType<CsmTextSettings>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.CsmTextSettings as TagType.CsmTextSettings})},
     textId: {type: $Uint16},

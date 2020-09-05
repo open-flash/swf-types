@@ -1,8 +1,8 @@
-import { $Sint32 } from "kryo/builtins/sint32";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Sint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint32 } from "semantic-types";
-import { Sfixed16P16 } from "./fixed-point/sfixed16p16";
+import { Sfixed16P16 } from "./fixed-point/sfixed16p16.js";
 
 export interface Matrix {
   scaleX: Sfixed16P16;
@@ -13,7 +13,7 @@ export interface Matrix {
   translateY: Sint32;
 }
 
-export const $Matrix: DocumentIoType<Matrix> = new DocumentType<Matrix>({
+export const $Matrix: RecordIoType<Matrix> = new RecordType<Matrix>({
   properties: {
     scaleX: {type: Sfixed16P16},
     scaleY: {type: Sfixed16P16},

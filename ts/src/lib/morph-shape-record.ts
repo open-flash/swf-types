@@ -1,5 +1,5 @@
-import { TaggedUnionType } from "kryo/types/tagged-union";
-import * as shapeRecords from "./shape-records";
+import { TaggedUnionType } from "kryo/lib/tagged-union.js";
+import * as shapeRecords from "./shape-records/index.js";
 
 export type MorphShapeRecord =
   shapeRecords.MorphEdge

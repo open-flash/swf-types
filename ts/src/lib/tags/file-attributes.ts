@@ -1,9 +1,9 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface FileAttributes extends _Tag {
   readonly type: TagType.FileAttributes;
@@ -16,7 +16,7 @@ export interface FileAttributes extends _Tag {
   readonly useDirectBlit: boolean;
 }
 
-export const $FileAttributes: DocumentIoType<FileAttributes> = new DocumentType<FileAttributes>({
+export const $FileAttributes: RecordIoType<FileAttributes> = new RecordType<FileAttributes>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.FileAttributes as TagType.FileAttributes})},
     useNetwork: {type: $Boolean},

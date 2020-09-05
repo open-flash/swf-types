@@ -1,10 +1,10 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { Ucs2StringType } from "kryo/types/ucs2-string";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface FrameLabel extends _Tag {
   readonly type: TagType.FrameLabel;
@@ -12,7 +12,7 @@ export interface FrameLabel extends _Tag {
   readonly isAnchor: boolean;
 }
 
-export const $FrameLabel: DocumentIoType<FrameLabel> = new DocumentType<FrameLabel>({
+export const $FrameLabel: RecordIoType<FrameLabel> = new RecordType<FrameLabel>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.FrameLabel as TagType.FrameLabel})},
     name: {type: new Ucs2StringType({maxLength: Infinity})},

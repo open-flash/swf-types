@@ -1,14 +1,14 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $Matrix, Matrix } from "../matrix";
-import { $Rect, Rect } from "../rect";
-import { $TextRecord, TextRecord } from "../text/text-record";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $Matrix, Matrix } from "../matrix.js";
+import { $Rect, Rect } from "../rect.js";
+import { $TextRecord, TextRecord } from "../text/text-record.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineText extends _Tag {
   readonly type: TagType.DefineText;
@@ -18,7 +18,7 @@ export interface DefineText extends _Tag {
   readonly records: ReadonlyArray<TextRecord>;
 }
 
-export const $DefineText: DocumentIoType<DefineText> = new DocumentType<DefineText>({
+export const $DefineText: RecordIoType<DefineText> = new RecordType<DefineText>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineText as TagType.DefineText})},
     id: {type: $Uint16},

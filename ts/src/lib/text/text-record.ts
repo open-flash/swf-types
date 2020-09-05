@@ -1,11 +1,11 @@
-import { $Sint16 } from "kryo/builtins/sint16";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Sint16 } from "kryo/lib/integer.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint16, Uint16 } from "semantic-types";
-import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8";
-import { $GlyphEntry, GlyphEntry } from "./glyph-entry";
+import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8.js";
+import { $GlyphEntry, GlyphEntry } from "./glyph-entry.js";
 
 export interface TextRecord {
   fontId?: Uint16;
@@ -16,7 +16,7 @@ export interface TextRecord {
   entries: GlyphEntry[];
 }
 
-export const $TextRecord: DocumentIoType<TextRecord> = new DocumentType<TextRecord>({
+export const $TextRecord: RecordIoType<TextRecord> = new RecordType<TextRecord>({
   properties: {
     fontId: {type: $Uint16, optional: true},
     color: {type: $StraightSRgba8, optional: true},

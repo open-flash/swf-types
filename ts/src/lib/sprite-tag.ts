@@ -1,5 +1,5 @@
-import { TaggedUnionType } from "kryo/types/tagged-union";
-import * as tags from "./tags/index";
+import { TaggedUnionType } from "kryo/lib/tagged-union.js";
+import * as tags from "./tags/index.js";
 
 export type SpriteTag =
   tags.DoAbc

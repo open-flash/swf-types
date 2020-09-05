@@ -1,7 +1,7 @@
-import { $Bytes } from "kryo/builtins/bytes";
-import { $Uint8 } from "kryo/builtins/uint8";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { $Uint8 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint8 } from "semantic-types";
 
 export interface Vp6FlvVideoPacket {
@@ -10,7 +10,7 @@ export interface Vp6FlvVideoPacket {
   data: Uint8Array;
 }
 
-export const $Vp6FlvVideoPacket: DocumentIoType<Vp6FlvVideoPacket> = new DocumentType<Vp6FlvVideoPacket>({
+export const $Vp6FlvVideoPacket: RecordIoType<Vp6FlvVideoPacket> = new RecordType<Vp6FlvVideoPacket>({
   properties: {
     horizontalAdjustment: {type: $Uint8},
     verticalAdjustment: {type: $Uint8},

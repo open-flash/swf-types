@@ -1,7 +1,7 @@
-import { $Uint32 } from "kryo/builtins/uint32";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { Ucs2StringType } from "kryo/types/ucs2-string";
+import { $Uint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
 import { Uint32 } from "semantic-types";
 
 export interface AbcHeader {
@@ -9,7 +9,7 @@ export interface AbcHeader {
   readonly name: string;
 }
 
-export const $AbcHeader: DocumentIoType<AbcHeader> = new DocumentType<AbcHeader>({
+export const $AbcHeader: RecordIoType<AbcHeader> = new RecordType<AbcHeader>({
   properties: {
     flags: {type: $Uint32},
     name: {type: new Ucs2StringType({maxLength: Infinity})},

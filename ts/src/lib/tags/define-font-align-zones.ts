@@ -1,13 +1,13 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $CsmTableHint, CsmTableHint } from "../text/csm-table-hint";
-import { $FontAlignmentZone, FontAlignmentZone } from "../text/font-alignment-zone";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $CsmTableHint, CsmTableHint } from "../text/csm-table-hint.js";
+import { $FontAlignmentZone, FontAlignmentZone } from "../text/font-alignment-zone.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineFontAlignZones extends _Tag {
   readonly type: TagType.DefineFontAlignZones;
@@ -16,7 +16,7 @@ export interface DefineFontAlignZones extends _Tag {
   readonly zones: ReadonlyArray<FontAlignmentZone>;
 }
 
-export const $DefineFontAlignZones: DocumentIoType<DefineFontAlignZones> = new DocumentType<DefineFontAlignZones>({
+export const $DefineFontAlignZones: RecordIoType<DefineFontAlignZones> = new RecordType<DefineFontAlignZones>({
   properties: {
     type: {
       type: new LiteralType({

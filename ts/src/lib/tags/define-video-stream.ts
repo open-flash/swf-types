@@ -1,13 +1,13 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $VideoCodec, VideoCodec } from "../video/video-codec";
-import { $VideoDeblocking, VideoDeblocking } from "../video/video-deblocking";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $VideoCodec, VideoCodec } from "../video/video-codec.js";
+import { $VideoDeblocking, VideoDeblocking } from "../video/video-deblocking.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineVideoStream extends _Tag {
   type: TagType.DefineVideoStream;
@@ -20,7 +20,7 @@ export interface DefineVideoStream extends _Tag {
   codec: VideoCodec;
 }
 
-export const $DefineVideoStream: DocumentIoType<DefineVideoStream> = new DocumentType<DefineVideoStream>({
+export const $DefineVideoStream: RecordIoType<DefineVideoStream> = new RecordType<DefineVideoStream>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineVideoStream as TagType.DefineVideoStream})},
     id: {type: $Uint16},

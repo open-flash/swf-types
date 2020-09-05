@@ -1,16 +1,16 @@
-import { $Bytes } from "kryo/builtins/bytes";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { $Uint32 } from "kryo/builtins/uint32";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { $Uint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16, Uint32 } from "semantic-types";
-import { $AudioCodingFormat, AudioCodingFormat } from "../sound/audio-coding-format";
-import { $SoundRate, SoundRate } from "../sound/sound-rate";
-import { $SoundSize, SoundSize } from "../sound/sound-size";
-import { $SoundType, SoundType } from "../sound/sound-type";
-import { _Tag } from "../tags/_tag";
-import { $TagType, TagType } from "../tags/_type";
+import { $AudioCodingFormat, AudioCodingFormat } from "../sound/audio-coding-format.js";
+import { $SoundRate, SoundRate } from "../sound/sound-rate.js";
+import { $SoundSize, SoundSize } from "../sound/sound-size.js";
+import { $SoundType, SoundType } from "../sound/sound-type.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineSound extends _Tag {
   readonly type: TagType.DefineSound;
@@ -23,7 +23,7 @@ export interface DefineSound extends _Tag {
   readonly data: Uint8Array;
 }
 
-export const $DefineSound: DocumentIoType<DefineSound> = new DocumentType<DefineSound>({
+export const $DefineSound: RecordIoType<DefineSound> = new RecordType<DefineSound>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineSound as TagType.DefineSound})},
     id: {type: $Uint16},

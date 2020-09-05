@@ -1,11 +1,11 @@
-import { $Any } from "kryo/builtins/any";
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { $Uint32 } from "kryo/builtins/uint32";
-import { $Uint8 } from "kryo/builtins/uint8";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Any } from "kryo/lib/any.js";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { $Uint32 } from "kryo/lib/integer.js";
+import { $Uint8 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16, Uint32, Uint8 } from "semantic-types";
 
 export interface H263VideoPacket {
@@ -21,7 +21,7 @@ export interface H263VideoPacket {
   pictureStuffing: any;
 }
 
-export const $H263VideoPacket: DocumentIoType<H263VideoPacket> = new DocumentType<H263VideoPacket>({
+export const $H263VideoPacket: RecordIoType<H263VideoPacket> = new RecordType<H263VideoPacket>({
   properties: {
     version: {type: $Uint32},
     temporalReference: {type: $Uint32},

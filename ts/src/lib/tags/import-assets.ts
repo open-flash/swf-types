@@ -1,11 +1,11 @@
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { Ucs2StringType } from "kryo/types/ucs2-string";
-import { $NamedId, NamedId } from "../named-id";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
+import { $NamedId, NamedId } from "../named-id.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface ImportAssets extends _Tag {
   readonly type: TagType.ImportAssets;
@@ -13,7 +13,7 @@ export interface ImportAssets extends _Tag {
   readonly assets: ReadonlyArray<NamedId>;
 }
 
-export const $ImportAssets: DocumentIoType<ImportAssets> = new DocumentType<ImportAssets>({
+export const $ImportAssets: RecordIoType<ImportAssets> = new RecordType<ImportAssets>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.ImportAssets as TagType.ImportAssets})},
     url: {type: new Ucs2StringType({maxLength: Infinity})},

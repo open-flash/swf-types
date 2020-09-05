@@ -1,11 +1,11 @@
-import { $Uint32 } from "kryo/builtins/uint32";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Uint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint32 } from "semantic-types";
-import { $ShapeStyles, ShapeStyles } from "../shape-styles";
-import { $Vector2D, Vector2D } from "../vector-2d";
-import { $ShapeRecordType, ShapeRecordType } from "./_type";
+import { $ShapeStyles, ShapeStyles } from "../shape-styles.js";
+import { $Vector2D, Vector2D } from "../vector-2d.js";
+import { $ShapeRecordType, ShapeRecordType } from "./_type.js";
 
 export interface StyleChange {
   type: ShapeRecordType.StyleChange;
@@ -16,7 +16,7 @@ export interface StyleChange {
   newStyles?: ShapeStyles;
 }
 
-export const $StyleChange: DocumentIoType<StyleChange> = new DocumentType<StyleChange>({
+export const $StyleChange: RecordIoType<StyleChange> = new RecordType<StyleChange>({
   properties: {
     type: {
       type: new LiteralType({

@@ -1,7 +1,7 @@
-import { $Any } from "kryo/builtins/any";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Any } from "kryo/lib/any.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16 } from "semantic-types";
 
 export interface Mp3StreamSoundData {
@@ -9,7 +9,7 @@ export interface Mp3StreamSoundData {
   mp3SoundData: any;
 }
 
-export const $Mp3StreamSoundData: DocumentIoType<Mp3StreamSoundData> = new DocumentType<Mp3StreamSoundData>({
+export const $Mp3StreamSoundData: RecordIoType<Mp3StreamSoundData> = new RecordType<Mp3StreamSoundData>({
   properties: {
     sampleCount: {type: $Uint16},
     mp3SoundData: {type: $Any},

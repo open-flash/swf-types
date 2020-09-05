@@ -1,16 +1,16 @@
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { $MorphFillStyle, MorphFillStyle } from "./morph-fill-style";
-import { $MorphLineStyle, MorphLineStyle } from "./morph-line-style";
-import { ShapeStyles } from "./shape-styles";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $MorphFillStyle, MorphFillStyle } from "./morph-fill-style.js";
+import { $MorphLineStyle, MorphLineStyle } from "./morph-line-style.js";
+import { ShapeStyles } from "./shape-styles.js";
 
 export interface MorphShapeStyles extends ShapeStyles {
   fill: MorphFillStyle[];
   line: MorphLineStyle[];
 }
 
-export const $MorphShapeStyles: DocumentIoType<MorphShapeStyles> = new DocumentType<MorphShapeStyles>({
+export const $MorphShapeStyles: RecordIoType<MorphShapeStyles> = new RecordType<MorphShapeStyles>({
   properties: {
     fill: {
       type: new ArrayType({itemType: $MorphFillStyle, maxLength: Infinity}),

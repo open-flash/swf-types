@@ -1,14 +1,14 @@
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { $Gradient, Gradient } from "./gradient";
-import { $MorphColorStop, MorphColorStop } from "./morph-color-stop";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Gradient, Gradient } from "./gradient.js";
+import { $MorphColorStop, MorphColorStop } from "./morph-color-stop.js";
 
 export interface MorphGradient extends Gradient {
   colors: MorphColorStop[];
 }
 
-export const $MorphGradient: DocumentIoType<MorphGradient> = new DocumentType<MorphGradient>({
+export const $MorphGradient: RecordIoType<MorphGradient> = new RecordType<MorphGradient>({
   properties: {
     spread: $Gradient.properties.spread,
     colorSpace: $Gradient.properties.colorSpace,

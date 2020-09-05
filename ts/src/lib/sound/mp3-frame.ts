@@ -1,11 +1,11 @@
-import { $Any } from "kryo/builtins/any";
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Bytes } from "kryo/builtins/bytes";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { $Mp3ChannelMode, Mp3ChannelMode } from "./mp3-channel-mode";
-import { $Mp3Layer, Mp3Layer } from "./mp3-layer";
-import { $MpegVersion, MpegVersion } from "./mpeg-version";
+import { $Any } from "kryo/lib/any.js";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Mp3ChannelMode, Mp3ChannelMode } from "./mp3-channel-mode.js";
+import { $Mp3Layer, Mp3Layer } from "./mp3-layer.js";
+import { $MpegVersion, MpegVersion } from "./mpeg-version.js";
 
 export interface Mp3Frame {
   mpegVersion: MpegVersion;
@@ -20,7 +20,7 @@ export interface Mp3Frame {
   sampleData: Uint8Array;
 }
 
-export const $Mp3Frame: DocumentIoType<Mp3Frame> = new DocumentType<Mp3Frame>({
+export const $Mp3Frame: RecordIoType<Mp3Frame> = new RecordType<Mp3Frame>({
   properties: {
     mpegVersion: {type: $MpegVersion},
     layer: {type: $Mp3Layer},

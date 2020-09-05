@@ -1,17 +1,17 @@
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { Float64Type } from "kryo/types/float64";
-import { LiteralType } from "kryo/types/literal";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { Float64Type } from "kryo/lib/float64.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Float32 } from "semantic-types";
-import { $FilterType, FilterType } from "./_type";
+import { $FilterType, FilterType } from "./_type.js";
 
 export interface ColorMatrix {
   filter: FilterType.ColorMatrix;
   matrix: Float32[];
 }
 
-export const $ColorMatrix: DocumentIoType<ColorMatrix> = new DocumentType<ColorMatrix>({
+export const $ColorMatrix: RecordIoType<ColorMatrix> = new RecordType<ColorMatrix>({
   properties: {
     filter: {type: new LiteralType({type: $FilterType, value: FilterType.ColorMatrix as FilterType.ColorMatrix})},
     matrix: {type: new ArrayType({itemType: new Float64Type(), /* minLength: 20, */ maxLength: 20})},

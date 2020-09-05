@@ -1,7 +1,7 @@
-import { $Sint32 } from "kryo/builtins/sint32";
-import { $Uint32 } from "kryo/builtins/uint32";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Sint32 } from "kryo/lib/integer.js";
+import { $Uint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint32, Uint32 } from "semantic-types";
 
 export interface GlyphEntry {
@@ -9,7 +9,7 @@ export interface GlyphEntry {
   advance: Sint32;
 }
 
-export const $GlyphEntry: DocumentIoType<GlyphEntry> = new DocumentType<GlyphEntry>({
+export const $GlyphEntry: RecordIoType<GlyphEntry> = new RecordType<GlyphEntry>({
   properties: {
     index: {type: $Uint32},
     advance: {type: $Sint32},

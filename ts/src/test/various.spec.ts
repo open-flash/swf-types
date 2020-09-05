@@ -1,24 +1,21 @@
 import chai from "chai";
 import fs from "fs";
-import { $Uint32 } from "kryo/builtins/uint32";
-import { IoType } from "kryo/core";
-import { JsonReader } from "kryo/readers/json";
-import { Float64Type } from "kryo/types/float64";
-import { JsonValueWriter } from "kryo/writers/json-value";
+import { $Uint32 } from "kryo/lib/integer.js";
+import { IoType } from "kryo";
+import { Float64Type } from "kryo/lib/float64.js";
 import sysPath from "path";
-import { $ColorTransformWithAlpha } from "../lib/color-transform-with-alpha";
-import { $Header } from "../lib/header";
-import { $Matrix } from "../lib/matrix";
-import { $Rect } from "../lib/rect";
-import { $SwfSignature } from "../lib/swf-signature";
+import { $ColorTransformWithAlpha } from "../lib/color-transform-with-alpha.js";
+import { $Header } from "../lib/header.js";
+import { $Matrix } from "../lib/matrix.js";
+import { $Rect } from "../lib/rect.js";
+import { $SwfSignature } from "../lib/swf-signature.js";
 import meta from "./meta.js";
-import { readTextFile } from "./utils";
+import { readTextFile } from "./utils.js";
+import { JSON_READER } from "kryo-json/lib/json-reader.js";
+import { JSON_VALUE_WRITER } from "kryo-json/lib/json-value-writer.js";
 
-const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..", "..", "..");
+const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..");
 const SAMPLES_ROOT: string = sysPath.join(PROJECT_ROOT, "..", "tests", "various");
-
-const JSON_READER: JsonReader = new JsonReader();
-const JSON_VALUE_WRITER: JsonValueWriter = new JsonValueWriter();
 
 for (const group of getSampleGroups()) {
   describe(group.name, function () {

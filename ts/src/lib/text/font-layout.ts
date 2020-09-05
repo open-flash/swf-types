@@ -1,11 +1,11 @@
-import { $Sint16 } from "kryo/builtins/sint16";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Sint16 } from "kryo/lib/integer.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint16, Uint16 } from "semantic-types";
-import { $Rect, Rect } from "../rect";
-import { $KerningRecord, KerningRecord } from "./kerning-record";
+import { $Rect, Rect } from "../rect.js";
+import { $KerningRecord, KerningRecord } from "./kerning-record.js";
 
 export interface FontLayout {
   ascent: Uint16;
@@ -16,7 +16,7 @@ export interface FontLayout {
   kerning: KerningRecord[];
 }
 
-export const $FontLayout: DocumentIoType<FontLayout> = new DocumentType<FontLayout>({
+export const $FontLayout: RecordIoType<FontLayout> = new RecordType<FontLayout>({
   properties: {
     ascent: {type: $Uint16},
     descent: {type: $Uint16},

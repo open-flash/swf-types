@@ -1,17 +1,17 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Sint16 } from "kryo/builtins/sint16";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { IntegerType } from "kryo/types/integer";
-import { LiteralType } from "kryo/types/literal";
-import { Ucs2StringType } from "kryo/types/ucs2-string";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Sint16 } from "kryo/lib/integer.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { IntegerType } from "kryo/lib/integer.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
 import { Sint16, Uint16, UintSize } from "semantic-types";
-import { $Rect, Rect } from "../rect";
-import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8";
-import { $TextAlignment, TextAlignment } from "../text/text-alignment";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $Rect, Rect } from "../rect.js";
+import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8.js";
+import { $TextAlignment, TextAlignment } from "../text/text-alignment.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineDynamicText extends _Tag {
   readonly type: TagType.DefineDynamicText;
@@ -41,7 +41,7 @@ export interface DefineDynamicText extends _Tag {
   readonly text?: string;
 }
 
-export const $DefineDynamicText: DocumentIoType<DefineDynamicText> = new DocumentType<DefineDynamicText>({
+export const $DefineDynamicText: RecordIoType<DefineDynamicText> = new RecordType<DefineDynamicText>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineDynamicText as TagType.DefineDynamicText})},
     id: {type: $Uint16},

@@ -1,6 +1,6 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 
 export interface ClipEventFlags {
   load: boolean;
@@ -24,7 +24,7 @@ export interface ClipEventFlags {
   construct: boolean;
 }
 
-export const $ClipEventFlags: DocumentIoType<ClipEventFlags> = new DocumentType<ClipEventFlags>({
+export const $ClipEventFlags: RecordIoType<ClipEventFlags> = new RecordType<ClipEventFlags>({
   properties: {
     keyUp: {type: $Boolean},
     keyDown: {type: $Boolean},

@@ -1,6 +1,6 @@
-import { $Uint8 } from "kryo/builtins/uint8";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Uint8 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint8 } from "semantic-types";
 
 export interface Screen2ImageBlockPrimePosition {
@@ -9,7 +9,7 @@ export interface Screen2ImageBlockPrimePosition {
 }
 
 // tslint:disable-next-line:max-line-length
-export const $Screen2ImageBlockPrimePosition: DocumentIoType<Screen2ImageBlockPrimePosition> = new DocumentType<Screen2ImageBlockPrimePosition>({
+export const $Screen2ImageBlockPrimePosition: RecordIoType<Screen2ImageBlockPrimePosition> = new RecordType<Screen2ImageBlockPrimePosition>({
   properties: {
     column: {type: $Uint8},
     row: {type: $Uint8},

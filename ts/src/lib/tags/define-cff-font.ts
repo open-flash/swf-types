@@ -1,13 +1,13 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Bytes } from "kryo/builtins/bytes";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { Ucs2StringType } from "kryo/types/ucs2-string";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
 import { Uint16 } from "semantic-types";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 // TODO: Rename to `DefineOtfFont`
 export interface DefineCffFont extends _Tag {
@@ -19,7 +19,7 @@ export interface DefineCffFont extends _Tag {
   readonly data?: Uint8Array;
 }
 
-export const $DefineCffFont: DocumentIoType<DefineCffFont> = new DocumentType<DefineCffFont>({
+export const $DefineCffFont: RecordIoType<DefineCffFont> = new RecordType<DefineCffFont>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineCffFont as TagType.DefineCffFont})},
     id: {type: $Uint16},

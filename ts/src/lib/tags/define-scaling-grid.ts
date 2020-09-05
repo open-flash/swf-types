@@ -1,11 +1,11 @@
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { IntegerType } from "kryo/types/integer";
-import { LiteralType } from "kryo/types/literal";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { IntegerType } from "kryo/lib/integer.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $Rect, Rect } from "../rect";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $Rect, Rect } from "../rect.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineScalingGrid extends _Tag {
   type: TagType.DefineScalingGrid;
@@ -13,7 +13,7 @@ export interface DefineScalingGrid extends _Tag {
   splitter: Rect;
 }
 
-export const $DefineScalingGrid: DocumentIoType<DefineScalingGrid> = new DocumentType<DefineScalingGrid>({
+export const $DefineScalingGrid: RecordIoType<DefineScalingGrid> = new RecordType<DefineScalingGrid>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineScalingGrid as TagType.DefineScalingGrid})},
     characterId: {type: new IntegerType()},

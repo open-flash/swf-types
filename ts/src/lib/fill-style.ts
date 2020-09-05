@@ -1,5 +1,5 @@
-import { TaggedUnionType } from "kryo/types/tagged-union";
-import * as fillStyles from "./fill-styles/index";
+import { TaggedUnionType } from "kryo/lib/tagged-union.js";
+import * as fillStyles from "./fill-styles/index.js";
 
 export type FillStyle =
   fillStyles.Bitmap

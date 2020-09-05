@@ -1,15 +1,15 @@
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { $FillStyle, FillStyle } from "./fill-style";
-import { $LineStyle, LineStyle } from "./line-style";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $FillStyle, FillStyle } from "./fill-style.js";
+import { $LineStyle, LineStyle } from "./line-style.js";
 
 export interface ShapeStyles {
   fill: FillStyle[];
   line: LineStyle[];
 }
 
-export const $ShapeStyles: DocumentIoType<ShapeStyles> = new DocumentType<ShapeStyles>({
+export const $ShapeStyles: RecordIoType<ShapeStyles> = new RecordType<ShapeStyles>({
   properties: {
     fill: {
       type: new ArrayType({itemType: $FillStyle, maxLength: Infinity}),

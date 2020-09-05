@@ -1,16 +1,16 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16 } from "semantic-types";
-import { $LineStyle, LineStyle } from "./line-style";
-import { $MorphFillStyle, MorphFillStyle } from "./morph-fill-style";
+import { $LineStyle, LineStyle } from "./line-style.js";
+import { $MorphFillStyle, MorphFillStyle } from "./morph-fill-style.js";
 
 export interface MorphLineStyle extends LineStyle {
   morphWidth: Uint16;
   fill: MorphFillStyle;
 }
 
-export const $MorphLineStyle: DocumentIoType<MorphLineStyle> = new DocumentType<MorphLineStyle>({
+export const $MorphLineStyle: RecordIoType<MorphLineStyle> = new RecordType<MorphLineStyle>({
   properties: {
     width: $LineStyle.properties.width,
     morphWidth: {type: $Uint16},

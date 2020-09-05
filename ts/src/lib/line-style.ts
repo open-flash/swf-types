@@ -1,11 +1,11 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16 } from "semantic-types";
-import { $CapStyle, CapStyle } from "./cap-style";
-import { $FillStyle, FillStyle } from "./fill-style";
-import { $JoinStyle, JoinStyle } from "./join-style";
+import { $CapStyle, CapStyle } from "./cap-style.js";
+import { $FillStyle, FillStyle } from "./fill-style.js";
+import { $JoinStyle, JoinStyle } from "./join-style.js";
 
 export interface LineStyle {
   width: Uint16;
@@ -19,7 +19,7 @@ export interface LineStyle {
   fill: FillStyle;
 }
 
-export const $LineStyle: DocumentIoType<LineStyle> = new DocumentType<LineStyle>({
+export const $LineStyle: RecordIoType<LineStyle> = new RecordType<LineStyle>({
   properties: {
     width: {type: $Uint16},
     startCap: {type: $CapStyle},

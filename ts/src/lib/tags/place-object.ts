@@ -1,19 +1,19 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { Ucs2StringType } from "kryo/types/ucs2-string";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
 import { Uint16 } from "semantic-types";
-import { $BlendMode, BlendMode } from "../blend-mode";
-import { $ClipAction, ClipAction } from "../clip-action";
-import { $ColorTransformWithAlpha, ColorTransformWithAlpha } from "../color-transform-with-alpha";
-import { $Filter, Filter } from "../filter";
-import { $Matrix, Matrix } from "../matrix";
-import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $BlendMode, BlendMode } from "../blend-mode.js";
+import { $ClipAction, ClipAction } from "../clip-action.js";
+import { $ColorTransformWithAlpha, ColorTransformWithAlpha } from "../color-transform-with-alpha.js";
+import { $Filter, Filter } from "../filter.js";
+import { $Matrix, Matrix } from "../matrix.js";
+import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface PlaceObject extends _Tag {
   readonly type: TagType.PlaceObject;
@@ -35,7 +35,7 @@ export interface PlaceObject extends _Tag {
   readonly clipActions?: ReadonlyArray<ClipAction>;
 }
 
-export const $PlaceObject: DocumentIoType<PlaceObject> = new DocumentType<PlaceObject>(() => ({
+export const $PlaceObject: RecordIoType<PlaceObject> = new RecordType<PlaceObject>(() => ({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.PlaceObject as TagType.PlaceObject})},
     isUpdate: {type: $Boolean},

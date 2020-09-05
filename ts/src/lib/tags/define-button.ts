@@ -1,14 +1,14 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $ButtonCondAction, ButtonCondAction } from "../button/button-cond-action";
-import { $ButtonRecord, ButtonRecord } from "../button/button-record";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $ButtonCondAction, ButtonCondAction } from "../button/button-cond-action.js";
+import { $ButtonRecord, ButtonRecord } from "../button/button-record.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineButton extends _Tag {
   readonly type: TagType.DefineButton;
@@ -19,7 +19,7 @@ export interface DefineButton extends _Tag {
   readonly actions: ReadonlyArray<ButtonCondAction>;
 }
 
-export const $DefineButton: DocumentIoType<DefineButton> = new DocumentType<DefineButton>({
+export const $DefineButton: RecordIoType<DefineButton> = new RecordType<DefineButton>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineButton as TagType.DefineButton})},
     id: {type: $Uint16},

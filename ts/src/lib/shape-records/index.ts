@@ -1,4 +1,4 @@
-export { $Edge, Edge } from "./edge";
-export { $MorphEdge, MorphEdge } from "./morph-edge";
-export { $MorphStyleChange, MorphStyleChange } from "./morph-style-change";
-export { $StyleChange, StyleChange } from "./style-change";
+export { $Edge, Edge } from "./edge.js";
+export { $MorphEdge, MorphEdge } from "./morph-edge.js";
+export { $MorphStyleChange, MorphStyleChange } from "./morph-style-change.js";
+export { $StyleChange, StyleChange } from "./style-change.js";

@@ -1,11 +1,11 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { $Uint32 } from "kryo/builtins/uint32";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { $Uint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16, Uint32 } from "semantic-types";
-import { $SoundEnvelope, SoundEnvelope } from "./sound-envelope";
+import { $SoundEnvelope, SoundEnvelope } from "./sound-envelope.js";
 
 export interface SoundInfo {
   syncStop: boolean;
@@ -16,7 +16,7 @@ export interface SoundInfo {
   envelopeRecords?: SoundEnvelope[];
 }
 
-export const $SoundInfo: DocumentIoType<SoundInfo> = new DocumentType<SoundInfo>({
+export const $SoundInfo: RecordIoType<SoundInfo> = new RecordType<SoundInfo>({
   properties: {
     syncStop: {type: $Boolean},
     syncNoMultiple: {type: $Boolean},

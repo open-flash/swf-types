@@ -1,8 +1,8 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { $FontAlignmentZoneData, FontAlignmentZoneData } from "./font-alignment-zone-data";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $FontAlignmentZoneData, FontAlignmentZoneData } from "./font-alignment-zone-data.js";
 
 export interface FontAlignmentZone {
   data: FontAlignmentZoneData[];
@@ -10,7 +10,7 @@ export interface FontAlignmentZone {
   hasY: boolean;
 }
 
-export const $FontAlignmentZone: DocumentIoType<FontAlignmentZone> = new DocumentType<FontAlignmentZone>({
+export const $FontAlignmentZone: RecordIoType<FontAlignmentZone> = new RecordType<FontAlignmentZone>({
   properties: {
     data: {type: new ArrayType({itemType: $FontAlignmentZoneData, maxLength: Infinity})},
     hasX: {type: $Boolean},

@@ -1,15 +1,15 @@
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { $Matrix, Matrix } from "../matrix";
-import { $MorphGradient, MorphGradient } from "../morph-gradient";
-import { $RadialGradient, RadialGradient } from "./radial-gradient";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Matrix, Matrix } from "../matrix.js";
+import { $MorphGradient, MorphGradient } from "../morph-gradient.js";
+import { $RadialGradient, RadialGradient } from "./radial-gradient.js";
 
 export interface MorphRadialGradient extends RadialGradient {
   morphMatrix: Matrix;
   gradient: MorphGradient;
 }
 
-export const $MorphRadialGradient: DocumentIoType<MorphRadialGradient> = new DocumentType<MorphRadialGradient>({
+export const $MorphRadialGradient: RecordIoType<MorphRadialGradient> = new RecordType<MorphRadialGradient>({
   properties: {
     type: $RadialGradient.properties.type,
     matrix: $RadialGradient.properties.matrix,

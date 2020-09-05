@@ -1,15 +1,15 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16 } from "semantic-types";
-import { $SoundInfo, SoundInfo } from "../sound/sound-info";
+import { $SoundInfo, SoundInfo } from "../sound/sound-info.js";
 
 export interface ButtonSound {
   soundId: Uint16;
   soundInfo: SoundInfo;
 }
 
-export const $ButtonSound: DocumentIoType<ButtonSound> = new DocumentType<ButtonSound>({
+export const $ButtonSound: RecordIoType<ButtonSound> = new RecordType<ButtonSound>({
   properties: {
     soundId: {type: $Uint16},
     soundInfo: {type: $SoundInfo},

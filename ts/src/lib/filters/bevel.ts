@@ -1,14 +1,14 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { CaseStyle } from "kryo/case-style";
-import { IoType } from "kryo/core";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { IntegerType } from "kryo/types/integer";
-import { LiteralType } from "kryo/types/literal";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { CaseStyle } from "kryo";
+import { IoType } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { IntegerType } from "kryo/lib/integer.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint4 } from "semantic-types";
-import { Sfixed16P16 } from "../fixed-point/sfixed16p16";
-import { Sfixed8P8 } from "../fixed-point/sfixed8p8";
-import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8";
-import { $FilterType, FilterType } from "./_type";
+import { Sfixed16P16 } from "../fixed-point/sfixed16p16.js";
+import { Sfixed8P8 } from "../fixed-point/sfixed8p8.js";
+import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8.js";
+import { $FilterType, FilterType } from "./_type.js";
 
 export interface Bevel {
   filter: FilterType.Bevel;
@@ -26,7 +26,7 @@ export interface Bevel {
   passes: Uint4;
 }
 
-export const $Bevel: DocumentIoType<Bevel> = new DocumentType<Bevel>({
+export const $Bevel: RecordIoType<Bevel> = new RecordType<Bevel>({
   properties: {
     filter: {type: new LiteralType({type: $FilterType, value: FilterType.Bevel as FilterType.Bevel})},
     shadowColor: {type: $StraightSRgba8},

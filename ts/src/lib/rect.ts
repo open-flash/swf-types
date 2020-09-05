@@ -1,6 +1,6 @@
-import { $Sint32 } from "kryo/builtins/sint32";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Sint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint32 } from "semantic-types";
 
 export interface Rect {
@@ -10,7 +10,7 @@ export interface Rect {
   yMax: Sint32;
 }
 
-export const $Rect: DocumentIoType<Rect> = new DocumentType<Rect>({
+export const $Rect: RecordIoType<Rect> = new RecordType<Rect>({
   properties: {
     xMin: {type: $Sint32},
     xMax: {type: $Sint32},

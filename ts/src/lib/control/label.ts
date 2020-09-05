@@ -1,14 +1,14 @@
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { IntegerType } from "kryo/types/integer";
-import { Ucs2StringType } from "kryo/types/ucs2-string";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { IntegerType } from "kryo/lib/integer.js";
+import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
 
 export interface Label {
   frame: number;
   name: string;
 }
 
-export const $Label: DocumentIoType<Label> = new DocumentType<Label>({
+export const $Label: RecordIoType<Label> = new RecordType<Label>({
   properties: {
     frame: {type: new IntegerType()},
     name: {type: new Ucs2StringType({maxLength: Infinity})},

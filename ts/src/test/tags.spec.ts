@@ -1,17 +1,15 @@
 import chai from "chai";
 import fs from "fs";
-import { JsonReader } from "kryo/readers/json";
-import { JsonValueWriter } from "kryo/writers/json-value";
 import sysPath from "path";
-import { $Tag, Tag } from "../lib/tag";
+import { $Tag, Tag } from "../lib/tag.js";
 import meta from "./meta.js";
-import { readTextFile } from "./utils";
+import { readTextFile } from "./utils.js";
+import { JSON_READER } from "kryo-json/lib/json-reader.js";
+import { JSON_VALUE_WRITER } from "kryo-json/lib/json-value-writer.js";
 
-const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..", "..", "..");
+const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..");
 const TAG_SAMPLES_ROOT: string = sysPath.join(PROJECT_ROOT, "..", "tests", "tags");
 
-const JSON_READER: JsonReader = new JsonReader();
-const JSON_VALUE_WRITER: JsonValueWriter = new JsonValueWriter();
 // `BLACKLIST` can be used to forcefully skip some tests.
 const BLACKLIST: ReadonlySet<string> = new Set([
   // "define-shape/shape1-squares",

@@ -1,11 +1,11 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $Matrix, Matrix } from "../matrix";
-import { $FillStyleType, FillStyleType } from "./_type";
+import { $Matrix, Matrix } from "../matrix.js";
+import { $FillStyleType, FillStyleType } from "./_type.js";
 
 export interface Bitmap {
   type: FillStyleType.Bitmap;
@@ -15,7 +15,7 @@ export interface Bitmap {
   smoothed: boolean;
 }
 
-export const $Bitmap: DocumentIoType<Bitmap> = new DocumentType<Bitmap>({
+export const $Bitmap: RecordIoType<Bitmap> = new RecordType<Bitmap>({
   properties: {
     type: {type: new LiteralType({type: $FillStyleType, value: FillStyleType.Bitmap as FillStyleType.Bitmap})},
     bitmapId: {type: $Uint16},

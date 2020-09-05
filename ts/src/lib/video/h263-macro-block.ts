@@ -1,9 +1,9 @@
-import { $Any } from "kryo/builtins/any";
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Sint8 } from "kryo/builtins/sint8";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { WhiteListType } from "kryo/types/white-list";
+import { $Any } from "kryo/lib/any.js";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Sint8 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { WhiteListType } from "kryo/lib/white-list.js";
 
 export interface H263MacroBlock {
   isCodedMacroBlock: boolean;
@@ -15,7 +15,7 @@ export interface H263MacroBlock {
   blockData: [any, any, any, any, any, any];
 }
 
-export const $H263MacroBlock: DocumentIoType<H263MacroBlock> = new DocumentType<H263MacroBlock>({
+export const $H263MacroBlock: RecordIoType<H263MacroBlock> = new RecordType<H263MacroBlock>({
   properties: {
     isCodedMacroBlock: {type: $Boolean},
     blockType: {type: $Any},

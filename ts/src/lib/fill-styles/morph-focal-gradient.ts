@@ -1,9 +1,9 @@
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { Sfixed8P8 } from "../fixed-point/sfixed8p8";
-import { $Matrix, Matrix } from "../matrix";
-import { $MorphGradient, MorphGradient } from "../morph-gradient";
-import { $FocalGradient, FocalGradient } from "./focal-gradient";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { Sfixed8P8 } from "../fixed-point/sfixed8p8.js";
+import { $Matrix, Matrix } from "../matrix.js";
+import { $MorphGradient, MorphGradient } from "../morph-gradient.js";
+import { $FocalGradient, FocalGradient } from "./focal-gradient.js";
 
 export interface MorphFocalGradient extends FocalGradient {
   morphMatrix: Matrix;
@@ -11,7 +11,7 @@ export interface MorphFocalGradient extends FocalGradient {
   morphFocalPoint: Sfixed8P8;
 }
 
-export const $MorphFocalGradient: DocumentIoType<MorphFocalGradient> = new DocumentType<MorphFocalGradient>({
+export const $MorphFocalGradient: RecordIoType<MorphFocalGradient> = new RecordType<MorphFocalGradient>({
   properties: {
     type: $FocalGradient.properties.type,
     matrix: $FocalGradient.properties.matrix,

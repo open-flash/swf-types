@@ -1,12 +1,12 @@
-import { $Bytes } from "kryo/builtins/bytes";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 
 export interface ScreenImageBlock {
   data?: Uint8Array;
 }
 
-export const $ScreenImageBlock: DocumentIoType<ScreenImageBlock> = new DocumentType<ScreenImageBlock>({
+export const $ScreenImageBlock: RecordIoType<ScreenImageBlock> = new RecordType<ScreenImageBlock>({
   properties: {
     data: {type: $Bytes, optional: true},
   },

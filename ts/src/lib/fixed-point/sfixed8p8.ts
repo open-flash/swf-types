@@ -1,5 +1,5 @@
 import { Tagged } from "ts-tagged";
-import { createFixedPoint, FixedPoint, FixedPointConstructor } from "./fixed-point";
+import { createFixedPoint, FixedPoint, FixedPointConstructor } from "./fixed-point.js";
 
 export type Sfixed8P8 = Tagged<FixedPoint, "Fixed8P8">;
 

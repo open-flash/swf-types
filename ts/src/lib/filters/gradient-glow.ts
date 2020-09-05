@@ -1,15 +1,15 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { CaseStyle } from "kryo/case-style";
-import { IoType } from "kryo/core";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { IntegerType } from "kryo/types/integer";
-import { LiteralType } from "kryo/types/literal";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { CaseStyle } from "kryo";
+import { IoType } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { IntegerType } from "kryo/lib/integer.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint4 } from "semantic-types";
-import { $ColorStop, ColorStop } from "../color-stop";
-import { Sfixed16P16 } from "../fixed-point/sfixed16p16";
-import { Sfixed8P8 } from "../fixed-point/sfixed8p8";
-import { $FilterType, FilterType } from "./_type";
+import { $ColorStop, ColorStop } from "../color-stop.js";
+import { Sfixed16P16 } from "../fixed-point/sfixed16p16.js";
+import { Sfixed8P8 } from "../fixed-point/sfixed8p8.js";
+import { $FilterType, FilterType } from "./_type.js";
 
 export interface GradientGlow {
   filter: FilterType.GradientGlow;
@@ -26,7 +26,7 @@ export interface GradientGlow {
   passes: Uint4;
 }
 
-export const $GradientGlow: DocumentIoType<GradientGlow> = new DocumentType<GradientGlow>({
+export const $GradientGlow: RecordIoType<GradientGlow> = new RecordType<GradientGlow>({
   properties: {
     filter: {type: new LiteralType({type: $FilterType, value: FilterType.GradientGlow as FilterType.GradientGlow})},
     gradient: {type: new ArrayType({itemType: $ColorStop, maxLength: Infinity})},

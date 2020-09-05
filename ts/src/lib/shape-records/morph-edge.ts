@@ -1,7 +1,7 @@
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { $Vector2D, Vector2D } from "../vector-2d";
-import { $Edge, Edge } from "./edge";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Vector2D, Vector2D } from "../vector-2d.js";
+import { $Edge, Edge } from "./edge.js";
 
 export interface MorphEdge extends Edge {
   /**
@@ -17,7 +17,7 @@ export interface MorphEdge extends Edge {
   morphControlDelta?: Vector2D;
 }
 
-export const $MorphEdge: DocumentIoType<MorphEdge> = new DocumentType<MorphEdge>({
+export const $MorphEdge: RecordIoType<MorphEdge> = new RecordType<MorphEdge>({
   properties: {
     type: $Edge.properties.type,
     delta: $Edge.properties.delta,

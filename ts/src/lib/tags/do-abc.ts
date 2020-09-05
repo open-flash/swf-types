@@ -1,10 +1,10 @@
-import { $Bytes } from "kryo/builtins/bytes";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { $AbcHeader, AbcHeader } from "../control/abc-header";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { $AbcHeader, AbcHeader } from "../control/abc-header.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DoAbc extends _Tag {
   type: TagType.DoAbc;
@@ -12,7 +12,7 @@ export interface DoAbc extends _Tag {
   data: Uint8Array;
 }
 
-export const $DoAbc: DocumentIoType<DoAbc> = new DocumentType<DoAbc>({
+export const $DoAbc: RecordIoType<DoAbc> = new RecordType<DoAbc>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DoAbc as TagType.DoAbc})},
     header: {type: $AbcHeader, optional: true},

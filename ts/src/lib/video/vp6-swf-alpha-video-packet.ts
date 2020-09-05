@@ -1,6 +1,6 @@
-import { $Bytes } from "kryo/builtins/bytes";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 
 export interface Vp6SwfAlphaVideoPacket {
   data: Uint8Array;
@@ -8,7 +8,7 @@ export interface Vp6SwfAlphaVideoPacket {
 }
 
 // tslint:disable-next-line:max-line-length
-export const $Vp6SwfAlphaVideoPacket: DocumentIoType<Vp6SwfAlphaVideoPacket> = new DocumentType<Vp6SwfAlphaVideoPacket>({
+export const $Vp6SwfAlphaVideoPacket: RecordIoType<Vp6SwfAlphaVideoPacket> = new RecordType<Vp6SwfAlphaVideoPacket>({
   properties: {
     data: {type: $Bytes},
     alphaData: {type: $Bytes},

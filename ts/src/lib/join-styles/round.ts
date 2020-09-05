@@ -1,13 +1,13 @@
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { $JoinStyleType, JoinStyleType } from "./_type";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { $JoinStyleType, JoinStyleType } from "./_type.js";
 
 export interface Round {
   type: JoinStyleType.Round;
 }
 
-export const $Round: DocumentIoType<Round> = new DocumentType<Round>({
+export const $Round: RecordIoType<Round> = new RecordType<Round>({
   properties: {
     type: {type: new LiteralType({type: $JoinStyleType, value: JoinStyleType.Round as JoinStyleType.Round})},
   },

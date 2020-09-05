@@ -1,5 +1,5 @@
-import { TaggedUnionType } from "kryo/types/tagged-union";
-import * as filters from "./filters/index";
+import { TaggedUnionType } from "kryo/lib/tagged-union.js";
+import * as filters from "./filters/index.js";
 
 export type Filter =
   filters.Bevel

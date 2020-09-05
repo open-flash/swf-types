@@ -1,16 +1,13 @@
 import chai from "chai";
 import fs from "fs";
-import { JsonReader } from "kryo/readers/json";
-import { JsonValueWriter } from "kryo/writers/json-value";
 import sysPath from "path";
-import { $Movie, Movie } from "../lib/movie";
+import { $Movie, Movie } from "../lib/movie.js";
 import meta from "./meta.js";
+import { JSON_READER } from "kryo-json/lib/json-reader.js";
+import { JSON_VALUE_WRITER } from "kryo-json/lib/json-value-writer.js";
 
-const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..", "..", "..");
+const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..");
 const TEST_SAMPLES_ROOT: string = sysPath.join(PROJECT_ROOT, "..", "tests", "movies");
-
-const JSON_READER: JsonReader = new JsonReader();
-const JSON_VALUE_WRITER: JsonValueWriter = new JsonValueWriter();
 
 describe("Movie", function () {
   for (const sample of getSamples()) {
@@ -28,7 +25,7 @@ describe("Movie", function () {
 
 async function readTextFile(filePath: fs.PathLike): Promise<string> {
   return new Promise<string>((resolve, reject): void => {
-    fs.readFile(filePath, {encoding: "UTF-8"}, (err: NodeJS.ErrnoException | null, data: string): void => {
+    fs.readFile(filePath, {encoding: "utf-8"}, (err: NodeJS.ErrnoException | null, data: string): void => {
       if (err !== null) {
         reject(err);
       } else {

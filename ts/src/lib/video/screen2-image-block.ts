@@ -1,10 +1,10 @@
-import { $Any } from "kryo/builtins/any";
-import { $Bytes } from "kryo/builtins/bytes";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { Screen2ImageBlockDiffPosition } from "./screen2-image-block-diff-position";
-import { Screen2ImageBlockPrimePosition } from "./screen2-image-block-prime-position";
-import { $Screen2ImageFormat, Screen2ImageFormat } from "./screen2-image-format";
+import { $Any } from "kryo/lib/any.js";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { Screen2ImageBlockDiffPosition } from "./screen2-image-block-diff-position.js";
+import { Screen2ImageBlockPrimePosition } from "./screen2-image-block-prime-position.js";
+import { $Screen2ImageFormat, Screen2ImageFormat } from "./screen2-image-format.js";
 
 export interface Screen2ImageBlock {
   format: Screen2ImageFormat;
@@ -12,7 +12,7 @@ export interface Screen2ImageBlock {
   data?: Uint8Array;
 }
 
-export const $Screen2ImageBlock: DocumentIoType<Screen2ImageBlock> = new DocumentType<Screen2ImageBlock>({
+export const $Screen2ImageBlock: RecordIoType<Screen2ImageBlock> = new RecordType<Screen2ImageBlock>({
   properties: {
     format: {type: $Screen2ImageFormat},
     header: {type: $Any, optional: true},

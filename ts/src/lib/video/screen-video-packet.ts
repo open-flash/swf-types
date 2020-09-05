@@ -1,9 +1,9 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16, Uint8 } from "semantic-types";
-import { $ScreenImageBlock, ScreenImageBlock } from "./screen-image-block";
+import { $ScreenImageBlock, ScreenImageBlock } from "./screen-image-block.js";
 
 export interface ScreenVideoPacket {
   imageWidth: Uint16;
@@ -13,7 +13,7 @@ export interface ScreenVideoPacket {
   blocks: ScreenImageBlock[];
 }
 
-export const $ScreenVideoPacket: DocumentIoType<ScreenVideoPacket> = new DocumentType<ScreenVideoPacket>({
+export const $ScreenVideoPacket: RecordIoType<ScreenVideoPacket> = new RecordType<ScreenVideoPacket>({
   properties: {
     imageWidth: {type: $Uint16},
     imageHeight: {type: $Uint16},

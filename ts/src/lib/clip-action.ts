@@ -1,9 +1,9 @@
-import { $Bytes } from "kryo/builtins/bytes";
-import { $Uint8 } from "kryo/builtins/uint8";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { $Uint8 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint8 } from "semantic-types";
-import { $ClipEventFlags, ClipEventFlags } from "./clip-event-flags";
+import { $ClipEventFlags, ClipEventFlags } from "./clip-event-flags.js";
 
 export interface ClipAction {
   events: ClipEventFlags;
@@ -11,7 +11,7 @@ export interface ClipAction {
   actions: Uint8Array;
 }
 
-export const $ClipAction: DocumentIoType<ClipAction> = new DocumentType<ClipAction>({
+export const $ClipAction: RecordIoType<ClipAction> = new RecordType<ClipAction>({
   properties: {
     events: {type: $ClipEventFlags},
     keyCode: {type: $Uint8, optional: true},

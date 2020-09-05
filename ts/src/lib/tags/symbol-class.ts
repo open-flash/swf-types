@@ -1,17 +1,17 @@
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
-import { $NamedId, NamedId } from "../named-id";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
+import { $NamedId, NamedId } from "../named-id.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface SymbolClass extends _Tag {
   readonly type: TagType.SymbolClass;
   readonly symbols: ReadonlyArray<NamedId>;
 }
 
-export const $SymbolClass: DocumentIoType<SymbolClass> = new DocumentType<SymbolClass>({
+export const $SymbolClass: RecordIoType<SymbolClass> = new RecordType<SymbolClass>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.SymbolClass as TagType.SymbolClass})},
     symbols: {type: new ArrayType({itemType: $NamedId, maxLength: Infinity})},

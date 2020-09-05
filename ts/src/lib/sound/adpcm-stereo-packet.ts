@@ -1,8 +1,8 @@
-import { $Bytes } from "kryo/builtins/bytes";
-import { $Sint16 } from "kryo/builtins/sint16";
-import { $Uint32 } from "kryo/builtins/uint32";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { $Sint16 } from "kryo/lib/integer.js";
+import { $Uint32 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint16, Uint32 } from "semantic-types";
 
 export interface AdpcmStereoPacket {
@@ -13,7 +13,7 @@ export interface AdpcmStereoPacket {
   adpcmCodeData: Uint8Array;
 }
 
-export const $AdpcmStereoPacket: DocumentIoType<AdpcmStereoPacket> = new DocumentType<AdpcmStereoPacket>({
+export const $AdpcmStereoPacket: RecordIoType<AdpcmStereoPacket> = new RecordType<AdpcmStereoPacket>({
   properties: {
     initialSampleLeft: {type: $Sint16},
     initialIndexLeft: {type: $Uint32},

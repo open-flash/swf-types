@@ -1,8 +1,8 @@
-import { $Sint16 } from "kryo/builtins/sint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Sint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint16 } from "semantic-types";
-import { Sfixed8P8 } from "./fixed-point/sfixed8p8";
+import { Sfixed8P8 } from "./fixed-point/sfixed8p8.js";
 
 export interface ColorTransform {
   redMult: Sfixed8P8;
@@ -13,7 +13,7 @@ export interface ColorTransform {
   blueAdd: Sint16;
 }
 
-export const $ColorTransform: DocumentIoType<ColorTransform> = new DocumentType<ColorTransform>(() => ({
+export const $ColorTransform: RecordIoType<ColorTransform> = new RecordType<ColorTransform>(() => ({
   properties: {
     redMult: {type: Sfixed8P8},
     greenMult: {type: Sfixed8P8},

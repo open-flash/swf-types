@@ -1,13 +1,13 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $MorphShape, MorphShape } from "../morph-shape";
-import { $Rect, Rect } from "../rect";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $MorphShape, MorphShape } from "../morph-shape.js";
+import { $Rect, Rect } from "../rect.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineMorphShape extends _Tag {
   readonly type: TagType.DefineMorphShape;
@@ -22,7 +22,7 @@ export interface DefineMorphShape extends _Tag {
   readonly shape: MorphShape;
 }
 
-export const $DefineMorphShape: DocumentIoType<DefineMorphShape> = new DocumentType<DefineMorphShape>({
+export const $DefineMorphShape: RecordIoType<DefineMorphShape> = new RecordType<DefineMorphShape>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineMorphShape as TagType.DefineMorphShape})},
     id: {type: $Uint16},

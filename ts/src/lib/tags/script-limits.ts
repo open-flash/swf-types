@@ -1,10 +1,10 @@
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface ScriptLimits extends _Tag {
   readonly type: TagType.ScriptLimits;
@@ -15,7 +15,7 @@ export interface ScriptLimits extends _Tag {
   readonly scriptTimeout: Uint16;
 }
 
-export const $ScriptLimits: DocumentIoType<ScriptLimits> = new DocumentType<ScriptLimits>({
+export const $ScriptLimits: RecordIoType<ScriptLimits> = new RecordType<ScriptLimits>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.ScriptLimits as TagType.ScriptLimits})},
     maxRecursionDepth: {type: $Uint16},

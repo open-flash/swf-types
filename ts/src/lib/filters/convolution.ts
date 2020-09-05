@@ -1,13 +1,13 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { Float64Type } from "kryo/types/float64";
-import { IntegerType } from "kryo/types/integer";
-import { LiteralType } from "kryo/types/literal";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { Float64Type } from "kryo/lib/float64.js";
+import { IntegerType } from "kryo/lib/integer.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Float32, UintSize } from "semantic-types";
-import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8";
-import { $FilterType, FilterType } from "./_type";
+import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8.js";
+import { $FilterType, FilterType } from "./_type.js";
 
 export interface Convolution {
   filter: FilterType.Convolution;
@@ -21,7 +21,7 @@ export interface Convolution {
   preserveAlpha: boolean;
 }
 
-export const $Convolution: DocumentIoType<Convolution> = new DocumentType<Convolution>({
+export const $Convolution: RecordIoType<Convolution> = new RecordType<Convolution>({
   properties: {
     filter: {type: new LiteralType({type: $FilterType, value: FilterType.Convolution as FilterType.Convolution})},
     matrixWidth: {type: new IntegerType()},

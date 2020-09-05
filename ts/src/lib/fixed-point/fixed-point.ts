@@ -1,6 +1,6 @@
-import { Incident } from "incident";
-import { IoType, Reader, Writer } from "kryo/core";
-import { readVisitor } from "kryo/readers/read-visitor";
+import incident from "incident";
+import { IoType, Reader, Writer } from "kryo";
+import { readVisitor } from "kryo/lib/readers/read-visitor.js";
 
 export interface FixedPointOptions {
   readonly signed: boolean;
@@ -37,7 +37,7 @@ export function createFixedPoint(options: FixedPointOptions): FixedPointConstruc
     }
 
     static toJSON() {
-      throw new Incident("NotImplemented", "FixedPointType#toJSON");
+      throw new incident.Incident("NotImplemented", "FixedPointType#toJSON");
     }
 
     static clone(value: _FixedPoint): _FixedPoint {
@@ -48,25 +48,25 @@ export function createFixedPoint(options: FixedPointOptions): FixedPointConstruc
       return left.epsilons === right.epsilons;
     }
 
-    static testError(value: _FixedPoint): Error | undefined {
-      if (typeof value !== "object" || value === null || typeof value.epsilons !== "number") {
-        return new Incident("InvalidType", "Expected `{epsilons: number}`");
+    static testError(value: unknown): Error | undefined {
+      if (typeof value !== "object" || value === null || typeof Reflect.get(value, "epsilons") !== "number") {
+        return new incident.Incident("InvalidType", "Expected `{epsilons: number}`");
       }
-      const epsilons: number = value.epsilons;
+      const epsilons: number = Reflect.get(value, "epsilons");
       if ((epsilons | 0) !== epsilons) {
-        return new Incident("InvalidType", "Expected `Sint32`");
+        return new incident.Incident("InvalidType", "Expected `Sint32`");
       }
       const max: number = Math.pow(2, this.intBits + this.fracBits - (this.signed ? 1 : 0));
       const min: number = this.signed ? -max - 1 : 0;
 
       if (epsilons < min || epsilons > max) {
-        return new Incident("RangeError", {min, max, value});
+        return new incident.Incident("RangeError", {min, max, value});
       }
 
       return undefined;
     }
 
-    static test(value: _FixedPoint): boolean {
+    static test(value: unknown): value is _FixedPoint {
       return this.testError(value) === undefined;
     }
 

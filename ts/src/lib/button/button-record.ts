@@ -1,13 +1,13 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { ArrayType } from "kryo/types/array";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { ArrayType } from "kryo/lib/array.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16 } from "semantic-types";
-import { $BlendMode, BlendMode } from "../blend-mode";
-import { $ColorTransformWithAlpha, ColorTransformWithAlpha } from "../color-transform-with-alpha";
-import { $Filter, Filter } from "../filter";
-import { $Matrix, Matrix } from "../matrix";
+import { $BlendMode, BlendMode } from "../blend-mode.js";
+import { $ColorTransformWithAlpha, ColorTransformWithAlpha } from "../color-transform-with-alpha.js";
+import { $Filter, Filter } from "../filter.js";
+import { $Matrix, Matrix } from "../matrix.js";
 
 export interface ButtonRecord {
   stateUp: boolean;
@@ -22,7 +22,7 @@ export interface ButtonRecord {
   blendMode: BlendMode;
 }
 
-export const $ButtonRecord: DocumentIoType<ButtonRecord> = new DocumentType<ButtonRecord>({
+export const $ButtonRecord: RecordIoType<ButtonRecord> = new RecordType<ButtonRecord>({
   properties: {
     stateUp: {type: $Boolean},
     stateOver: {type: $Boolean},

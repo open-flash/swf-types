@@ -12,7 +12,7 @@ export async function readTestString(relativePath: string): Promise<string> {
   return new Promise<any>((resolve, reject) => {
     fs.readFile(
       resolvePath(relativePath),
-      {encoding: "UTF-8"},
+      {encoding: "utf-8"},
       (err: Error | null, data: string): void => {
         if (err !== null) {
           reject(err);

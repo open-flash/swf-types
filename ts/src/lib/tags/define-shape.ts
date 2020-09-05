@@ -1,13 +1,13 @@
-import { $Boolean } from "kryo/builtins/boolean";
-import { $Uint16 } from "kryo/builtins/uint16";
-import { CaseStyle } from "kryo/case-style";
-import { DocumentIoType, DocumentType } from "kryo/types/document";
-import { LiteralType } from "kryo/types/literal";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
+import { CaseStyle } from "kryo";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { LiteralType } from "kryo/lib/literal.js";
 import { Uint16 } from "semantic-types";
-import { $Rect, Rect } from "../rect";
-import { $Shape, Shape } from "../shape";
-import { _Tag } from "./_tag";
-import { $TagType, TagType } from "./_type";
+import { $Rect, Rect } from "../rect.js";
+import { $Shape, Shape } from "../shape.js";
+import { _Tag } from "./_tag.js";
+import { $TagType, TagType } from "./_type.js";
 
 export interface DefineShape extends _Tag {
   readonly type: TagType.DefineShape;
@@ -20,7 +20,7 @@ export interface DefineShape extends _Tag {
   readonly shape: Shape;
 }
 
-export const $DefineShape: DocumentIoType<DefineShape> = new DocumentType<DefineShape>({
+export const $DefineShape: RecordIoType<DefineShape> = new RecordType<DefineShape>({
   properties: {
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineShape as TagType.DefineShape})},
     id: {type: $Uint16},
