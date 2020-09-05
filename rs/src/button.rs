@@ -18,8 +18,7 @@ pub struct ButtonRecord {
   pub character_id: u16,
   pub depth: u16,
   pub matrix: Matrix,
-  #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
-  pub color_transform: Option<ColorTransformWithAlpha>,
+  pub color_transform: ColorTransformWithAlpha,
   pub filters: Vec<Filter>,
   pub blend_mode: BlendMode,
 }
