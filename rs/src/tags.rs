@@ -71,7 +71,7 @@ pub struct DefineBitmap {
 pub struct DefineButton {
   pub id: u16,
   pub track_as_menu: bool,
-  pub characters: Vec<ButtonRecord>,
+  pub records: Vec<ButtonRecord>,
   pub actions: Vec<ButtonCondAction>,
 }
 

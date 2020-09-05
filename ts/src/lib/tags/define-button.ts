@@ -15,8 +15,7 @@ export interface DefineButton extends _Tag {
   readonly type: TagType.DefineButton;
   readonly id: Uint16;
   readonly trackAsMenu: boolean;
-  // TODO: Rename to records (to match DefineShape)
-  readonly characters: ReadonlyArray<ButtonRecord>;
+  readonly records: ReadonlyArray<ButtonRecord>;
   readonly actions: ReadonlyArray<ButtonCondAction>;
 }
 
@@ -25,7 +24,7 @@ export const $DefineButton: RecordIoType<DefineButton> = new RecordType<DefineBu
     type: {type: new LiteralType({type: $TagType, value: TagType.DefineButton as TagType.DefineButton})},
     id: {type: $Uint16},
     trackAsMenu: {type: $Boolean},
-    characters: {type: new ArrayType({itemType: $ButtonRecord, maxLength: Infinity})},
+    records: {type: new ArrayType({itemType: $ButtonRecord, maxLength: Infinity})},
     actions: {type: new ArrayType({itemType: $ButtonCondAction, maxLength: Infinity})},
   },
   changeCase: CaseStyle.SnakeCase,

@@ -2,6 +2,7 @@
 
 - **[Breaking change]** Use `PascalCase` for enums and types.
 - **[Breaking change]** Require `colorTransform` in `ButtonRecord` ([#85](https://github.com/open-flash/swf-types/issues/85)).
+- **[Breaking change]** Rename `DefineButton.characters` to `records` ([#86](https://github.com/open-flash/swf-types/issues/86)).
 
 ## Rust
 
