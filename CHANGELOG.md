@@ -1,4 +1,4 @@
-# Next
+# 0.12.0 (2020-09-05)
 
 - **[Breaking change]** Use `PascalCase` for enums and types.
 - **[Breaking change]** Require `colorTransform` in `ButtonRecord` ([#85](https://github.com/open-flash/swf-types/issues/85)).
