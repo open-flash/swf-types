@@ -1,7 +1,7 @@
-import { $Uint16 } from "kryo/lib/integer.js";
-import { $Uint8 } from "kryo/lib/integer.js";
+import { $Uint8,$Uint16 } from "kryo/lib/integer.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
-import { Uint16, Uint8 } from "semantic-types";
+import { Uint8, Uint16 } from "semantic-types";
+
 import { Ufixed8P8 } from "./fixed-point/ufixed8p8.js";
 import { $Rect, Rect } from "./rect.js";
 import { $SwfSignature } from "./swf-signature.js";

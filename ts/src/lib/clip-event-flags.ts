@@ -1,5 +1,5 @@
-import { $Boolean } from "kryo/lib/boolean.js";
 import { CaseStyle } from "kryo";
+import { $Boolean } from "kryo/lib/boolean.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
 
 export interface ClipEventFlags {

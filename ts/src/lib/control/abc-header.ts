@@ -1,5 +1,5 @@
-import { $Uint32 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
+import { $Uint32 } from "kryo/lib/integer.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
 import { Uint32 } from "semantic-types";

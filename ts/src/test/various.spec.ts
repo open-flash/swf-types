@@ -1,9 +1,12 @@
 import chai from "chai";
 import fs from "fs";
-import { $Uint32 } from "kryo/lib/integer.js";
 import { IoType } from "kryo";
+import { JSON_READER } from "kryo-json/lib/json-reader.js";
+import { JSON_VALUE_WRITER } from "kryo-json/lib/json-value-writer.js";
 import { Float64Type } from "kryo/lib/float64.js";
+import { $Uint32 } from "kryo/lib/integer.js";
 import sysPath from "path";
+
 import { $ColorTransformWithAlpha } from "../lib/color-transform-with-alpha.js";
 import { $Header } from "../lib/header.js";
 import { $Matrix } from "../lib/matrix.js";
@@ -11,8 +14,6 @@ import { $Rect } from "../lib/rect.js";
 import { $SwfSignature } from "../lib/swf-signature.js";
 import meta from "./meta.js";
 import { readTextFile } from "./utils.js";
-import { JSON_READER } from "kryo-json/lib/json-reader.js";
-import { JSON_VALUE_WRITER } from "kryo-json/lib/json-value-writer.js";
 
 const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..");
 const SAMPLES_ROOT: string = sysPath.join(PROJECT_ROOT, "..", "tests", "various");

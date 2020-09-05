@@ -1,11 +1,12 @@
-import { $Boolean } from "kryo/lib/boolean.js";
 import { CaseStyle } from "kryo";
 import { ArrayType } from "kryo/lib/array.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Boolean } from "kryo/lib/boolean.js";
 import { Float64Type } from "kryo/lib/float64.js";
 import { IntegerType } from "kryo/lib/integer.js";
 import { LiteralType } from "kryo/lib/literal.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Float32, UintSize } from "semantic-types";
+
 import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8.js";
 import { $FilterType, FilterType } from "./_type.js";
 

@@ -1,4 +1,5 @@
 import { TaggedUnionType } from "kryo/lib/tagged-union.js";
+
 import * as fillStyles from "./fill-styles/index.js";
 
 export type FillStyle =

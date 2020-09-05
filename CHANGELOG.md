@@ -3,6 +3,7 @@
 ## Typescript
 
 - **[Breaking change]** Update to native ESM.
+- **[Internal]** Switch from `tslin` to `eslint`.
 
 # 0.11.0 (2020-02-05)
 

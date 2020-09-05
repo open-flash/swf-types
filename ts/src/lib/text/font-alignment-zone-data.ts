@@ -1,6 +1,6 @@
 import { CaseStyle } from "kryo";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Float64Type } from "kryo/lib/float64.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Float16 } from "semantic-types";
 
 export interface FontAlignmentZoneData {

@@ -1,8 +1,9 @@
-import { $Uint16 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
 import { ArrayType } from "kryo/lib/array.js";
+import { $Uint16 } from "kryo/lib/integer.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
-import { Uint16, Uint8 } from "semantic-types";
+import { Uint8,Uint16 } from "semantic-types";
+
 import { $ScreenImageBlock, ScreenImageBlock } from "./screen-image-block.js";
 
 export interface ScreenVideoPacket {

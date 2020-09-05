@@ -1,6 +1,7 @@
 import { CaseStyle } from "kryo";
 import { ArrayType } from "kryo/lib/array.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
+
 import { $ColorSpace, ColorSpace } from "./color-space.js";
 import { $ColorStop, ColorStop } from "./color-stop.js";
 import { $GradientSpread, GradientSpread } from "./gradient-spread.js";

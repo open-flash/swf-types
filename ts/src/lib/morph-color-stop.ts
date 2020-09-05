@@ -1,7 +1,8 @@
-import { $Uint8 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
+import { $Uint8 } from "kryo/lib/integer.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint8 } from "semantic-types";
+
 import { $ColorStop, ColorStop } from "./color-stop.js";
 import { $StraightSRgba8, StraightSRgba8 } from "./straight-s-rgba8.js";
 

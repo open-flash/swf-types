@@ -1,11 +1,12 @@
 import chai from "chai";
 import fs from "fs";
+import { JSON_READER } from "kryo-json/lib/json-reader.js";
+import { JSON_VALUE_WRITER } from "kryo-json/lib/json-value-writer.js";
 import sysPath from "path";
+
 import { $Tag, Tag } from "../lib/tag.js";
 import meta from "./meta.js";
 import { readTextFile } from "./utils.js";
-import { JSON_READER } from "kryo-json/lib/json-reader.js";
-import { JSON_VALUE_WRITER } from "kryo-json/lib/json-value-writer.js";
 
 const PROJECT_ROOT: string = sysPath.join(meta.dirname, "..");
 const TAG_SAMPLES_ROOT: string = sysPath.join(PROJECT_ROOT, "..", "tests", "tags");

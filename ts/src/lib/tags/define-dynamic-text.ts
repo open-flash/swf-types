@@ -1,12 +1,11 @@
-import { $Boolean } from "kryo/lib/boolean.js";
-import { $Sint16 } from "kryo/lib/integer.js";
-import { $Uint16 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
-import { IntegerType } from "kryo/lib/integer.js";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Sint16, $Uint16, IntegerType } from "kryo/lib/integer.js";
 import { LiteralType } from "kryo/lib/literal.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
 import { Sint16, Uint16, UintSize } from "semantic-types";
+
 import { $Rect, Rect } from "../rect.js";
 import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8.js";
 import { $TextAlignment, TextAlignment } from "../text/text-alignment.js";

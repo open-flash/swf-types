@@ -1,6 +1,6 @@
+import { CaseStyle } from "kryo";
 import { $Boolean } from "kryo/lib/boolean.js";
 import { $Uint32 } from "kryo/lib/integer.js";
-import { CaseStyle } from "kryo";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint32 } from "semantic-types";
 

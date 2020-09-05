@@ -1,10 +1,11 @@
-import { $Boolean } from "kryo/lib/boolean.js";
-import { $Uint16 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
 import { ArrayType } from "kryo/lib/array.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint16 } from "kryo/lib/integer.js";
 import { LiteralType } from "kryo/lib/literal.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16 } from "semantic-types";
+
 import { $ButtonCondAction, ButtonCondAction } from "../button/button-cond-action.js";
 import { $ButtonRecord, ButtonRecord } from "../button/button-record.js";
 import { _Tag } from "./_tag.js";

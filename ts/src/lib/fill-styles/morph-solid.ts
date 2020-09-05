@@ -1,5 +1,6 @@
 import { CaseStyle } from "kryo";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
+
 import { $StraightSRgba8, StraightSRgba8 } from "../straight-s-rgba8.js";
 import { $Solid, Solid } from "./solid.js";
 

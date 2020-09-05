@@ -1,8 +1,9 @@
-import { $Sint16 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
 import { ArrayType } from "kryo/lib/array.js";
+import { $Sint16 } from "kryo/lib/integer.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint16 } from "semantic-types";
+
 import { $Mp3Frame, Mp3Frame } from "./mp3-frame.js";
 
 export interface Mp3SoundData {

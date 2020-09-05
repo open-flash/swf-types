@@ -1,12 +1,10 @@
-import { $Any } from "kryo/lib/any.js";
-import { $Boolean } from "kryo/lib/boolean.js";
-import { $Uint16 } from "kryo/lib/integer.js";
-import { $Uint32 } from "kryo/lib/integer.js";
-import { $Uint8 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
+import { $Any } from "kryo/lib/any.js";
 import { ArrayType } from "kryo/lib/array.js";
+import { $Boolean } from "kryo/lib/boolean.js";
+import { $Uint8,$Uint16, $Uint32 } from "kryo/lib/integer.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
-import { Uint16, Uint32, Uint8 } from "semantic-types";
+import { Uint8,Uint16, Uint32 } from "semantic-types";
 
 export interface H263VideoPacket {
   version: Uint32;

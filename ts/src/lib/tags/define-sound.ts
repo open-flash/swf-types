@@ -1,10 +1,10 @@
-import { $Bytes } from "kryo/lib/bytes.js";
-import { $Uint16 } from "kryo/lib/integer.js";
-import { $Uint32 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Bytes } from "kryo/lib/bytes.js";
+import { $Uint16, $Uint32 } from "kryo/lib/integer.js";
 import { LiteralType } from "kryo/lib/literal.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16, Uint32 } from "semantic-types";
+
 import { $AudioCodingFormat, AudioCodingFormat } from "../sound/audio-coding-format.js";
 import { $SoundRate, SoundRate } from "../sound/sound-rate.js";
 import { $SoundSize, SoundSize } from "../sound/sound-size.js";

@@ -1,9 +1,10 @@
-import { $Uint16 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
 import { ArrayType } from "kryo/lib/array.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Uint16 } from "kryo/lib/integer.js";
 import { LiteralType } from "kryo/lib/literal.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint16 } from "semantic-types";
+
 import { $Matrix, Matrix } from "../matrix.js";
 import { $Rect, Rect } from "../rect.js";
 import { $TextRecord, TextRecord } from "../text/text-record.js";

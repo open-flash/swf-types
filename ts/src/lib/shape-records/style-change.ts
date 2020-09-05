@@ -1,8 +1,9 @@
-import { $Uint32 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Uint32 } from "kryo/lib/integer.js";
 import { LiteralType } from "kryo/lib/literal.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint32 } from "semantic-types";
+
 import { $ShapeStyles, ShapeStyles } from "../shape-styles.js";
 import { $Vector2D, Vector2D } from "../vector-2d.js";
 import { $ShapeRecordType, ShapeRecordType } from "./_type.js";

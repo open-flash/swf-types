@@ -1,7 +1,8 @@
-import { $Sint32 } from "kryo/lib/integer.js";
 import { CaseStyle } from "kryo";
+import { $Sint32 } from "kryo/lib/integer.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Sint32 } from "semantic-types";
+
 import { Sfixed16P16 } from "./fixed-point/sfixed16p16.js";
 
 export interface Matrix {

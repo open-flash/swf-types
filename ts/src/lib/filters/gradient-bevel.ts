@@ -1,14 +1,14 @@
-import { $Boolean } from "kryo/lib/boolean.js";
-import { CaseStyle } from "kryo";
-import { IoType } from "kryo";
+import { CaseStyle, IoType } from "kryo";
 import { ArrayType } from "kryo/lib/array.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Boolean } from "kryo/lib/boolean.js";
 import { IntegerType } from "kryo/lib/integer.js";
 import { LiteralType } from "kryo/lib/literal.js";
+import { RecordIoType, RecordType } from "kryo/lib/record.js";
 import { Uint4 } from "semantic-types";
+
 import { $ColorStop, ColorStop } from "../color-stop.js";
-import { Sfixed16P16 } from "../fixed-point/sfixed16p16.js";
 import { Sfixed8P8 } from "../fixed-point/sfixed8p8.js";
+import { Sfixed16P16 } from "../fixed-point/sfixed16p16.js";
 import { $FilterType, FilterType } from "./_type.js";
 
 export interface GradientBevel {

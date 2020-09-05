@@ -1,5 +1,6 @@
 import { CaseStyle } from "kryo";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
+
 import { $Vector2D, Vector2D } from "../vector-2d.js";
 import { $Edge, Edge } from "./edge.js";
 

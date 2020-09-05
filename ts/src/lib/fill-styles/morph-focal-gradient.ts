@@ -1,5 +1,6 @@
 import { CaseStyle } from "kryo";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
+
 import { Sfixed8P8 } from "../fixed-point/sfixed8p8.js";
 import { $Matrix, Matrix } from "../matrix.js";
 import { $MorphGradient, MorphGradient } from "../morph-gradient.js";

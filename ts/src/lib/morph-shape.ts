@@ -1,6 +1,7 @@
 import { CaseStyle } from "kryo";
 import { ArrayType } from "kryo/lib/array.js";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
+
 import { $MorphShapeRecord, MorphShapeRecord } from "./morph-shape-record.js";
 import { $MorphShapeStyles, MorphShapeStyles } from "./morph-shape-styles.js";
 import { Shape } from "./shape.js";

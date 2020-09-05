@@ -1,5 +1,6 @@
 import { CaseStyle } from "kryo";
 import { RecordIoType, RecordType } from "kryo/lib/record.js";
+
 import { $Matrix, Matrix } from "../matrix.js";
 import { $Bitmap, Bitmap } from "./bitmap.js";
 
