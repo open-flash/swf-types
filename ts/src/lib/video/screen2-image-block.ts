@@ -1,7 +1,7 @@
 import { CaseStyle } from "kryo";
-import { $Any } from "kryo/lib/any.js";
-import { $Bytes } from "kryo/lib/bytes.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Any } from "kryo/any";
+import { $Bytes } from "kryo/bytes";
+import { RecordIoType, RecordType } from "kryo/record";
 
 import { Screen2ImageBlockDiffPosition } from "./screen2-image-block-diff-position.js";
 import { Screen2ImageBlockPrimePosition } from "./screen2-image-block-prime-position.js";

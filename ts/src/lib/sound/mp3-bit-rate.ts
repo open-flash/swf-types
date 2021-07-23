@@ -1,5 +1,5 @@
-import { $Uint32 } from "kryo/lib/integer.js";
-import { LiteralType } from "kryo/lib/literal.js";
+import { $Uint32 } from "kryo/integer";
+import { LiteralType } from "kryo/literal";
 
 export type Mp3BitRate = 32000;
 

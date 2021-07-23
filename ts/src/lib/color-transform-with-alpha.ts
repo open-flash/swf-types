@@ -1,6 +1,6 @@
 import { CaseStyle } from "kryo";
-import { $Sint16 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Sint16 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Sint16 } from "semantic-types";
 
 import { $ColorTransform, ColorTransform } from "./color-transform.js";

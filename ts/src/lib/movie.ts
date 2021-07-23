@@ -1,6 +1,6 @@
 import { CaseStyle } from "kryo";
-import { ArrayType } from "kryo/lib/array.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { ArrayType } from "kryo/array";
+import { RecordIoType, RecordType } from "kryo/record";
 
 import { $Header, Header } from "./header.js";
 import { $Tag, Tag } from "./tag.js";

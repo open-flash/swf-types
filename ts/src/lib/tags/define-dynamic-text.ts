@@ -1,9 +1,9 @@
 import { CaseStyle } from "kryo";
-import { $Boolean } from "kryo/lib/boolean.js";
-import { $Sint16, $Uint16, IntegerType } from "kryo/lib/integer.js";
-import { LiteralType } from "kryo/lib/literal.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
-import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
+import { $Boolean } from "kryo/boolean";
+import { $Sint16, $Uint16, IntegerType } from "kryo/integer";
+import { LiteralType } from "kryo/literal";
+import { RecordIoType, RecordType } from "kryo/record";
+import { Ucs2StringType } from "kryo/ucs2-string";
 import { Sint16, Uint16, UintSize } from "semantic-types";
 
 import { $Rect, Rect } from "../rect.js";

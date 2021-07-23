@@ -1,6 +1,6 @@
 import { CaseStyle } from "kryo";
-import { $Uint8,$Uint32 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Uint8,$Uint32 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Uint8,Uint32 } from "semantic-types";
 
 import { $CompressionMethod, CompressionMethod } from "./compression-method.js";

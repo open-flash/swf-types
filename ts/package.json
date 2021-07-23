@@ -22,54 +22,52 @@
     "url": "git@github.com:open-flash/swf-types.git"
   },
   "type": "module",
-  "main": "./lib/index.js",
-  "module": "./lib/index.js",
-  "files": [
-    "./lib/"
-  ],
   "exports": {
     ".": "./lib/index.js",
-    "./lib/": "./lib/"
+    "./*": "./lib/*.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./lib/*"
+      ]
+    }
   },
   "scripts": {
-    "build": "tsc --build src/lib/tsconfig.json",
-    "pretest": "tsc --build src/test/tsconfig.json",
-    "test": "mocha \"test/**/*.spec.js\"",
-    "posttest": "yarn run lint",
+    "clean": "rimraf \"./@(lib|test)\"",
     "lint": "eslint \"./src/**/*.ts\"",
     "format": "eslint --fix \"./src/**/*.ts\"",
-    "prestart": "tsc --build src/main/tsconfig.json",
-    "start": "node ./main/main.js"
+    "build": "tsc --build src/lib/tsconfig.json",
+    "prepack": "yarn run build",
+    "test:build": "tsc --build src/test/tsconfig.json",
+    "test": "yarn run test:build && mocha \"test/**/*.spec.js\""
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=14.13.1"
   },
   "dependencies": {
     "incident": "^3.2.1",
-    "kryo": "^0.11.0",
+    "kryo": "^0.13.0",
     "semantic-types": "^0.1.1",
     "ts-tagged": "^1.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.12",
-    "@types/mocha": "^8.0.3",
-    "@types/node": "^14.6.4",
-    "@typescript-eslint/eslint-plugin": "^4.0.1",
-    "@typescript-eslint/parser": "^4.0.1",
-    "c88": "^0.3.4",
-    "chai": "^4.2.0",
-    "eslint": "^7.8.1",
-    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.4.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
+    "chai": "^4.3.4",
+    "eslint": "^7.31.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "furi": "^2.0.0",
-    "kryo-json": "^0.11.0",
-    "mocha": "^8.1.3",
+    "kryo-json": "^0.13.0",
+    "mocha": "^9.0.2",
     "rimraf": "^3.0.2",
-    "typescript": "^4.0.2"
+    "typescript": "^4.3.5"
   },
-  "c88": {
-    "match": [
-      "build/test/lib/*.{js,mjs}",
-      "build/test/lib/**/*.{js,mjs}"
-    ]
-  }
+  "files": [
+    "./lib/**/*.(js|map|ts)",
+    "./src/lib/**/*.ts"
+  ]
 }

@@ -1,6 +1,6 @@
 import { CaseStyle } from "kryo";
-import { $Uint8 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Uint8 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
 import { SRgb, Uint8 } from "semantic-types";
 
 export interface SRgb8 extends SRgb<Uint8> {

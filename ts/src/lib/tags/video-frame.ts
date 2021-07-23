@@ -1,8 +1,8 @@
 import { CaseStyle } from "kryo";
-import { $Bytes } from "kryo/lib/bytes.js";
-import { $Uint16 } from "kryo/lib/integer.js";
-import { LiteralType } from "kryo/lib/literal.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Bytes } from "kryo/bytes";
+import { $Uint16 } from "kryo/integer";
+import { LiteralType } from "kryo/literal";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Uint16 } from "semantic-types";
 
 import { _Tag } from "./_tag.js";

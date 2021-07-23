@@ -1,7 +1,7 @@
 import { CaseStyle } from "kryo";
-import { $Any } from "kryo/lib/any.js";
-import { $Uint16 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Any } from "kryo/any";
+import { $Uint16 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Uint16 } from "semantic-types";
 
 export interface Mp3StreamSoundData {

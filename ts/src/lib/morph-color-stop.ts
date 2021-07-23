@@ -1,6 +1,6 @@
 import { CaseStyle } from "kryo";
-import { $Uint8 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Uint8 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Uint8 } from "semantic-types";
 
 import { $ColorStop, ColorStop } from "./color-stop.js";

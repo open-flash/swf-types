@@ -1,8 +1,8 @@
 import { CaseStyle } from "kryo";
-import { ArrayType } from "kryo/lib/array.js";
-import { Float64Type } from "kryo/lib/float64.js";
-import { LiteralType } from "kryo/lib/literal.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { ArrayType } from "kryo/array";
+import { Float64Type } from "kryo/float64";
+import { LiteralType } from "kryo/literal";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Float32 } from "semantic-types";
 
 import { $FilterType, FilterType } from "./_type.js";

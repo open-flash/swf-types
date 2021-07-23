@@ -1,9 +1,9 @@
 import { CaseStyle } from "kryo";
-import { $Any } from "kryo/lib/any.js";
-import { ArrayType } from "kryo/lib/array.js";
-import { $Uint8 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
-import { WhiteListType } from "kryo/lib/white-list.js";
+import { $Any } from "kryo/any";
+import { ArrayType } from "kryo/array";
+import { $Uint8 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
+import { WhiteListType } from "kryo/white-list";
 
 export interface AdpcmSoundData {
   adpcmCodeSize: 2 | 3 | 4 | 5;

@@ -1,6 +1,6 @@
 import { CaseStyle } from "kryo";
-import { $Sint32 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Sint32 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Sint32 } from "semantic-types";
 
 import { Sfixed16P16 } from "./fixed-point/sfixed16p16.js";

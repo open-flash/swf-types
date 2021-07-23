@@ -1,7 +1,7 @@
 import { CaseStyle } from "kryo";
-import { ArrayType } from "kryo/lib/array.js";
-import { $Uint16 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { ArrayType } from "kryo/array";
+import { $Uint16 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Uint8,Uint16 } from "semantic-types";
 
 import { $ScreenImageBlock, ScreenImageBlock } from "./screen-image-block.js";

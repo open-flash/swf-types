@@ -1,8 +1,8 @@
 import { CaseStyle } from "kryo";
-import { Float64Type } from "kryo/lib/float64.js";
-import { $Uint16 } from "kryo/lib/integer.js";
-import { LiteralType } from "kryo/lib/literal.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { Float64Type } from "kryo/float64";
+import { $Uint16 } from "kryo/integer";
+import { LiteralType } from "kryo/literal";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Float32, Uint16 } from "semantic-types";
 
 import { $GridFitting, GridFitting } from "../text/grid-fitting.js";

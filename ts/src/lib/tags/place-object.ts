@@ -1,10 +1,10 @@
 import { CaseStyle } from "kryo";
-import { ArrayType } from "kryo/lib/array.js";
-import { $Boolean } from "kryo/lib/boolean.js";
-import { $Uint16 } from "kryo/lib/integer.js";
-import { LiteralType } from "kryo/lib/literal.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
-import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
+import { ArrayType } from "kryo/array";
+import { $Boolean } from "kryo/boolean";
+import { $Uint16 } from "kryo/integer";
+import { LiteralType } from "kryo/literal";
+import { RecordIoType, RecordType } from "kryo/record";
+import { Ucs2StringType } from "kryo/ucs2-string";
 import { Uint16 } from "semantic-types";
 
 import { $BlendMode, BlendMode } from "../blend-mode.js";

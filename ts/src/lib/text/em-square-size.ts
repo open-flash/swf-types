@@ -1,5 +1,5 @@
-import { $Uint32 } from "kryo/lib/integer.js";
-import { WhiteListType } from "kryo/lib/white-list.js";
+import { $Uint32 } from "kryo/integer";
+import { WhiteListType } from "kryo/white-list";
 
 /**
  * Size of the "em square" used to define the glyphs.

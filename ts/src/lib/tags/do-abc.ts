@@ -1,7 +1,7 @@
 import { CaseStyle } from "kryo";
-import { $Bytes } from "kryo/lib/bytes.js";
-import { LiteralType } from "kryo/lib/literal.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Bytes } from "kryo/bytes";
+import { LiteralType } from "kryo/literal";
+import { RecordIoType, RecordType } from "kryo/record";
 
 import { $AbcHeader, AbcHeader } from "../control/abc-header.js";
 import { _Tag } from "./_tag.js";

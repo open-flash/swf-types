@@ -1,7 +1,7 @@
 import { CaseStyle } from "kryo";
-import { $Boolean } from "kryo/lib/boolean.js";
-import { $Uint32 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Boolean } from "kryo/boolean";
+import { $Uint32 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Uint32 } from "semantic-types";
 
 export interface ButtonCond {

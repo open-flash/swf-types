@@ -1,8 +1,8 @@
 import { CaseStyle } from "kryo";
-import { $Boolean } from "kryo/lib/boolean.js";
-import { IntegerType } from "kryo/lib/integer.js";
-import { LiteralType } from "kryo/lib/literal.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Boolean } from "kryo/boolean";
+import { IntegerType } from "kryo/integer";
+import { LiteralType } from "kryo/literal";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Uint5 } from "semantic-types";
 
 import { Sfixed8P8 } from "../fixed-point/sfixed8p8.js";

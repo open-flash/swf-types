@@ -1,9 +1,9 @@
 import { CaseStyle } from "kryo";
-import { $Any } from "kryo/lib/any.js";
-import { $Boolean } from "kryo/lib/boolean.js";
-import { $Sint8 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
-import { WhiteListType } from "kryo/lib/white-list.js";
+import { $Any } from "kryo/any";
+import { $Boolean } from "kryo/boolean";
+import { $Sint8 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
+import { WhiteListType } from "kryo/white-list";
 
 export interface H263MacroBlock {
   isCodedMacroBlock: boolean;
