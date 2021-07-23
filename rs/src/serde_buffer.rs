@@ -1,4 +1,3 @@
-use hex;
 use hex::FromHex;
 use serde::{Deserialize, Deserializer, Serializer};
 
@@ -30,12 +29,7 @@ where
   #[derive(Serialize)]
   struct Wrapper<'a>(#[serde(serialize_with = "buffer_to_hex")] &'a Vec<u8>);
 
-  let v: Option<Wrapper> = match buffer {
-    Some(ref x) => Option::Some(Wrapper(x)),
-    None => Option::None,
-  };
-
-  v.serialize(serializer)
+  buffer.as_ref().map(Wrapper).serialize(serializer)
 }
 
 pub fn hex_to_optional_buffer<'de, D>(deserializer: D) -> Result<Option<Vec<u8>>, D::Error>
