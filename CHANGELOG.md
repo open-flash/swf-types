@@ -3,10 +3,12 @@
 ## Rust
 
 - **[Fix]** Update dependencies.
+- **[Fix]** Remove all `unsafe` uses.
 
 ## Typescript
 
 - **[Breaking change]** Update to `kryo@0.13`.
+- **[Breaking change]** Drop `lib` prefix and `.js` extension from deep-imports.
 - **[Fix]** Update dependencies.
 
 # 0.12.0 (2020-09-05)

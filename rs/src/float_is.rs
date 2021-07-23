@@ -4,17 +4,13 @@ pub trait Is {
 
 impl Is for f32 {
   fn is(&self, other: &f32) -> bool {
-    let left_bits: u32 = unsafe { ::std::mem::transmute(*self) };
-    let right_bits: u32 = unsafe { ::std::mem::transmute(*other) };
-    left_bits == right_bits
+    self.to_bits() == other.to_bits()
   }
 }
 
 impl Is for f64 {
   fn is(&self, other: &f64) -> bool {
-    let left_bits: u64 = unsafe { ::std::mem::transmute(*self) };
-    let right_bits: u64 = unsafe { ::std::mem::transmute(*other) };
-    left_bits == right_bits
+    self.to_bits() == other.to_bits()
   }
 }
 
