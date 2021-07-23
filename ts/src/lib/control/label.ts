@@ -1,7 +1,7 @@
 import { CaseStyle } from "kryo";
-import { IntegerType } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
-import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
+import { IntegerType } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
+import { Ucs2StringType } from "kryo/ucs2-string";
 
 export interface Label {
   frame: number;

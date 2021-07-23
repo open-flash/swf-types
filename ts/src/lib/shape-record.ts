@@ -1,4 +1,4 @@
-import { TaggedUnionType } from "kryo/lib/tagged-union.js";
+import { TaggedUnionType } from "kryo/tagged-union";
 
 import { Edge } from "./shape-records/edge.js";
 import { $Edge, $StyleChange } from "./shape-records/index.js";

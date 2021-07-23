@@ -1,3 +1,14 @@
+# Next
+
+## Rust
+
+- **[Fix]** Update dependencies.
+
+## Typescript
+
+- **[Breaking change]** Update to `kryo@0.13`.
+- **[Fix]** Update dependencies.
+
 # 0.12.0 (2020-09-05)
 
 - **[Breaking change]** Use `PascalCase` for enums and types.

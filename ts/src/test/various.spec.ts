@@ -1,10 +1,10 @@
 import chai from "chai";
 import fs from "fs";
 import { IoType } from "kryo";
-import { JSON_READER } from "kryo-json/lib/json-reader.js";
-import { JSON_VALUE_WRITER } from "kryo-json/lib/json-value-writer.js";
-import { Float64Type } from "kryo/lib/float64.js";
-import { $Uint32 } from "kryo/lib/integer.js";
+import { Float64Type } from "kryo/float64";
+import { $Uint32 } from "kryo/integer";
+import { JSON_READER } from "kryo-json/json-reader";
+import { JSON_VALUE_WRITER } from "kryo-json/json-value-writer";
 import sysPath from "path";
 
 import { $ColorTransformWithAlpha } from "../lib/color-transform-with-alpha.js";

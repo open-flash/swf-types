@@ -1,5 +1,5 @@
 import { CaseStyle } from "kryo";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { RecordIoType, RecordType } from "kryo/record";
 
 import { $Matrix, Matrix } from "../matrix.js";
 import { $MorphGradient, MorphGradient } from "../morph-gradient.js";

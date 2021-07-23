@@ -1,7 +1,7 @@
 import { CaseStyle } from "kryo";
-import { $Sint16, $Uint16 } from "kryo/lib/integer.js";
-import { LiteralType } from "kryo/lib/literal.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Sint16, $Uint16 } from "kryo/integer";
+import { LiteralType } from "kryo/literal";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Sint16, Uint16 } from "semantic-types";
 
 import { $AudioCodingFormat, AudioCodingFormat } from "../sound/audio-coding-format.js";

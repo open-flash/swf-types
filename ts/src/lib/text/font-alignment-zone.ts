@@ -1,7 +1,7 @@
 import { CaseStyle } from "kryo";
-import { ArrayType } from "kryo/lib/array.js";
-import { $Boolean } from "kryo/lib/boolean.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { ArrayType } from "kryo/array";
+import { $Boolean } from "kryo/boolean";
+import { RecordIoType, RecordType } from "kryo/record";
 
 import { $FontAlignmentZoneData, FontAlignmentZoneData } from "./font-alignment-zone-data.js";
 

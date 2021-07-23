@@ -1,8 +1,8 @@
 import { CaseStyle } from "kryo";
-import { $Any } from "kryo/lib/any.js";
-import { $Boolean } from "kryo/lib/boolean.js";
-import { $Bytes } from "kryo/lib/bytes.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Any } from "kryo/any";
+import { $Boolean } from "kryo/boolean";
+import { $Bytes } from "kryo/bytes";
+import { RecordIoType, RecordType } from "kryo/record";
 
 import { $Mp3ChannelMode, Mp3ChannelMode } from "./mp3-channel-mode.js";
 import { $Mp3Layer, Mp3Layer } from "./mp3-layer.js";

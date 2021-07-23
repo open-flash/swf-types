@@ -1,6 +1,6 @@
 import { CaseStyle } from "kryo";
-import { ArrayType } from "kryo/lib/array.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { ArrayType } from "kryo/array";
+import { RecordIoType, RecordType } from "kryo/record";
 
 import { $ColorSpace, ColorSpace } from "./color-space.js";
 import { $ColorStop, ColorStop } from "./color-stop.js";

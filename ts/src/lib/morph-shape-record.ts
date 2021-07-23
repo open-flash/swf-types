@@ -1,4 +1,4 @@
-import { TaggedUnionType } from "kryo/lib/tagged-union.js";
+import { TaggedUnionType } from "kryo/tagged-union";
 
 import * as shapeRecords from "./shape-records/index.js";
 

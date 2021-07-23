@@ -1,5 +1,5 @@
 import { CaseStyle } from "kryo";
-import { TsEnumType } from "kryo/lib/ts-enum.js";
+import { TsEnumType } from "kryo/ts-enum";
 
 export enum TextRenderer {
   Normal,

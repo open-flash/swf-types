@@ -1,6 +1,6 @@
 import { CaseStyle } from "kryo";
-import { $Bytes } from "kryo/lib/bytes.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Bytes } from "kryo/bytes";
+import { RecordIoType, RecordType } from "kryo/record";
 
 export interface Vp6SwfAlphaVideoPacket {
   data: Uint8Array;

@@ -1,5 +1,5 @@
-import { $Uint8,$Uint16 } from "kryo/lib/integer.js";
-import { RecordIoType, RecordType } from "kryo/lib/record.js";
+import { $Uint8,$Uint16 } from "kryo/integer";
+import { RecordIoType, RecordType } from "kryo/record";
 import { Uint8, Uint16 } from "semantic-types";
 
 import { Ufixed8P8 } from "./fixed-point/ufixed8p8.js";

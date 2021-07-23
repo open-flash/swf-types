@@ -1,4 +1,4 @@
-import { $Any,AnyType } from "kryo/lib/any.js";
+import { $Any,AnyType } from "kryo/any";
 
 export type H263BlockData = any;
 

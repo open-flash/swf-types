@@ -1,5 +1,5 @@
-import { Ucs2StringType } from "kryo/lib/ucs2-string.js";
-import { WhiteListType } from "kryo/lib/white-list.js";
+import { Ucs2StringType } from "kryo/ucs2-string";
+import { WhiteListType } from "kryo/white-list";
 
 /**
  * - `x-swf-partial-jpeg`: JPEG file without  Tables/Misc chunk. It has to be defined in a
