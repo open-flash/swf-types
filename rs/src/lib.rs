@@ -54,6 +54,9 @@ pub use crate::sound::SoundType;
 pub use crate::video::VideoCodec;
 pub use crate::video::VideoDeblocking;
 
+#[macro_use]
+mod bitflags;
+
 pub mod float_is;
 
 #[cfg(feature = "serde")]

@@ -6,6 +6,40 @@ use crate::fixed::{Sfixed16P16, Sfixed8P8};
 use crate::float_is::Is;
 use crate::gradient::ColorStop;
 
+macro_rules! decl_filter_flags {
+  ($(#[$meta:meta])* $vis:vis struct $name:ident;) => {
+    serde_bitflags! {
+      $(#[$meta])*
+      $vis struct $name: u8 {
+        #[serde(name = "composite_source")]
+        const COMPOSITE_SOURCE = 1 << 5;
+        #[serde(name = "knockout")]
+        const KNOCKOUT = 1 << 6;
+        #[serde(name = "inner")]
+        const INNER = 1 << 7;
+      }
+    }
+  }
+}
+
+macro_rules! decl_filter_flags_full {
+  ($(#[$meta:meta])* $vis:vis struct $name:ident;) => {
+    serde_bitflags! {
+      $(#[$meta])*
+      $vis struct $name: u8 {
+        #[serde(name = "on_top")]
+        const ON_TOP = 1 << 4;
+        #[serde(name = "composite_source")]
+        const COMPOSITE_SOURCE = 1 << 5;
+        #[serde(name = "knockout")]
+        const KNOCKOUT = 1 << 6;
+        #[serde(name = "inner")]
+        const INNER = 1 << 7;
+      }
+    }
+  }
+}
+
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Blur {
@@ -24,11 +58,13 @@ pub struct Bevel {
   pub angle: Sfixed16P16,
   pub distance: Sfixed16P16,
   pub strength: Sfixed8P8,
-  pub inner: bool,
-  pub knockout: bool,
-  pub composite_source: bool,
-  pub on_top: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub flags: BevelFlags,
   pub passes: u8,
+}
+
+decl_filter_flags_full! {
+  pub struct BevelFlags;
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
@@ -82,10 +118,13 @@ pub struct DropShadow {
   pub angle: Sfixed16P16,
   pub distance: Sfixed16P16,
   pub strength: Sfixed8P8,
-  pub inner: bool,
-  pub knockout: bool,
-  pub composite_source: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub flags: DropShadowFlags,
   pub passes: u8,
+}
+
+decl_filter_flags! {
+  pub struct DropShadowFlags;
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
@@ -95,10 +134,13 @@ pub struct Glow {
   pub blur_x: Sfixed16P16,
   pub blur_y: Sfixed16P16,
   pub strength: Sfixed8P8,
-  pub inner: bool,
-  pub knockout: bool,
-  pub composite_source: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub flags: GlowFlags,
   pub passes: u8,
+}
+
+decl_filter_flags! {
+  pub struct GlowFlags;
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
@@ -110,11 +152,13 @@ pub struct GradientBevel {
   pub angle: Sfixed16P16,
   pub distance: Sfixed16P16,
   pub strength: Sfixed8P8,
-  pub inner: bool,
-  pub knockout: bool,
-  pub composite_source: bool,
-  pub on_top: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub flags: GradientBevelFlags,
   pub passes: u8,
+}
+
+decl_filter_flags_full! {
+  pub struct GradientBevelFlags;
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
@@ -126,9 +170,12 @@ pub struct GradientGlow {
   pub angle: Sfixed16P16,
   pub distance: Sfixed16P16,
   pub strength: Sfixed8P8,
-  pub inner: bool,
-  pub knockout: bool,
-  pub composite_source: bool,
-  pub on_top: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub flags: GradientGlowFlags,
   pub passes: u8,
 }
+
+decl_filter_flags_full! {
+  pub struct GradientGlowFlags;
+}
+
