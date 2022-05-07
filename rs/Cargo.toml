@@ -23,6 +23,7 @@ path = "src/lib.rs"
 bitflags = "1.3.2"
 hex = { version = "0.4.3", optional = true }
 serde = { version = "1.0.137", optional = true, features = ["derive"] }
+static_assertions = "1.1.0"
 swf-fixed = "0.1.5"
 
 [features]

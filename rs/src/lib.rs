@@ -1,5 +1,6 @@
 #[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
+use static_assertions::const_assert;
 pub use ::swf_fixed as fixed;
 
 pub use crate::basic_types::ColorTransform;
@@ -141,22 +142,22 @@ pub enum Tag {
   DefineBitmap(tags::DefineBitmap),
   DefineButton(tags::DefineButton),
   DefineButtonColorTransform(tags::DefineButtonColorTransform),
-  DefineButtonSound(tags::DefineButtonSound),
+  DefineButtonSound(Box<tags::DefineButtonSound>),
   DefineCffFont(tags::DefineCffFont),
-  DefineDynamicText(tags::DefineDynamicText),
-  DefineFont(tags::DefineFont),
+  DefineDynamicText(Box<tags::DefineDynamicText>),
+  DefineFont(Box<tags::DefineFont>),
   DefineFontAlignZones(tags::DefineFontAlignZones),
   DefineFontInfo(tags::DefineFontInfo),
   DefineFontName(tags::DefineFontName),
   DefineGlyphFont(tags::DefineGlyphFont),
   DefineJpegTables(tags::DefineJpegTables),
-  DefineMorphShape(tags::DefineMorphShape),
+  DefineMorphShape(Box<tags::DefineMorphShape>),
   DefineScalingGrid(tags::DefineScalingGrid),
   DefineSceneAndFrameLabelData(tags::DefineSceneAndFrameLabelData),
-  DefineShape(tags::DefineShape),
+  DefineShape(Box<tags::DefineShape>),
   DefineSound(tags::DefineSound),
   DefineSprite(tags::DefineSprite),
-  DefineText(tags::DefineText),
+  DefineText(Box<tags::DefineText>),
   DefineVideoStream(tags::DefineVideoStream),
   EnablePostscript,
   DoAbc(tags::DoAbc),
@@ -168,7 +169,7 @@ pub enum Tag {
   FrameLabel(tags::FrameLabel),
   ImportAssets(tags::ImportAssets),
   Metadata(tags::Metadata),
-  PlaceObject(tags::PlaceObject),
+  PlaceObject(Box<tags::PlaceObject>),
   Protect(tags::Protect),
   Raw(tags::Raw),
   RawBody(tags::RawBody),
@@ -180,11 +181,13 @@ pub enum Tag {
   SoundStreamBlock(tags::SoundStreamBlock),
   SoundStreamHead(tags::SoundStreamHead),
   StartSound(tags::StartSound),
-  StartSound2(tags::StartSound2),
+  StartSound2(Box<tags::StartSound2>),
   SymbolClass(tags::SymbolClass),
   Telemetry(tags::Telemetry),
   VideoFrame(tags::VideoFrame),
 }
+
+const_assert!(std::mem::size_of::<Tag>() <= 64);
 
 #[cfg(all(test, feature = "serde"))]
 mod tests {

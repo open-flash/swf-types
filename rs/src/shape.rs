@@ -1,5 +1,6 @@
 #[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
+use static_assertions::const_assert;
 
 use crate::fill_styles;
 use crate::join_styles;
@@ -77,12 +78,14 @@ serde_bitflags! {
 )]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum FillStyle {
-  Bitmap(fill_styles::Bitmap),
-  FocalGradient(fill_styles::FocalGradient),
-  LinearGradient(fill_styles::LinearGradient),
-  RadialGradient(fill_styles::RadialGradient),
+  Bitmap(Box<fill_styles::Bitmap>),
+  FocalGradient(Box<fill_styles::FocalGradient>),
+  LinearGradient(Box<fill_styles::LinearGradient>),
+  RadialGradient(Box<fill_styles::RadialGradient>),
   Solid(fill_styles::Solid),
 }
+
+const_assert!(std::mem::size_of::<FillStyle>() <= 16);
 
 #[cfg_attr(
   feature = "serde",
@@ -91,12 +94,14 @@ pub enum FillStyle {
 )]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum MorphFillStyle {
-  Bitmap(fill_styles::MorphBitmap),
-  FocalGradient(fill_styles::MorphFocalGradient),
-  LinearGradient(fill_styles::MorphLinearGradient),
-  RadialGradient(fill_styles::MorphRadialGradient),
+  Bitmap(Box<fill_styles::MorphBitmap>),
+  FocalGradient(Box<fill_styles::MorphFocalGradient>),
+  LinearGradient(Box<fill_styles::MorphLinearGradient>),
+  RadialGradient(Box<fill_styles::MorphRadialGradient>),
   Solid(fill_styles::MorphSolid),
 }
+
+const_assert!(std::mem::size_of::<MorphFillStyle>() <= 16);
 
 #[cfg_attr(
   feature = "serde",
@@ -176,8 +181,10 @@ pub struct MorphShape {
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum ShapeRecord {
   Edge(shape_records::Edge),
-  StyleChange(shape_records::StyleChange),
+  StyleChange(Box<shape_records::StyleChange>),
 }
+
+const_assert!(std::mem::size_of::<ShapeRecord>() <= 24);
 
 #[cfg_attr(
   feature = "serde",
@@ -187,8 +194,10 @@ pub enum ShapeRecord {
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum MorphShapeRecord {
   Edge(shape_records::MorphEdge),
-  StyleChange(shape_records::MorphStyleChange),
+  StyleChange(Box<shape_records::MorphStyleChange>),
 }
+
+const_assert!(std::mem::size_of::<MorphShapeRecord>() <= 48);
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
