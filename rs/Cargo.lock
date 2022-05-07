@@ -122,7 +122,7 @@ dependencies = [
 
 [[package]]
 name = "swf-types"
-version = "0.13.0"
+version = "0.14.0"
 dependencies = [
  "hex",
  "serde",
@@ -133,7 +133,7 @@ dependencies = [
 
 [[package]]
 name = "swf-types-bin"
-version = "0.1.0"
+version = "0.14.0"
 dependencies = [
  "serde_json_v8",
  "swf-types",
