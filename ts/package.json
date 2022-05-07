@@ -21,53 +21,53 @@
     "type": "git",
     "url": "git@github.com:open-flash/swf-types.git"
   },
-  "type": "module",
-  "exports": {
-    ".": "./lib/index.js",
-    "./*": "./lib/*.js"
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./lib/*"
-      ]
-    }
-  },
   "scripts": {
     "clean": "rimraf \"./@(lib|test)\"",
-    "lint": "eslint \"./src/**/*.ts\"",
-    "format": "eslint --fix \"./src/**/*.ts\"",
+    "lint": "eslint \"./src/**/*.mts\"",
+    "format": "eslint --fix \"./src/**/*.mts\"",
     "build": "tsc --build src/lib/tsconfig.json",
     "prepack": "yarn run build",
     "test:build": "tsc --build src/test/tsconfig.json",
-    "test": "yarn run test:build && mocha \"test/**/*.spec.js\""
+    "test": "yarn run test:build && mocha \"test/**/*.spec.mjs\""
   },
   "engines": {
     "node": ">=14.13.1"
   },
   "dependencies": {
     "incident": "^3.2.1",
-    "kryo": "^0.13.0",
+    "kryo": "^0.14.0",
     "semantic-types": "^0.1.1",
     "ts-tagged": "^1.0.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.21",
-    "@types/mocha": "^9.0.0",
-    "@types/node": "^16.4.1",
-    "@typescript-eslint/eslint-plugin": "^4.28.4",
-    "@typescript-eslint/parser": "^4.28.4",
-    "chai": "^4.3.4",
-    "eslint": "^7.31.0",
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^17.0.31",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.15.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "furi": "^2.0.0",
-    "kryo-json": "^0.13.0",
-    "mocha": "^9.0.2",
+    "kryo-json": "^0.14.0",
+    "mocha": "^10.0.0",
     "rimraf": "^3.0.2",
-    "typescript": "^4.3.5"
+    "typescript": "=4.7.0-beta"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./text": "./lib/text/index.mjs",
+    "./tags": "./lib/tags/index.mjs",
+    "./shape-records": "./lib/shape-records/index.mjs",
+    "./join-styles": "./lib/shape-records/index.mjs",
+    "./filters": "./lib/filters/index.mjs",
+    "./fill-styles": "./lib/fill-styles/index.mjs",
+    "./*": "./lib/*.mjs"
   },
   "files": [
-    "./lib/**/*.(js|map|ts)",
-    "./src/lib/**/*.ts"
-  ]
+    "./lib/**/*.(mjs|map|mts)",
+    "./src/lib/"
+  ],
+  "packageManager": "yarn@4.0.0-rc.4"
 }
