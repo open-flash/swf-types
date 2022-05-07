@@ -1,3 +1,7 @@
+# Next
+
+- **[Change]** Match flag order for `DefineFont` and `DefineFontInfo`.
+
 # 0.14.0 (2022-05-07)
 
 ## Rust

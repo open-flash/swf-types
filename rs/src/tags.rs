@@ -186,8 +186,8 @@ pub struct DefineFontInfo {
   pub is_bold: bool,
   pub is_italic: bool,
   pub is_ansi: bool,
-  pub is_shift_jis: bool,
   pub is_small: bool,
+  pub is_shift_jis: bool,
   pub language: LanguageCode,
   pub code_units: Vec<u16>,
 }

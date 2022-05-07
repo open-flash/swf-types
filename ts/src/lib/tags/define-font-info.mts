@@ -18,8 +18,8 @@ export interface DefineFontInfo extends _Tag {
   readonly isBold: boolean;
   readonly isItalic: boolean;
   readonly isAnsi: boolean;
-  readonly isShiftJis: boolean;
   readonly isSmall: boolean;
+  readonly isShiftJis: boolean;
   readonly language: LanguageCode;
   readonly codeUnits: ReadonlyArray<Uint16>;
 }
@@ -32,8 +32,8 @@ export const $DefineFontInfo: RecordIoType<DefineFontInfo> = new RecordType<Defi
     isBold: {type: $Boolean},
     isItalic: {type: $Boolean},
     isAnsi: {type: $Boolean},
-    isShiftJis: {type: $Boolean},
     isSmall: {type: $Boolean},
+    isShiftJis: {type: $Boolean},
     language: {type: $LanguageCode},
     codeUnits: {type: new ArrayType({itemType: $Uint16, maxLength: Infinity})},
   },
