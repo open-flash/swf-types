@@ -1,5 +1,11 @@
 # Next
 
+## Rust
+
+- **[Breaking change]** Require Rust `1.60.0`.
+- **[Breaking change]** Rename the feature `use-serde` to `serde`.
+- **[Fix]** Update dependencies.
+
 # Typescript
 
 - **[Breaking change]** Update to `kryo@0.14`.
