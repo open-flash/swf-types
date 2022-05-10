@@ -1,5 +1,6 @@
 #[cfg(feature = "serde")]
 use ::serde::{Deserialize, Serialize};
+use static_assertions::const_assert;
 
 use crate::fill_styles;
 use crate::join_styles;
@@ -27,28 +28,47 @@ pub struct ClipAction {
   pub actions: Vec<u8>,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct ClipEventFlags {
-  pub key_up: bool,
-  pub key_down: bool,
-  pub mouse_up: bool,
-  pub mouse_down: bool,
-  pub mouse_move: bool,
-  pub unload: bool,
-  pub enter_frame: bool,
-  pub load: bool,
-  pub drag_over: bool,
-  pub roll_out: bool,
-  pub roll_over: bool,
-  pub release_outside: bool,
-  pub release: bool,
-  pub press: bool,
-  pub initialize: bool,
-  pub data: bool,
-  pub construct: bool,
-  pub key_press: bool,
-  pub drag_out: bool,
+serde_bitflags! {
+  pub struct ClipEventFlags: u32 {
+    #[serde(name = "key_up")]
+    const KEY_UP = 1 << 7;
+    #[serde(name = "key_down")]
+    const KEY_DOWN = 1 << 6;
+    #[serde(name = "mouse_up")]
+    const MOUSE_UP = 1 << 5;
+    #[serde(name = "mouse_down")]
+    const MOUSE_DOWN = 1 << 4;
+    #[serde(name = "mouse_move")]
+    const MOUSE_MOVE = 1 << 3;
+    #[serde(name = "unload")]
+    const UNLOAD = 1 << 2;
+    #[serde(name = "enter_frame")]
+    const ENTER_FRAME = 1 << 1;
+    #[serde(name = "load")]
+    const LOAD = 1 << 0;
+    #[serde(name = "drag_over")]
+    const DRAG_OVER = 1 << 15;
+    #[serde(name = "roll_out")]
+    const ROLL_OUT = 1 << 14;
+    #[serde(name = "roll_over")]
+    const ROLL_OVER = 1 << 13;
+    #[serde(name = "release_outside")]
+    const RELEASE_OUTSIDE = 1 << 12;
+    #[serde(name = "release")]
+    const RELEASE = 1 << 11;
+    #[serde(name = "press")]
+    const PRESS = 1 << 10;
+    #[serde(name = "initialize")]
+    const INITIALIZE = 1 << 9;
+    #[serde(name = "data")]
+    const DATA = 1 << 8;
+    #[serde(name = "construct")]
+    const CONSTRUCT = 1 << 18;
+    #[serde(name = "key_press")]
+    const KEY_PRESS = 1 << 17;
+    #[serde(name = "drag_out")]
+    const DRAG_OUT = 1 << 16;
+  }
 }
 
 #[cfg_attr(
@@ -58,12 +78,14 @@ pub struct ClipEventFlags {
 )]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum FillStyle {
-  Bitmap(fill_styles::Bitmap),
-  FocalGradient(fill_styles::FocalGradient),
-  LinearGradient(fill_styles::LinearGradient),
-  RadialGradient(fill_styles::RadialGradient),
+  Bitmap(Box<fill_styles::Bitmap>),
+  FocalGradient(Box<fill_styles::FocalGradient>),
+  LinearGradient(Box<fill_styles::LinearGradient>),
+  RadialGradient(Box<fill_styles::RadialGradient>),
   Solid(fill_styles::Solid),
 }
+
+const_assert!(std::mem::size_of::<FillStyle>() <= 16);
 
 #[cfg_attr(
   feature = "serde",
@@ -72,12 +94,14 @@ pub enum FillStyle {
 )]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum MorphFillStyle {
-  Bitmap(fill_styles::MorphBitmap),
-  FocalGradient(fill_styles::MorphFocalGradient),
-  LinearGradient(fill_styles::MorphLinearGradient),
-  RadialGradient(fill_styles::MorphRadialGradient),
+  Bitmap(Box<fill_styles::MorphBitmap>),
+  FocalGradient(Box<fill_styles::MorphFocalGradient>),
+  LinearGradient(Box<fill_styles::MorphLinearGradient>),
+  RadialGradient(Box<fill_styles::MorphRadialGradient>),
   Solid(fill_styles::MorphSolid),
 }
+
+const_assert!(std::mem::size_of::<MorphFillStyle>() <= 16);
 
 #[cfg_attr(
   feature = "serde",
@@ -98,11 +122,22 @@ pub struct LineStyle {
   pub start_cap: CapStyle,
   pub end_cap: CapStyle,
   pub join: JoinStyle,
-  pub no_h_scale: bool,
-  pub no_v_scale: bool,
-  pub no_close: bool,
-  pub pixel_hinting: bool,
+  #[serde(flatten)]
+  pub flags: StyleFlags,
   pub fill: FillStyle,
+}
+
+serdcfg_attr(feature = "serde", serde(flatten))
+  pub struct StyleFlags: u16 {
+    #[serde(name = "no_h_scale")]
+    const NO_H_SCALE = 1 << 2;
+    #[serde(name = "no_v_scale")]
+    const NO_V_SCALE = 1 << 1;
+    #[serde(name = "no_close")]
+    const NO_CLOSE = 1 << 10;
+    #[serde(name = "pixel_hinting")]
+    const PIXEL_HINTING = 1 << 0;
+  }
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
@@ -113,14 +148,12 @@ pub struct MorphLineStyle {
   pub start_cap: CapStyle,
   pub end_cap: CapStyle,
   pub join: JoinStyle,
-  pub no_h_scale: bool,
-  pub no_v_scale: bool,
-  pub no_close: bool,
-  pub pixel_hinting: bool,
+  #[serde(flatten)]
+  pub flags: StyleFlags,
   pub fill: MorphFillStyle,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[cfcfg_attr(feature = "serde", serde(flatten)) = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Glyph {
   pub records: Vec<ShapeRecord>,
@@ -148,8 +181,10 @@ pub struct MorphShape {
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum ShapeRecord {
   Edge(shape_records::Edge),
-  StyleChange(shape_records::StyleChange),
+  StyleChange(Box<shape_records::StyleChange>),
 }
+
+const_assert!(std::mem::size_of::<ShapeRecord>() <= 24);
 
 #[cfg_attr(
   feature = "serde",
@@ -159,8 +194,10 @@ pub enum ShapeRecord {
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum MorphShapeRecord {
   Edge(shape_records::MorphEdge),
-  StyleChange(shape_records::MorphStyleChange),
+  StyleChange(Box<shape_records::MorphStyleChange>),
 }
+
+const_assert!(std::mem::size_of::<MorphShapeRecord>() <= 48);
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]

@@ -119,16 +119,8 @@ pub struct DefineCffFont {
 pub struct DefineDynamicText {
   pub id: u16,
   pub bounds: Rect,
-  pub word_wrap: bool,
-  pub multiline: bool,
-  pub password: bool,
-  pub readonly: bool,
-  pub auto_size: bool,
-  pub no_select: bool,
-  pub border: bool,
-  pub was_static: bool,
-  pub html: bool,
-  pub use_glyph_font: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub flags: DynamicTextFlags,
   #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub font_id: Option<u16>,
   #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
@@ -150,16 +142,38 @@ pub struct DefineDynamicText {
   pub text: Option<String>,
 }
 
+serde_bitflags! {
+  pub struct DynamicTextFlags: u16 {
+    #[serde(name = "word_wrap")]
+    const WORD_WRAP = 1 << 6;
+    #[serde(name = "multiline")]
+    const MULTILINE = 1 << 5;
+    #[serde(name = "password")]
+    const PASSWORD = 1 << 4;
+    #[serde(name = "readonly")]
+    const READONLY = 1 << 3;
+    #[serde(name = "auto_size")]
+    const AUTO_SIZE = 1 << 14;
+    #[serde(name = "no_select")]
+    const NO_SELECT = 1 << 12;
+    #[serde(name = "border")]
+    const BORDER = 1 << 11;
+    #[serde(name = "was_static")]
+    const WAS_STATIC = 1 << 10;
+    #[serde(name = "html")]
+    const HTML = 1 << 9;
+    #[serde(name = "use_glyph_font")]
+    const USE_GLYPH_FONT = 1 << 8;
+  }
+}
+
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct DefineFont {
   pub id: u16,
   pub font_name: String,
-  pub is_bold: bool,
-  pub is_italic: bool,
-  pub is_ansi: bool,
-  pub is_small: bool,
-  pub is_shift_jis: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub flags: FontFlags,
   pub em_square_size: EmSquareSize,
   pub language: LanguageCode,
   #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
@@ -168,6 +182,21 @@ pub struct DefineFont {
   pub code_units: Option<Vec<u16>>,
   #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub layout: Option<FontLayout>,
+}
+
+serde_bitflags! {
+  pub struct FontFlags: u8 {
+    #[serde(name = "is_bold")]
+    const BOLD = 1 << 1;
+    #[serde(name = "is_italic")]
+    const ITALIC = 1 << 2;
+    #[serde(name = "is_ansi")]
+    const ANSI = 1 << 3;
+    #[serde(name = "is_small")]
+    const SMALL = 1 << 4;
+    #[serde(name = "is_shift_jis")]
+    const SHIFT_JIS = 1 << 5;
+  }
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
@@ -183,11 +212,8 @@ pub struct DefineFontAlignZones {
 pub struct DefineFontInfo {
   pub font_id: u16,
   pub font_name: String,
-  pub is_bold: bool,
-  pub is_italic: bool,
-  pub is_ansi: bool,
-  pub is_shift_jis: bool,
-  pub is_small: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub flags: FontFlags,
   pub language: LanguageCode,
   pub code_units: Vec<u16>,
 }
@@ -350,16 +376,23 @@ pub struct ExportAssets {
   pub assets: Vec<NamedId>,
 }
 
-#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
-pub struct FileAttributes {
-  pub use_network: bool,
-  pub use_relative_urls: bool,
-  pub no_cross_domain_caching: bool,
-  pub use_as3: bool,
-  pub has_metadata: bool,
-  pub use_gpu: bool,
-  pub use_direct_blit: bool,
+serde_bitflags! {
+  pub struct FileAttributes: u8 {
+    #[serde(name = "use_network")]
+    const USE_NETWORK = 1 << 0;
+    #[serde(name = "use_relative_urls")]
+    const USE_RELATIVE_URLS = 1 << 1;
+    #[serde(name = "no_cross_domain_caching")]
+    const NO_CROSS_DOMAIN_CACHING = 1 << 2;
+    #[serde(name = "use_as3")]
+    const USE_AS3 = 1 << 3;
+    #[serde(name = "has_metadata")]
+    const HAS_METADATA = 1 << 4;
+    #[serde(name = "use_gpu")]
+    const USE_GPU = 1 << 5;
+    #[serde(name = "use_direct_blit")]
+    const USE_DIRECT_BLIT = 1 << 6;
+  }
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]

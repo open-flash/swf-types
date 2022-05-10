@@ -1,3 +1,15 @@
+# Next
+
+- **[Change]** Match flag order for `DefineFont` and `DefineFontInfo`.
+
+## Rust
+
+- **[Breaking change]** Use bitflags instead of separate `bool` fields in `Bevel`, `ButtonCond`, `ButtonRecord`,
+  `ClipEventFlags`, `DefineDynamicText`, `DefineFont`, `DefineFontInfo`, `FileAttributes`, `Glow`, `GradientBevel`,
+  `GradientGlow`, `LineStyle` and `MorphLineStyle`.
+- **[Breaking change]** Box big variants to reduce size of enums `FillStyle`, `MorphFillStyle`, `MorphShapeRecord`,
+  `ShapeRecord` and `Tag`.
+
 # 0.14.0 (2022-05-07)
 
 ## Rust

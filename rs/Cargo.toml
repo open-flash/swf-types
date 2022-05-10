@@ -20,8 +20,10 @@ name = "swf_types"
 path = "src/lib.rs"
 
 [dependencies]
+bitflags = "1.3.2"
 hex = { version = "0.4.3", optional = true }
 serde = { version = "1.0.137", optional = true, features = ["derive"] }
+static_assertions = "1.1.0"
 swf-fixed = "0.1.5"
 
 [features]
@@ -29,7 +31,7 @@ swf-fixed = "0.1.5"
 # Use `swf-types = { version = "...", default-features = false }` to disable it.
 default = ["serde"]
 
-# Adds implementation for `serde`'s `Serialiaze` and `Deserialize` traits.
+# Adds implementation for `serde`'s `Serialize` and `Deserialize` traits.
 serde = ["dep:serde", "dep:hex"]
 
 [dev-dependencies]

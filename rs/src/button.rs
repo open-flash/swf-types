@@ -11,16 +11,27 @@ use crate::{BlendMode, SoundInfo};
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct ButtonRecord {
-  pub state_up: bool,
-  pub state_over: bool,
-  pub state_down: bool,
-  pub state_hit_test: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub state: ButtonStates,
   pub character_id: u16,
   pub depth: u16,
   pub matrix: Matrix,
   pub color_transform: ColorTransformWithAlpha,
   pub filters: Vec<Filter>,
   pub blend_mode: BlendMode,
+}
+
+serde_bitflags! {
+  pub struct ButtonStates: u8 {
+    #[serde(name = "state_up")]
+    const UP = 1 << 0;
+    #[serde(name = "state_over")]
+    const OVER = 1 << 1;
+    #[serde(name = "state_down")]
+    const DOWN = 1 << 2;
+    #[serde(name = "state_hit_test")]
+    const HIT_TEST = 1 << 3;
+  }
 }
 
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
@@ -35,18 +46,34 @@ pub struct ButtonCondAction {
   pub actions: Vec<u8>,
 }
 
+serde_bitflags! {
+  pub struct ButtonStateTransitions: u16 {
+    #[serde(name = "idle_to_over_up")]
+    const IDLE_TO_OVER_UP = 1 << 0;
+    #[serde(name = "over_up_to_idle")]
+    const OVER_UP_TO_IDLE = 1 << 1;
+    #[serde(name = "over_up_to_over_down")]
+    const OVER_UP_TO_OVER_DOWN = 1 << 2;
+    #[serde(name = "over_down_to_over_up")]
+    const OVER_DOWN_TO_OVER_UP = 1 << 3;
+    #[serde(name = "over_down_to_out_down")]
+    const OVER_DOWN_TO_OUT_DOWN = 1 << 4;
+    #[serde(name = "out_down_to_over_down")]
+    const OUT_DOWN_TO_OVER_DOWN = 1 << 5;
+    #[serde(name = "out_down_to_idle")]
+    const OUT_DOWN_TO_IDLE = 1 << 6;
+    #[serde(name = "idle_to_over_down")]
+    const IDLE_TO_OVER_DOWN = 1 << 7;
+    #[serde(name = "over_down_to_idle")]
+    const OVER_DOWN_TO_IDLE = 1 << 8;
+  }
+}
+
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ButtonCond {
-  pub idle_to_over_up: bool,
-  pub over_up_to_idle: bool,
-  pub over_up_to_over_down: bool,
-  pub over_down_to_over_up: bool,
-  pub over_down_to_out_down: bool,
-  pub out_down_to_over_down: bool,
-  pub out_down_to_idle: bool,
-  pub idle_to_over_down: bool,
-  pub over_down_to_idle: bool,
+  #[cfg_attr(feature = "serde", serde(flatten))]
+  pub transitions: ButtonStateTransitions,
   #[cfg_attr(feature = "serde", serde(skip_serializing_if = "Option::is_none"))]
   pub key_press: Option<u32>,
 }
